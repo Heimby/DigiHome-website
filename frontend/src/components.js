@@ -965,9 +965,6 @@ export const AboutWhiteSection = () => {
         {/* Desktop Timeline */}
         <div className={`${isDesktop ? 'block' : 'hidden'} relative`}>
           <div className="relative grid grid-cols-3 gap-16 auto-cols-max">
-            {/* Timeline Rail */}
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-300 transform -translate-y-1/2 z-0"></div>
-            
             {milestones.map((milestone, index) => (
               <article
                 key={index}
@@ -980,7 +977,12 @@ export const AboutWhiteSection = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Timeline Node */}
-                <div className="relative z-10 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform duration-200 mb-8"></div>
+                <div className="relative z-10 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform duration-200 mb-8">
+                  {/* Timeline Rail - positioned through the center of nodes */}
+                  {index === 1 && (
+                    <div className="absolute top-1/2 left-1/2 w-screen h-px bg-gray-300 transform -translate-y-1/2 -translate-x-1/2 z-0"></div>
+                  )}
+                </div>
                 
                 {/* Logo Container */}
                 <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center mb-6 overflow-hidden">
@@ -1009,10 +1011,10 @@ export const AboutWhiteSection = () => {
         </div>
 
         {/* Mobile/Tablet Timeline */}
-        <div className={`${isDesktop ? 'hidden' : 'block'} relative pl-8`}>
-          <div className="relative flex flex-col gap-20">
+        <div className={`${isDesktop ? 'hidden' : 'block'} relative`}>
+          <div className="relative flex flex-col gap-20 pl-8">
             {/* Timeline Rail */}
-            <div className="absolute left-0 top-0 h-full w-px bg-gray-300"></div>
+            <div className="absolute left-2 top-0 h-full w-px bg-gray-300"></div>
             
             {milestones.map((milestone, index) => (
               <article
@@ -1026,10 +1028,10 @@ export const AboutWhiteSection = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Timeline Node */}
-                <div className="absolute left-0 top-2 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md transform -translate-x-1/2 z-10"></div>
+                <div className="absolute left-2 top-2 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md transform -translate-x-1/2 z-10"></div>
                 
                 {/* Content */}
-                <div className="flex-1 ml-8">
+                <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
                     {/* Logo Container */}
                     <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
