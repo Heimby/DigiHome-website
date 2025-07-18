@@ -1375,7 +1375,7 @@ export const AboutWhiteSection = () => {
 // Earnings Calculator Section with Multi-Step Form
 export const EarningsCalculatorSection = () => {
   const [address, setAddress] = useState('');
-  const [currentStep, setCurrentStep] = useState(1); // 1: Address, 2: Property Details
+  const [currentStep, setCurrentStep] = useState(1); // 1: Address, 2: Property Details, 3: Facilities, 4: Contact
   const [isVisible, setIsVisible] = useState(false);
   const [propertyData, setPropertyData] = useState({
     address: '',
@@ -1384,6 +1384,18 @@ export const EarningsCalculatorSection = () => {
       bedrooms: [],
       bathrooms: 0,
       toilets: 0
+    },
+    facilities: {
+      balconyTerrace: false,
+      dryer: false,
+      elevator: false,
+      freeParking: false,
+      fireplace: false
+    },
+    contact: {
+      fullName: '',
+      email: '',
+      phone: ''
     }
   });
 
