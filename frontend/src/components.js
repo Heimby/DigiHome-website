@@ -90,7 +90,7 @@ export const HeroSection = () => {
   );
 };
 
-// Home Humanoid Section Component
+// Home Humanoid Section Component - Blank Slate
 export const HomeHumanoidSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -113,45 +113,16 @@ export const HomeHumanoidSection = () => {
   return (
     <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center">
       <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-          }`}>
-            <h2 className="text-5xl md:text-7xl font-light text-gray-900 mb-6 leading-tight">
-              Home
-              <span className="block text-gray-600">
-                Humanoid
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              The generational embodied AI assistant and companion
-            </p>
-            <p className="text-lg text-gray-500 leading-relaxed max-w-lg">
-              NEO Gamma represents the next evolution in home robotics. With advanced AI capabilities, 
-              natural movement, and intuitive interaction, it seamlessly integrates into your daily life 
-              to assist, learn, and grow alongside your family.
-            </p>
-            <div className="mt-10">
-              <button className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors font-medium">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          {/* Robot Image */}
-          <div className={`transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-          }`}>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1507162728832-5b8fdb5f99fa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwzfHxodW1hbm9pZCUyMHJvYm90fGVufDB8fHx3aGl0ZXwxNzUyODE2ODA4fDA&ixlib=rb-4.1.0&q=85"
-                alt="NEO Robot Face"
-                className="w-full h-auto rounded-3xl shadow-2xl"
-              />
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 to-transparent"></div>
-            </div>
-          </div>
+        {/* Blank slate - ready for your content */}
+        <div className={`text-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h2 className="text-4xl md:text-6xl font-light text-gray-900 mb-6">
+            Ready to build something amazing
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            This section is ready for your content.
+          </p>
         </div>
       </div>
     </section>
