@@ -99,16 +99,16 @@ export const HeroSection = () => {
           </p>
           
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
             <button 
               onClick={() => scrollToSection('home-humanoid')}
-              className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap"
             >
               Find a Home
             </button>
             <button 
               onClick={() => scrollToSection('home-humanoid')}
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
             >
               Become a DigiHome Owner
             </button>
