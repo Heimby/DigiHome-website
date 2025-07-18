@@ -2071,12 +2071,12 @@ const FacilitiesStep = ({ onSubmit, onBack, isVisible }) => {
         <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          Ekstra fasiliteter
+          Extra Facilities
         </h2>
         <p className={`text-xl text-white/90 transition-all duration-700 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{ transitionDelay: '200ms' }}>
-          Velg spesielle fasiliteter som din eiendom har. Vi forutsetter at du har standard møblering og elektriske apparater.
+          Select special facilities that your property has. We assume you have standard furniture and electrical appliances.
         </p>
       </div>
 
