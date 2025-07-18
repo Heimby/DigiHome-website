@@ -1039,43 +1039,67 @@ export const AboutWhiteSection = () => {
         </div>
 
         {/* Mobile/Tablet Timeline */}
-        <div className={`${isDesktop ? 'hidden' : 'block'} relative`}>
+        <div className={`${isDesktop ? 'hidden' : 'block'} relative mb-20`}>
           <div className="relative flex flex-col gap-20 pl-8">
-            {/* Timeline Rail */}
-            <div className="absolute left-2 top-0 h-full w-px bg-gray-300"></div>
+            {/* Timeline Rail - Fixed positioning */}
+            <div className="absolute left-3 top-0 h-full w-0.5 bg-gray-300 z-0"></div>
             
             {milestones.map((milestone, index) => (
               <article
                 key={index}
                 data-milestone={index}
-                className={`relative flex items-start gap-8 transition-all duration-300 ease-out ${
+                className={`relative flex items-start gap-8 transition-all duration-700 ease-out ${
                   visibleMilestones.has(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-5'
+                    ? 'opacity-100 translate-x-0 scale-100' 
+                    : 'opacity-0 -translate-x-10 scale-95'
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ 
+                  transitionDelay: `${index * 200}ms`,
+                  transform: visibleMilestones.has(index) ? 'none' : 'translateX(-40px) scale(0.95)'
+                }}
               >
-                {/* Timeline Node */}
-                <div className="absolute left-2 top-2 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md transform -translate-x-1/2 z-10"></div>
+                {/* Timeline Node with company color */}
+                <div 
+                  className="absolute left-3 top-2 w-6 h-6 rounded-full border-4 border-white shadow-lg transform -translate-x-1/2 z-20 group"
+                  style={{ backgroundColor: milestone.color }}
+                >
+                  {/* Animated pulse effect */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-30 animate-ping"
+                    style={{ backgroundColor: milestone.color }}
+                  ></div>
+                  
+                  {/* Hover glow effect */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-md"
+                    style={{ backgroundColor: milestone.color }}
+                  ></div>
+                </div>
                 
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
-                    {/* Logo Container */}
-                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                    {/* Logo Container with enhanced styling */}
+                    <div 
+                      className="w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+                      style={{ backgroundColor: milestone.bgColor }}
+                    >
                       <img 
                         src={milestone.logo} 
                         alt={milestone.alt}
-                        className="w-8 h-8 object-contain"
+                        className="w-10 h-10 object-contain"
                       />
                     </div>
                     
-                    <h3 className="font-mono text-[#2AB5FF] text-xl font-medium">
+                    <h3 
+                      className="font-mono text-2xl font-bold tracking-wide"
+                      style={{ color: milestone.color }}
+                    >
                       {milestone.year} – {milestone.company}
                     </h3>
                   </div>
                   
-                  <h4 className="font-thin text-2xl text-gray-900 mb-4 leading-tight">
+                  <h4 className="font-light text-2xl text-gray-900 mb-4 leading-tight">
                     {milestone.title}
                   </h4>
                   <p className="text-gray-600 leading-relaxed font-light">
