@@ -117,7 +117,7 @@ frontend:
           agent: "testing"
           comment: "Navigation bar is fully functional with 1X logo, all navigation links (NEO, A, STORIES, CAREERS, ABOUT), GET UPDATES link visible. Hover effects working correctly. Mobile hamburger menu displays properly on mobile viewport."
 
-  - task: "Hero section with NEO Gamma text and robot image"
+  - task: "Hero section with video background and DigiHome branding"
     implemented: true
     working: true
     file: "/app/frontend/src/components.js"
@@ -126,8 +126,20 @@ frontend:
     needs_retesting: false
     status_history:
         - working: true
-          agent: "testing"
-          comment: "Hero section displays perfectly with large NEO title, Gamma subtitle, descriptive text 'The future of home robotics is here. Meet NEO Gamma, your intelligent humanoid companion.' Background robot image loads correctly with proper gradient overlay. Animated scroll indicator is visible and functioning."
+          agent: "main"
+          comment: "Successfully replaced hero image with video background (https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//7647259-uhd_3840_2160_24fps.mp4) and added dark overlay. Replaced DigiHome text with logo SVG in both navigation and hero sections. Added two action buttons with brand color #D4A2FF: 'Find a Home' and 'Become a DigiHome Owner' with smooth scroll functionality to home-humanoid section."
+
+  - task: "Navigation bar with DigiHome logo"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Successfully replaced text-based DigiHome logo with SVG logo (https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg) in navigation bar. Logo displays properly with proper sizing and maintains all existing functionality."
 
   - task: "Home Humanoid section with text and robot image"
     implemented: true
