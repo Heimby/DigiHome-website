@@ -8,6 +8,7 @@ import {
   ExperienceSection,
   PassiveIncomeSection,
   FlexibilitySection,
+  EarningsCalculatorSection,
   AboutHeroSection,
   AboutWhiteSection,
   Footer 
