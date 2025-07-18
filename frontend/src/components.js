@@ -606,6 +606,350 @@ export const HomeHumanoidSection = () => {
   );
 };
 
+// Experience Transformation Section
+export const ExperienceSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('experience-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="experience-section" className="py-16 sm:py-20 lg:py-24 bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white">
+              Beyond ordinary rentals
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              We transform regular home rentals into curated experiences. Every property is professionally managed, fully equipped, and designed for the modern traveler, student, or long-term resident.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
+          {[
+            {
+              title: "Curated Experiences",
+              description: "Every home is hand-selected and professionally designed to provide more than just a place to stay - it's a gateway to local culture and comfort.",
+              icon: "✨"
+            },
+            {
+              title: "Full-Service Management",
+              description: "From 24/7 support to professional cleaning and maintenance, we handle everything so you can focus on your journey.",
+              icon: "🛡️"
+            },
+            {
+              title: "Global Standards",
+              description: "Consistent quality and service across all our properties, whether you're staying for a month or a year.",
+              icon: "🌍"
+            }
+          ].map((item, index) => (
+            <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-medium mb-4 text-white">{item.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Passive Income Section
+export const PassiveIncomeSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('passive-income-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="passive-income-section" className="py-16 sm:py-20 lg:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+          }`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-gray-900">
+              True passive income for property owners
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
+              We don't just list your property - we transform it into a premium rental experience while you earn guaranteed returns.
+            </p>
+            <div className="space-y-6">
+              {[
+                {
+                  title: "Guaranteed Monthly Income",
+                  description: "Fixed monthly payments regardless of occupancy, with transparent revenue sharing."
+                },
+                {
+                  title: "Full Property Management",
+                  description: "We handle everything from guest relations to maintenance, cleaning, and property optimization."
+                },
+                {
+                  title: "Premium Positioning",
+                  description: "Your property joins our curated network of high-quality homes, commanding premium rates."
+                }
+              ].map((item, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-3 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={`transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+          }`}>
+            <div className="bg-gray-50 rounded-2xl p-8 sm:p-10">
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl mb-4">💰</div>
+                <h3 className="text-2xl sm:text-3xl font-light mb-6 text-gray-900">
+                  Average Monthly Returns
+                </h3>
+                <div className="grid grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-light text-[#D4A2FF] mb-2">25-40%</div>
+                    <div className="text-sm text-gray-600">Higher than traditional rentals</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-light text-[#D4A2FF] mb-2">95%+</div>
+                    <div className="text-sm text-gray-600">Occupancy rate</div>
+                  </div>
+                </div>
+                <button className="bg-[#D4A2FF] text-black px-6 py-3 rounded-full font-medium hover:bg-[#c490ff] transition-colors">
+                  Calculate Your Returns
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Flexibility Section
+export const FlexibilitySection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('flexibility-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="flexibility-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-gray-900">
+              Flexible living for every lifestyle
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Whether you're a digital nomad, student, or relocating professional, we provide the flexibility to live on your terms.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+          {[
+            {
+              title: "Digital Nomads",
+              description: "Work from anywhere with our global network of professionally equipped homes with high-speed internet and dedicated workspaces.",
+              icon: "💻",
+              features: ["High-speed WiFi", "Dedicated workspace", "Monthly terms"]
+            },
+            {
+              title: "Students",
+              description: "Focus on your studies while we handle everything else. Student-friendly locations near universities with special rates.",
+              icon: "🎓",
+              features: ["Near universities", "Student discounts", "Flexible terms"]
+            },
+            {
+              title: "Corporate Travelers",
+              description: "Extended stays for business travelers with corporate billing and comprehensive expense reporting.",
+              icon: "🏢",
+              features: ["Corporate billing", "Expense reporting", "Business amenities"]
+            }
+          ].map((item, index) => (
+            <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
+                <div className="text-center">
+                  <div className="text-4xl sm:text-5xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl sm:text-2xl font-medium mb-4 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{item.description}</p>
+                  <div className="space-y-2">
+                    {item.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                        <div className="w-1 h-1 bg-[#D4A2FF] rounded-full"></div>
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Transparency Section
+export const TransparencySection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('transparency-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="transparency-section" className="py-16 sm:py-20 lg:py-24 bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white">
+              Complete transparency, no hidden fees
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              We believe in honest, straightforward relationships. Every fee, every service, and every expectation is clearly communicated upfront.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+          }`}>
+            <div className="bg-gray-800 rounded-2xl p-6 sm:p-8 h-full">
+              <h3 className="text-2xl sm:text-3xl font-light mb-6 text-white">For Travelers</h3>
+              <div className="space-y-4">
+                {[
+                  "No hidden booking fees or surprise charges",
+                  "Clear breakdown of all costs before booking",
+                  "Flexible cancellation policies",
+                  "Direct communication with property managers",
+                  "Real-time support and issue resolution"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-300">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className={`transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+          }`}>
+            <div className="bg-gray-800 rounded-2xl p-6 sm:p-8 h-full">
+              <h3 className="text-2xl sm:text-3xl font-light mb-6 text-white">For Property Owners</h3>
+              <div className="space-y-4">
+                {[
+                  "Transparent revenue sharing with detailed reporting",
+                  "No upfront costs or hidden management fees",
+                  "Monthly performance and financial reports",
+                  "Direct communication about your property",
+                  "Complete control over property standards"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-300">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-500 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <div className="bg-gradient-to-r from-[#D4A2FF] to-[#c490ff] rounded-2xl p-8 sm:p-10 text-center">
+            <h3 className="text-2xl sm:text-3xl font-light mb-4 text-black">
+              Our Promise
+            </h3>
+            <p className="text-lg text-gray-800 mb-6 max-w-2xl mx-auto">
+              "We succeed only when our property owners and travelers succeed. That's why we're committed to complete transparency in everything we do."
+            </p>
+            <div className="text-sm text-gray-700">
+              — The DigiHome Team
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
