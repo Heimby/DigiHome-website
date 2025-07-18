@@ -1820,33 +1820,97 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
             <div key={room.id} className="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
               <div className="flex items-center justify-between mb-4">
                 <h4 className="text-lg font-medium text-white">Bedroom {index + 1}</h4>
-                {rooms.bedrooms.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeBedroom(index)}
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    ✕
-                  </button>
-                )}
+                <button
+                  type="button"
+                  onClick={() => removeBedroom(index)}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  ✕
+                </button>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { key: 'bed', label: 'Bed' },
-                  { key: 'sofaBed', label: 'Sofa Bed' }
-                ].map(({ key, label }) => (
-                  <div key={key}>
-                    <label className="block text-sm font-medium text-white/90 mb-2">{label}</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={room[key]}
-                      onChange={(e) => updateBedroom(index, key, parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    />
+              <div className="space-y-6">
+                {/* Beds */}
+                <div className="bg-white/5 p-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-3">
+                    <h5 className="text-white font-medium">Beds</h5>
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value) {
+                          addBedToRoom('bedrooms', index, 'beds', e.target.value);
+                          e.target.value = '';
+                        }
+                      }}
+                      className="px-3 py-1 bg-white/10 border border-white/20 rounded text-white text-sm"
+                    >
+                      <option value="">Add Bed</option>
+                      {bedSizes.slice(0, 4).map(size => (
+                        <option key={size.value} value={size.value}>{size.label}</option>
+                      ))}
+                    </select>
                   </div>
-                ))}
+                  
+                  {room.beds.map((bed) => (
+                    <div key={bed.id} className="flex items-center gap-3 mb-2 p-2 bg-white/5 rounded">
+                      <span className="text-white/90 capitalize">{bed.size}</span>
+                      <input
+                        type="number"
+                        min="1"
+                        value={bed.count}
+                        onChange={(e) => updateBedInRoom('bedrooms', index, 'beds', bed.id, 'count', parseInt(e.target.value) || 1)}
+                        className="w-16 px-2 py-1 bg-white/10 border border-white/20 rounded text-white text-sm"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeBedFromRoom('bedrooms', index, 'beds', bed.id)}
+                        className="text-white/70 hover:text-white text-sm"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Sofa Beds */}
+                <div className="bg-white/5 p-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-3">
+                    <h5 className="text-white font-medium">Sofa Beds</h5>
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value) {
+                          addBedToRoom('bedrooms', index, 'sofaBeds', e.target.value);
+                          e.target.value = '';
+                        }
+                      }}
+                      className="px-3 py-1 bg-white/10 border border-white/20 rounded text-white text-sm"
+                    >
+                      <option value="">Add Sofa Bed</option>
+                      {bedSizes.slice(0, 4).map(size => (
+                        <option key={size.value} value={size.value}>{size.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  {room.sofaBeds.map((bed) => (
+                    <div key={bed.id} className="flex items-center gap-3 mb-2 p-2 bg-white/5 rounded">
+                      <span className="text-white/90 capitalize">{bed.size}</span>
+                      <input
+                        type="number"
+                        min="1"
+                        value={bed.count}
+                        onChange={(e) => updateBedInRoom('bedrooms', index, 'sofaBeds', bed.id, 'count', parseInt(e.target.value) || 1)}
+                        className="w-16 px-2 py-1 bg-white/10 border border-white/20 rounded text-white text-sm"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeBedFromRoom('bedrooms', index, 'sofaBeds', bed.id)}
+                        className="text-white/70 hover:text-white text-sm"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
