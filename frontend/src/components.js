@@ -2169,16 +2169,16 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-          <h3 className="text-2xl font-semibold text-white mb-6">Kontaktinformasjon</h3>
+          <h3 className="text-2xl font-semibold text-white mb-6">Contact Information</h3>
           
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-white/90 mb-2">
-                Fullt navn
+                Full Name
               </label>
               <input
                 type="text"
-                placeholder="Ola Nordmann"
+                placeholder="John Doe"
                 value={contact.fullName}
                 onChange={(e) => updateContact('fullName', e.target.value)}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
@@ -2188,11 +2188,11 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
 
             <div>
               <label className="block text-sm font-medium text-white/90 mb-2">
-                E-post
+                Email
               </label>
               <input
                 type="email"
-                placeholder="ola@example.com"
+                placeholder="john@example.com"
                 value={contact.email}
                 onChange={(e) => updateContact('email', e.target.value)}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
@@ -2202,7 +2202,7 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
 
             <div>
               <label className="block text-sm font-medium text-white/90 mb-2">
-                Telefon
+                Phone
               </label>
               <input
                 type="tel"
