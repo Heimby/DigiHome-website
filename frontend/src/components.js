@@ -1372,6 +1372,122 @@ export const AboutWhiteSection = () => {
   );
 };
 
+// Earnings Calculator Section
+export const EarningsCalculatorSection = () => {
+  const [address, setAddress] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const section = document.getElementById('earnings-calculator');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (address.trim()) {
+      console.log('Address submitted:', address);
+      // Here you would typically send the address to your backend
+      alert(`Thank you! We'll calculate earnings for: ${address}`);
+    }
+  };
+
+  return (
+    <section id="earnings-calculator" className="relative isolate overflow-hidden" style={{ backgroundColor: '#D4A2FF' }}>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-900/20"></div>
+      
+      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Check out what you can earn as a DigiHome owner
+          </h2>
+          
+          <p className={`text-xl sm:text-2xl text-white/90 mb-12 leading-relaxed font-light transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            Enter your property address to see your potential earnings
+          </p>
+          
+          <div className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '400ms' }}>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <input
+                  type="text"
+                  placeholder="Enter your property address..."
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="w-full px-6 py-4 text-lg rounded-full border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              >
+                Calculate Earnings
+              </button>
+            </form>
+          </div>
+          
+          {/* Additional info */}
+          <div className={`mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '600ms' }}>
+            {[
+              { 
+                icon: '📍', 
+                title: 'Location Analysis', 
+                description: 'We analyze your property location and local market trends' 
+              },
+              { 
+                icon: '💰', 
+                title: 'Revenue Potential', 
+                description: 'Get estimated monthly and yearly earnings based on real data' 
+              },
+              { 
+                icon: '📊', 
+                title: 'Market Insights', 
+                description: 'Understand demand patterns and optimal pricing strategies' 
+              }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-white/80 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+    </section>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
