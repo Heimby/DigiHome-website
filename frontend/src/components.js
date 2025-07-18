@@ -76,8 +76,17 @@ export const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md">
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-gradient-to-b from-black via-black to-gray-900 shadow-2xl border-l border-gray-700 p-6 backdrop-blur-lg">
+        <div className="md:hidden fixed inset-0 z-50 bg-black backdrop-blur-md" style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}>
+          <div 
+            className="fixed inset-y-0 right-0 max-w-xs w-full shadow-2xl border-l border-gray-700 p-6" 
+            style={{ 
+              backgroundColor: '#000000',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              minHeight: '100vh',
+              minHeight: '100dvh'
+            }}
+          >
             <div className="flex items-center justify-between mb-8">
               <Link to="/" onClick={closeMobileMenu}>
                 <img 
