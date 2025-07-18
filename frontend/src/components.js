@@ -1673,19 +1673,32 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
                 <div className="bg-white/5 p-4 rounded-lg">
                   <h5 className="text-white font-medium mb-3">Dinner Table</h5>
                   <div className="flex items-center gap-4">
-                    <label className="flex items-center gap-2 text-white/90">
-                      <input
-                        type="checkbox"
-                        checked={room.dinnerTable.seats > 0}
-                        onChange={(e) => updateLivingRoom(index, 'dinnerTable', 
-                          e.target.checked ? { seats: 4 } : { seats: 0 }
-                        )}
-                        className="rounded"
-                      />
-                      Has dinner table
+                    <label className="flex items-center gap-3 text-white/90 cursor-pointer">
+                      <div className="relative">
+                        <input
+                          type="checkbox"
+                          checked={room.dinnerTable.seats > 0}
+                          onChange={(e) => updateLivingRoom(index, 'dinnerTable', 
+                            e.target.checked ? { seats: 4 } : { seats: 0 }
+                          )}
+                          className="sr-only"
+                        />
+                        <div className={`w-6 h-6 rounded-md border-2 transition-all duration-200 flex items-center justify-center ${
+                          room.dinnerTable.seats > 0 
+                            ? 'bg-white border-white' 
+                            : 'border-white/40 hover:border-white/60'
+                        }`}>
+                          {room.dinnerTable.seats > 0 && (
+                            <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+                      <span className="font-medium">Has dinner table</span>
                     </label>
                     {room.dinnerTable.seats > 0 && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 ml-4">
                         <span className="text-white/90">Seats:</span>
                         <input
                           type="number"
@@ -1695,7 +1708,7 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
                           onChange={(e) => updateLivingRoom(index, 'dinnerTable', 
                             { seats: parseInt(e.target.value) || 0 }
                           )}
-                          className="w-20 px-2 py-1 bg-white/10 border border-white/20 rounded text-white"
+                          className="w-20 px-2 py-1 bg-white/10 border border-white/20 rounded text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                         />
                       </div>
                     )}
