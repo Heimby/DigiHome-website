@@ -20,19 +20,18 @@ export const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <div className="text-white text-2xl font-bold">1X</div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">NEO</a>
-              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">A</a>
-              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">STORIES</a>
-              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">CAREERS</a>
-              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">ABOUT</a>
-            </div>
+          <div className="text-white text-2xl font-bold italic">DigiHome</div>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Medlemmer</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Partnere</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Forretningsreiser</a>
           </div>
+          
           <div className="hidden md:block">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">GET UPDATES</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Logg inn</a>
           </div>
+          
           <div className="md:hidden">
             <button className="text-white">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
