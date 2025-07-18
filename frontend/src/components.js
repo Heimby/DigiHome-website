@@ -466,6 +466,13 @@ export const HomeHumanoidSection = () => {
           </p>
         </div>
         
+        {/* Search Bar */}
+        <div className={`mb-16 transition-all duration-1000 delay-200 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <SearchBar />
+        </div>
+
         {/* Property Cards Section */}
         <div className={`transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
