@@ -4,7 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { 
   Navigation, 
   HeroSection, 
-  HomeHumanoidSection, 
+  HomeHumanoidSection,
+  ExperienceSection,
+  PassiveIncomeSection,
+  FlexibilitySection,
+  TransparencySection,
   Footer 
 } from "./components";
 
@@ -23,6 +27,10 @@ const Home = () => {
       <Navigation />
       <HeroSection />
       <HomeHumanoidSection />
+      <ExperienceSection />
+      <PassiveIncomeSection />
+      <FlexibilitySection />
+      <TransparencySection />
       <Footer />
     </div>
   );
