@@ -100,9 +100,9 @@ export const Navigation = () => {
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 Partner Relations
               </a>
-              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+              <Link to="/about" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 About
-              </a>
+              </Link>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 Sign In
               </a>
