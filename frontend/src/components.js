@@ -1110,6 +1110,197 @@ export const AboutWhiteSection = () => {
             ))}
           </div>
         </div>
+
+        {/* Revenue Graph Section */}
+        <div className="mt-24 lg:mt-32">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-thin text-gray-900 tracking-tight mb-4">
+              Homeowner Revenue Growth
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              Total accrued booking revenue generated for our homeowners
+            </p>
+          </div>
+          
+          <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 lg:p-12 shadow-lg">
+            {/* Revenue Chart */}
+            <div className="relative h-96 w-full">
+              {/* Y-axis labels */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 flex flex-col justify-between text-sm text-gray-500">
+                <span className="font-mono">87M</span>
+                <span className="font-mono">65M</span>
+                <span className="font-mono">43M</span>
+                <span className="font-mono">22M</span>
+                <span className="font-mono">0M</span>
+              </div>
+              
+              {/* Chart area */}
+              <div className="ml-20 h-full relative">
+                {/* Grid lines */}
+                <div className="absolute inset-0 grid grid-rows-4 opacity-20">
+                  {[...Array(4)].map((_, i) => (
+                    <div key={i} className="border-t border-gray-300"></div>
+                  ))}
+                </div>
+                
+                {/* Revenue curve */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 400">
+                  <defs>
+                    <linearGradient id="revenueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: '#D4A2FF', stopOpacity: 0.8 }} />
+                      <stop offset="50%" style={{ stopColor: '#FF5A5F', stopOpacity: 0.6 }} />
+                      <stop offset="100%" style={{ stopColor: '#253551', stopOpacity: 0.4 }} />
+                    </linearGradient>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style={{ stopColor: '#253551' }} />
+                      <stop offset="40%" style={{ stopColor: '#FF5A5F' }} />
+                      <stop offset="100%" style={{ stopColor: '#D4A2FF' }} />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Area under curve */}
+                  <path
+                    d="M0,400 Q100,380 200,340 T400,240 T600,160 T800,40 L800,400 Z"
+                    fill="url(#revenueGradient)"
+                    className={`transition-all duration-2000 ease-out ${
+                      visibleMilestones.has(2) ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ 
+                      transitionDelay: '600ms',
+                      transform: visibleMilestones.has(2) ? 'none' : 'scaleY(0)',
+                      transformOrigin: 'bottom'
+                    }}
+                  />
+                  
+                  {/* Revenue line */}
+                  <path
+                    d="M0,400 Q100,380 200,340 T400,240 T600,160 T800,40"
+                    fill="none"
+                    stroke="url(#lineGradient)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    className={`transition-all duration-2000 ease-out ${
+                      visibleMilestones.has(2) ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ 
+                      transitionDelay: '400ms',
+                      strokeDasharray: visibleMilestones.has(2) ? 'none' : '2000',
+                      strokeDashoffset: visibleMilestones.has(2) ? '0' : '2000'
+                    }}
+                  />
+                  
+                  {/* Highlight points */}
+                  {[
+                    { x: 200, y: 340, revenue: '15M NOK', year: '2022', color: '#FF5A5F' },
+                    { x: 400, y: 240, revenue: '38M NOK', year: '2024', color: '#253551' },
+                    { x: 800, y: 40, revenue: '87M NOK', year: '2025', color: '#D4A2FF' }
+                  ].map((point, index) => (
+                    <g key={index}>
+                      {/* Point dot */}
+                      <circle
+                        cx={point.x}
+                        cy={point.y}
+                        r="8"
+                        fill={point.color}
+                        className={`transition-all duration-500 ease-out ${
+                          visibleMilestones.has(2) ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                        }`}
+                        style={{ transitionDelay: `${800 + index * 200}ms` }}
+                      />
+                      
+                      {/* Animated pulse */}
+                      <circle
+                        cx={point.x}
+                        cy={point.y}
+                        r="8"
+                        fill={point.color}
+                        className={`animate-ping opacity-30 ${
+                          visibleMilestones.has(2) ? 'block' : 'hidden'
+                        }`}
+                        style={{ animationDelay: `${800 + index * 200}ms` }}
+                      />
+                      
+                      {/* Tooltip */}
+                      <g
+                        className={`transition-all duration-500 ease-out ${
+                          visibleMilestones.has(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                        }`}
+                        style={{ transitionDelay: `${1000 + index * 200}ms` }}
+                      >
+                        <rect
+                          x={point.x - 40}
+                          y={point.y - 45}
+                          width="80"
+                          height="30"
+                          fill="white"
+                          stroke={point.color}
+                          strokeWidth="2"
+                          rx="6"
+                        />
+                        <text
+                          x={point.x}
+                          y={point.y - 32}
+                          textAnchor="middle"
+                          className="text-xs font-mono font-bold"
+                          fill={point.color}
+                        >
+                          {point.revenue}
+                        </text>
+                        <text
+                          x={point.x}
+                          y={point.y - 20}
+                          textAnchor="middle"
+                          className="text-xs font-light"
+                          fill="#666"
+                        >
+                          {point.year}
+                        </text>
+                      </g>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+              
+              {/* X-axis labels */}
+              <div className="absolute bottom-0 left-20 right-0 flex justify-between text-sm text-gray-500">
+                <span className="font-mono">2022</span>
+                <span className="font-mono">2023</span>
+                <span className="font-mono">2024</span>
+                <span className="font-mono">2025</span>
+              </div>
+            </div>
+            
+            {/* Revenue statistics */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { label: 'Total Revenue Generated', value: '87M NOK', color: '#D4A2FF' },
+                { label: 'Average Monthly Growth', value: '2.4M NOK', color: '#FF5A5F' },
+                { label: 'Active Homeowners', value: '312', color: '#253551' }
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className={`text-center p-4 rounded-lg border transition-all duration-500 ease-out ${
+                    visibleMilestones.has(2) 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-5'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${1400 + index * 100}ms`,
+                    borderColor: stat.color,
+                    backgroundColor: `${stat.color}08`
+                  }}
+                >
+                  <div className="text-2xl font-bold font-mono" style={{ color: stat.color }}>
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-600 mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
