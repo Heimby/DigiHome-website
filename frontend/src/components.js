@@ -190,7 +190,7 @@ export const HeroSection = () => {
   );
 };
 
-// Property Card Component with Simplified Info
+// Property Card Component with Simplified Info and Ellipsis
 export const PropertyCard = ({ property }) => {
   return (
     <div className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
@@ -213,8 +213,8 @@ export const PropertyCard = ({ property }) => {
             
             {/* Content */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-900 mb-1 sm:mb-2">{property.title}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">{property.location}</p>
+              <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-900 mb-1 sm:mb-2 truncate">{property.title}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm truncate">{property.location}</p>
             </div>
           </div>
         </div>
