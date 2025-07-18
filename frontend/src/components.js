@@ -930,7 +930,9 @@ export const AboutWhiteSection = () => {
       body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023). First short-term operator company to be awarded a professional hotel linen contract, setting new industry standards.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR%20Logo.jpeg",
       alt: "NEKSOR logo",
-      company: "NEKSOR"
+      company: "NEKSOR",
+      color: "#FF5A5F", // Airbnb red
+      bgColor: "#FFF5F5" // Light red background
     },
     {
       year: "2024",
@@ -938,7 +940,9 @@ export const AboutWhiteSection = () => {
       body: "Rebrand and pivot from sub-lease to pure property management, challenging rental-broker monopoly \"Utleiemegleren\". First to blend short- and long-term stays in designer units, lowering tenant cost while boosting owners' yield.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//HeimbyLogoWhite.png",
       alt: "Heimby logo",
-      company: "Heimby"
+      company: "Heimby",
+      color: "#253551", // Provided color
+      bgColor: "#F7F8FA" // Light blue-gray background
     },
     {
       year: "2025",
@@ -946,7 +950,9 @@ export const AboutWhiteSection = () => {
       body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform. Partnered with professional hotel cleaning- and management companies to research how you can autonomously run cities as efficient as hotels.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg",
       alt: "DigiHome logo",
-      company: "DigiHome"
+      company: "DigiHome",
+      color: "#D4A2FF", // Provided color
+      bgColor: "#FDF7FF" // Light purple background
     }
   ];
 
