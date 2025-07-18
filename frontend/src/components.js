@@ -56,12 +56,12 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900">
+    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900" style={{ height: 'calc(100vh + 20px)' }}>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1631882456892-54a30e92fe4f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxodW1hbm9pZCUyMHJvYm90fGVufDB8fHx3aGl0ZXwxNzUyODE2ODA4fDA&ixlib=rb-4.1.0&q=85"
-          alt="NEO Robot"
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//vendome-living-smoked-dark-wood-timber-oak-wall-panelling-veneer-bambo-luxury-decorative-panels-ezgif.com-webp-to-jpg-converter.png"
+          alt="DigiHome Interior"
           className="w-full h-full object-cover opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
@@ -73,13 +73,10 @@ export const HeroSection = () => {
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <h1 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-wide">
-            NEO
-            <span className="block text-4xl md:text-6xl font-thin text-gray-300 mt-2">
-              Gamma
-            </span>
+            DigiHome
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            The future of home robotics is here. Meet NEO Gamma, your intelligent humanoid companion.
+            The future of home rentals is here. Homes and experiences that move with you across the world.
           </p>
         </div>
       </div>
