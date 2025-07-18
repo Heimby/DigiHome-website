@@ -78,7 +78,7 @@ export const Navigation = () => {
           <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-black/90 backdrop-blur-lg p-6">
             <div className="flex items-center justify-between mb-8">
               <img 
-                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
                 alt="DigiHome" 
                 className="h-6 w-auto"
               />
