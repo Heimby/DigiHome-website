@@ -40,7 +40,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <img 
-              src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
+              src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//InversePinkBlackWhiteLongTextLogo.svg" 
               alt="DigiHome" 
               className="h-6 sm:h-8 w-auto"
             />
