@@ -896,6 +896,9 @@ export const AboutHeroSection = () => {
     </section>
   );
 };
+
+// Updated Footer with DigiHome Branding
+export const Footer = () => {
   return (
     <footer className="bg-black text-white py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
