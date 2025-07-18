@@ -93,7 +93,7 @@ export const HeroSection = () => {
 // Property Card Component
 export const PropertyCard = ({ property }) => {
   return (
-    <div className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
       {/* Image Container - 2/3 aspect ratio (tall) */}
       <div className="relative h-96 overflow-hidden">
         <img 
@@ -101,20 +101,12 @@ export const PropertyCard = ({ property }) => {
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
-        {/* Availability Badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-            property.available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-          }`}>
-            {property.available ? 'Available' : 'Booked'}
-          </span>
-        </div>
       </div>
       
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xl font-semibold text-gray-900">{property.title}</h3>
+          <h3 className="text-xl font-medium text-gray-900">{property.title}</h3>
           <div className="flex items-center">
             <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -127,11 +119,11 @@ export const PropertyCard = ({ property }) => {
         
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-2xl font-bold text-gray-900">{property.price}</span>
+            <span className="text-2xl text-gray-900">{property.price}</span>
             <span className="text-gray-500 text-sm">/ night</span>
           </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            View Details
+          <button className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium">
+            Book now
           </button>
         </div>
       </div>
@@ -141,6 +133,8 @@ export const PropertyCard = ({ property }) => {
 
 // Property Cards Section Component
 export const PropertyCardsSection = () => {
+  const scrollContainerRef = React.useRef(null);
+  
   const properties = [
     {
       id: 1,
@@ -148,7 +142,6 @@ export const PropertyCardsSection = () => {
       location: "Bergen • 1200 kr • Sentrum",
       price: "1,200 kr",
       rating: "4.9",
-      available: true,
       image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
@@ -157,7 +150,6 @@ export const PropertyCardsSection = () => {
       location: "Bergen • 1800 kr • Bryggen",
       price: "1,800 kr",
       rating: "4.8",
-      available: true,
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80"
     },
     {
@@ -166,7 +158,6 @@ export const PropertyCardsSection = () => {
       location: "Oslo • 2200 kr • Sentrum",
       price: "2,200 kr",
       rating: "4.7",
-      available: false,
       image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
@@ -175,7 +166,6 @@ export const PropertyCardsSection = () => {
       location: "Stavanger • 1500 kr • Gamle Stavanger",
       price: "1,500 kr",
       rating: "4.9",
-      available: true,
       image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
     },
     {
@@ -184,7 +174,6 @@ export const PropertyCardsSection = () => {
       location: "Trondheim • 1300 kr • Bakklandet",
       price: "1,300 kr",
       rating: "4.6",
-      available: true,
       image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
@@ -193,14 +182,52 @@ export const PropertyCardsSection = () => {
       location: "Ålesund • 1600 kr • Brosundet",
       price: "1,600 kr",
       rating: "4.8",
-      available: true,
       image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     }
   ];
 
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400; // Width of card + gap
+      const currentScroll = scrollContainerRef.current.scrollLeft;
+      const newScroll = direction === 'left' 
+        ? currentScroll - scrollAmount 
+        : currentScroll + scrollAmount;
+      
+      scrollContainerRef.current.scrollTo({
+        left: newScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className="w-full">
-      <div className="flex overflow-x-auto scrollbar-hide gap-6 px-6 py-4">
+    <div className="relative w-full">
+      {/* Left Arrow */}
+      <button 
+        onClick={() => scroll('left')}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow"
+      >
+        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Right Arrow */}
+      <button 
+        onClick={() => scroll('right')}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow"
+      >
+        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* Cards Container */}
+      <div 
+        ref={scrollContainerRef}
+        className="flex overflow-x-auto scrollbar-hide gap-6 px-16 py-4"
+      >
         {properties.map((property) => (
           <PropertyCard key={property.id} property={property} />
         ))}
