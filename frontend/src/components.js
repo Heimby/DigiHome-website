@@ -927,7 +927,7 @@ export const AboutWhiteSection = () => {
     {
       year: "2022",
       title: "Building Norway's biggest Airbnb management company",
-      body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023).",
+      body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023). First short-term operator company to be awarded a professional hotel linen contract, setting new industry standards.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR%20Logo.jpeg",
       alt: "NEKSOR logo",
       company: "NEKSOR"
@@ -943,7 +943,7 @@ export const AboutWhiteSection = () => {
     {
       year: "2025",
       title: "AI-powered property technology",
-      body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform.",
+      body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform. Partnered with professional hotel cleaning companies and management companies to research how you can autonomously run cities as efficient as hotels.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg",
       alt: "DigiHome logo",
       company: "DigiHome"
