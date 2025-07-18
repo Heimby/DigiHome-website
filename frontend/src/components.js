@@ -55,6 +55,7 @@ export const Navigation = () => {
             </button>
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Become Owner</a>
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Business Travel</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">About</a>
           </div>
           
           <div className="hidden md:block">
@@ -109,6 +110,9 @@ export const Navigation = () => {
               </a>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 Business Travel
+              </a>
+              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+                About
               </a>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 Sign In
