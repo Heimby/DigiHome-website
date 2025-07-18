@@ -926,7 +926,7 @@ export const AboutWhiteSection = () => {
   const milestones = [
     {
       year: "2022",
-      title: "Building Norway's biggest Airbnb management company",
+      title: "Norway's biggest Airbnb operator",
       body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023). First short-term operator company to be awarded a professional hotel linen contract, setting new industry standards.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR%20Logo.jpeg",
       alt: "NEKSOR logo",
