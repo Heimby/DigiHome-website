@@ -39,11 +39,13 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img 
-              src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//InversePinkBlackWhiteLongTextLogo.svg" 
-              alt="DigiHome" 
-              className="h-6 sm:h-8 w-auto"
-            />
+            <Link to="/">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
+                alt="DigiHome" 
+                className="h-6 sm:h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </Link>
           </div>
           
           {/* Desktop Menu */}
