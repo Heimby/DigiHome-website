@@ -887,11 +887,176 @@ export const AboutHeroSection = () => {
   );
 };
 
-// About Page White Section
+// About Page White Section with History Timeline
 export const AboutWhiteSection = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [visibleMilestones, setVisibleMilestones] = useState(new Set());
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1280);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const milestoneIndex = entry.target.getAttribute('data-milestone');
+            if (milestoneIndex) {
+              setVisibleMilestones(prev => new Set([...prev, parseInt(milestoneIndex)]));
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const milestoneElements = document.querySelectorAll('[data-milestone]');
+    milestoneElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const milestones = [
+    {
+      year: "2022",
+      title: "Building Norway's biggest Airbnb management company",
+      body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023).",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR%20Logo.jpeg",
+      alt: "NEKSOR logo",
+      company: "NEKSOR"
+    },
+    {
+      year: "2024",
+      title: "Professionalising dynamic rentals",
+      body: "Rebrand and pivot from sub-lease to pure property management, challenging rental-broker monopoly \"Utleiemegleren\". First to blend short- and long-term stays in designer units, lowering tenant cost while boosting owners' yield.",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//HeimbyLogoWhite.png",
+      alt: "Heimby logo",
+      company: "Heimby"
+    },
+    {
+      year: "2025",
+      title: "AI-powered property technology",
+      body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform.",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg",
+      alt: "DigiHome logo",
+      company: "DigiHome"
+    }
+  ];
+
   return (
-    <section className="bg-white min-h-screen flex items-center justify-center">
-      {/* Empty section - ready for content */}
+    <section id="history" className="relative isolate overflow-hidden bg-white min-h-screen">
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:py-40">
+        <div className="text-center mb-16 lg:mb-24">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8">
+            Our Journey
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
+            From university project to Norway's most efficient property-management platform
+          </p>
+        </div>
+
+        {/* Desktop Timeline */}
+        <div className={`${isDesktop ? 'block' : 'hidden'} relative`}>
+          <div className="grid grid-cols-3 gap-16 auto-cols-max">
+            {/* Timeline Rail */}
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-300 transform -translate-y-1/2"></div>
+            
+            {milestones.map((milestone, index) => (
+              <article
+                key={index}
+                data-milestone={index}
+                className={`relative flex flex-col items-center text-center transition-all duration-300 ease-out ${
+                  visibleMilestones.has(index) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-5'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Timeline Node */}
+                <div className="relative z-10 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform duration-200 mb-8"></div>
+                
+                {/* Logo Container */}
+                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center mb-6 overflow-hidden">
+                  <img 
+                    src={milestone.logo} 
+                    alt={milestone.alt}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="max-w-sm">
+                  <h3 className="font-mono text-[#2AB5FF] text-2xl mb-4 font-medium">
+                    {milestone.year} – {milestone.company}
+                  </h3>
+                  <h4 className="font-thin text-xl text-gray-900 mb-4 leading-tight">
+                    {milestone.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">
+                    {milestone.body}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile/Tablet Timeline */}
+        <div className={`${isDesktop ? 'hidden' : 'block'} relative`}>
+          <div className="flex flex-col gap-20">
+            {/* Timeline Rail */}
+            <div className="absolute left-6 top-0 h-full w-px bg-gray-300"></div>
+            
+            {milestones.map((milestone, index) => (
+              <article
+                key={index}
+                data-milestone={index}
+                className={`relative flex items-start gap-8 transition-all duration-300 ease-out ${
+                  visibleMilestones.has(index) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-5'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Timeline Node */}
+                <div className="relative z-10 w-4 h-4 bg-[#2AB5FF] rounded-full border-2 border-white shadow-md flex-shrink-0 mt-2"></div>
+                
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    {/* Logo Container */}
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={milestone.logo} 
+                        alt={milestone.alt}
+                        className="w-8 h-8 object-contain"
+                      />
+                    </div>
+                    
+                    <h3 className="font-mono text-[#2AB5FF] text-xl font-medium">
+                      {milestone.year} – {milestone.company}
+                    </h3>
+                  </div>
+                  
+                  <h4 className="font-thin text-2xl text-gray-900 mb-4 leading-tight">
+                    {milestone.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {milestone.body}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
