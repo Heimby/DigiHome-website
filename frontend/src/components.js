@@ -1499,7 +1499,7 @@ const AddressStep = ({ address, setAddress, onSubmit, isVisible }) => (
 const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
   const [rooms, setRooms] = useState({
     livingRooms: [{ id: 1, dinnerTable: 0, sofa: 0, sofaBed: 0, bed: 0 }],
-    bedrooms: [{ id: 1, bed: 0, sofaBed: 0 }],
+    bedrooms: [],
     bathrooms: 1,
     toilets: 0
   });
