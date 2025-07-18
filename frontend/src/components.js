@@ -60,6 +60,13 @@ export const HeroSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900" style={{ height: 'calc(100vh + 20px)' }}>
       {/* Background Video */}
@@ -80,12 +87,32 @@ export const HeroSection = () => {
         <div className={`transition-all duration-1000 ${
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h1 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-wide">
-            DigiHome
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <div className="mb-8">
+            <img 
+              src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
+              alt="DigiHome" 
+              className="h-16 md:h-24 w-auto mx-auto mb-6"
+            />
+          </div>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12">
             The future of home rentals is here. Homes and experiences that move with you across the world.
           </p>
+          
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+            <button 
+              onClick={() => scrollToSection('home-humanoid')}
+              className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Find a Home
+            </button>
+            <button 
+              onClick={() => scrollToSection('home-humanoid')}
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+            >
+              Become a DigiHome Owner
+            </button>
+          </div>
         </div>
       </div>
 
