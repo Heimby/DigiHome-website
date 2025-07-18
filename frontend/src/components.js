@@ -90,7 +90,7 @@ export const HeroSection = () => {
   );
 };
 
-// Home Humanoid Section Component - Search Interface
+// Home Humanoid Section Component - Clean Slate
 export const HomeHumanoidSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -124,10 +124,13 @@ export const HomeHumanoidSection = () => {
           </p>
         </div>
         
-        <div className={`transition-all duration-1000 delay-300 ${
+        {/* Ready for new content */}
+        <div className={`text-center transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <SearchBar />
+          <div className="max-w-4xl mx-auto">
+            {/* This space is ready for your new content */}
+          </div>
         </div>
       </div>
     </section>
