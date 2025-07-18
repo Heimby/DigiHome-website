@@ -141,7 +141,156 @@ export const PropertyCard = ({ property }) => {
   );
 };
 
-// Property Cards Section Component
+// Search Bar Component
+export const SearchBar = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [searchData, setSearchData] = useState({
+    location: '',
+    moveIn: '',
+    moveOut: '',
+    guests: '',
+    rooms: 'any'
+  });
+
+  const roomOptions = ['any', 'studio+', '1+', '2+'];
+
+  const handleExpand = () => {
+    setIsExpanded(true);
+  };
+
+  const handleCollapse = () => {
+    setIsExpanded(false);
+  };
+
+  const handleInputChange = (field, value) => {
+    setSearchData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleSearch = () => {
+    console.log('Search with:', searchData);
+    // Handle search logic here
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      {!isExpanded ? (
+        // Collapsed State
+        <div 
+          onClick={handleExpand}
+          className="bg-white rounded-full shadow-lg border border-gray-200 cursor-pointer hover:shadow-xl transition-all duration-300"
+        >
+          <div className="flex items-center px-6 py-4">
+            <div className="flex-1 text-gray-500 font-medium">Where?</div>
+            <div className="text-gray-300 mx-4">︱</div>
+            <div className="flex-1 text-gray-500 font-medium">When?</div>
+            <div className="text-gray-300 mx-4">︱</div>
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors">
+              Search
+            </button>
+          </div>
+        </div>
+      ) : (
+        // Expanded State
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 animate-[expandSearch_0.3s_ease-out]">
+          {/* Close Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleCollapse}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Search Fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+            {/* Where */}
+            <div className="lg:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Where?</label>
+              <input
+                type="text"
+                value={searchData.location}
+                onChange={(e) => handleInputChange('location', e.target.value)}
+                placeholder="Search by city"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              />
+            </div>
+
+            {/* Move-in */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Move-in</label>
+              <input
+                type="date"
+                value={searchData.moveIn}
+                onChange={(e) => handleInputChange('moveIn', e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              />
+            </div>
+
+            {/* Move-out */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Move-out</label>
+              <input
+                type="date"
+                value={searchData.moveOut}
+                onChange={(e) => handleInputChange('moveOut', e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              />
+            </div>
+
+            {/* Guests */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+              <input
+                type="number"
+                value={searchData.guests}
+                onChange={(e) => handleInputChange('guests', e.target.value)}
+                placeholder="Select guests"
+                min="1"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Rooms */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-3">Rooms</label>
+            <div className="flex gap-2 flex-wrap">
+              {roomOptions.map((option) => (
+                <button
+                  key={option}
+                  onClick={() => handleInputChange('rooms', option)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    searchData.rooms === option
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Search Button */}
+          <div className="flex justify-center">
+            <button
+              onClick={handleSearch}
+              className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors min-w-[200px]"
+            >
+              Search Properties
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 export const PropertyCardsSection = () => {
   const scrollContainerRef = useRef(null);
   
