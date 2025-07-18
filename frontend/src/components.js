@@ -887,6 +887,15 @@ export const AboutHeroSection = () => {
   );
 };
 
+// About Page White Section
+export const AboutWhiteSection = () => {
+  return (
+    <section className="bg-white min-h-screen flex items-center justify-center">
+      {/* Empty section - ready for content */}
+    </section>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
