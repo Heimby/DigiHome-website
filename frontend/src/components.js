@@ -663,7 +663,7 @@ export const ExperienceSection = () => {
             <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="bg-white rounded-none p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+              <div className="bg-white rounded-xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
                 <div className="mb-8">
                   {item.shape === 'rectangle' && (
                     <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-sm"></div>
@@ -688,7 +688,7 @@ export const ExperienceSection = () => {
   );
 };
 
-// Passive Income Section - Tech Minimalism
+// Passive Income Section - Tech Minimalism with Image
 export const PassiveIncomeSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -749,26 +749,23 @@ export const PassiveIncomeSection = () => {
           <div className={`transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-gray-900 rounded-none p-12 lg:p-16 text-white">
-              <div className="grid grid-cols-2 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-[#D4A2FF] rounded-none mx-auto mb-4"></div>
-                  <div className="text-3xl font-thin text-[#D4A2FF] mb-2">25-40%</div>
-                  <div className="text-sm text-gray-400 font-light">Higher returns</div>
+            <div className="relative rounded-xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                alt="Professional property management and cleaning operations"
+                className="w-full h-96 lg:h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-[#D4A2FF] rounded-lg flex items-center justify-center">
+                    <div className="w-6 h-6 bg-white rounded-sm"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-thin mb-2">Professional Operations</h3>
+                    <p className="text-gray-200 font-light">Maintaining excellence in every detail</p>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-none mx-auto mb-4"></div>
-                  <div className="text-3xl font-thin text-[#D4A2FF] mb-2">95%+</div>
-                  <div className="text-sm text-gray-400 font-light">Occupancy rate</div>
-                </div>
-              </div>
-              <div className="text-center">
-                <h3 className="text-2xl font-thin mb-6 text-white">
-                  Revenue Analytics
-                </h3>
-                <button className="bg-[#D4A2FF] text-black px-8 py-4 rounded-none font-light hover:bg-[#c490ff] transition-colors">
-                  View Performance Metrics
-                </button>
               </div>
             </div>
           </div>
@@ -835,10 +832,10 @@ export const FlexibilitySection = () => {
             <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="bg-white rounded-none p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 h-full">
+              <div className="bg-white rounded-xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 h-full">
                 <div className="mb-8">
                   <div className={`w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] ${
-                    index === 0 ? 'rounded-none' : 
+                    index === 0 ? 'rounded-sm' : 
                     index === 1 ? 'rounded-full' : 
                     'transform rotate-45 rounded-sm'
                   }`}></div>
@@ -856,118 +853,6 @@ export const FlexibilitySection = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Transparency Section - Tech Minimalism
-export const TransparencySection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    const element = document.getElementById('transparency-section');
-    if (element) observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section id="transparency-section" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16 lg:mb-20">
-          <div className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
-              Transparent operations
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-              Real-time dashboards and open-source pricing algorithms ensure complete visibility into every transaction.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          <div className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-          }`}>
-            <div className="bg-gray-900 rounded-none p-8 lg:p-12 text-white h-full">
-              <div className="mb-8">
-                <div className="w-16 h-16 bg-[#D4A2FF] rounded-none mb-6"></div>
-                <h3 className="text-2xl font-thin mb-6 text-white">For Travelers</h3>
-              </div>
-              <div className="space-y-6">
-                {[
-                  "Zero hidden fees with algorithmic pricing",
-                  "Real-time cost breakdown before booking",
-                  "Automated refund processing",
-                  "Direct API access to support systems",
-                  "Transparent performance metrics"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-4 h-4 bg-[#D4A2FF] rounded-none flex-shrink-0 mt-1"></div>
-                    <span className="text-gray-300 font-light">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className={`transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-          }`}>
-            <div className="bg-gray-900 rounded-none p-8 lg:p-12 text-white h-full">
-              <div className="mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-none mb-6"></div>
-                <h3 className="text-2xl font-thin mb-6 text-white">For Property Owners</h3>
-              </div>
-              <div className="space-y-6">
-                {[
-                  "Open-source revenue calculation methodology",
-                  "Real-time financial dashboard access",
-                  "Automated performance reporting",
-                  "Direct communication protocols",
-                  "Transparent operational metrics"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-4 h-4 bg-[#D4A2FF] rounded-none flex-shrink-0 mt-1"></div>
-                    <span className="text-gray-300 font-light">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={`text-center mt-16 lg:mt-20 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <div className="bg-gray-50 rounded-none p-12 lg:p-16 border border-gray-100">
-            <div className="max-w-3xl mx-auto">
-              <div className="w-20 h-20 bg-[#D4A2FF] rounded-none mx-auto mb-8"></div>
-              <h3 className="text-3xl font-thin mb-6 text-gray-900">
-                System Architecture
-              </h3>
-              <p className="text-lg text-gray-600 mb-8 font-light leading-relaxed">
-                "Our success metrics are algorithmically tied to tenant satisfaction and property owner returns. 
-                When the system optimizes for your success, everyone benefits."
-              </p>
-              <div className="text-sm text-gray-500 font-light">
-                — DigiHome Engineering Team
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
