@@ -171,6 +171,18 @@ export const SearchBar = () => {
     }).format(date);
   };
 
+  const handleLocationClick = () => {
+    setSearchState('location');
+    setShowSuggestions(true);
+    setShowCalendar(false);
+  };
+
+  const handleDatesClick = () => {
+    setSearchState('dates');
+    setShowCalendar(true);
+    setShowSuggestions(false);
+  };
+
   const handleLocationSelect = (city) => {
     setLocation(city);
     setShowSuggestions(false);
@@ -196,6 +208,7 @@ export const SearchBar = () => {
     if (!location) {
       setValidationError('Please choose a location');
       setSearchState('location');
+      setShowSuggestions(true);
       return;
     }
     
@@ -208,12 +221,30 @@ export const SearchBar = () => {
 
     setIsLoading(true);
     setSearchState('summary');
+    setShowCalendar(false);
+    setShowSuggestions(false);
     
     // Simulate search
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   };
+
+  // Close overlays when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.search-container')) {
+        setShowCalendar(false);
+        setShowSuggestions(false);
+        if (searchState !== 'summary') {
+          setSearchState('collapsed');
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [searchState]);
 
   const renderCalendar = () => {
     const today = new Date();
@@ -268,17 +299,14 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto relative">
+    <div className="max-w-4xl mx-auto relative search-container">
       {/* Main Search Pill */}
       <div className="bg-white rounded-full shadow-lg border border-gray-200 overflow-hidden">
         <div className="flex items-center">
           {/* Location Section */}
           <div className="flex-1 relative">
             <button
-              onClick={() => {
-                setSearchState('location');
-                setShowSuggestions(true);
-              }}
+              onClick={handleLocationClick}
               className="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors"
             >
               {searchState === 'location' ? (
@@ -310,10 +338,7 @@ export const SearchBar = () => {
           {/* Dates Section */}
           <div className="flex-1 relative">
             <button
-              onClick={() => {
-                setSearchState('dates');
-                setShowCalendar(true);
-              }}
+              onClick={handleDatesClick}
               className="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors"
             >
               {searchState === 'dates' || (moveInDate && moveOutDate) ? (
@@ -322,6 +347,8 @@ export const SearchBar = () => {
                   <div className="text-gray-900 font-medium">
                     {moveInDate && moveOutDate 
                       ? `${formatDate(moveInDate)} - ${formatDate(moveOutDate)}`
+                      : moveInDate 
+                      ? `${formatDate(moveInDate)} - Select checkout`
                       : 'Select dates'
                     }
                   </div>
@@ -356,7 +383,7 @@ export const SearchBar = () => {
 
       {/* Location Suggestions */}
       {showSuggestions && searchState === 'location' && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-20">
           {recentSearches.length > 0 && (
             <div className="p-4 border-b border-gray-100">
               <h4 className="text-sm font-medium text-gray-500 mb-2">Recent searches</h4>
@@ -392,8 +419,8 @@ export const SearchBar = () => {
       )}
 
       {/* Calendar Overlay */}
-      {showCalendar && searchState === 'dates' && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+      {showCalendar && (
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-20">
           <div className="p-6">
             <div className="flex justify-between items-center mb-4">
               <h4 className="text-lg font-medium text-gray-900">Select dates</h4>
@@ -411,13 +438,13 @@ export const SearchBar = () => {
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Move-in</label>
-                <div className="text-gray-900 font-medium">
+                <div className="text-gray-900 font-medium bg-gray-50 px-3 py-2 rounded-lg">
                   {moveInDate ? formatDate(moveInDate) : 'Select date'}
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Move-out</label>
-                <div className="text-gray-900 font-medium">
+                <div className="text-gray-900 font-medium bg-gray-50 px-3 py-2 rounded-lg">
                   {moveOutDate ? formatDate(moveOutDate) : 'Select date'}
                 </div>
               </div>
