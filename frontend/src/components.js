@@ -283,26 +283,26 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4">
+    <div className="w-full max-w-4xl mx-auto px-4">
       {!isExpanded ? (
         // Collapsed State - Mobile Optimized
         <div 
           onClick={handleExpand}
-          className="bg-white rounded-full shadow-lg border border-gray-200 cursor-pointer hover:shadow-xl transition-all duration-300"
+          className="bg-white rounded-full shadow-lg border border-gray-200 cursor-pointer hover:shadow-xl transition-all duration-300 w-full"
         >
           <div className="flex items-center px-4 sm:px-6 py-3 sm:py-4">
             <div className="flex-1 text-gray-500 font-medium text-sm sm:text-base">Where?</div>
             <div className="text-gray-300 mx-2 sm:mx-4">︱</div>
             <div className="flex-1 text-gray-500 font-medium text-sm sm:text-base">When?</div>
             <div className="text-gray-300 mx-2 sm:mx-4">︱</div>
-            <button className="bg-[#D4A2FF] text-black px-4 sm:px-6 py-2 rounded-full font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base">
+            <button className="bg-[#D4A2FF] text-black px-3 sm:px-6 py-2 rounded-full font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base">
               Search
             </button>
           </div>
         </div>
       ) : (
-        // Expanded State - Mobile Optimized
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 transition-all duration-300 ease-out">
+        // Expanded State - Fully Mobile Optimized
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 transition-all duration-300 ease-out w-full">
           {/* Close Button */}
           <div className="flex justify-end mb-4">
             <button
@@ -316,9 +316,9 @@ export const SearchBar = () => {
           </div>
 
           {/* Search Fields - Mobile Stacked Layout */}
-          <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 mb-4">
+          <div className="space-y-4 mb-4">
             {/* Where */}
-            <div className="sm:col-span-1">
+            <div className="w-full">
               <label className="block text-xs font-medium text-gray-500 mb-2">Where?</label>
               <input
                 type="text"
@@ -329,30 +329,33 @@ export const SearchBar = () => {
               />
             </div>
 
-            {/* Move-in */}
-            <div className="sm:col-span-1">
-              <label className="block text-xs font-medium text-gray-500 mb-2">Move-in</label>
-              <input
-                type="date"
-                value={searchData.moveIn}
-                onChange={(e) => handleInputChange('moveIn', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
-              />
-            </div>
+            {/* Date Fields Row */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {/* Move-in */}
+              <div>
+                <label className="block text-xs font-medium text-gray-500 mb-2">Move-in</label>
+                <input
+                  type="date"
+                  value={searchData.moveIn}
+                  onChange={(e) => handleInputChange('moveIn', e.target.value)}
+                  className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm"
+                />
+              </div>
 
-            {/* Move-out */}
-            <div className="sm:col-span-1">
-              <label className="block text-xs font-medium text-gray-500 mb-2">Move-out</label>
-              <input
-                type="date"
-                value={searchData.moveOut}
-                onChange={(e) => handleInputChange('moveOut', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
-              />
+              {/* Move-out */}
+              <div>
+                <label className="block text-xs font-medium text-gray-500 mb-2">Move-out</label>
+                <input
+                  type="date"
+                  value={searchData.moveOut}
+                  onChange={(e) => handleInputChange('moveOut', e.target.value)}
+                  className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm"
+                />
+              </div>
             </div>
 
             {/* Guests */}
-            <div className="sm:col-span-1">
+            <div className="w-full">
               <label className="block text-xs font-medium text-gray-500 mb-2">Guests</label>
               <input
                 type="number"
@@ -363,14 +366,11 @@ export const SearchBar = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
               />
             </div>
-          </div>
 
-          {/* Rooms and Search Button */}
-          <div className="space-y-4 sm:space-y-0 sm:flex sm:items-end sm:justify-between">
             {/* Rooms */}
-            <div className="flex-1">
+            <div className="w-full">
               <label className="block text-xs font-medium text-gray-500 mb-2">Rooms</label>
-              <div className="flex gap-2 flex-wrap">
+              <div className="grid grid-cols-4 gap-2">
                 {roomOptions.map((option) => (
                   <button
                     key={option}
@@ -390,7 +390,7 @@ export const SearchBar = () => {
             {/* Search Button */}
             <button
               onClick={handleSearch}
-              className="w-full sm:w-auto sm:ml-4 bg-[#D4A2FF] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base"
+              className="w-full bg-[#D4A2FF] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base"
             >
               Search
             </button>
