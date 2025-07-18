@@ -56,14 +56,17 @@ export const HeroSection = () => {
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900" style={{ height: 'calc(100vh + 20px)' }}>
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//vendome-living-smoked-dark-wood-timber-oak-wall-panelling-veneer-bambo-luxury-decorative-panels-ezgif.com-webp-to-jpg-converter.png"
-          alt="DigiHome Interior"
+        <video 
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//7647259-uhd_3840_2160_24fps.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50"></div>
       </div>
 
       {/* Content */}
