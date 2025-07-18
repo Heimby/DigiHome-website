@@ -866,7 +866,7 @@ export const AboutHeroSection = () => {
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video 
-          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//7647259-uhd_3840_2160_24fps.mp4"
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Home%20Keys.mp4"
           autoPlay
           loop
           muted
