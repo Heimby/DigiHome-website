@@ -1556,12 +1556,10 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
   };
 
   const removeBedroom = (index) => {
-    if (rooms.bedrooms.length > 1) {
-      setRooms(prev => ({
-        ...prev,
-        bedrooms: prev.bedrooms.filter((_, i) => i !== index)
-      }));
-    }
+    setRooms(prev => ({
+      ...prev,
+      bedrooms: prev.bedrooms.filter((_, i) => i !== index)
+    }));
   };
 
   const handleSubmit = (e) => {
