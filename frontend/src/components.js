@@ -206,9 +206,13 @@ export const PropertyCard = ({ property }) => {
         {/* Info Box Overlay */}
         <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 md:bottom-4 md:left-4 md:right-4 bg-white rounded-xl p-2 sm:p-3 md:p-4 shadow-lg">
           <div className="flex items-start gap-2 sm:gap-3">
-            {/* Logo Square */}
-            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#D4A2FF] rounded-lg flex-shrink-0 flex items-center justify-center">
-              <span className="text-white text-xs font-medium">DH</span>
+            {/* DigiHome Logo Square */}
+            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg flex-shrink-0 overflow-hidden">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//SquareDigiHomePinkBlack.svg" 
+                alt="DigiHome" 
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Content */}
