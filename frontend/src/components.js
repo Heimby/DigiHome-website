@@ -39,25 +39,41 @@ export const Navigation = () => {
   }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    // Prevent body scroll when menu is open (iOS fix)
     if (!mobileMenuOpen) {
+      // Store current scroll position
+      const currentScrollY = window.scrollY;
+      setScrollPosition(currentScrollY);
+      
+      // Lock body scroll and maintain position
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
+      document.body.style.top = `-${currentScrollY}px`;
       document.body.style.width = '100%';
     } else {
+      // Restore body scroll and position
       document.body.style.overflow = '';
       document.body.style.position = '';
+      document.body.style.top = '';
       document.body.style.width = '';
+      
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
     }
+    
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
-    // Restore body scroll
+    
+    // Restore body scroll and position
     document.body.style.overflow = '';
     document.body.style.position = '';
+    document.body.style.top = '';
     document.body.style.width = '';
+    
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
   };
 
   const scrollToSection = (sectionId) => {
