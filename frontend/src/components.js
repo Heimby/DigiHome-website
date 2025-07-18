@@ -94,8 +94,8 @@ export const HeroSection = () => {
 export const PropertyCard = ({ property }) => {
   return (
     <div className="flex-shrink-0 w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-      {/* Image Container with Overlay Info */}
-      <div className="relative h-96 overflow-hidden">
+      {/* Image Container with Overlay Info - Restored to original tall height */}
+      <div className="relative h-[520px] overflow-hidden">
         <img 
           src={property.image} 
           alt={property.title}
