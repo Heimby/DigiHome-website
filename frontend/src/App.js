@@ -9,6 +9,7 @@ import {
   PassiveIncomeSection,
   FlexibilitySection,
   AboutHeroSection,
+  AboutWhiteSection,
   Footer 
 } from "./components";
 
