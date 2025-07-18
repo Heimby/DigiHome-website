@@ -1523,10 +1523,10 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
       ...prev,
       livingRooms: [...prev.livingRooms, { 
         id: prev.livingRooms.length + 1, 
-        dinnerTable: 0, 
+        dinnerTable: { seats: 0 }, 
         sofa: 0, 
-        sofaBed: 0, 
-        bed: 0 
+        sofaBeds: [], 
+        beds: [] 
       }]
     }));
   };
@@ -1536,8 +1536,8 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
       ...prev,
       bedrooms: [...prev.bedrooms, { 
         id: prev.bedrooms.length + 1, 
-        bed: 0, 
-        sofaBed: 0 
+        beds: [], 
+        sofaBeds: [] 
       }]
     }));
   };
@@ -1546,7 +1546,7 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
     setRooms(prev => ({
       ...prev,
       livingRooms: prev.livingRooms.map((room, i) => 
-        i === index ? { ...room, [field]: Math.max(0, value) } : room
+        i === index ? { ...room, [field]: value } : room
       )
     }));
   };
@@ -1555,7 +1555,45 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
     setRooms(prev => ({
       ...prev,
       bedrooms: prev.bedrooms.map((room, i) => 
-        i === index ? { ...room, [field]: Math.max(0, value) } : room
+        i === index ? { ...room, [field]: value } : room
+      )
+    }));
+  };
+
+  const addBedToRoom = (roomType, roomIndex, bedType, size) => {
+    setRooms(prev => ({
+      ...prev,
+      [roomType]: prev[roomType].map((room, i) => 
+        i === roomIndex ? {
+          ...room,
+          [bedType]: [...room[bedType], { id: Date.now(), size, count: 1 }]
+        } : room
+      )
+    }));
+  };
+
+  const updateBedInRoom = (roomType, roomIndex, bedType, bedId, field, value) => {
+    setRooms(prev => ({
+      ...prev,
+      [roomType]: prev[roomType].map((room, i) => 
+        i === roomIndex ? {
+          ...room,
+          [bedType]: room[bedType].map(bed => 
+            bed.id === bedId ? { ...bed, [field]: value } : bed
+          )
+        } : room
+      )
+    }));
+  };
+
+  const removeBedFromRoom = (roomType, roomIndex, bedType, bedId) => {
+    setRooms(prev => ({
+      ...prev,
+      [roomType]: prev[roomType].map((room, i) => 
+        i === roomIndex ? {
+          ...room,
+          [bedType]: room[bedType].filter(bed => bed.id !== bedId)
+        } : room
       )
     }));
   };
