@@ -1466,11 +1466,23 @@ export const EarningsCalculatorSection = () => {
             onSubmit={handleAddressSubmit}
             isVisible={isVisible}
           />
-        ) : (
+        ) : currentStep === 2 ? (
           <PropertyDetailsStep
             address={propertyData.address}
             onSubmit={handlePropertyDetailsSubmit}
             onBack={handleBackToAddress}
+            isVisible={isVisible}
+          />
+        ) : currentStep === 3 ? (
+          <FacilitiesStep
+            onSubmit={handleFacilitiesSubmit}
+            onBack={handleBackToPropertyDetails}
+            isVisible={isVisible}
+          />
+        ) : (
+          <ContactStep
+            onSubmit={handleContactSubmit}
+            onBack={handleBackToFacilities}
             isVisible={isVisible}
           />
         )}
