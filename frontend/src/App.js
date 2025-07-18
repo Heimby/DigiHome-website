@@ -62,6 +62,7 @@ function App() {
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
           </Route>
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
