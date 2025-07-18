@@ -459,7 +459,7 @@ export const PropertyCardsSection = () => {
   // Create enough copies to ensure smooth infinite scroll
   const infiniteProperties = [...properties, ...properties, ...properties];
   
-  const cardWidth = 272; // Adjusted for smaller mobile cards (256px + 16px gap)
+  const cardWidth = 240; // Adjusted for smaller mobile cards (224px + 16px gap)
   const originalSetLength = properties.length;
 
   // Initialize carousel
@@ -506,7 +506,7 @@ export const PropertyCardsSection = () => {
       {/* Navigation Arrows - Mobile Optimized */}
       <button 
         onClick={() => scroll('left')}
-        className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/30 rounded-full shadow-lg"
+        className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/40 rounded-full shadow-lg"
         aria-label="Previous properties"
       >
         <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -516,7 +516,7 @@ export const PropertyCardsSection = () => {
 
       <button 
         onClick={() => scroll('right')}
-        className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/30 rounded-full shadow-lg"
+        className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/40 rounded-full shadow-lg"
         aria-label="Next properties"
       >
         <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,25 +525,18 @@ export const PropertyCardsSection = () => {
       </button>
 
       {/* Cards Container - Mobile Optimized */}
-      <div 
-        ref={scrollContainerRef}
-        className="flex overflow-x-auto scrollbar-hide gap-4 px-8 sm:px-10 md:px-16 py-4"
-        style={{ 
-          scrollbarWidth: 'none', 
-          msOverflowStyle: 'none',
-          WebkitOverflowScrolling: 'touch'
-        }}
-      >
-        {infiniteProperties.map((property, index) => (
-          <PropertyCard key={`${property.id}-${Math.floor(index / originalSetLength)}-${index % originalSetLength}`} property={property} />
-        ))}
-      </div>
-
-      {/* Add scroll indicator dots for mobile */}
-      <div className="flex justify-center mt-4 sm:hidden">
-        <div className="flex space-x-2">
-          {properties.map((_, index) => (
-            <div key={index} className="w-2 h-2 rounded-full bg-gray-300"></div>
+      <div className="w-full overflow-hidden">
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto scrollbar-hide gap-4 px-6 sm:px-8 md:px-10 lg:px-16 py-4"
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {infiniteProperties.map((property, index) => (
+            <PropertyCard key={`${property.id}-${Math.floor(index / originalSetLength)}-${index % originalSetLength}`} property={property} />
           ))}
         </div>
       </div>
