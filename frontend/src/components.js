@@ -2058,11 +2058,11 @@ const FacilitiesStep = ({ onSubmit, onBack, isVisible }) => {
   };
 
   const facilitiesOptions = [
-    { key: 'balconyTerrace', label: 'Balcony/Terrace', norwegian: 'Balkong/Terrasse' },
-    { key: 'dryer', label: 'Dryer', norwegian: 'Tørketrommel' },
-    { key: 'elevator', label: 'Elevator', norwegian: 'Heis' },
-    { key: 'freeParking', label: 'Free parking', norwegian: 'Gratis parkering' },
-    { key: 'fireplace', label: 'Fireplace', norwegian: 'Peis' }
+    { key: 'balconyTerrace', label: 'Balcony/Terrace' },
+    { key: 'dryer', label: 'Dryer' },
+    { key: 'elevator', label: 'Elevator' },
+    { key: 'freeParking', label: 'Free parking' },
+    { key: 'fireplace', label: 'Fireplace' }
   ];
 
   return (
