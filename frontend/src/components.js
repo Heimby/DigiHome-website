@@ -1466,25 +1466,42 @@ export const EarningsCalculatorSection = () => {
             onSubmit={handleAddressSubmit}
             isVisible={isVisible}
           />
-        ) : currentStep === 2 ? (
-          <PropertyDetailsStep
-            address={propertyData.address}
-            onSubmit={handlePropertyDetailsSubmit}
-            onBack={handleBackToAddress}
-            isVisible={isVisible}
-          />
-        ) : currentStep === 3 ? (
-          <FacilitiesStep
-            onSubmit={handleFacilitiesSubmit}
-            onBack={handleBackToPropertyDetails}
-            isVisible={isVisible}
-          />
         ) : (
-          <ContactStep
-            onSubmit={handleContactSubmit}
-            onBack={handleBackToFacilities}
-            isVisible={isVisible}
-          />
+          <>
+            {/* Progress Bar */}
+            <div className="mx-auto max-w-4xl mb-8">
+              <div className="flex items-center justify-center mb-4">
+                <span className="text-white/80 text-sm font-medium">Step {currentStep} of 4</span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-2">
+                <div 
+                  className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
+                  style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+            
+            {currentStep === 2 ? (
+              <PropertyDetailsStep
+                address={propertyData.address}
+                onSubmit={handlePropertyDetailsSubmit}
+                onBack={handleBackToAddress}
+                isVisible={isVisible}
+              />
+            ) : currentStep === 3 ? (
+              <FacilitiesStep
+                onSubmit={handleFacilitiesSubmit}
+                onBack={handleBackToPropertyDetails}
+                isVisible={isVisible}
+              />
+            ) : (
+              <ContactStep
+                onSubmit={handleContactSubmit}
+                onBack={handleBackToFacilities}
+                isVisible={isVisible}
+              />
+            )}
+          </>
         )}
       </div>
       
