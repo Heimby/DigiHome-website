@@ -2021,6 +2021,206 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
   );
 };
 
+// Facilities Step Component
+const FacilitiesStep = ({ onSubmit, onBack, isVisible }) => {
+  const [facilities, setFacilities] = useState({
+    balconyTerrace: false,
+    dryer: false,
+    elevator: false,
+    freeParking: false,
+    fireplace: false
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(facilities);
+  };
+
+  const updateFacility = (key, value) => {
+    setFacilities(prev => ({ ...prev, [key]: value }));
+  };
+
+  const facilitiesOptions = [
+    { key: 'balconyTerrace', label: 'Balcony/Terrace', norwegian: 'Balkong/Terrasse' },
+    { key: 'dryer', label: 'Dryer', norwegian: 'Tørketrommel' },
+    { key: 'elevator', label: 'Elevator', norwegian: 'Heis' },
+    { key: 'freeParking', label: 'Free parking', norwegian: 'Gratis parkering' },
+    { key: 'fireplace', label: 'Fireplace', norwegian: 'Peis' }
+  ];
+
+  return (
+    <div className="mx-auto max-w-4xl">
+      <div className="text-center mb-8">
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          Ekstra fasiliteter
+        </h2>
+        <p className={`text-xl text-white/90 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '200ms' }}>
+          Velg spesielle fasiliteter som din eiendom har. Vi forutsetter at du har standard møblering og elektriske apparater.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {facilitiesOptions.map((facility) => (
+              <div key={facility.key} className="flex items-center">
+                <label className="flex items-center gap-4 text-white/90 cursor-pointer w-full p-4 rounded-xl hover:bg-white/5 transition-all duration-200">
+                  <div className="relative">
+                    <input
+                      type="checkbox"
+                      checked={facilities[facility.key]}
+                      onChange={(e) => updateFacility(facility.key, e.target.checked)}
+                      className="sr-only"
+                    />
+                    <div className={`w-6 h-6 rounded-md border-2 transition-all duration-200 flex items-center justify-center ${
+                      facilities[facility.key] 
+                        ? 'bg-white border-white' 
+                        : 'border-white/40 hover:border-white/60'
+                    }`}>
+                      {facilities[facility.key] && (
+                        <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium text-lg">{facility.label}</span>
+                    <div className="text-white/70 text-sm">{facility.norwegian}</div>
+                  </div>
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-8 py-4 bg-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-white/30"
+          >
+            Back to Property Details
+          </button>
+          <button
+            type="submit"
+            className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+          >
+            Next: Contact Information
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+// Contact Step Component
+const ContactStep = ({ onSubmit, onBack, isVisible }) => {
+  const [contact, setContact] = useState({
+    fullName: '',
+    email: '',
+    phone: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(contact);
+  };
+
+  const updateContact = (key, value) => {
+    setContact(prev => ({ ...prev, [key]: value }));
+  };
+
+  return (
+    <div className="mx-auto max-w-4xl">
+      <div className="text-center mb-8">
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          One last thing!
+        </h2>
+        <p className={`text-xl text-white/90 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '200ms' }}>
+          Please leave your contact information so that we are able to send you your rental estimates.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <h3 className="text-2xl font-semibold text-white mb-6">Kontaktinformasjon</h3>
+          
+          <div className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">
+                Fullt navn
+              </label>
+              <input
+                type="text"
+                placeholder="Ola Nordmann"
+                value={contact.fullName}
+                onChange={(e) => updateContact('fullName', e.target.value)}
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">
+                E-post
+              </label>
+              <input
+                type="email"
+                placeholder="ola@example.com"
+                value={contact.email}
+                onChange={(e) => updateContact('email', e.target.value)}
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">
+                Telefon
+              </label>
+              <input
+                type="tel"
+                placeholder="+47 123 45 678"
+                value={contact.phone}
+                onChange={(e) => updateContact('phone', e.target.value)}
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-8 py-4 bg-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-white/30"
+          >
+            Back to Facilities
+          </button>
+          <button
+            type="submit"
+            className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+          >
+            Calculate My Earnings
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
