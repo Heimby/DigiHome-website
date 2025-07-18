@@ -50,7 +50,7 @@ export const Navigation = () => {
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Membership</a>
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Partner Relations</a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">About</a>
+            <Link to="/about" className="text-white hover:text-gray-300 transition-colors font-medium">About</Link>
           </div>
           
           <div className="hidden md:block">
