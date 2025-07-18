@@ -20,7 +20,13 @@ export const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-white text-2xl font-bold italic">DigiHome</div>
+          <div className="flex items-center">
+            <img 
+              src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
+              alt="DigiHome" 
+              className="h-8 w-auto"
+            />
+          </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Medlemmer</a>
