@@ -383,7 +383,7 @@ export const PropertyCardsSection = () => {
     {
       id: 1,
       title: "Modern Loft Downtown",
-      location: "San Francisco • $120 • Downtown",
+      location: "2BR • NOK 950 • Bergen",
       price: "$120",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
@@ -391,7 +391,7 @@ export const PropertyCardsSection = () => {
     {
       id: 2,
       title: "Cozy Studio Apartment",
-      location: "New York • $95 • Manhattan",
+      location: "1BR • NOK 750 • Oslo",
       price: "$95",
       rating: "4.8",
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80"
@@ -399,7 +399,7 @@ export const PropertyCardsSection = () => {
     {
       id: 3,
       title: "Luxury Penthouse",
-      location: "Los Angeles • $200 • Beverly Hills",
+      location: "3BR • NOK 1200 • Stavanger",
       price: "$200",
       rating: "4.7",
       image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
@@ -407,7 +407,7 @@ export const PropertyCardsSection = () => {
     {
       id: 4,
       title: "Charming Townhouse",
-      location: "Chicago • $85 • Lincoln Park",
+      location: "2BR • NOK 850 • Trondheim",
       price: "$85",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
@@ -415,7 +415,7 @@ export const PropertyCardsSection = () => {
     {
       id: 5,
       title: "Waterfront Condo",
-      location: "Miami • $110 • South Beach",
+      location: "2BR • NOK 1100 • Tromsø",
       price: "$110",
       rating: "4.6",
       image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
@@ -423,7 +423,7 @@ export const PropertyCardsSection = () => {
     {
       id: 6,
       title: "Mountain View Cabin",
-      location: "Denver • $130 • Capitol Hill",
+      location: "1BR • NOK 650 • Lillehammer",
       price: "$130",
       rating: "4.8",
       image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
