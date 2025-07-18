@@ -943,7 +943,7 @@ export const AboutWhiteSection = () => {
     {
       year: "2025",
       title: "AI-powered property technology",
-      body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform. Partnered with professional hotel cleaning companies and management companies to research how you can autonomously run cities as efficient as hotels.",
+      body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform. Partnered with professional hotel cleaning- and management companies to research how you can autonomously run cities as efficient as hotels.",
       logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg",
       alt: "DigiHome logo",
       company: "DigiHome"
