@@ -50,6 +50,7 @@ const About = () => {
     <div className="relative">
       <Navigation />
       <AboutHeroSection />
+      <AboutWhiteSection />
       <Footer />
     </div>
   );
