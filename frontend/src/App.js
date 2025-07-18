@@ -5,8 +5,6 @@ import {
   Navigation, 
   HeroSection, 
   HomeHumanoidSection, 
-  CapabilitiesSection, 
-  TechnologySection, 
   Footer 
 } from "./components";
 
@@ -25,8 +23,6 @@ const Home = () => {
       <Navigation />
       <HeroSection />
       <HomeHumanoidSection />
-      <CapabilitiesSection />
-      <TechnologySection />
       <Footer />
     </div>
   );
