@@ -186,31 +186,47 @@ export const PropertyCardsSection = () => {
     }
   ];
 
-  // Center the carousel on initial load
+  // Create an infinite array by tripling the properties
+  const infiniteProperties = [...properties, ...properties, ...properties];
+
+  const cardWidth = 344; // 320px width + 24px gap
+  const originalSetLength = properties.length;
+
+  // Initialize the carousel position to the middle set
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const cardWidth = 320 + 24; // card width + gap
-      const containerWidth = container.clientWidth;
-      const totalWidth = properties.length * cardWidth;
-      const initialScroll = (totalWidth - containerWidth) / 2;
-      
+      const initialScroll = originalSetLength * cardWidth;
       container.scrollLeft = initialScroll;
     }
   }, []);
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 344; // Width of card + gap (320px + 24px)
-      const currentScroll = scrollContainerRef.current.scrollLeft;
+      const container = scrollContainerRef.current;
+      const currentScroll = container.scrollLeft;
       const newScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
+        ? currentScroll - cardWidth 
+        : currentScroll + cardWidth;
       
-      scrollContainerRef.current.scrollTo({
+      container.scrollTo({
         left: newScroll,
         behavior: 'smooth'
       });
+
+      // Handle infinite loop after smooth scroll completes
+      setTimeout(() => {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        const singleSetWidth = originalSetLength * cardWidth;
+        
+        if (container.scrollLeft >= maxScroll - 10) {
+          // Near the end, jump to the beginning of the second set
+          container.scrollLeft = singleSetWidth;
+        } else if (container.scrollLeft <= 10) {
+          // Near the beginning, jump to the end of the second set
+          container.scrollLeft = singleSetWidth * 2;
+        }
+      }, 500); // Wait for smooth scroll to complete
     }
   };
 
@@ -241,8 +257,8 @@ export const PropertyCardsSection = () => {
         ref={scrollContainerRef}
         className="flex overflow-x-auto scrollbar-hide gap-6 px-16 py-4"
       >
-        {properties.map((property) => (
-          <PropertyCard key={property.id} property={property} />
+        {infiniteProperties.map((property, index) => (
+          <PropertyCard key={`${property.id}-${index}`} property={property} />
         ))}
       </div>
     </div>
