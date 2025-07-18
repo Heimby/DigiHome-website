@@ -111,7 +111,11 @@ export const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black backdrop-blur-md" style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}>
+        <div 
+          className="md:hidden fixed inset-0 z-50 bg-black backdrop-blur-md" 
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+          onClick={closeMobileMenu}
+        >
           <div 
             className="fixed inset-y-0 right-0 max-w-xs w-full shadow-2xl border-l border-gray-700 p-6" 
             style={{ 
@@ -121,6 +125,7 @@ export const Navigation = () => {
               minHeight: '100vh',
               minHeight: '100dvh'
             }}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-8">
               <Link to="/" onClick={closeMobileMenu}>
