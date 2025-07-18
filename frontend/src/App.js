@@ -8,6 +8,7 @@ import {
   ExperienceSection,
   PassiveIncomeSection,
   FlexibilitySection,
+  AboutHeroSection,
   Footer 
 } from "./components";
 
@@ -29,6 +30,25 @@ const Home = () => {
       <ExperienceSection />
       <PassiveIncomeSection />
       <FlexibilitySection />
+      <Footer />
+    </div>
+  );
+};
+
+const About = () => {
+  useEffect(() => {
+    // Smooth scrolling for the entire page
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  return (
+    <div className="relative">
+      <Navigation />
+      <AboutHeroSection />
       <Footer />
     </div>
   );
