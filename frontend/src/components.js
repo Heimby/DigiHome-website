@@ -200,9 +200,9 @@ export const HeroSection = () => {
 // Property Card Component with Better Mobile Optimization
 export const PropertyCard = ({ property }) => {
   return (
-    <div className="flex-shrink-0 w-64 sm:w-72 md:w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
       {/* Image Container with Overlay Info */}
-      <div className="relative h-[300px] sm:h-[400px] md:h-[520px] overflow-hidden">
+      <div className="relative h-72 sm:h-80 md:h-96 lg:h-[520px] overflow-hidden">
         <img 
           src={property.image} 
           alt={property.title}
@@ -211,7 +211,7 @@ export const PropertyCard = ({ property }) => {
         />
         
         {/* Info Box Overlay */}
-        <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 bg-white rounded-xl p-3 sm:p-4 shadow-lg">
+        <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 md:bottom-4 md:left-4 md:right-4 bg-white rounded-xl p-2 sm:p-3 md:p-4 shadow-lg">
           <div className="flex items-start gap-2 sm:gap-3">
             {/* Logo Square */}
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#D4A2FF] rounded-lg flex-shrink-0 flex items-center justify-center">
@@ -230,11 +230,11 @@ export const PropertyCard = ({ property }) => {
                 </div>
               </div>
               
-              <p className="text-gray-600 text-xs sm:text-sm mb-2 truncate">{property.location}</p>
+              <p className="text-gray-600 text-xs sm:text-sm mb-1 sm:mb-2 truncate">{property.location}</p>
               
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-sm sm:text-lg md:text-xl text-gray-900">{property.price}</span>
+                  <span className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-900">{property.price}</span>
                   <span className="text-gray-500 text-xs sm:text-sm">/ night</span>
                 </div>
                 <button className="text-[#D4A2FF] hover:text-[#c490ff] transition-colors text-xs sm:text-sm font-medium">
