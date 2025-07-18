@@ -186,18 +186,39 @@ export const PropertyCardsSection = () => {
     }
   ];
 
-  // Create an infinite array by tripling the properties
-  const infiniteProperties = [...properties, ...properties, ...properties];
-
+  // Create enough copies to ensure smooth infinite scroll
+  const infiniteProperties = [...properties, ...properties, ...properties, ...properties, ...properties];
+  
   const cardWidth = 344; // 320px width + 24px gap
   const originalSetLength = properties.length;
+  const totalCards = infiniteProperties.length;
 
-  // Initialize the carousel position to the middle set
+  // Initialize carousel and set up infinite scroll monitoring
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
+      // Start at the second set to allow scrolling in both directions
       const initialScroll = originalSetLength * cardWidth;
       container.scrollLeft = initialScroll;
+
+      // Monitor scroll position for infinite loop
+      const handleScroll = () => {
+        const scrollLeft = container.scrollLeft;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        const singleSetWidth = originalSetLength * cardWidth;
+        
+        // If we're near the end, jump to the beginning + some buffer
+        if (scrollLeft >= maxScroll - cardWidth) {
+          container.scrollLeft = singleSetWidth;
+        }
+        // If we're near the beginning, jump to the end - some buffer
+        else if (scrollLeft <= cardWidth) {
+          container.scrollLeft = singleSetWidth * 3;
+        }
+      };
+
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
@@ -213,20 +234,6 @@ export const PropertyCardsSection = () => {
         left: newScroll,
         behavior: 'smooth'
       });
-
-      // Handle infinite loop after smooth scroll completes
-      setTimeout(() => {
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        const singleSetWidth = originalSetLength * cardWidth;
-        
-        if (container.scrollLeft >= maxScroll - 10) {
-          // Near the end, jump to the beginning of the second set
-          container.scrollLeft = singleSetWidth;
-        } else if (container.scrollLeft <= 10) {
-          // Near the beginning, jump to the end of the second set
-          container.scrollLeft = singleSetWidth * 2;
-        }
-      }, 500); // Wait for smooth scroll to complete
     }
   };
 
@@ -258,7 +265,7 @@ export const PropertyCardsSection = () => {
         className="flex overflow-x-auto scrollbar-hide gap-6 px-16 py-4"
       >
         {infiniteProperties.map((property, index) => (
-          <PropertyCard key={`${property.id}-${index}`} property={property} />
+          <PropertyCard key={`${property.id}-${Math.floor(index / originalSetLength)}-${index % originalSetLength}`} property={property} />
         ))}
       </div>
     </div>
