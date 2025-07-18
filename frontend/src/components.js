@@ -572,22 +572,22 @@ export const HomeHumanoidSection = () => {
   }, []);
 
   return (
-    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-12 sm:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-8 sm:py-12 md:py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Text */}
-        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-900 mb-3 sm:mb-4 md:mb-6 leading-tight px-2">
             Book your flexible home
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             We turn home rentals into experiences and collaborate with hundreds of home owners globally.
           </p>
         </div>
         
         {/* Search Bar */}
-        <div className={`mb-12 sm:mb-16 transition-all duration-1000 delay-200 ${
+        <div className={`mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <SearchBar />
@@ -601,10 +601,10 @@ export const HomeHumanoidSection = () => {
         </div>
 
         {/* View All Properties Button */}
-        <div className={`flex justify-center sm:justify-end mt-6 sm:mt-8 transition-all duration-1000 delay-500 px-4 ${
+        <div className={`flex justify-center sm:justify-end mt-4 sm:mt-6 md:mt-8 transition-all duration-1000 delay-500 px-4 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium text-sm sm:text-base">
+          <button className="bg-white text-gray-700 px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium text-sm sm:text-base">
             View all properties
           </button>
         </div>
