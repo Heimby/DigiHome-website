@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { 
   Navigation, 
   HeroSection, 
-  HomeHumanoidSection, 
+  HomeHumanoidSection,
+  SearchBar,
   Footer 
 } from "./components";
 
