@@ -47,14 +47,8 @@ export const Navigation = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <button 
-              onClick={() => scrollToSection('home-humanoid')}
-              className="text-white hover:text-gray-300 transition-colors font-medium"
-            >
-              Find Homes
-            </button>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Become Owner</a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Business Travel</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Membership</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Partner Relations</a>
             <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">About</a>
           </div>
           
@@ -99,17 +93,11 @@ export const Navigation = () => {
             </div>
             
             <div className="space-y-6">
-              <button 
-                onClick={() => scrollToSection('home-humanoid')}
-                className="block w-full text-left text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
-              >
-                Find Homes
-              </button>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
-                Become Owner
+                Membership
               </a>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
-                Business Travel
+                Partner Relations
               </a>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 About
