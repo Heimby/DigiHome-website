@@ -93,38 +93,48 @@ export const HeroSection = () => {
 // Property Card Component
 export const PropertyCard = ({ property }) => {
   return (
-    <div className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
-      {/* Image Container - 2/3 aspect ratio (tall) */}
+    <div className="flex-shrink-0 w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+      {/* Image Container with Overlay Info */}
       <div className="relative h-96 overflow-hidden">
         <img 
           src={property.image} 
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
-      </div>
-      
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xl font-medium text-gray-900">{property.title}</h3>
-          <div className="flex items-center">
-            <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <span className="text-sm text-gray-600">{property.rating}</span>
-          </div>
-        </div>
         
-        <p className="text-gray-600 mb-4">{property.location}</p>
-        
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="text-2xl text-gray-900">{property.price}</span>
-            <span className="text-gray-500 text-sm">/ night</span>
+        {/* Info Box Overlay */}
+        <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl p-4 shadow-lg">
+          <div className="flex items-start gap-3">
+            {/* Logo Square */}
+            <div className="w-12 h-12 bg-purple-300 rounded-lg flex-shrink-0 flex items-center justify-center">
+              <span className="text-white text-xs font-medium">Logo</span>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="text-lg font-medium text-gray-900 truncate">{property.title}</h3>
+                <div className="flex items-center ml-2">
+                  <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <span className="text-sm text-gray-600">{property.rating}</span>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 text-sm mb-2 truncate">{property.location}</p>
+              
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-xl text-gray-900">{property.price}</span>
+                  <span className="text-gray-500 text-sm">/ night</span>
+                </div>
+                <button className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium">
+                  Book now
+                </button>
+              </div>
+            </div>
           </div>
-          <button className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium">
-            Book now
-          </button>
         </div>
       </div>
     </div>
