@@ -2013,7 +2013,7 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
             type="submit"
             className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
           >
-            Calculate My Earnings
+            Next: Extra Facilities
           </button>
         </div>
       </form>
