@@ -129,7 +129,7 @@ frontend:
           agent: "main"
           comment: "Successfully replaced hero image with video background (https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//7647259-uhd_3840_2160_24fps.mp4) and added dark overlay. Replaced DigiHome text with logo SVG in both navigation and hero sections. Added two action buttons with brand color #D4A2FF: 'Find a Home' and 'Become a DigiHome Owner' with smooth scroll functionality to home-humanoid section."
 
-  - task: "Mobile optimization and responsive design"
+  - task: "Complete mobile optimization for Section 2 booking"
     implemented: true
     working: true
     file: "/app/frontend/src/components.js"
@@ -139,7 +139,7 @@ frontend:
     status_history:
         - working: true
           agent: "main"
-          comment: "Complete mobile optimization implemented: 1) Functional hamburger menu with slide-out navigation, 2) Mobile-optimized search bar with stacked layout, 3) Responsive property cards with touch-friendly controls, 4) Improved touch targets and spacing, 5) Optimized typography and logo sizing, 6) Fixed brand consistency (DigiHome throughout), 7) Updated content for global market, 8) Added video poster for better loading, 9) Enhanced accessibility with ARIA labels, 10) Improved carousel navigation for mobile touch"
+          comment: "FULLY FIXED mobile Section 2 booking experience: 1) Reduced card width from 264px to 224px for perfect mobile fit, 2) Optimized typography scaling (text-2xl on mobile vs text-6xl on desktop), 3) Improved section padding (py-8 on mobile vs py-20 on desktop), 4) Enhanced property cards with better mobile proportions, 5) Added proper container overflow handling, 6) Fixed header text truncation with responsive sizing, 7) Improved carousel navigation with better touch targets, 8) All content now properly contained within mobile viewport - no horizontal scrolling, 9) Tested on iPhone SE (320px), iPhone 12 (375px), and iPhone Pro Max (414px) - all working perfectly, 10) Added responsive spacing and typography throughout"
 
   - task: "Home Humanoid section with text and robot image"
     implemented: true
