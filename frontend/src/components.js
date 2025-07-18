@@ -1444,38 +1444,6 @@ export const EarningsCalculatorSection = () => {
               </button>
             </form>
           </div>
-          
-          {/* Additional info */}
-          <div className={`mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`} style={{ transitionDelay: '600ms' }}>
-            {[
-              { 
-                icon: '📍', 
-                title: 'Location Analysis', 
-                description: 'We analyze your property location and local market trends' 
-              },
-              { 
-                icon: '💰', 
-                title: 'Revenue Potential', 
-                description: 'Get estimated monthly and yearly earnings based on real data' 
-              },
-              { 
-                icon: '📊', 
-                title: 'Market Insights', 
-                description: 'Understand demand patterns and optimal pricing strategies' 
-              }
-            ].map((item, index) => (
-              <div 
-                key={index} 
-                className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-white/80 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
       
