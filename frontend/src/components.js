@@ -90,6 +90,125 @@ export const HeroSection = () => {
   );
 };
 
+// Property Card Component
+export const PropertyCard = ({ property }) => {
+  return (
+    <div className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      {/* Image Container - 2/3 aspect ratio (tall) */}
+      <div className="relative h-96 overflow-hidden">
+        <img 
+          src={property.image} 
+          alt={property.title}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        {/* Availability Badge */}
+        <div className="absolute top-4 right-4">
+          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+            property.available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+          }`}>
+            {property.available ? 'Available' : 'Booked'}
+          </span>
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xl font-semibold text-gray-900">{property.title}</h3>
+          <div className="flex items-center">
+            <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="text-sm text-gray-600">{property.rating}</span>
+          </div>
+        </div>
+        
+        <p className="text-gray-600 mb-4">{property.location}</p>
+        
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-2xl font-bold text-gray-900">{property.price}</span>
+            <span className="text-gray-500 text-sm">/ night</span>
+          </div>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Property Cards Section Component
+export const PropertyCardsSection = () => {
+  const properties = [
+    {
+      id: 1,
+      title: "Skostredet",
+      location: "Bergen • 1200 kr • Sentrum",
+      price: "1,200 kr",
+      rating: "4.9",
+      available: true,
+      image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+    },
+    {
+      id: 2,
+      title: "Bryggen Loft",
+      location: "Bergen • 1800 kr • Bryggen",
+      price: "1,800 kr",
+      rating: "4.8",
+      available: true,
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80"
+    },
+    {
+      id: 3,
+      title: "Oslo Central",
+      location: "Oslo • 2200 kr • Sentrum",
+      price: "2,200 kr",
+      rating: "4.7",
+      available: false,
+      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+    },
+    {
+      id: 4,
+      title: "Stavanger Haven",
+      location: "Stavanger • 1500 kr • Gamle Stavanger",
+      price: "1,500 kr",
+      rating: "4.9",
+      available: true,
+      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+    },
+    {
+      id: 5,
+      title: "Trondheim Cozy",
+      location: "Trondheim • 1300 kr • Bakklandet",
+      price: "1,300 kr",
+      rating: "4.6",
+      available: true,
+      image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+    },
+    {
+      id: 6,
+      title: "Ålesund View",
+      location: "Ålesund • 1600 kr • Brosundet",
+      price: "1,600 kr",
+      rating: "4.8",
+      available: true,
+      image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+    }
+  ];
+
+  return (
+    <div className="w-full">
+      <div className="flex overflow-x-auto scrollbar-hide gap-6 px-6 py-4">
+        {properties.map((property) => (
+          <PropertyCard key={property.id} property={property} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // Home Humanoid Section Component - Clean Slate
 export const HomeHumanoidSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -111,9 +230,10 @@ export const HomeHumanoidSection = () => {
   }, []);
 
   return (
-    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center">
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className={`text-center mb-12 transition-all duration-1000 ${
+    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header Text */}
+        <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
@@ -124,13 +244,11 @@ export const HomeHumanoidSection = () => {
           </p>
         </div>
         
-        {/* Ready for new content */}
-        <div className={`text-center transition-all duration-1000 delay-300 ${
+        {/* Property Cards Section */}
+        <div className={`transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="max-w-4xl mx-auto">
-            {/* This space is ready for your new content */}
-          </div>
+          <PropertyCardsSection />
         </div>
       </div>
     </section>
