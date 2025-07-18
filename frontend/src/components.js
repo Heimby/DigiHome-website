@@ -1498,11 +1498,25 @@ const AddressStep = ({ address, setAddress, onSubmit, isVisible }) => (
 // Property Details Step Component
 const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
   const [rooms, setRooms] = useState({
-    livingRooms: [{ id: 1, dinnerTable: 0, sofa: 0, sofaBed: 0, bed: 0 }],
+    livingRooms: [{ 
+      id: 1, 
+      dinnerTable: { seats: 0 }, 
+      sofa: 0, 
+      sofaBeds: [], 
+      beds: [] 
+    }],
     bedrooms: [],
     bathrooms: 1,
     toilets: 0
   });
+
+  const bedSizes = [
+    { value: 'single', label: 'Single' },
+    { value: 'double', label: 'Double' },
+    { value: 'queen', label: 'Queen' },
+    { value: 'king', label: 'King' },
+    { value: 'sofa-bed', label: 'Sofa Bed Size' }
+  ];
 
   const addLivingRoom = () => {
     setRooms(prev => ({
