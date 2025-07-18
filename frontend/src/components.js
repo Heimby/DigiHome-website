@@ -851,8 +851,51 @@ export const FlexibilitySection = () => {
   );
 };
 
-// Updated Footer with DigiHome Branding
-export const Footer = () => {
+// About Page Hero Section
+export const AboutHeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 min-h-screen">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//7647259-uhd_3840_2160_24fps.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-80"
+          poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjwvc3ZnPgo="
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 sm:px-6 py-20">
+        <div className={`transition-all duration-1000 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-thin text-white tracking-tight">
+            About
+          </h1>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
   return (
     <footer className="bg-black text-white py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
