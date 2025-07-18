@@ -606,7 +606,7 @@ export const HomeHumanoidSection = () => {
   );
 };
 
-// Experience Transformation Section
+// Experience Transformation Section - Tech Minimalism
 export const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -627,46 +627,58 @@ export const ExperienceSection = () => {
   }, []);
 
   return (
-    <section id="experience-section" className="py-16 sm:py-20 lg:py-24 bg-gray-900 text-white">
+    <section id="experience-section" className="py-20 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-16 lg:mb-20">
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
               Beyond ordinary rentals
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We transform regular home rentals into curated experiences. Every property is professionally managed, fully equipped, and designed for the modern traveler, student, or long-term resident.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+              Property management reimagined through technology and human-centered design.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {[
             {
               title: "Curated Experiences",
-              description: "Every home is hand-selected and professionally designed to provide more than just a place to stay - it's a gateway to local culture and comfort.",
-              icon: "✨"
+              description: "Data-driven property selection combined with human expertise to create spaces that adapt to your needs.",
+              shape: "rectangle"
             },
             {
-              title: "Full-Service Management",
-              description: "From 24/7 support to professional cleaning and maintenance, we handle everything so you can focus on your journey.",
-              icon: "🛡️"
+              title: "Intelligent Management",
+              description: "Automated systems monitor and optimize every aspect of your stay, from check-in to maintenance.",
+              shape: "triangle"
             },
             {
               title: "Global Standards",
-              description: "Consistent quality and service across all our properties, whether you're staying for a month or a year.",
-              icon: "🌍"
+              description: "Consistent quality protocols ensure the same exceptional experience across all locations.",
+              shape: "circle"
             }
           ].map((item, index) => (
             <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-4 text-white">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
+              <div className="bg-white rounded-none p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className="mb-8">
+                  {item.shape === 'rectangle' && (
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-sm"></div>
+                  )}
+                  {item.shape === 'triangle' && (
+                    <div className="w-16 h-16 relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] transform rotate-45 rounded-sm"></div>
+                    </div>
+                  )}
+                  {item.shape === 'circle' && (
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-full"></div>
+                  )}
+                </div>
+                <h3 className="text-2xl font-thin mb-4 text-gray-900">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed font-light">{item.description}</p>
               </div>
             </div>
           ))}
@@ -676,7 +688,7 @@ export const ExperienceSection = () => {
   );
 };
 
-// Passive Income Section
+// Passive Income Section - Tech Minimalism
 export const PassiveIncomeSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -697,38 +709,38 @@ export const PassiveIncomeSection = () => {
   }, []);
 
   return (
-    <section id="passive-income-section" className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section id="passive-income-section" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-gray-900">
-              True passive income for property owners
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
+              Algorithmic income optimization
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
-              We don't just list your property - we transform it into a premium rental experience while you earn guaranteed returns.
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed font-light">
+              Machine learning algorithms continuously optimize pricing, occupancy, and revenue streams to maximize your property's potential.
             </p>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {[
                 {
-                  title: "Guaranteed Monthly Income",
-                  description: "Fixed monthly payments regardless of occupancy, with transparent revenue sharing."
+                  title: "Guaranteed Revenue",
+                  description: "AI-powered demand forecasting ensures consistent monthly income regardless of market fluctuations."
                 },
                 {
-                  title: "Full Property Management",
-                  description: "We handle everything from guest relations to maintenance, cleaning, and property optimization."
+                  title: "Automated Operations",
+                  description: "Smart systems handle guest communications, maintenance scheduling, and quality control."
                 },
                 {
-                  title: "Premium Positioning",
-                  description: "Your property joins our curated network of high-quality homes, commanding premium rates."
+                  title: "Dynamic Pricing",
+                  description: "Real-time market analysis adjusts rates to maximize revenue while maintaining high occupancy."
                 }
               ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-3 flex-shrink-0"></div>
+                <div key={index} className="flex items-start space-x-6">
+                  <div className="w-4 h-4 bg-[#D4A2FF] rounded-none flex-shrink-0 mt-1"></div>
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <h3 className="text-xl font-thin text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 font-light">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -737,24 +749,25 @@ export const PassiveIncomeSection = () => {
           <div className={`transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-gray-50 rounded-2xl p-8 sm:p-10">
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl mb-4">💰</div>
-                <h3 className="text-2xl sm:text-3xl font-light mb-6 text-gray-900">
-                  Average Monthly Returns
-                </h3>
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-light text-[#D4A2FF] mb-2">25-40%</div>
-                    <div className="text-sm text-gray-600">Higher than traditional rentals</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-light text-[#D4A2FF] mb-2">95%+</div>
-                    <div className="text-sm text-gray-600">Occupancy rate</div>
-                  </div>
+            <div className="bg-gray-900 rounded-none p-12 lg:p-16 text-white">
+              <div className="grid grid-cols-2 gap-8 mb-12">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-[#D4A2FF] rounded-none mx-auto mb-4"></div>
+                  <div className="text-3xl font-thin text-[#D4A2FF] mb-2">25-40%</div>
+                  <div className="text-sm text-gray-400 font-light">Higher returns</div>
                 </div>
-                <button className="bg-[#D4A2FF] text-black px-6 py-3 rounded-full font-medium hover:bg-[#c490ff] transition-colors">
-                  Calculate Your Returns
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-none mx-auto mb-4"></div>
+                  <div className="text-3xl font-thin text-[#D4A2FF] mb-2">95%+</div>
+                  <div className="text-sm text-gray-400 font-light">Occupancy rate</div>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-thin mb-6 text-white">
+                  Revenue Analytics
+                </h3>
+                <button className="bg-[#D4A2FF] text-black px-8 py-4 rounded-none font-light hover:bg-[#c490ff] transition-colors">
+                  View Performance Metrics
                 </button>
               </div>
             </div>
@@ -765,7 +778,7 @@ export const PassiveIncomeSection = () => {
   );
 };
 
-// Flexibility Section
+// Flexibility Section - Tech Minimalism
 export const FlexibilitySection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -786,58 +799,59 @@ export const FlexibilitySection = () => {
   }, []);
 
   return (
-    <section id="flexibility-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section id="flexibility-section" className="py-20 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-16 lg:mb-20">
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-gray-900">
-              Flexible living for every lifestyle
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
+              Adaptive living systems
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Whether you're a digital nomad, student, or relocating professional, we provide the flexibility to live on your terms.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+              Technology-enabled spaces that automatically configure to your lifestyle and work requirements.
             </p>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {[
             {
-              title: "Digital Nomads",
-              description: "Work from anywhere with our global network of professionally equipped homes with high-speed internet and dedicated workspaces.",
-              icon: "💻",
-              features: ["High-speed WiFi", "Dedicated workspace", "Monthly terms"]
+              title: "Remote Work",
+              description: "Spaces equipped with enterprise-grade connectivity, noise cancellation, and ergonomic work environments.",
+              metrics: ["Gigabit Internet", "Dedicated Workspace", "Cloud Integration"]
             },
             {
-              title: "Students",
-              description: "Focus on your studies while we handle everything else. Student-friendly locations near universities with special rates.",
-              icon: "🎓",
-              features: ["Near universities", "Student discounts", "Flexible terms"]
+              title: "Academic Housing",
+              description: "Study-optimized environments near educational institutions with flexible lease terms and student-focused amenities.",
+              metrics: ["University Proximity", "Study Spaces", "Flexible Terms"]
             },
             {
-              title: "Corporate Travelers",
-              description: "Extended stays for business travelers with corporate billing and comprehensive expense reporting.",
-              icon: "🏢",
-              features: ["Corporate billing", "Expense reporting", "Business amenities"]
+              title: "Corporate Mobility",
+              description: "Seamless accommodation for business travel with integrated expense management and corporate billing systems.",
+              metrics: ["Expense Integration", "Corporate Billing", "Business Centers"]
             }
           ].map((item, index) => (
             <div key={index} className={`transition-all duration-1000 delay-${(index + 1) * 200} ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
-                <div className="text-center">
-                  <div className="text-4xl sm:text-5xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl sm:text-2xl font-medium mb-4 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{item.description}</p>
-                  <div className="space-y-2">
-                    {item.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                        <div className="w-1 h-1 bg-[#D4A2FF] rounded-full"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+              <div className="bg-white rounded-none p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 h-full">
+                <div className="mb-8">
+                  <div className={`w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] ${
+                    index === 0 ? 'rounded-none' : 
+                    index === 1 ? 'rounded-full' : 
+                    'transform rotate-45 rounded-sm'
+                  }`}></div>
+                </div>
+                <h3 className="text-2xl font-thin mb-4 text-gray-900">{item.title}</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed font-light">{item.description}</p>
+                <div className="space-y-3">
+                  {item.metrics.map((metric, metricIndex) => (
+                    <div key={metricIndex} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-[#D4A2FF] rounded-none"></div>
+                      <span className="text-sm text-gray-500 font-light">{metric}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -848,7 +862,7 @@ export const FlexibilitySection = () => {
   );
 };
 
-// Transparency Section
+// Transparency Section - Tech Minimalism
 export const TransparencySection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -869,38 +883,41 @@ export const TransparencySection = () => {
   }, []);
 
   return (
-    <section id="transparency-section" className="py-16 sm:py-20 lg:py-24 bg-gray-900 text-white">
+    <section id="transparency-section" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-16 lg:mb-20">
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white">
-              Complete transparency, no hidden fees
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
+              Transparent operations
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We believe in honest, straightforward relationships. Every fee, every service, and every expectation is clearly communicated upfront.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+              Real-time dashboards and open-source pricing algorithms ensure complete visibility into every transaction.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
-            <div className="bg-gray-800 rounded-2xl p-6 sm:p-8 h-full">
-              <h3 className="text-2xl sm:text-3xl font-light mb-6 text-white">For Travelers</h3>
-              <div className="space-y-4">
+            <div className="bg-gray-900 rounded-none p-8 lg:p-12 text-white h-full">
+              <div className="mb-8">
+                <div className="w-16 h-16 bg-[#D4A2FF] rounded-none mb-6"></div>
+                <h3 className="text-2xl font-thin mb-6 text-white">For Travelers</h3>
+              </div>
+              <div className="space-y-6">
                 {[
-                  "No hidden booking fees or surprise charges",
-                  "Clear breakdown of all costs before booking",
-                  "Flexible cancellation policies",
-                  "Direct communication with property managers",
-                  "Real-time support and issue resolution"
+                  "Zero hidden fees with algorithmic pricing",
+                  "Real-time cost breakdown before booking",
+                  "Automated refund processing",
+                  "Direct API access to support systems",
+                  "Transparent performance metrics"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">{item}</span>
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-4 h-4 bg-[#D4A2FF] rounded-none flex-shrink-0 mt-1"></div>
+                    <span className="text-gray-300 font-light">{item}</span>
                   </div>
                 ))}
               </div>
@@ -910,19 +927,22 @@ export const TransparencySection = () => {
           <div className={`transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-gray-800 rounded-2xl p-6 sm:p-8 h-full">
-              <h3 className="text-2xl sm:text-3xl font-light mb-6 text-white">For Property Owners</h3>
-              <div className="space-y-4">
+            <div className="bg-gray-900 rounded-none p-8 lg:p-12 text-white h-full">
+              <div className="mb-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#D4A2FF] to-[#B88EFF] rounded-none mb-6"></div>
+                <h3 className="text-2xl font-thin mb-6 text-white">For Property Owners</h3>
+              </div>
+              <div className="space-y-6">
                 {[
-                  "Transparent revenue sharing with detailed reporting",
-                  "No upfront costs or hidden management fees",
-                  "Monthly performance and financial reports",
-                  "Direct communication about your property",
-                  "Complete control over property standards"
+                  "Open-source revenue calculation methodology",
+                  "Real-time financial dashboard access",
+                  "Automated performance reporting",
+                  "Direct communication protocols",
+                  "Transparent operational metrics"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#D4A2FF] rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">{item}</span>
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-4 h-4 bg-[#D4A2FF] rounded-none flex-shrink-0 mt-1"></div>
+                    <span className="text-gray-300 font-light">{item}</span>
                   </div>
                 ))}
               </div>
@@ -930,18 +950,22 @@ export const TransparencySection = () => {
           </div>
         </div>
 
-        <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-500 ${
+        <div className={`text-center mt-16 lg:mt-20 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="bg-gradient-to-r from-[#D4A2FF] to-[#c490ff] rounded-2xl p-8 sm:p-10 text-center">
-            <h3 className="text-2xl sm:text-3xl font-light mb-4 text-black">
-              Our Promise
-            </h3>
-            <p className="text-lg text-gray-800 mb-6 max-w-2xl mx-auto">
-              "We succeed only when our property owners and travelers succeed. That's why we're committed to complete transparency in everything we do."
-            </p>
-            <div className="text-sm text-gray-700">
-              — The DigiHome Team
+          <div className="bg-gray-50 rounded-none p-12 lg:p-16 border border-gray-100">
+            <div className="max-w-3xl mx-auto">
+              <div className="w-20 h-20 bg-[#D4A2FF] rounded-none mx-auto mb-8"></div>
+              <h3 className="text-3xl font-thin mb-6 text-gray-900">
+                System Architecture
+              </h3>
+              <p className="text-lg text-gray-600 mb-8 font-light leading-relaxed">
+                "Our success metrics are algorithmically tied to tenant satisfaction and property owner returns. 
+                When the system optimizes for your success, everyone benefits."
+              </p>
+              <div className="text-sm text-gray-500 font-light">
+                — DigiHome Engineering Team
+              </div>
             </div>
           </div>
         </div>
