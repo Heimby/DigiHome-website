@@ -1431,9 +1431,27 @@ export const EarningsCalculatorSection = () => {
 
   const handlePropertyDetailsSubmit = (roomsData) => {
     setPropertyData(prev => ({ ...prev, rooms: roomsData }));
-    console.log('Final property data:', { ...propertyData, rooms: roomsData });
+    setCurrentStep(3);
+  };
+
+  const handleFacilitiesSubmit = (facilitiesData) => {
+    setPropertyData(prev => ({ ...prev, facilities: facilitiesData }));
+    setCurrentStep(4);
+  };
+
+  const handleContactSubmit = (contactData) => {
+    const finalData = { ...propertyData, contact: contactData };
+    console.log('Final property data:', finalData);
     alert('Thank you! We\'ll calculate your earnings and get back to you soon.');
     // Here you would typically send the data to your backend
+  };
+
+  const handleBackToPropertyDetails = () => {
+    setCurrentStep(2);
+  };
+
+  const handleBackToFacilities = () => {
+    setCurrentStep(3);
   };
 
   return (
