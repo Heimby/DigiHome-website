@@ -133,7 +133,7 @@ export const PropertyCard = ({ property }) => {
 
 // Property Cards Section Component
 export const PropertyCardsSection = () => {
-  const scrollContainerRef = React.useRef(null);
+  const scrollContainerRef = useRef(null);
   
   const properties = [
     {
@@ -186,9 +186,22 @@ export const PropertyCardsSection = () => {
     }
   ];
 
+  // Center the carousel on initial load
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = 320 + 24; // card width + gap
+      const containerWidth = container.clientWidth;
+      const totalWidth = properties.length * cardWidth;
+      const initialScroll = (totalWidth - containerWidth) / 2;
+      
+      container.scrollLeft = initialScroll;
+    }
+  }, []);
+
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400; // Width of card + gap
+      const scrollAmount = 344; // Width of card + gap (320px + 24px)
       const currentScroll = scrollContainerRef.current.scrollLeft;
       const newScroll = direction === 'left' 
         ? currentScroll - scrollAmount 
@@ -206,9 +219,9 @@ export const PropertyCardsSection = () => {
       {/* Left Arrow */}
       <button 
         onClick={() => scroll('left')}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none backdrop-blur-sm bg-white/20 rounded-full"
       >
-        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -216,9 +229,9 @@ export const PropertyCardsSection = () => {
       {/* Right Arrow */}
       <button 
         onClick={() => scroll('right')}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none backdrop-blur-sm bg-white/20 rounded-full"
       >
-        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
