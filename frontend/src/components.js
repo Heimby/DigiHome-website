@@ -79,11 +79,13 @@ export const Navigation = () => {
         <div className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm">
           <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-black/90 backdrop-blur-lg p-6">
             <div className="flex items-center justify-between mb-8">
-              <img 
-                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//InversePinkBlackWhiteLongTextLogo.svg" 
-                alt="DigiHome" 
-                className="h-6 w-auto"
-              />
+              <Link to="/" onClick={closeMobileMenu}>
+                <img 
+                  src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
+                  alt="DigiHome" 
+                  className="h-6 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              </Link>
               <button 
                 onClick={closeMobileMenu}
                 className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
