@@ -8,7 +8,6 @@ import {
   ExperienceSection,
   PassiveIncomeSection,
   FlexibilitySection,
-  TransparencySection,
   Footer 
 } from "./components";
 
@@ -30,7 +29,6 @@ const Home = () => {
       <ExperienceSection />
       <PassiveIncomeSection />
       <FlexibilitySection />
-      <TransparencySection />
       <Footer />
     </div>
   );
