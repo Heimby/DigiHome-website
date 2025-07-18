@@ -323,6 +323,15 @@ export const HomeHumanoidSection = () => {
         }`}>
           <PropertyCardsSection />
         </div>
+
+        {/* View All Properties Tab */}
+        <div className={`flex justify-end mt-8 transition-all duration-1000 delay-500 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium">
+            View all properties
+          </button>
+        </div>
       </div>
     </section>
   );
