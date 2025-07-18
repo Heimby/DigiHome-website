@@ -193,25 +193,25 @@ export const SearchBar = () => {
           </div>
         </div>
       ) : (
-        // Expanded State
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 animate-[expandSearch_0.3s_ease-out]">
+        // Expanded State - Vertical expansion maintaining horizontal layout
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 px-6 py-6 transition-all duration-300 ease-out">
           {/* Close Button */}
           <div className="flex justify-end mb-4">
             <button
               onClick={handleCollapse}
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Search Fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+          {/* Search Fields in Horizontal Layout */}
+          <div className="flex items-end gap-4 mb-4">
             {/* Where */}
-            <div className="lg:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Where?</label>
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-gray-500 mb-2">Where?</label>
               <input
                 type="text"
                 value={searchData.location}
@@ -222,8 +222,8 @@ export const SearchBar = () => {
             </div>
 
             {/* Move-in */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Move-in</label>
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-gray-500 mb-2">Move-in</label>
               <input
                 type="date"
                 value={searchData.moveIn}
@@ -233,19 +233,19 @@ export const SearchBar = () => {
             </div>
 
             {/* Move-out */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Move-out</label>
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-gray-500 mb-2">Move-out</label>
               <input
                 type="date"
                 value={searchData.moveOut}
                 onChange={(e) => handleInputChange('moveOut', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-all transition-all"
               />
             </div>
 
             {/* Guests */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-gray-500 mb-2">Guests</label>
               <input
                 type="number"
                 value={searchData.guests}
@@ -255,17 +255,25 @@ export const SearchBar = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
               />
             </div>
+
+            {/* Search Button */}
+            <button
+              onClick={handleSearch}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            >
+              Search
+            </button>
           </div>
 
           {/* Rooms */}
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-3">Rooms</label>
-            <div className="flex gap-2 flex-wrap">
+          <div>
+            <label className="block text-xs font-medium text-gray-500 mb-2">Rooms</label>
+            <div className="flex gap-2">
               {roomOptions.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleInputChange('rooms', option)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     searchData.rooms === option
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -275,16 +283,6 @@ export const SearchBar = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Search Button */}
-          <div className="flex justify-center">
-            <button
-              onClick={handleSearch}
-              className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors min-w-[200px]"
-            >
-              Search Properties
-            </button>
           </div>
         </div>
       )}
