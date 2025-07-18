@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Navigation Component
+// Navigation Component with Mobile Menu Functionality
 export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,32 +15,59 @@ export const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    closeMobileMenu();
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <img 
               src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
               alt="DigiHome" 
-              className="h-8 w-auto"
+              className="h-6 sm:h-8 w-auto"
             />
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Medlemmer</a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Partnere</a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Forretningsreiser</a>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <button 
+              onClick={() => scrollToSection('home-humanoid')}
+              className="text-white hover:text-gray-300 transition-colors font-medium"
+            >
+              Find Homes
+            </button>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Become Owner</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Business Travel</a>
           </div>
           
           <div className="hidden md:block">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Logg inn</a>
+            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Sign In</a>
           </div>
           
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="text-white">
+            <button 
+              onClick={toggleMobileMenu}
+              className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+              aria-label="Toggle mobile menu"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -47,11 +75,53 @@ export const Navigation = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm">
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-black/90 backdrop-blur-lg p-6">
+            <div className="flex items-center justify-between mb-8">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
+                alt="DigiHome" 
+                className="h-6 w-auto"
+              />
+              <button 
+                onClick={closeMobileMenu}
+                className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+                aria-label="Close mobile menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <button 
+                onClick={() => scrollToSection('home-humanoid')}
+                className="block w-full text-left text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
+              >
+                Find Homes
+              </button>
+              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+                Become Owner
+              </a>
+              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+                Business Travel
+              </a>
+              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+                Sign In
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
 
-// Hero Section Component
+// Hero Section Component with Mobile Optimization
 export const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -68,7 +138,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900" style={{ height: 'calc(100vh + 20px)' }}>
+    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 min-h-screen">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video 
@@ -78,37 +148,38 @@ export const HeroSection = () => {
           muted
           playsInline
           className="w-full h-full object-cover opacity-80"
+          poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjwvc3ZnPgo="
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6">
+      <div className="relative z-10 text-center px-4 sm:px-6 py-20">
         <div className={`transition-all duration-1000 ${
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <img 
               src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
               alt="DigiHome" 
-              className="h-16 md:h-24 w-auto mx-auto mb-6"
+              className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto mx-auto mb-4 sm:mb-6"
             />
           </div>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4">
             The future of home rentals is here. Homes and experiences that move with you across the world.
           </p>
           
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+          {/* Action Buttons - Mobile Optimized */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto px-4">
             <button 
               onClick={() => scrollToSection('home-humanoid')}
-              className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap"
+              className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap text-sm sm:text-base"
             >
               Find a Home
             </button>
             <button 
               onClick={() => scrollToSection('home-humanoid')}
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+              className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-sm sm:text-base"
             >
               Become a DigiHome Owner
             </button>
@@ -126,30 +197,31 @@ export const HeroSection = () => {
   );
 };
 
-// Property Card Component
+// Property Card Component with Mobile Optimization
 export const PropertyCard = ({ property }) => {
   return (
-    <div className="flex-shrink-0 w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-      {/* Image Container with Overlay Info - Restored to original tall height */}
-      <div className="relative h-[520px] overflow-hidden">
+    <div className="flex-shrink-0 w-72 sm:w-80 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+      {/* Image Container with Overlay Info */}
+      <div className="relative h-[400px] sm:h-[520px] overflow-hidden">
         <img 
           src={property.image} 
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          loading="lazy"
         />
         
         {/* Info Box Overlay */}
-        <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl p-4 shadow-lg">
+        <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl p-3 sm:p-4 shadow-lg">
           <div className="flex items-start gap-3">
             {/* Logo Square */}
-            <div className="w-12 h-12 bg-purple-300 rounded-lg flex-shrink-0 flex items-center justify-center">
-              <span className="text-white text-xs font-medium">Logo</span>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#D4A2FF] rounded-lg flex-shrink-0 flex items-center justify-center">
+              <span className="text-white text-xs font-medium">DH</span>
             </div>
             
             {/* Content */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
-                <h3 className="text-lg font-medium text-gray-900 truncate">{property.title}</h3>
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 truncate">{property.title}</h3>
                 <div className="flex items-center ml-2">
                   <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -162,10 +234,10 @@ export const PropertyCard = ({ property }) => {
               
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-xl text-gray-900">{property.price}</span>
+                  <span className="text-lg sm:text-xl text-gray-900">{property.price}</span>
                   <span className="text-gray-500 text-sm">/ night</span>
                 </div>
-                <button className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium">
+                <button className="text-[#D4A2FF] hover:text-[#c490ff] transition-colors text-sm font-medium">
                   Book now
                 </button>
               </div>
@@ -177,7 +249,7 @@ export const PropertyCard = ({ property }) => {
   );
 };
 
-// Search Bar Component
+// Mobile-Optimized Search Bar Component
 export const SearchBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchData, setSearchData] = useState({
@@ -211,31 +283,31 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4">
       {!isExpanded ? (
-        // Collapsed State
+        // Collapsed State - Mobile Optimized
         <div 
           onClick={handleExpand}
           className="bg-white rounded-full shadow-lg border border-gray-200 cursor-pointer hover:shadow-xl transition-all duration-300"
         >
-          <div className="flex items-center px-6 py-4">
-            <div className="flex-1 text-gray-500 font-medium">Where?</div>
-            <div className="text-gray-300 mx-4">︱</div>
-            <div className="flex-1 text-gray-500 font-medium">When?</div>
-            <div className="text-gray-300 mx-4">︱</div>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors">
+          <div className="flex items-center px-4 sm:px-6 py-3 sm:py-4">
+            <div className="flex-1 text-gray-500 font-medium text-sm sm:text-base">Where?</div>
+            <div className="text-gray-300 mx-2 sm:mx-4">︱</div>
+            <div className="flex-1 text-gray-500 font-medium text-sm sm:text-base">When?</div>
+            <div className="text-gray-300 mx-2 sm:mx-4">︱</div>
+            <button className="bg-[#D4A2FF] text-black px-4 sm:px-6 py-2 rounded-full font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base">
               Search
             </button>
           </div>
         </div>
       ) : (
-        // Expanded State - Vertical expansion maintaining horizontal layout
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 px-6 py-6 transition-all duration-300 ease-out">
+        // Expanded State - Mobile Optimized
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 transition-all duration-300 ease-out">
           {/* Close Button */}
           <div className="flex justify-end mb-4">
             <button
               onClick={handleCollapse}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-gray-400 hover:text-gray-600 transition-colors p-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -243,44 +315,44 @@ export const SearchBar = () => {
             </button>
           </div>
 
-          {/* Search Fields in Horizontal Layout */}
-          <div className="flex items-end gap-4 mb-4">
+          {/* Search Fields - Mobile Stacked Layout */}
+          <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 mb-4">
             {/* Where */}
-            <div className="flex-1">
+            <div className="sm:col-span-1">
               <label className="block text-xs font-medium text-gray-500 mb-2">Where?</label>
               <input
                 type="text"
                 value={searchData.location}
                 onChange={(e) => handleInputChange('location', e.target.value)}
                 placeholder="Search by city"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
               />
             </div>
 
             {/* Move-in */}
-            <div className="flex-1">
+            <div className="sm:col-span-1">
               <label className="block text-xs font-medium text-gray-500 mb-2">Move-in</label>
               <input
                 type="date"
                 value={searchData.moveIn}
                 onChange={(e) => handleInputChange('moveIn', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
               />
             </div>
 
             {/* Move-out */}
-            <div className="flex-1">
+            <div className="sm:col-span-1">
               <label className="block text-xs font-medium text-gray-500 mb-2">Move-out</label>
               <input
                 type="date"
                 value={searchData.moveOut}
                 onChange={(e) => handleInputChange('moveOut', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-all transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
               />
             </div>
 
             {/* Guests */}
-            <div className="flex-1">
+            <div className="sm:col-span-1">
               <label className="block text-xs font-medium text-gray-500 mb-2">Guests</label>
               <input
                 type="number"
@@ -288,125 +360,124 @@ export const SearchBar = () => {
                 onChange={(e) => handleInputChange('guests', e.target.value)}
                 placeholder="Select guests"
                 min="1"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A2FF] focus:border-transparent outline-none transition-all text-sm sm:text-base"
               />
+            </div>
+          </div>
+
+          {/* Rooms and Search Button */}
+          <div className="space-y-4 sm:space-y-0 sm:flex sm:items-end sm:justify-between">
+            {/* Rooms */}
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-gray-500 mb-2">Rooms</label>
+              <div className="flex gap-2 flex-wrap">
+                {roomOptions.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => handleInputChange('rooms', option)}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                      searchData.rooms === option
+                        ? 'bg-[#D4A2FF] text-black'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Search Button */}
             <button
               onClick={handleSearch}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="w-full sm:w-auto sm:ml-4 bg-[#D4A2FF] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#c490ff] transition-colors text-sm sm:text-base"
             >
               Search
             </button>
-          </div>
-
-          {/* Rooms */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-2">Rooms</label>
-            <div className="flex gap-2">
-              {roomOptions.map((option) => (
-                <button
-                  key={option}
-                  onClick={() => handleInputChange('rooms', option)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    searchData.rooms === option
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       )}
     </div>
   );
 };
+
+// Mobile-Optimized Property Cards Section
 export const PropertyCardsSection = () => {
   const scrollContainerRef = useRef(null);
   
   const properties = [
     {
       id: 1,
-      title: "Skostredet",
-      location: "Bergen • 1200 kr • Sentrum",
-      price: "1,200 kr",
+      title: "Modern Loft Downtown",
+      location: "San Francisco • $120 • Downtown",
+      price: "$120",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
       id: 2,
-      title: "Bryggen Loft",
-      location: "Bergen • 1800 kr • Bryggen",
-      price: "1,800 kr",
+      title: "Cozy Studio Apartment",
+      location: "New York • $95 • Manhattan",
+      price: "$95",
       rating: "4.8",
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80"
     },
     {
       id: 3,
-      title: "Oslo Central",
-      location: "Oslo • 2200 kr • Sentrum",
-      price: "2,200 kr",
+      title: "Luxury Penthouse",
+      location: "Los Angeles • $200 • Beverly Hills",
+      price: "$200",
       rating: "4.7",
       image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
       id: 4,
-      title: "Stavanger Haven",
-      location: "Stavanger • 1500 kr • Gamle Stavanger",
-      price: "1,500 kr",
+      title: "Charming Townhouse",
+      location: "Chicago • $85 • Lincoln Park",
+      price: "$85",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
     },
     {
       id: 5,
-      title: "Trondheim Cozy",
-      location: "Trondheim • 1300 kr • Bakklandet",
-      price: "1,300 kr",
+      title: "Waterfront Condo",
+      location: "Miami • $110 • South Beach",
+      price: "$110",
       rating: "4.6",
       image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     },
     {
       id: 6,
-      title: "Ålesund View",
-      location: "Ålesund • 1600 kr • Brosundet",
-      price: "1,600 kr",
+      title: "Mountain View Cabin",
+      location: "Denver • $130 • Capitol Hill",
+      price: "$130",
       rating: "4.8",
       image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     }
   ];
 
   // Create enough copies to ensure smooth infinite scroll
-  const infiniteProperties = [...properties, ...properties, ...properties, ...properties, ...properties];
+  const infiniteProperties = [...properties, ...properties, ...properties];
   
-  const cardWidth = 344; // 320px width + 24px gap
+  const cardWidth = 288; // Adjusted for mobile
   const originalSetLength = properties.length;
-  const totalCards = infiniteProperties.length;
 
-  // Initialize carousel and set up infinite scroll monitoring
+  // Initialize carousel
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      // Start at the second set to allow scrolling in both directions
       const initialScroll = originalSetLength * cardWidth;
       container.scrollLeft = initialScroll;
 
-      // Monitor scroll position for infinite loop
       const handleScroll = () => {
         const scrollLeft = container.scrollLeft;
         const maxScroll = container.scrollWidth - container.clientWidth;
         const singleSetWidth = originalSetLength * cardWidth;
         
-        // If we're near the end, jump to the beginning + some buffer
         if (scrollLeft >= maxScroll - cardWidth) {
           container.scrollLeft = singleSetWidth;
-        }
-        // If we're near the beginning, jump to the end - some buffer
-        else if (scrollLeft <= cardWidth) {
-          container.scrollLeft = singleSetWidth * 3;
+        } else if (scrollLeft <= cardWidth) {
+          container.scrollLeft = singleSetWidth * 2;
         }
       };
 
@@ -432,22 +503,23 @@ export const PropertyCardsSection = () => {
 
   return (
     <div className="relative w-full">
-      {/* Left Arrow */}
+      {/* Navigation Arrows - Mobile Optimized */}
       <button 
         onClick={() => scroll('left')}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none backdrop-blur-sm bg-white/20 rounded-full"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/20 rounded-full shadow-lg"
+        aria-label="Previous properties"
       >
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
-      {/* Right Arrow */}
       <button 
         onClick={() => scroll('right')}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity transform-none backdrop-blur-sm bg-white/20 rounded-full"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:opacity-70 transition-opacity backdrop-blur-sm bg-white/20 rounded-full shadow-lg"
+        aria-label="Next properties"
       >
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -455,7 +527,8 @@ export const PropertyCardsSection = () => {
       {/* Cards Container */}
       <div 
         ref={scrollContainerRef}
-        className="flex overflow-x-auto scrollbar-hide gap-6 px-16 py-4"
+        className="flex overflow-x-auto scrollbar-hide gap-4 sm:gap-6 px-12 sm:px-16 py-4"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {infiniteProperties.map((property, index) => (
           <PropertyCard key={`${property.id}-${Math.floor(index / originalSetLength)}-${index % originalSetLength}`} property={property} />
@@ -465,7 +538,7 @@ export const PropertyCardsSection = () => {
   );
 };
 
-// Home Humanoid Section Component - Clean Slate
+// Mobile-Optimized Home Section
 export const HomeHumanoidSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -486,22 +559,22 @@ export const HomeHumanoidSection = () => {
   }, []);
 
   return (
-    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-12 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Text */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${
+        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
             Book your flexible home
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We turn home rentals into experiences and collaborate with hundreds of home owners across Norway.
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            We turn home rentals into experiences and collaborate with hundreds of home owners globally.
           </p>
         </div>
         
         {/* Search Bar */}
-        <div className={`mb-16 transition-all duration-1000 delay-200 ${
+        <div className={`mb-12 sm:mb-16 transition-all duration-1000 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <SearchBar />
@@ -514,11 +587,11 @@ export const HomeHumanoidSection = () => {
           <PropertyCardsSection />
         </div>
 
-        {/* View All Properties Tab */}
-        <div className={`flex justify-end mt-8 transition-all duration-1000 delay-500 ${
+        {/* View All Properties Button */}
+        <div className={`flex justify-center sm:justify-end mt-6 sm:mt-8 transition-all duration-1000 delay-500 px-4 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium">
+          <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium text-sm sm:text-base">
             View all properties
           </button>
         </div>
@@ -527,18 +600,23 @@ export const HomeHumanoidSection = () => {
   );
 };
 
-// Footer Component
+// Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="bg-black text-white py-12 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="text-3xl font-bold mb-6">1X</div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              Leading the future of humanoid robotics and AI. Building intelligent, 
-              safe, and helpful robots for everyone.
+            <div className="mb-6">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
+                alt="DigiHome" 
+                className="h-8 w-auto"
+              />
+            </div>
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
+              The future of home rentals is here. Connecting travelers with unique homes and experiences across the world.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -559,29 +637,30 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Links */}
+          {/* Services */}
           <div>
-            <h3 className="text-lg font-medium mb-6">Products</h3>
+            <h3 className="text-lg font-medium mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">NEO Gamma</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">EVE</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Redwood AI</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Find Homes</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Become Owner</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Business Travel</a></li>
             </ul>
           </div>
 
+          {/* Company */}
           <div>
             <h3 className="text-lg font-medium mb-6">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Stories</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Press</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Careers</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Support</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Press</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 1X Technologies. All rights reserved.</p>
+        <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-8 text-center text-gray-400">
+          <p className="text-sm sm:text-base">&copy; 2025 DigiHome. All rights reserved.</p>
         </div>
       </div>
     </footer>
