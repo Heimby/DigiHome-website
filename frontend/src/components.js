@@ -2107,7 +2107,6 @@ const FacilitiesStep = ({ onSubmit, onBack, isVisible }) => {
                   </div>
                   <div className="flex-1">
                     <span className="font-medium text-lg">{facility.label}</span>
-                    <div className="text-white/70 text-sm">{facility.norwegian}</div>
                   </div>
                 </label>
               </div>
