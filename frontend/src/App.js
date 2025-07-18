@@ -32,6 +32,7 @@ const Home = () => {
       <ExperienceSection />
       <PassiveIncomeSection />
       <FlexibilitySection />
+      <EarningsCalculatorSection />
       <Footer />
     </div>
   );
