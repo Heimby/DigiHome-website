@@ -1372,10 +1372,20 @@ export const AboutWhiteSection = () => {
   );
 };
 
-// Earnings Calculator Section
+// Earnings Calculator Section with Multi-Step Form
 export const EarningsCalculatorSection = () => {
   const [address, setAddress] = useState('');
+  const [currentStep, setCurrentStep] = useState(1); // 1: Address, 2: Property Details
   const [isVisible, setIsVisible] = useState(false);
+  const [propertyData, setPropertyData] = useState({
+    address: '',
+    rooms: {
+      livingRooms: [],
+      bedrooms: [],
+      bathrooms: 0,
+      toilets: 0
+    }
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -1395,13 +1405,23 @@ export const EarningsCalculatorSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleAddressSubmit = (e) => {
     e.preventDefault();
     if (address.trim()) {
-      console.log('Address submitted:', address);
-      // Here you would typically send the address to your backend
-      alert(`Thank you! We'll calculate earnings for: ${address}`);
+      setPropertyData(prev => ({ ...prev, address }));
+      setCurrentStep(2);
     }
+  };
+
+  const handleBackToAddress = () => {
+    setCurrentStep(1);
+  };
+
+  const handlePropertyDetailsSubmit = (roomsData) => {
+    setPropertyData(prev => ({ ...prev, rooms: roomsData }));
+    console.log('Final property data:', { ...propertyData, rooms: roomsData });
+    alert('Thank you! We\'ll calculate your earnings and get back to you soon.');
+    // Here you would typically send the data to your backend
   };
 
   return (
@@ -1409,42 +1429,21 @@ export const EarningsCalculatorSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-900/20"></div>
       
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            Check out what you can earn as a DigiHome owner
-          </h2>
-          
-          <p className={`text-xl sm:text-2xl text-white/90 mb-12 leading-relaxed font-light transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`} style={{ transitionDelay: '200ms' }}>
-            Enter your property address to see your potential earnings
-          </p>
-          
-          <div className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`} style={{ transitionDelay: '400ms' }}>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <input
-                  type="text"
-                  placeholder="Enter your property address..."
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="w-full px-6 py-4 text-lg rounded-full border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-              >
-                Calculate Earnings
-              </button>
-            </form>
-          </div>
-        </div>
+        {currentStep === 1 ? (
+          <AddressStep 
+            address={address}
+            setAddress={setAddress}
+            onSubmit={handleAddressSubmit}
+            isVisible={isVisible}
+          />
+        ) : (
+          <PropertyDetailsStep
+            address={propertyData.address}
+            onSubmit={handlePropertyDetailsSubmit}
+            onBack={handleBackToAddress}
+            isVisible={isVisible}
+          />
+        )}
       </div>
       
       {/* Decorative elements */}
@@ -1453,6 +1452,291 @@ export const EarningsCalculatorSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
     </section>
+  );
+};
+
+// Address Step Component
+const AddressStep = ({ address, setAddress, onSubmit, isVisible }) => (
+  <div className="mx-auto max-w-4xl text-center">
+    <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`}>
+      Check out what you can earn as a DigiHome owner
+    </h2>
+    
+    <p className={`text-xl sm:text-2xl text-white/90 mb-12 leading-relaxed font-light transition-all duration-700 ease-out ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`} style={{ transitionDelay: '200ms' }}>
+      Enter your property address to see your potential earnings
+    </p>
+    
+    <div className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`} style={{ transitionDelay: '400ms' }}>
+      <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-4">
+        <div className="flex-1">
+          <input
+            type="text"
+            placeholder="Enter your property address..."
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full px-6 py-4 text-lg rounded-full border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+        >
+          Calculate Earnings
+        </button>
+      </form>
+    </div>
+  </div>
+);
+
+// Property Details Step Component
+const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
+  const [rooms, setRooms] = useState({
+    livingRooms: [{ id: 1, dinnerTable: 0, sofa: 0, sofaBed: 0, bed: 0 }],
+    bedrooms: [{ id: 1, bed: 0, sofaBed: 0 }],
+    bathrooms: 1,
+    toilets: 0
+  });
+
+  const addLivingRoom = () => {
+    setRooms(prev => ({
+      ...prev,
+      livingRooms: [...prev.livingRooms, { 
+        id: prev.livingRooms.length + 1, 
+        dinnerTable: 0, 
+        sofa: 0, 
+        sofaBed: 0, 
+        bed: 0 
+      }]
+    }));
+  };
+
+  const addBedroom = () => {
+    setRooms(prev => ({
+      ...prev,
+      bedrooms: [...prev.bedrooms, { 
+        id: prev.bedrooms.length + 1, 
+        bed: 0, 
+        sofaBed: 0 
+      }]
+    }));
+  };
+
+  const updateLivingRoom = (index, field, value) => {
+    setRooms(prev => ({
+      ...prev,
+      livingRooms: prev.livingRooms.map((room, i) => 
+        i === index ? { ...room, [field]: Math.max(0, value) } : room
+      )
+    }));
+  };
+
+  const updateBedroom = (index, field, value) => {
+    setRooms(prev => ({
+      ...prev,
+      bedrooms: prev.bedrooms.map((room, i) => 
+        i === index ? { ...room, [field]: Math.max(0, value) } : room
+      )
+    }));
+  };
+
+  const removeLivingRoom = (index) => {
+    if (rooms.livingRooms.length > 1) {
+      setRooms(prev => ({
+        ...prev,
+        livingRooms: prev.livingRooms.filter((_, i) => i !== index)
+      }));
+    }
+  };
+
+  const removeBedroom = (index) => {
+    if (rooms.bedrooms.length > 1) {
+      setRooms(prev => ({
+        ...prev,
+        bedrooms: prev.bedrooms.filter((_, i) => i !== index)
+      }));
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(rooms);
+  };
+
+  return (
+    <div className="mx-auto max-w-4xl">
+      <div className="text-center mb-8">
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          Property Details
+        </h2>
+        <p className={`text-xl text-white/90 mb-2 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '200ms' }}>
+          {address}
+        </p>
+        <p className={`text-lg text-white/80 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '300ms' }}>
+          Tell us about your property to get accurate earnings calculation
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-8">
+        {/* Living Rooms */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-semibold text-white">Living Rooms</h3>
+            <button
+              type="button"
+              onClick={addLivingRoom}
+              className="px-4 py-2 bg-white/20 text-white rounded-full hover:bg-white/30 transition-all duration-300 text-sm font-medium"
+            >
+              + Add Living Room
+            </button>
+          </div>
+          
+          {rooms.livingRooms.map((room, index) => (
+            <div key={room.id} className="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-medium text-white">Living Room {index + 1}</h4>
+                {rooms.livingRooms.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeLivingRoom(index)}
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { key: 'dinnerTable', label: 'Dinner Table' },
+                  { key: 'sofa', label: 'Sofa' },
+                  { key: 'sofaBed', label: 'Sofa Bed' },
+                  { key: 'bed', label: 'Bed' }
+                ].map(({ key, label }) => (
+                  <div key={key}>
+                    <label className="block text-sm font-medium text-white/90 mb-2">{label}</label>
+                    <input
+                      type="number"
+                      min="0"
+                      value={room[key]}
+                      onChange={(e) => updateLivingRoom(index, key, parseInt(e.target.value) || 0)}
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bedrooms */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-semibold text-white">Bedrooms</h3>
+            <button
+              type="button"
+              onClick={addBedroom}
+              className="px-4 py-2 bg-white/20 text-white rounded-full hover:bg-white/30 transition-all duration-300 text-sm font-medium"
+            >
+              + Add Bedroom
+            </button>
+          </div>
+          
+          {rooms.bedrooms.map((room, index) => (
+            <div key={room.id} className="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-medium text-white">Bedroom {index + 1}</h4>
+                {rooms.bedrooms.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeBedroom(index)}
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { key: 'bed', label: 'Bed' },
+                  { key: 'sofaBed', label: 'Sofa Bed' }
+                ].map(({ key, label }) => (
+                  <div key={key}>
+                    <label className="block text-sm font-medium text-white/90 mb-2">{label}</label>
+                    <input
+                      type="number"
+                      min="0"
+                      value={room[key]}
+                      onChange={(e) => updateBedroom(index, key, parseInt(e.target.value) || 0)}
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bathrooms and Toilets */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <h3 className="text-2xl font-semibold text-white mb-6">Bathrooms & Toilets</h3>
+          
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Bathrooms</label>
+              <input
+                type="number"
+                min="0"
+                value={rooms.bathrooms}
+                onChange={(e) => setRooms(prev => ({ ...prev, bathrooms: parseInt(e.target.value) || 0 }))}
+                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Toilets (without shower)</label>
+              <input
+                type="number"
+                min="0"
+                value={rooms.toilets}
+                onChange={(e) => setRooms(prev => ({ ...prev, toilets: parseInt(e.target.value) || 0 }))}
+                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-8 py-4 bg-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-white/30"
+          >
+            Back to Address
+          </button>
+          <button
+            type="submit"
+            className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+          >
+            Calculate My Earnings
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
