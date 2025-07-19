@@ -26,7 +26,10 @@ import {
   ShieldExclamationIcon,
   RocketLaunchIcon,
   CheckIcon,
-  XMarkIcon
+  XMarkIcon,
+  ArrowRightIcon,
+  PlayIcon,
+  UsersIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
