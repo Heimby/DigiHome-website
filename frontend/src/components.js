@@ -22,7 +22,8 @@ import {
   CodeBracketIcon,
   AcademicCapIcon,
   GlobeAltIcon,
-  ShieldExclamationIcon
+  ShieldExclamationIcon,
+  RocketLaunchIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
