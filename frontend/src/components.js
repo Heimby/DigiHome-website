@@ -1453,7 +1453,7 @@ export const AboutWhiteSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 
