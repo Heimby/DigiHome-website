@@ -626,7 +626,7 @@ export const PropertyCardsSection = () => {
         </svg>
       </button>
 
-      {/* Cards Container - Mobile Optimized */}
+      {/* Cards Container - Mobile Optimized with Auto-Scroll */}
       <div className="w-full overflow-hidden">
         <div 
           ref={scrollContainerRef}
@@ -636,6 +636,10 @@ export const PropertyCardsSection = () => {
             msOverflowStyle: 'none',
             WebkitOverflowScrolling: 'touch'
           }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {infiniteProperties.map((property, index) => (
             <PropertyCard key={`${property.id}-${Math.floor(index / originalSetLength)}-${index % originalSetLength}`} property={property} />
