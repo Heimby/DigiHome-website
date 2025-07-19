@@ -1658,7 +1658,792 @@ export const AboutDigiSaleSection = () => {
   );
 };
 
-// Call to Action Section
+// Brand Guidelines Page Component
+export const BrandGuidelinesPage = () => {
+  const [activeSection, setActiveSection] = useState('overview');
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const sections = [
+    { id: 'overview', title: 'Overview', icon: <HomeIcon className="w-5 h-5" /> },
+    { id: 'foundation', title: 'Brand Foundation', icon: <CpuChipIcon className="w-5 h-5" /> },
+    { id: 'verbal', title: 'Verbal Identity', icon: <ChatBubbleLeftIcon className="w-5 h-5" /> },
+    { id: 'visual', title: 'Visual System', icon: <EyeIcon className="w-5 h-5" /> },
+    { id: 'accessibility', title: 'Accessibility', icon: <ShieldCheckIcon className="w-5 h-5" /> },
+    { id: 'content', title: 'Content Strategy', icon: <DocumentTextIcon className="w-5 h-5" /> },
+    { id: 'implementation', title: 'Implementation', icon: <RocketLaunchIcon className="w-5 h-5" /> }
+  ];
+
+  const scrollToSection = (sectionId) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-[#253551] text-white py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePurple.svg" 
+                alt="DigiHome" 
+                className="h-12 w-auto"
+              />
+              <div className="h-8 w-px bg-white/30"></div>
+              <div>
+                <h1 className="text-4xl sm:text-5xl font-thin text-white mb-2">
+                  Master Brand Guidelines
+                </h1>
+                <div className="flex items-center gap-4 text-sm text-white/80">
+                  <span>Version 1.0</span>
+                  <span>•</span>
+                  <span>Production Ready</span>
+                  <span>•</span>
+                  <span>Last Updated: 19 July 2025</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-xl text-white/90 max-w-4xl leading-relaxed">
+              The definitive guide for building, scaling, and protecting the DigiHome brand globally. 
+              For founders, designers, engineers, marketers, and external partners.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Strategic Foundation</span>
+              <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Visual System</span>
+              <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Implementation Guide</span>
+              <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Global Scale Ready</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex">
+        {/* Sidebar Navigation */}
+        <nav className="w-64 bg-gray-50 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto">
+          <div className="p-6">
+            <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Contents</h3>
+            <ul className="space-y-2">
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <button
+                    onClick={() => scrollToSection(section.id)}
+                    className={`w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-colors ${
+                      activeSection === section.id 
+                        ? 'bg-[#8B5BE8] text-white' 
+                        : 'text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    {section.icon}
+                    <span className="text-sm font-medium">{section.title}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        {/* Main Content */}
+        <main className="flex-1 max-w-none">
+          <div className="max-w-4xl mx-auto px-8 py-12">
+
+            {/* Overview Section */}
+            <section id="overview" className="mb-16">
+              <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">How to Use This Document</h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  This comprehensive guide provides every function—design, engineering, marketing, sales, legal—
+                  a single source of truth for building and protecting the DigiHome brand globally.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-semibold text-gray-900 mb-3">🎯 Primary Users</h3>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>• Founders & Product Managers</li>
+                      <li>• UX/UI Designers & Engineers</li>
+                      <li>• Content & Marketing Teams</li>
+                      <li>• External Vendors & Partners</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-semibold text-gray-900 mb-3">📋 When in Doubt</h3>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>• Refer to Brand Principles (Section 1.3)</li>
+                      <li>• Check Governance Workflow (Section 11)</li>
+                      <li>• Contact Brand Director for clarification</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-3 gap-8">
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-[#8B5BE8] rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUpIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Strategic Foundation</h3>
+                  <p className="text-gray-600 text-sm">Brand essence, positioning, value pillars, and competitive differentiation framework.</p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-[#E53E3E] rounded-lg flex items-center justify-center mb-4">
+                    <PaintBrushIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Design System</h3>
+                  <p className="text-gray-600 text-sm">Colors, typography, spacing, iconography, and component specifications with design tokens.</p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-[#38A169] rounded-lg flex items-center justify-center mb-4">
+                    <RocketLaunchIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
+                  <p className="text-gray-600 text-sm">Governance, workflows, quality assurance, and roadmap for global brand execution.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Brand Foundation Section */}
+            <section id="foundation" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Brand Strategic Foundation</h2>
+              
+              <div className="space-y-8">
+                {/* Purpose, Vision, Mission */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Purpose, Vision & Mission</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-medium text-[#8B5BE8] mb-2">Purpose</h4>
+                      <p className="text-gray-700 text-sm">Empower property owners to unlock full asset potential via intelligent automation, delivering exceptional guest experiences and sustainable returns.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-[#8B5BE8] mb-2">Vision (5-Year)</h4>
+                      <p className="text-gray-700 text-sm">Become the global standard for intelligent property management—synonymous with reliable AI-driven yield optimization and hospitality excellence.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-[#8B5BE8] mb-2">Mission</h4>
+                      <p className="text-gray-700 text-sm">Combine advanced AI with hospitality expertise to maximize owner returns, elevate guest satisfaction, and eliminate operational friction.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Brand Essence & Positioning */}
+                <div className="bg-gradient-to-r from-[#8B5BE8]/10 to-[#253551]/10 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Brand Essence & Positioning</h3>
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <h4 className="text-2xl font-bold text-[#8B5BE8] mb-2">Intelligence • Hospitality • Results</h4>
+                      <p className="text-gray-600 text-sm">Brand Essence Trinity</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-6">
+                      <h4 className="font-semibold text-gray-900 mb-3">Positioning Statement</h4>
+                      <p className="text-gray-700 italic">
+                        "For sophisticated property owners seeking maximum returns and operational excellence, 
+                        DigiHome is the AI-powered management platform delivering 30-40% higher revenue through 
+                        automated optimization and hotel-grade service—validated by 87M+ NOK performance across 450+ properties."
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <h4 className="font-semibold text-gray-900 mb-2">Primary Tagline</h4>
+                      <p className="text-2xl font-medium text-[#253551]">"Intelligence meets hospitality"</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Brand Principles */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Brand Principles</h3>
+                  <p className="text-gray-600 mb-6 text-sm">Evaluate every brand decision against these core principles:</p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      {
+                        principle: "Evidence First",
+                        definition: "Claims anchored in verifiable data & transparent methodology",
+                        acceptable: "Show metric + timeframe + source",
+                        avoid: "Vague superlatives ('best', 'revolutionary')"
+                      },
+                      {
+                        principle: "Human Amplification", 
+                        definition: "AI augments—not replaces—human judgment & care",
+                        acceptable: "AI does repetitive; humans do complex empathy",
+                        avoid: "Fully autonomous tone that removes people"
+                      },
+                      {
+                        principle: "Clarity Over Hype",
+                        definition: "Communicate plainly, translate complexity",
+                        acceptable: "Benefit → How it works → Result",
+                        avoid: "Buzzword stacking"
+                      },
+                      {
+                        principle: "Accessible by Design",
+                        definition: "Inclusion is baseline, not retrofit", 
+                        acceptable: "Run automated + manual a11y checks",
+                        avoid: "Visuals relying on color only"
+                      }
+                    ].map((item, index) => (
+                      <div key={index} className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-gray-900 mb-2">{item.principle}</h4>
+                        <p className="text-gray-700 text-sm mb-3">{item.definition}</p>
+                        <div className="space-y-2 text-xs">
+                          <div className="flex items-start gap-2">
+                            <CheckIcon className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700">{item.acceptable}</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <XMarkIcon className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-red-700">{item.avoid}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Value Pillars */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Value Pillars & Proof Points</h3>
+                  <div className="space-y-6">
+                    {[
+                      {
+                        pillar: "Revenue Intelligence",
+                        promise: "Maximize yield dynamically", 
+                        proof: "30-40% higher returns vs long-term rent (2022-2024, 200+ units)",
+                        feature: "AI Pricing Engine",
+                        color: "#8B5BE8"
+                      },
+                      {
+                        pillar: "Operational Excellence",
+                        promise: "Remove daily management burden",
+                        proof: "<2 hrs/month owner involvement (Q1 2025 audit)",
+                        feature: "Automated Guest Communications", 
+                        color: "#E53E3E"
+                      },
+                      {
+                        pillar: "Partnership Commitment",
+                        promise: "Long-term stable income & risk mitigation",
+                        proof: "20-year contract options & crisis coverage (policy v2.1)",
+                        feature: "Guaranteed Minimum Module",
+                        color: "#253551"
+                      }
+                    ].map((item, index) => (
+                      <div key={index} className="border border-gray-100 rounded-lg p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-3 h-3 rounded-full mt-1" style={{ backgroundColor: item.color }}></div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-gray-900 mb-2" style={{ color: item.color }}>
+                              {item.pillar}
+                            </h4>
+                            <p className="text-gray-700 mb-2">{item.promise}</p>
+                            <p className="text-sm text-gray-600 mb-2">
+                              <strong>Proof:</strong> {item.proof}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              <strong>Key Feature:</strong> {item.feature}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Verbal Identity Section */}
+            <section id="verbal" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Verbal Identity System</h2>
+              
+              <div className="space-y-8">
+                {/* Voice Pillars */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Voice Pillars (Weighted)</h3>
+                  <div className="space-y-4">
+                    {[
+                      { pillar: "Intelligent Confident", weight: "35%", desc: "Data-backed authority", sample: "Our AI analyzes 200+ factors every 4 hours." },
+                      { pillar: "Professional Partnership", weight: "30%", desc: "Collaborative & accountable", sample: "We handle complexity; you retain strategic control." },
+                      { pillar: "Results-Oriented Direct", weight: "25%", desc: "Concrete quantified outcomes", sample: "Average 35% uplift across 450+ properties." },
+                      { pillar: "Accessible Technical", weight: "10%", desc: "Translate complexity to benefit", sample: "Predictive maintenance flags issues weeks early." }
+                    ].map((item, index) => (
+                      <div key={index} className="bg-gray-50 rounded-lg p-4">
+                        <div className="flex items-start justify-between mb-2">
+                          <h4 className="font-semibold text-gray-900">{item.pillar}</h4>
+                          <span className="text-sm font-medium text-[#8B5BE8]">{item.weight}</span>
+                        </div>
+                        <p className="text-gray-700 text-sm mb-2">{item.desc}</p>
+                        <p className="text-gray-600 text-sm italic">"{item.sample}"</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Lexicon */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Brand Lexicon</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-medium text-green-600 mb-3">✓ Preferred Terms</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• "optimize" (vs improve)</li>
+                        <li>• "platform" (vs tool)</li>
+                        <li>• "returns" (vs profit)</li>
+                        <li>• "predictive" (vs smart)</li>
+                        <li>• "transparent" (vs clear)</li>
+                        <li>• "intelligence" (vs AI)</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-red-600 mb-3">✗ Avoid</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• disruptive</li>
+                        <li>• game-changing</li>
+                        <li>• magic (literal)</li>
+                        <li>• awesome</li>
+                        <li>• risk-free</li>
+                        <li>• always/never</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-amber-600 mb-3">⚠ Conditional</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• "guarantee" (with legal basis)</li>
+                        <li>• "crisis-resistant" (with disclosure)</li>
+                        <li>• "AI-powered" (limit repetition)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Messaging Templates */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Copy Pattern Library</h3>
+                  <div className="space-y-4">
+                    {[
+                      { context: "Hero Headline", pattern: "[Action Verb] + [Outcome] + through + [Mechanism]", example: "Transform portfolio returns through adaptive pricing." },
+                      { context: "Feature Bullet", pattern: "[Benefit] via [Mechanism]", example: "Higher occupancy via event-aware rate adjustments." },
+                      { context: "CTA Button", pattern: "[Action] + [Audience] + [Outcome]", example: "Start Maximizing Returns" },
+                      { context: "Error Message", pattern: "[Cause] + [Fix Path]", example: "Phone format invalid—use country code (+47)." }
+                    ].map((item, index) => (
+                      <div key={index} className="border border-gray-100 rounded-lg p-4">
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div>
+                            <h4 className="font-medium text-gray-900">{item.context}</h4>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-600">{item.pattern}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-900 italic">"{item.example}"</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Visual System Section */}
+            <section id="visual" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Visual Identity System</h2>
+              
+              <div className="space-y-8">
+                {/* Color Palette */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Color Architecture</h3>
+                  <p className="text-gray-600 mb-6 text-sm">All colors meet WCAG AA contrast requirements (4.5:1 for text, 3:1 for large text)</p>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Primary Purple Spectrum</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                          { name: "Primary 050", hex: "#F5F1FC", usage: "Subtle backgrounds" },
+                          { name: "Primary 300", hex: "#A56AE8", usage: "Light accents" },
+                          { name: "Primary 500", hex: "#8B5BE8", usage: "Primary CTAs" },
+                          { name: "Primary 600", hex: "#6B46C1", usage: "Hover states" }
+                        ].map((color, index) => (
+                          <div key={index} className="text-center">
+                            <div 
+                              className="w-full h-16 rounded-lg mb-2 border border-gray-200"
+                              style={{ backgroundColor: color.hex }}
+                            ></div>
+                            <p className="text-sm font-medium text-gray-900">{color.name}</p>
+                            <p className="text-xs text-gray-600">{color.hex}</p>
+                            <p className="text-xs text-gray-500">{color.usage}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Supporting Colors</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        {[
+                          { name: "Red 500", hex: "#E53E3E", usage: "Alerts, NEKSOR heritage" },
+                          { name: "Navy 700", hex: "#1A202C", usage: "Primary text" },
+                          { name: "Green 500", hex: "#38A169", usage: "Success states" },
+                          { name: "Blue 500", hex: "#3182CE", usage: "Info states" },
+                          { name: "Amber 500", hex: "#D69E2E", usage: "Warnings" }
+                        ].map((color, index) => (
+                          <div key={index} className="text-center">
+                            <div 
+                              className="w-full h-16 rounded-lg mb-2 border border-gray-200"
+                              style={{ backgroundColor: color.hex }}
+                            ></div>
+                            <p className="text-sm font-medium text-gray-900">{color.name}</p>
+                            <p className="text-xs text-gray-600">{color.hex}</p>
+                            <p className="text-xs text-gray-500">{color.usage}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Typography */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Typography System</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Primary Typeface: Inter</h4>
+                      <p className="text-gray-600 text-sm mb-4">
+                        Professional, highly readable, excellent web performance, extensive language support
+                      </p>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {[
+                        { token: "Display 1", size: "64px", weight: "100-300", usage: "Hero headlines", example: "Transform Your Property" },
+                        { token: "Heading 1", size: "40px", weight: "600", usage: "Page titles", example: "Revenue Intelligence" },
+                        { token: "Heading 2", size: "32px", weight: "600", usage: "Major sections", example: "How It Works" },
+                        { token: "Body Large", size: "20px", weight: "400", usage: "Lead paragraphs", example: "Generate 30-40% higher returns through intelligent automation." },
+                        { token: "Body Base", size: "16px", weight: "400", usage: "Core text", example: "Our AI analyzes market conditions every 4 hours." },
+                        { token: "Caption", size: "12px", weight: "500", usage: "Labels & metadata", example: "Updated 2 hours ago" }
+                      ].map((type, index) => (
+                        <div key={index} className="border border-gray-100 rounded-lg p-4">
+                          <div className="grid md:grid-cols-4 gap-4 items-center">
+                            <div>
+                              <p className="font-medium text-gray-900">{type.token}</p>
+                              <p className="text-sm text-gray-600">{type.size} / {type.weight}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-600">{type.usage}</p>
+                            </div>
+                            <div className="md:col-span-2">
+                              <p 
+                                className="text-gray-900"
+                                style={{ 
+                                  fontSize: Math.min(parseInt(type.size) * 0.75, 32) + 'px',
+                                  fontWeight: type.weight.split('-')[0]
+                                }}
+                              >
+                                {type.example}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Iconography */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Iconography Standards</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Guidelines</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• <strong>Library:</strong> Heroicons v2 (Outline + Solid)</li>
+                        <li>• <strong>Stroke:</strong> 2px consistent</li>
+                        <li>• <strong>Sizes:</strong> 16, 20, 24, 32, 40, 48, 64px</li>
+                        <li>• <strong>Colors:</strong> Neutral 700 default, brand purple for emphasis</li>
+                        <li>• <strong>Accessibility:</strong> Semantic icons require aria-label or sr-only text</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Example Usage</h4>
+                      <div className="grid grid-cols-4 gap-3">
+                        {[
+                          { icon: <TrendingUpIcon className="w-8 h-8" />, name: "Growth" },
+                          { icon: <HomeIcon className="w-8 h-8" />, name: "Property" },
+                          { icon: <CpuChipIcon className="w-8 h-8" />, name: "AI/Tech" },
+                          { icon: <ShieldCheckIcon className="w-8 h-8" />, name: "Security" }
+                        ].map((item, index) => (
+                          <div key={index} className="text-center p-3 bg-gray-50 rounded-lg">
+                            <div className="text-gray-700 flex justify-center mb-2">{item.icon}</div>
+                            <p className="text-xs text-gray-600">{item.name}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spacing & Layout */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Spacing & Layout System</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Spacing Scale</h4>
+                      <p className="text-sm text-gray-600 mb-4">Base unit: 4px</p>
+                      <div className="space-y-2">
+                        {[4,8,12,16,20,24,32,40,48,64,80,96].map((size, index) => (
+                          <div key={index} className="flex items-center gap-4">
+                            <div 
+                              className="bg-[#8B5BE8] h-4 rounded"
+                              style={{ width: `${Math.min(size, 96)}px` }}
+                            ></div>
+                            <span className="text-sm text-gray-700 font-mono">{size}px</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Grid System</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• <strong>Desktop:</strong> 12-column, 24px gutters</li>
+                        <li>• <strong>Tablet:</strong> 8-column, 20px gutters</li>
+                        <li>• <strong>Mobile:</strong> 4-column, 16px gutters</li>
+                        <li>• <strong>Max Width:</strong> 1280px (marketing)</li>
+                        <li>• <strong>Section Spacing:</strong> ≥64px between major sections</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Accessibility Section */}
+            <section id="accessibility" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Accessibility & Inclusion</h2>
+              
+              <div className="bg-white border border-gray-200 rounded-xl p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">WCAG 2.2 AA Standards</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-4">Core Requirements</h4>
+                    <div className="space-y-3">
+                      {[
+                        { category: "Contrast", req: "4.5:1 text; 3:1 large text", tool: "axe, Stark" },
+                        { category: "Semantics", req: "Proper landmarks, heading order", tool: "ESLint a11y" },
+                        { category: "Keyboard", req: "Tab order logical, focus visible", tool: "Manual testing" },
+                        { category: "Screen Reader", req: "Alt text, ARIA labels", tool: "VoiceOver/NVDA" }
+                      ].map((item, index) => (
+                        <div key={index} className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start mb-1">
+                            <h5 className="font-medium text-gray-900 text-sm">{item.category}</h5>
+                            <span className="text-xs text-gray-500">{item.tool}</span>
+                          </div>
+                          <p className="text-sm text-gray-700">{item.req}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-4">Quality Assurance Flow</h4>
+                    <ol className="space-y-2 text-sm text-gray-700">
+                      <li>1. Design spec includes contrast validation</li>
+                      <li>2. Component library a11y testing</li>
+                      <li>3. Automated CI accessibility checks</li>
+                      <li>4. Manual keyboard navigation testing</li>
+                      <li>5. Screen reader compatibility verification</li>
+                      <li>6. Quarterly accessibility audit review</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Content Strategy Section */}
+            <section id="content" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Content Strategy Framework</h2>
+              
+              <div className="space-y-8">
+                {/* Content Themes */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Content Pillar Themes</h3>
+                  <div className="space-y-4">
+                    {[
+                      { theme: "Yield Intelligence", purpose: "Establish technical authority", example: "Annual Revenue Optimization Report", kpi: "Downloads" },
+                      { theme: "Hospitality Excellence", purpose: "Show service differentiation", example: "Guest experience case studies", kpi: "NPS Lift" },
+                      { theme: "Partner Success", purpose: "Social proof & trust building", example: "20-year contract showcases", kpi: "Lead Quality" },
+                      { theme: "AI Transparency", purpose: "Ethical credibility", example: "Inside Our Pricing Engine", kpi: "Time on Page" }
+                    ].map((item, index) => (
+                      <div key={index} className="border border-gray-100 rounded-lg p-4">
+                        <div className="grid md:grid-cols-4 gap-4">
+                          <div>
+                            <h4 className="font-medium text-[#8B5BE8]">{item.theme}</h4>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-700">{item.purpose}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-600 italic">{item.example}</p>
+                          </div>
+                          <div>
+                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">{item.kpi}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Legal & Compliance */}
+                <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Legal & Compliance Requirements</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-medium text-yellow-800 mb-2">Financial Claims Disclaimers</h4>
+                      <div className="bg-white rounded-lg p-4 text-sm">
+                        <p className="text-gray-700 mb-2"><strong>Revenue Claims:</strong> "Revenue uplift (30-40%) reflects aggregated DigiHome managed properties (Norway 2022-2024, n=200). Individual results vary by location, condition, regulation, and market demand."</p>
+                        <p className="text-gray-700"><strong>87M NOK:</strong> "Total gross rental revenue facilitated Jan 2022-Dec 2024 across DigiHome managed portfolio. Figures audited by [Third-Party]—methodology on request."</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-yellow-800 mb-2">AI Transparency</h4>
+                      <div className="bg-white rounded-lg p-4 text-sm">
+                        <p className="text-gray-700">"Automated pricing & communication decisions are reviewed periodically; owners can request manual override at any time."</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Implementation Section */}
+            <section id="implementation" className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Implementation & Governance</h2>
+              
+              <div className="space-y-8">
+                {/* Roadmap */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Implementation Roadmap</h3>
+                  <div className="space-y-6">
+                    {[
+                      { phase: "Phase 1: Foundation", weeks: "1-8", focus: "Risk mitigation, voice standardization, accessible palette", deliverables: "Disclaimers live, voice guide, design tokens" },
+                      { phase: "Phase 2: Enhancement", weeks: "9-16", focus: "Social proof, analytics, localization prep", deliverables: "Case studies, event taxonomy, brand health baseline" },
+                      { phase: "Phase 3: Scale", weeks: "17-24", focus: "Thought leadership, personalization, innovation", deliverables: "Annual report, personalized content, API brand kit" }
+                    ].map((item, index) => (
+                      <div key={index} className="border border-gray-100 rounded-lg p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <h4 className="font-semibold text-[#8B5BE8]">{item.phase}</h4>
+                          <span className="text-sm bg-gray-100 px-3 py-1 rounded-full text-gray-600">Weeks {item.weeks}</span>
+                        </div>
+                        <p className="text-gray-700 mb-3">{item.focus}</p>
+                        <p className="text-sm text-gray-600"><strong>Key Deliverables:</strong> {item.deliverables}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Governance */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Brand Governance Framework</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Key Roles & Responsibilities</h4>
+                      <div className="space-y-3">
+                        {[
+                          { role: "Brand Director", responsibility: "Strategy, positioning, major decisions" },
+                          { role: "Design System Lead", responsibility: "Visual consistency, component library" },
+                          { role: "Content Strategist", responsibility: "Voice consistency, messaging hierarchy" },
+                          { role: "Accessibility Lead", responsibility: "WCAG compliance, inclusive design" }
+                        ].map((item, index) => (
+                          <div key={index} className="bg-gray-50 rounded-lg p-3">
+                            <h5 className="font-medium text-gray-900 text-sm">{item.role}</h5>
+                            <p className="text-sm text-gray-700">{item.responsibility}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Approval Workflow</h4>
+                      <ol className="space-y-2 text-sm text-gray-700">
+                        <li>1. Creator develops using brand guidelines</li>
+                        <li>2. Self-review against brand checklist</li>
+                        <li>3. Peer review for compliance</li>
+                        <li>4. Content/Design lead approval</li>
+                        <li>5. Brand Director sign-off (strategic content)</li>
+                        <li>6. Publication and performance monitoring</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quality Assurance */}
+                <div className="bg-white border border-gray-200 rounded-xl p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Quality Assurance Checklist</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Content Quality Gates</h4>
+                      <div className="space-y-2">
+                        {[
+                          "Voice alignment with brand pillars verified",
+                          "Tone appropriate for context and audience", 
+                          "Terminology consistent with brand lexicon",
+                          "Claims substantiated with disclaimers",
+                          "Accessibility requirements met",
+                          "Legal/compliance review completed"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <input type="checkbox" className="rounded border-gray-300" />
+                            <span className="text-sm text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-4">Visual Quality Gates</h4>
+                      <div className="space-y-2">
+                        {[
+                          "Colors match approved palette with contrast",
+                          "Typography follows scale and hierarchy",
+                          "Spacing uses systematic tokens",
+                          "Icons consistent with library guidelines", 
+                          "Logo usage follows clear space requirements",
+                          "Design aligns with brand personality"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <input type="checkbox" className="rounded border-gray-300" />
+                            <span className="text-sm text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Footer/Contact */}
+            <div className="bg-gradient-to-r from-[#253551] to-[#8B5BE8] rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-white mb-4">Questions About Brand Guidelines?</h3>
+              <p className="text-white/90 mb-6">
+                Contact the Brand Director for clarification, approval workflow questions, or guideline updates.
+              </p>
+              <div className="flex justify-center gap-4">
+                <button className="px-6 py-3 bg-white text-[#253551] font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+                  Contact Brand Team
+                </button>
+                <button className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                  Download PDF Version
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
 export const AboutCallToActionSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
