@@ -127,6 +127,15 @@ a {
   transition: all 0.3s ease;
 }
 
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #D4A2FF;
+  outline-offset: 2px;
+}
+
 /* Image optimization */
 img {
   max-width: 100%;
