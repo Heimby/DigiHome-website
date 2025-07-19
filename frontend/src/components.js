@@ -102,7 +102,7 @@ export const Navigation = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Membership</a>
+            <Link to="/membership" className="text-white hover:text-gray-300 transition-colors font-medium">Membership</Link>
             <Link to="/partner-relations" className="text-white hover:text-gray-300 transition-colors font-medium">Partner Relations</Link>
             <Link to="/about" className="text-white hover:text-gray-300 transition-colors font-medium">About</Link>
           </div>
