@@ -1482,19 +1482,19 @@ export const AboutDigiSaleSection = () => {
               <h4 className="text-2xl font-bold text-gray-900 mb-6">DigiSale Products</h4>
               <div className="space-y-6">
                 <div className="border-l-4 pl-6" style={{ borderLeftColor: '#D4A2FF' }}>
-                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#D4A2FF' }}>DigiHome</h5>
+                  <h5 className="text-lg font-semibold mb-2" style={{ color: '#AE68E4' }}>DigiHome</h5>
                   <p className="text-gray-600 text-sm">
                     AI-powered property management platform revolutionizing short and long-term rentals
                   </p>
                 </div>
                 <div className="border-l-4 pl-6" style={{ borderLeftColor: '#FFFF8A' }}>
-                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#B8B800' }}>DigiCar</h5>
+                  <h5 className="text-lg font-semibold mb-2" style={{ color: '#E0E072' }}>DigiCar</h5>
                   <p className="text-gray-600 text-sm">
                     Intelligent automotive solutions transforming vehicle management and logistics
                   </p>
                 </div>
                 <div className="border-l-4 pl-6" style={{ borderLeftColor: '#C7FF8A' }}>
-                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#7BB800' }}>DigiSale Ecosystem</h5>
+                  <h5 className="text-lg font-semibold mb-2" style={{ color: '#A1D964' }}>DigiSale Ecosystem</h5>
                   <p className="text-gray-600 text-sm">
                     Additional industry-leading solutions currently in development under the DigiSale umbrella
                   </p>
