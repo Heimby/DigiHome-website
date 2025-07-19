@@ -1304,7 +1304,7 @@ export const AboutTeamSection = () => {
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Philosophy</h3>
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#A1D964' }}>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#AE68E4' }}>
                   Microteam Excellence
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
