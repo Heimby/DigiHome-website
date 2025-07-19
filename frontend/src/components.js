@@ -1718,7 +1718,7 @@ export const BrandGuidelinesPage = () => {
       {/* Header */}
       <header className="bg-[#253551] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="transition-all duration-1000 opacity-100 translate-y-0">
             <div className="flex items-center gap-4 mb-6">
               <img 
                 src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePurple.svg" 
