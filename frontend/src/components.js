@@ -2979,7 +2979,9 @@ export const MembershipContent = () => {
           <div className={`transition-all duration-700 ease-out ${
             visibleSections.has('business') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="text-6xl mb-8">💼</div>
+            <div className="mb-8 flex items-center justify-center text-[#253551]">
+              <BriefcaseIcon className="w-16 h-16" />
+            </div>
             <h2 className="text-4xl sm:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
               Business Traveler?
             </h2>
