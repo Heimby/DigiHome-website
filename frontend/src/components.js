@@ -100,102 +100,164 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link to="/">
-              <img 
-                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
-                alt="DigiHome" 
-                className="h-6 sm:h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
-              />
-            </Link>
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <Link to="/membership" className="text-white hover:text-gray-300 transition-colors font-medium">Membership</Link>
-            <Link to="/partner-relations" className="text-white hover:text-gray-300 transition-colors font-medium">Partner Relations</Link>
-            <Link to="/about" className="text-white hover:text-gray-300 transition-colors font-medium">About</Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Sign In</a>
-          </div>
-          
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button 
-              onClick={toggleMobileMenu}
-              className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
-              aria-label="Toggle mobile menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 z-50 bg-black backdrop-blur-md" 
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
-          onClick={closeMobileMenu}
-        >
-          <div 
-            className="fixed inset-y-0 right-0 max-w-xs w-full shadow-2xl border-l border-gray-700 p-6" 
-            style={{ 
-              backgroundColor: '#000000',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              minHeight: '100vh',
-              minHeight: '100dvh'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <Link to="/" onClick={closeMobileMenu}>
+    <header role="banner">
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
+      }`} aria-label="Main navigation">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <Link to="/" aria-label="DigiHome homepage">
                 <img 
                   src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
                   alt="DigiHome" 
-                  className="h-6 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                  className="h-6 sm:h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
                 />
               </Link>
+            </div>
+            
+            {/* Desktop Menu */}
+            <ul className="hidden md:flex items-center space-x-6 lg:space-x-8" role="menubar">
+              <li role="none">
+                <Link 
+                  to="/membership" 
+                  className="text-white hover:text-gray-300 transition-colors font-medium"
+                  role="menuitem"
+                >
+                  Membership
+                </Link>
+              </li>
+              <li role="none">
+                <Link 
+                  to="/partner-relations" 
+                  className="text-white hover:text-gray-300 transition-colors font-medium"
+                  role="menuitem"
+                >
+                  Partner Relations
+                </Link>
+              </li>
+              <li role="none">
+                <Link 
+                  to="/about" 
+                  className="text-white hover:text-gray-300 transition-colors font-medium"
+                  role="menuitem"
+                >
+                  About
+                </Link>
+              </li>
+            </ul>
+            
+            <div className="hidden md:block">
+              <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">Sign In</a>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
               <button 
-                onClick={closeMobileMenu}
+                onClick={toggleMobileMenu}
                 className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
-                aria-label="Close mobile menu"
+                aria-label="Toggle mobile menu"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
             </div>
-            
-            <div className="space-y-6">
-              <Link to="/membership" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
-                Membership
-              </Link>
-              <Link to="/partner-relations" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
-                Partner Relations
-              </Link>
-              <Link to="/about" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
-                About
-              </Link>
-              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
-                Sign In
-              </a>
-            </div>
           </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div 
+            id="mobile-menu"
+            className="md:hidden fixed inset-0 z-50 bg-black backdrop-blur-md" 
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+            onClick={closeMobileMenu}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-menu-title"
+          >
+            <div 
+              className="fixed inset-y-0 right-0 max-w-xs w-full shadow-2xl border-l border-gray-700 p-6" 
+              style={{ 
+                backgroundColor: '#000000',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                minHeight: '100vh',
+                minHeight: '100dvh'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-8">
+                <Link to="/" onClick={closeMobileMenu} aria-label="DigiHome homepage">
+                  <img 
+                    src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePinkLogoWhiteText.svg" 
+                    alt="DigiHome" 
+                    className="h-6 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                  />
+                </Link>
+                <button 
+                  onClick={closeMobileMenu}
+                  className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+                  aria-label="Close mobile menu"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <nav aria-label="Mobile navigation">
+                <h2 id="mobile-menu-title" className="sr-only">Mobile Menu</h2>
+                <ul className="space-y-6" role="menu">
+                  <li role="none">
+                    <Link 
+                      to="/membership" 
+                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" 
+                      onClick={closeMobileMenu}
+                      role="menuitem"
+                    >
+                      Membership
+                    </Link>
+                  </li>
+                  <li role="none">
+                    <Link 
+                      to="/partner-relations" 
+                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" 
+                      onClick={closeMobileMenu}
+                      role="menuitem"
+                    >
+                      Partner Relations
+                    </Link>
+                  </li>
+                  <li role="none">
+                    <Link 
+                      to="/about" 
+                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" 
+                      onClick={closeMobileMenu}
+                      role="menuitem"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li role="none">
+                    <a 
+                      href="#" 
+                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
+                      role="menuitem"
+                    >
+                      Sign In
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 
