@@ -3014,7 +3014,7 @@ export const MembershipContent = () => {
                 step: "03",
                 title: "Enjoy Premium Perks",
                 description: "Access flexible check-in times, exclusive deals, and personalized recommendations tailored to your travel style.",
-                icon: <TargetIcon className="w-8 h-8" />
+                icon: <ArrowTopRightOnSquareIcon className="w-8 h-8" />
               }
             ].map((step, index) => (
               <div
