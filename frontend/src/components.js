@@ -1734,7 +1734,7 @@ export const BrandGuidelinesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       {/* Header */}
       <header className="bg-[#253551] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
