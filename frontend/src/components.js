@@ -1681,17 +1681,17 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
   return (
     <div className="mx-auto max-w-4xl">
       <div className="text-center mb-8">
-        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out drop-shadow-lg ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           Property Details
         </h2>
-        <p className={`text-xl text-white/90 mb-2 transition-all duration-700 ease-out ${
+        <p className={`text-xl text-white mb-2 transition-all duration-700 ease-out drop-shadow-md ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{ transitionDelay: '200ms' }}>
           {address}
         </p>
-        <p className={`text-lg text-white/80 transition-all duration-700 ease-out ${
+        <p className={`text-lg text-white/90 transition-all duration-700 ease-out drop-shadow-sm ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{ transitionDelay: '300ms' }}>
           Tell us about your property to get accurate earnings calculation
