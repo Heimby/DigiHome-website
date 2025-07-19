@@ -104,6 +104,15 @@ button:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #D4A2FF;
+  outline-offset: 2px;
+}
+
 /* Mobile touch optimization */
 @media (max-width: 768px) {
   button:hover {
