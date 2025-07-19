@@ -63,6 +63,7 @@ const About = () => {
       <Navigation />
       <AboutHeroSection />
       <AboutMissionSection />
+      <AboutTeamSection />
       <AboutWhiteSection />
       <AboutStatisticsSection />
       <AboutTechnologySection />
