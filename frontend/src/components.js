@@ -1713,14 +1713,6 @@ export const BrandGuidelinesPage = () => {
     { id: 'appendices', title: '17. Appendices', icon: DocumentTextIcon }
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
