@@ -1791,7 +1791,7 @@ export const BrandGuidelinesPage = () => {
                         : 'text-gray-700 hover:bg-gray-100'
                     }`}
                   >
-                    {section.icon}
+                    <section.icon className="w-4 h-4 flex-shrink-0" />
                     <span className="text-sm font-medium">{section.title}</span>
                   </button>
                 </li>
