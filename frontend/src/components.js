@@ -5272,3 +5272,264 @@ export const DigiSaleTechnologyPage = () => {
     </div>
   );
 };
+
+// DigiSale Portfolio Page
+export const DigiSalePortfolioPage = () => {
+  const caseStudies = [
+    {
+      company: "DigiHome",
+      industry: "PropTech",
+      description: "AI-powered property management platform revolutionizing the hospitality industry",
+      metrics: {
+        revenue: "87M+ NOK",
+        growth: "450+ properties",
+        efficiency: "98% automation"
+      },
+      technologies: ["Predictive Analytics", "Dynamic Pricing", "Automated Operations"],
+      image: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePurple.svg",
+      status: "Market Leader"
+    },
+    {
+      company: "NEKSOR",
+      industry: "FinTech",
+      description: "Next-generation financial intelligence platform for enterprise risk management",
+      metrics: {
+        revenue: "€45M ARR",
+        growth: "300% YoY",
+        efficiency: "85% cost reduction"
+      },
+      technologies: ["Risk Analytics", "Fraud Detection", "Compliance Automation"],
+      image: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR.png",
+      status: "Scaling Fast"
+    },
+    {
+      company: "Heimby",
+      industry: "Real Estate",
+      description: "Intelligent property marketplace connecting buyers with perfect homes using AI",
+      metrics: {
+        revenue: "€12M ARR",
+        growth: "500+ transactions/month",
+        efficiency: "92% match accuracy"
+      },
+      technologies: ["Computer Vision", "Recommendation Engine", "Market Analysis"],
+      image: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Heimby.png",
+      status: "Growing Strong"
+    }
+  ];
+
+  const industries = [
+    {
+      name: "PropTech & Real Estate",
+      companies: 12,
+      totalValue: "€150M+",
+      description: "Transforming property management and real estate through AI-driven insights"
+    },
+    {
+      name: "FinTech & Banking",
+      companies: 8,
+      totalValue: "€200M+", 
+      description: "Revolutionizing financial services with intelligent risk management and automation"
+    },
+    {
+      name: "HealthTech",
+      companies: 6,
+      totalValue: "€75M+",
+      description: "Advancing healthcare through AI-powered diagnostics and patient care optimization"
+    },
+    {
+      name: "E-commerce & Retail",
+      companies: 15,
+      totalValue: "€180M+",
+      description: "Enhancing customer experiences through personalization and supply chain intelligence"
+    }
+  ];
+
+  const achievements = [
+    {
+      metric: "41",
+      label: "Companies Built",
+      description: "Industry-leading businesses created from conception to market leadership"
+    },
+    {
+      metric: "€650M+",
+      label: "Combined Valuation", 
+      description: "Total market value of companies in our portfolio"
+    },
+    {
+      metric: "15x",
+      label: "Average ROI",
+      description: "Return on investment across all portfolio companies"
+    },
+    {
+      metric: "87%",
+      label: "Success Rate",
+      description: "Companies that achieved market leadership or successful exit"
+    }
+  ];
+
+  return (
+    <div className="bg-tech-black min-h-screen">
+      <DigiSaleNavigation />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-tech overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-digisale-primary/30 rounded-full blur-3xl float-animation"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
+              Portfolio of
+              <br />
+              <span className="text-digisale-primary">Industry Leaders</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-tech-light max-w-4xl mx-auto leading-relaxed">
+              From startups to market leaders—see how our AI-first microteams have built 
+              <span className="text-digisale-primary font-semibold"> 41 successful companies</span> across diverse industries.
+            </p>
+          </motion.div>
+
+          {/* Achievement Stats */}
+          <div className="grid md:grid-cols-4 gap-8">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-6 border border-digisale-primary/30"
+              >
+                <div className="text-4xl font-bold text-digisale-primary mb-2">{achievement.metric}</div>
+                <div className="text-white font-semibold mb-2">{achievement.label}</div>
+                <div className="text-tech-light text-sm">{achievement.description}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Studies */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Featured <span className="text-digisale-primary">Case Studies</span>
+          </motion.h2>
+
+          <div className="space-y-12">
+            {caseStudies.map((study, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-3xl p-8 border border-tech-gray hover:border-digisale-primary transition-all group"
+              >
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                  <div className="md:col-span-2">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <img src={study.image} alt={study.company} className="w-16 h-16 rounded-xl" />
+                      <div>
+                        <h3 className="text-3xl font-bold text-white">{study.company}</h3>
+                        <div className="flex items-center space-x-4">
+                          <span className="text-tech-light">{study.industry}</span>
+                          <span className="px-3 py-1 bg-digisale-primary/20 text-digisale-primary rounded-full text-sm font-semibold">
+                            {study.status}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-tech-light text-lg leading-relaxed mb-6">{study.description}</p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {study.technologies.map((tech, techIndex) => (
+                        <span 
+                          key={techIndex}
+                          className="px-3 py-1 bg-tech-black/50 text-tech-light rounded-full text-sm border border-digisale-primary/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 md:grid-cols-1 gap-4">
+                    {Object.entries(study.metrics).map(([key, value], metricIndex) => (
+                      <div key={metricIndex} className="text-center">
+                        <div className="text-2xl font-bold text-digisale-primary">{value}</div>
+                        <div className="text-tech-light text-sm capitalize">{key}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Overview */}
+      <section className="py-20 bg-gradient-tech">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Industries <span className="text-digisale-primary">Transformed</span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {industries.map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-tech-gray/30 backdrop-blur-sm rounded-2xl p-8 border border-digisale-primary/30 hover:border-digisale-primary/60 transition-all"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-2xl font-bold text-white">{industry.name}</h3>
+                  <div className="text-right">
+                    <div className="text-digisale-primary font-bold text-lg">{industry.companies} companies</div>
+                    <div className="text-tech-light text-sm">{industry.totalValue} value</div>
+                  </div>
+                </div>
+                <p className="text-tech-light leading-relaxed">{industry.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="bg-gradient-to-r from-tech-black to-tech-gray rounded-3xl p-12 border border-digisale-primary/30"
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Build the Next Industry Leader?</h2>
+            <p className="text-xl text-tech-light mb-8">
+              Join our portfolio of successful companies and leverage the power of AI-first microteams.
+            </p>
+            <Link to="/digisale/investment" className="button-digisale-primary">
+              Explore Investment Opportunities
+              <ArrowRightIcon className="w-5 h-5 ml-2" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
