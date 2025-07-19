@@ -1752,7 +1752,7 @@ export const AboutWhiteSection = () => {
       year: "2022",
       title: "Norway's biggest Airbnb operator",
       body: "Founded as a school project at NHH by Njål Eliasson, Olav Rognes & Knut Søråsdekkan. Scaled to Norway's largest Airbnb profile within six months (later overtaken by Dinbnb, summer 2023). First short-term operator company to be awarded a professional hotel linen contract, setting new industry standards.",
-      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//NEKSOR%20Logo.jpeg",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//ChatGPT%20Image%20Jul%2019,%202025,%2002_34_47%20PM.png",
       alt: "NEKSOR logo",
       company: "NEKSOR",
       color: "#FF5A5F", // Airbnb red
@@ -1762,7 +1762,7 @@ export const AboutWhiteSection = () => {
       year: "2024",
       title: "Professionalising dynamic rentals",
       body: "Rebrand and pivot from sub-lease to pure property management, challenging rental-broker monopoly \"Utleiemegleren\". First to blend short- and long-term stays in designer units, lowering tenant cost while boosting owners' yield.",
-      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//HeimbyLogoWhite.png",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Heimby_Dark_Blue.png",
       alt: "Heimby logo",
       company: "Heimby",
       color: "#253551", // Provided color
@@ -1772,7 +1772,7 @@ export const AboutWhiteSection = () => {
       year: "2025",
       title: "AI-powered property technology",
       body: "After 3 years' data, doubled down on AI & prop-tech. Deployed agent-based guest comms, logistics coordination & owner dashboards—now Norway's most efficient property-management platform. Partnered with professional hotel cleaning- and management companies to research how you can autonomously run cities as efficient as hotels.",
-      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg",
+      logo: "https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomePurple.svg",
       alt: "DigiHome logo",
       company: "DigiHome",
       color: "#D4A2FF", // Provided color
