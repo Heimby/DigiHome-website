@@ -2295,6 +2295,393 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
   );
 };
 
+// Partner Relations Hero Section
+export const PartnerRelationsHero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const section = document.getElementById('partner-hero');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="partner-hero" className="relative min-h-screen overflow-hidden flex items-center justify-center">
+      {/* Background Image/Video */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Check-In-Damsgardsveien.png"
+          alt="DigiHome Partner Relations"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+        <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-thin mb-8 tracking-tight transition-all duration-1000 ease-out drop-shadow-lg ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          Partner with DigiHome
+        </h1>
+        
+        <p className={`text-xl sm:text-2xl lg:text-3xl font-light mb-12 leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out drop-shadow-md ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '200ms' }}>
+          We work with property owners, investors, and developers to transform traditional rentals into profitable, AI-powered experiences
+        </p>
+
+        <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '400ms' }}>
+          <button 
+            className="px-8 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl"
+            onClick={() => document.getElementById('partner-benefits').scrollIntoView({ behavior: 'smooth' })}
+          >
+            Explore Partnership
+          </button>
+          <button 
+            className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 transform hover:scale-105 border border-white/20"
+            onClick={() => document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' })}
+          >
+            Get In Touch
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg className="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </section>
+  );
+};
+
+// Partner Relations Content Section
+export const PartnerRelationsContent = () => {
+  const [visibleSections, setVisibleSections] = useState(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('data-section');
+            if (sectionId) {
+              setVisibleSections(prev => new Set([...prev, sectionId]));
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('[data-section]');
+    sections.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      {/* Why Partner With Us */}
+      <section id="partner-benefits" data-section="benefits" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
+              visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              Why Partner With DigiHome?
+            </h2>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+              visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              Transform your property portfolio with our AI-powered platform and proven track record of success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "📈",
+                title: "Increased Revenue",
+                description: "Generate 30-40% higher returns compared to traditional long-term rentals through our dynamic pricing and occupancy optimization.",
+                color: "#D4A2FF"
+              },
+              {
+                icon: "🤝",
+                title: "Long-term Partnership",
+                description: "Secure contracts up to 20 years provide stable, guaranteed income without vacancy risks or marketing headaches.",
+                color: "#FF5A5F"
+              },
+              {
+                icon: "🤖",
+                title: "AI-Powered Operations",
+                description: "Fully automated guest communication, pricing optimization, and property management through our advanced AI platform.",
+                color: "#253551"
+              },
+              {
+                icon: "💼",
+                title: "Zero Hassle Management",
+                description: "We handle everything from guest screening to maintenance coordination. You collect returns while we manage operations.",
+                color: "#D4A2FF"
+              },
+              {
+                icon: "📊",
+                title: "Real-time Analytics",
+                description: "Access comprehensive dashboards with property performance, revenue tracking, and market insights at your fingertips.",
+                color: "#FF5A5F"
+              },
+              {
+                icon: "🛡️",
+                title: "Risk Mitigation",
+                description: "Our hybrid model combines short and long-term rentals for crisis-resistant returns and reduced seasonal volatility.",
+                color: "#253551"
+              }
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out border border-gray-100 hover:scale-105 ${
+                  visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ 
+                  transitionDelay: `${400 + index * 100}ms`,
+                  borderColor: `${benefit.color}20`
+                }}
+              >
+                <div className="text-5xl mb-6">{benefit.icon}</div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4" style={{ color: benefit.color }}>
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Business Model */}
+      <section data-section="model" className="py-24" style={{ backgroundColor: '#D4A2FF' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
+              visibleSections.has('model') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              Our Business Model
+            </h2>
+            <p className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
+              visibleSections.has('model') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              We transform properties into fully digital, design-focused experiences that maximize both revenue and guest satisfaction
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Partnership Agreement",
+                description: "We establish long-term partnerships with property owners through flexible contract models including lease agreements, revenue sharing, or management contracts."
+              },
+              {
+                step: "02", 
+                title: "Property Optimization",
+                description: "Our design team transforms spaces with high-quality furnishing, smart home technology, and our signature aesthetic to maximize appeal and functionality."
+              },
+              {
+                step: "03",
+                title: "Digital Integration",
+                description: "We install our AI-powered infrastructure for seamless guest experiences, automated operations, and real-time performance monitoring."
+              },
+              {
+                step: "04",
+                title: "Revenue Generation",
+                description: "Properties serve both short-term travelers and long-term residents through our hybrid model, optimizing revenue across all seasons and market conditions."
+              }
+            ].map((step, index) => (
+              <div
+                key={index}
+                className={`text-center transition-all duration-700 ease-out ${
+                  visibleSections.has('model') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${400 + index * 150}ms` }}
+              >
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 border border-white/30">
+                  <span className="text-2xl font-bold text-white">{step.step}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-md">
+                  {step.title}
+                </h3>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Options */}
+      <section data-section="options" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
+              visibleSections.has('options') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              Partnership Models
+            </h2>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+              visibleSections.has('options') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              Choose the partnership model that best fits your investment goals and risk tolerance
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Master Lease",
+                subtitle: "Fixed Income Model",
+                description: "We lease your entire property on long-term contracts (5-20 years) and pay guaranteed rent regardless of occupancy.",
+                benefits: ["Guaranteed monthly income", "No vacancy risk", "Zero management hassle", "Property improvements included"],
+                color: "#FF5A5F",
+                ideal: "Conservative investors seeking stable returns"
+              },
+              {
+                title: "Revenue Share",
+                subtitle: "Growth Partnership",
+                description: "We manage your property and share revenue based on performance. Higher risk, higher reward potential.",
+                benefits: ["Higher income potential", "Performance-based returns", "Shared investment in success", "Transparent reporting"],
+                color: "#D4A2FF",
+                ideal: "Investors comfortable with variable income",
+                popular: true
+              },
+              {
+                title: "Management Only",
+                subtitle: "Professional Service",
+                description: "Keep full ownership while we handle operations, marketing, guest management, and optimization.",
+                benefits: ["Full asset control", "Professional management", "Technology platform access", "Flexible terms"],
+                color: "#253551",
+                ideal: "Hands-off owners wanting control"
+              }
+            ].map((option, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out relative overflow-hidden ${
+                  visibleSections.has('options') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                } ${option.popular ? 'ring-4 ring-purple-200 scale-105' : ''}`}
+                style={{ transitionDelay: `${400 + index * 200}ms` }}
+              >
+                {option.popular && (
+                  <div className="absolute top-0 right-0 bg-gradient-to-l from-purple-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold rounded-bl-2xl">
+                    Most Popular
+                  </div>
+                )}
+                
+                <div className="mb-6">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ backgroundColor: `${option.color}20` }}>
+                    <div className="w-8 h-8 rounded-lg" style={{ backgroundColor: option.color }}></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{option.title}</h3>
+                  <p className="text-lg font-medium mb-4" style={{ color: option.color }}>{option.subtitle}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">{option.description}</p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {option.benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-center">
+                      <svg className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: option.color }} fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-6 border-t border-gray-100">
+                  <p className="text-sm text-gray-500 mb-4">
+                    <strong>Ideal for:</strong> {option.ideal}
+                  </p>
+                  <button 
+                    className="w-full py-3 px-6 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                    style={{ 
+                      backgroundColor: option.color,
+                      color: 'white'
+                    }}
+                    onClick={() => document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact-us" data-section="contact" className="py-24 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
+            visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Ready to Partner?
+          </h2>
+          <p className={`text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto transition-all duration-700 ease-out drop-shadow-md ${
+            visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            Let's discuss how DigiHome can transform your property investment strategy. Our team is ready to create a custom partnership solution.
+          </p>
+
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 transition-all duration-700 ease-out ${
+            visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '400ms' }}>
+            <button className="px-8 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Schedule a Consultation
+            </button>
+            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 transform hover:scale-105 border border-white/20">
+              Download Partnership Guide
+            </button>
+          </div>
+
+          <div className={`grid sm:grid-cols-3 gap-8 text-white transition-all duration-700 ease-out ${
+            visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '600ms' }}>
+            <div>
+              <h4 className="font-semibold mb-2 drop-shadow-md">Email</h4>
+              <p className="text-gray-300 drop-shadow-sm">partnerships@digihome.no</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2 drop-shadow-md">Phone</h4>
+              <p className="text-gray-300 drop-shadow-sm">+47 123 45 678</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2 drop-shadow-md">Response Time</h4>
+              <p className="text-gray-300 drop-shadow-sm">Within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
