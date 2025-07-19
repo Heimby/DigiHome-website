@@ -1878,7 +1878,7 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
         {/* Bedrooms */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-semibold text-white">Bedrooms</h3>
+            <h3 className="text-2xl font-semibold text-white drop-shadow-md">Bedrooms</h3>
             <button
               type="button"
               onClick={addBedroom}
