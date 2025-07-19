@@ -5076,3 +5076,199 @@ export const DigiSalePage = () => {
     </div>
   );
 };
+
+// DigiSale Technology Page
+export const DigiSaleTechnologyPage = () => {
+  const technologies = [
+    {
+      name: "Neural Decision Engine",
+      description: "Advanced machine learning algorithms that adapt and optimize business decisions in real-time across multiple domains.",
+      metrics: "99.7% accuracy",
+      icon: CpuChipIcon
+    },
+    {
+      name: "Autonomous Team Orchestration",
+      description: "AI-powered coordination system that manages microteam workflows, resource allocation, and performance optimization.",
+      metrics: "15x efficiency gain",
+      icon: UsersIcon
+    },
+    {
+      name: "Predictive Market Intelligence",
+      description: "Real-time market analysis and trend prediction to identify opportunities before competitors.",
+      metrics: "87% prediction accuracy",
+      icon: ChartBarIcon
+    },
+    {
+      name: "Adaptive Infrastructure",
+      description: "Self-scaling cloud architecture that grows with your business needs and optimizes costs automatically.",
+      metrics: "40% cost reduction",
+      icon: RocketLaunchIcon
+    }
+  ];
+
+  const aiCapabilities = [
+    "Natural Language Processing for automated communication",
+    "Computer Vision for quality assurance and monitoring", 
+    "Reinforcement Learning for continuous optimization",
+    "Knowledge Graphs for intelligent decision making",
+    "Time Series Forecasting for market predictions",
+    "Automated Code Generation for rapid development"
+  ];
+
+  return (
+    <div className="bg-tech-black min-h-screen">
+      <DigiSaleNavigation />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-tech overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-digisale-primary/30 rounded-full blur-3xl float-animation"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-tech-blue/30 rounded-full blur-3xl float-animation" style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-8"
+          >
+            AI-First
+            <br />
+            <span className="text-digisale-primary">Technology Stack</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl text-tech-light max-w-4xl mx-auto leading-relaxed mb-12"
+          >
+            Our proprietary AI infrastructure doesn't just assist—it leads. Built from the ground up to create, 
+            coordinate, and scale <span className="text-digisale-primary font-semibold">intelligent business ecosystems</span>.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="grid md:grid-cols-2 gap-8 text-center"
+          >
+            <div className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-6 border border-digisale-primary/30">
+              <div className="text-4xl font-bold text-digisale-primary mb-2">200+</div>
+              <div className="text-tech-light">AI Models Deployed</div>
+            </div>
+            <div className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-6 border border-digisale-primary/30">
+              <div className="text-4xl font-bold text-digisale-primary mb-2">2.4M+</div>
+              <div className="text-tech-light">Decisions Processed Daily</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Core Technologies */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Core <span className="text-digisale-primary">Technologies</span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-8 border border-tech-gray hover:border-digisale-primary transition-all group"
+              >
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-gradient-digisale rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <tech.icon className="w-8 h-8 text-tech-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-3">{tech.name}</h3>
+                    <p className="text-tech-light leading-relaxed mb-4">{tech.description}</p>
+                    <div className="text-digisale-primary font-semibold text-lg">{tech.metrics}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Capabilities */}
+      <section className="py-20 bg-gradient-tech">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            AI <span className="text-digisale-primary">Capabilities</span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {aiCapabilities.map((capability, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="flex items-center space-x-4 bg-tech-gray/30 backdrop-blur-sm rounded-xl p-6 border border-digisale-primary/20 hover:border-digisale-primary/50 transition-all"
+              >
+                <div className="w-3 h-3 bg-digisale-primary rounded-full flex-shrink-0"></div>
+                <span className="text-tech-light font-medium">{capability}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Architecture */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              Technical <span className="text-digisale-primary">Architecture</span>
+            </h2>
+            <p className="text-xl text-tech-light max-w-3xl mx-auto leading-relaxed">
+              Built on a foundation of cutting-edge AI research and enterprise-grade infrastructure,
+              designed to scale from startup to global enterprise.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-r from-tech-black to-tech-gray rounded-3xl p-12 border border-digisale-primary/30 text-center"
+          >
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <div className="text-3xl font-bold text-digisale-primary mb-4">Cloud-Native</div>
+                <p className="text-tech-light">Kubernetes orchestration with auto-scaling and multi-region deployment</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-digisale-primary mb-4">Real-Time</div>
+                <p className="text-tech-light">Sub-second decision making with streaming data processing</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-digisale-primary mb-4">Secure</div>
+                <p className="text-tech-light">End-to-end encryption with zero-trust security architecture</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
