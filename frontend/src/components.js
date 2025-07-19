@@ -13,7 +13,16 @@ import {
   StarIcon,
   SparklesIcon,
   HomeIcon,
-  ArrowTopRightOnSquareIcon
+  ArrowTopRightOnSquareIcon,
+  DocumentTextIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  EyeIcon,
+  PaintBrushIcon,
+  CodeBracketIcon,
+  AcademicCapIcon,
+  GlobeAltIcon,
+  ShieldExclamationIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
