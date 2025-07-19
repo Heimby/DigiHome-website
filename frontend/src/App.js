@@ -121,6 +121,7 @@ const BrandGuidelines = () => {
 
   return (
     <div className="relative">
+      <Navigation />
       <BrandGuidelinesPage />
     </div>
   );
