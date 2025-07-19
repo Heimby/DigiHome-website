@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  TrendingUpIcon,
-  HandshakeIcon,
+  ArrowTrendingUpIcon,
+  HandRaisedIcon,
   CpuChipIcon,
   BriefcaseIcon,
   ChartBarIcon,
@@ -13,7 +13,7 @@ import {
   StarIcon,
   SparklesIcon,
   HomeIcon,
-  TargetIcon
+  ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
