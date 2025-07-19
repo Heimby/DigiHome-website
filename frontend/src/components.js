@@ -1,5 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  TrendingUpIcon,
+  HandshakeIcon,
+  CpuChipIcon,
+  BriefcaseIcon,
+  ChartBarIcon,
+  ShieldCheckIcon,
+  CurrencyDollarIcon,
+  CalendarIcon,
+  ClockIcon,
+  StarIcon,
+  SparklesIcon,
+  HomeIcon,
+  TargetIcon
+} from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
 export const Navigation = () => {
