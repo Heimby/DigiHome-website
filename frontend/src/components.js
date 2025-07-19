@@ -2432,37 +2432,37 @@ export const PartnerRelationsContent = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: "📈",
+                icon: <TrendingUpIcon className="w-12 h-12" />,
                 title: "Increased Revenue",
                 description: "Generate 30-40% higher returns compared to traditional long-term rentals through our dynamic pricing and occupancy optimization.",
                 color: "#D4A2FF"
               },
               {
-                icon: "🤝",
+                icon: <HandshakeIcon className="w-12 h-12" />,
                 title: "Long-term Partnership",
                 description: "Secure contracts up to 20 years provide stable, guaranteed income without vacancy risks or marketing headaches.",
                 color: "#FF5A5F"
               },
               {
-                icon: "🤖",
+                icon: <CpuChipIcon className="w-12 h-12" />,
                 title: "AI-Powered Operations",
                 description: "Fully automated guest communication, pricing optimization, and property management through our advanced AI platform.",
                 color: "#253551"
               },
               {
-                icon: "💼",
+                icon: <BriefcaseIcon className="w-12 h-12" />,
                 title: "Zero Hassle Management",
                 description: "We handle everything from guest screening to maintenance coordination. You collect returns while we manage operations.",
                 color: "#D4A2FF"
               },
               {
-                icon: "📊",
+                icon: <ChartBarIcon className="w-12 h-12" />,
                 title: "Real-time Analytics",
                 description: "Access comprehensive dashboards with property performance, revenue tracking, and market insights at your fingertips.",
                 color: "#FF5A5F"
               },
               {
-                icon: "🛡️",
+                icon: <ShieldCheckIcon className="w-12 h-12" />,
                 title: "Risk Mitigation",
                 description: "Our hybrid model combines short and long-term rentals for crisis-resistant returns and reduced seasonal volatility.",
                 color: "#253551"
@@ -2478,7 +2478,9 @@ export const PartnerRelationsContent = () => {
                   borderColor: `${benefit.color}20`
                 }}
               >
-                <div className="text-5xl mb-6">{benefit.icon}</div>
+                <div className="mb-6 flex items-center justify-center" style={{ color: benefit.color }}>
+                  {benefit.icon}
+                </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4" style={{ color: benefit.color }}>
                   {benefit.title}
                 </h3>
