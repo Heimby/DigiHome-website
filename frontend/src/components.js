@@ -1462,14 +1462,14 @@ export const AboutDigiSaleSection = () => {
             </p>
             <div className="space-y-4">
               {[
-                "AI-powered microteams for maximum efficiency",
-                "Industry disruption through technology innovation",  
-                "Agile development and rapid market adaptation",
-                "Data-driven decision making at every level"
+                { text: "AI-powered microteams for maximum efficiency", color: "#C7FF8A" },
+                { text: "Industry disruption through technology innovation", color: "#D4A2FF" },  
+                { text: "Agile development and rapid market adaptation", color: "#FFFF8A" },
+                { text: "Data-driven decision making at every level", color: "#C7FF8A" }
               ].map((point, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#D4A2FF] rounded-full"></div>
-                  <span className="text-gray-700">{point}</span>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: point.color }}></div>
+                  <span className="text-gray-700">{point.text}</span>
                 </div>
               ))}
             </div>
