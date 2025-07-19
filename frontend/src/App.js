@@ -11,6 +11,8 @@ import {
   EarningsCalculatorSection,
   AboutHeroSection,
   AboutWhiteSection,
+  PartnerRelationsHero,
+  PartnerRelationsContent,
   Footer 
 } from "./components";
 
