@@ -581,6 +581,9 @@ export const PropertyCardsSection = () => {
   };
 
   const scroll = (direction) => {
+    // Temporarily stop auto-scroll when manual navigation is used
+    setIsAutoScrolling(false);
+    
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const currentScroll = container.scrollLeft;
@@ -593,6 +596,11 @@ export const PropertyCardsSection = () => {
         behavior: 'smooth'
       });
     }
+
+    // Resume auto-scroll after a delay
+    setTimeout(() => {
+      setIsAutoScrolling(true);
+    }, 3000);
   };
 
   return (
