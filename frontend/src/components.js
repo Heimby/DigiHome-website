@@ -1714,10 +1714,10 @@ export const BrandGuidelinesPage = () => {
   ];
 
   const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
     }
   };
 
