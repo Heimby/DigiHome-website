@@ -1517,13 +1517,13 @@ export const EarningsCalculatorSection = () => {
 // Address Step Component
 const AddressStep = ({ address, setAddress, onSubmit, isVisible }) => (
   <div className="mx-auto max-w-4xl text-center">
-    <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out ${
+    <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out drop-shadow-lg ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
     }`}>
       Check out what you can earn as a DigiHome owner
     </h2>
     
-    <p className={`text-xl sm:text-2xl text-white/90 mb-12 leading-relaxed font-light transition-all duration-700 ease-out ${
+    <p className={`text-xl sm:text-2xl text-white leading-relaxed font-light transition-all duration-700 ease-out drop-shadow-md mb-12 ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
     }`} style={{ transitionDelay: '200ms' }}>
       Enter your property address to see your potential earnings
