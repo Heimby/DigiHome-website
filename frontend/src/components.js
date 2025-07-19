@@ -1494,7 +1494,7 @@ export const AboutDigiSaleSection = () => {
                   </p>
                 </div>
                 <div className="border-l-4 pl-6" style={{ borderLeftColor: '#C7FF8A' }}>
-                  <h5 className="text-lg font-semibold mb-2" style={{ color: '#A1D964' }}>DigiSale Ecosystem</h5>
+                  <h5 className="text-lg font-semibold mb-2" style={{ color: '#A1D964' }}>Digi...</h5>
                   <p className="text-gray-600 text-sm">
                     Additional industry-leading solutions currently in development under the DigiSale umbrella
                   </p>
