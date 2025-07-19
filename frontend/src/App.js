@@ -111,6 +111,22 @@ const Membership = () => {
   );
 };
 
+const BrandGuidelines = () => {
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  return (
+    <div className="relative">
+      <Navigation />
+      <BrandGuidelinesPage />
+    </div>
+  );
+};
+
 function App() {
   return (
     <div className="App">
