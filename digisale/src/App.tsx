@@ -3,16 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRightIcon,
   PlayIcon,
-  ChartBarIcon,
   CpuChipIcon,
   RocketLaunchIcon,
-  BoltIcon,
-  StarIcon,
-  TrophyIcon,
-  UsersIcon,
-  GlobeAltIcon,
-  ExclamationTriangleIcon,
-  CheckCircleIcon
+  UsersIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component
