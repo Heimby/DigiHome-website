@@ -3009,12 +3009,17 @@ export const PartnerRelationsHero = () => {
 
   return (
     <section id="partner-hero" className="relative min-h-screen overflow-hidden flex items-center justify-center">
-      {/* Background Image/Video */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <img 
-          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Check-In-Damsgardsveien.png"
-          alt="DigiHome Partner Relations"
+        <video 
+          src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Floor%20Plan.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
+          poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjwvc3ZnPgo="
+          aria-label="Background video showcasing DigiHome floor plans and property layouts"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
       </div>
