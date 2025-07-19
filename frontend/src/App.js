@@ -13,6 +13,8 @@ import {
   AboutWhiteSection,
   PartnerRelationsHero,
   PartnerRelationsContent,
+  MembershipHero,
+  MembershipContent,
   Footer 
 } from "./components";
 
