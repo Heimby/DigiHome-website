@@ -164,9 +164,9 @@ export const Navigation = () => {
             </div>
             
             <div className="space-y-6">
-              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+              <Link to="/membership" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
                 Membership
-              </a>
+              </Link>
               <Link to="/partner-relations" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
                 Partner Relations
               </Link>
