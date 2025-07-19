@@ -1229,7 +1229,7 @@ export const AboutTeamSection = () => {
               role: "Property & Hospitality",
               description: "Industry veterans with decades of experience in property management, hospitality operations, and guest experience optimization.",
               icon: <HomeIcon className="w-12 h-12" />,
-              color: "#A1D964", 
+              color: "#253551", 
               skills: ["Property Management", "Guest Relations", "Operations", "Quality Control"]
             },
             {
