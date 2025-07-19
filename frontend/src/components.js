@@ -1833,7 +1833,7 @@ export const BrandGuidelinesPage = () => {
               <div className="grid lg:grid-cols-3 gap-8">
                 <div className="bg-white border border-gray-200 rounded-xl p-6">
                   <div className="w-12 h-12 bg-[#8B5BE8] rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUpIcon className="w-6 h-6 text-white" />
+                    <ArrowTrendingUpIcon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Strategic Foundation</h3>
                   <p className="text-gray-600 text-sm">Brand essence, positioning, value pillars, and competitive differentiation framework.</p>
