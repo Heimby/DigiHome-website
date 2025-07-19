@@ -1096,21 +1096,22 @@ export const AboutWhiteSection = () => {
   ];
 
   return (
-    <section id="history" className="relative isolate overflow-hidden bg-white min-h-screen">
+    <main role="main" className="relative isolate overflow-hidden bg-white min-h-screen">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:py-40">
-        <div className="text-center mb-16 lg:mb-24">
+        <header className="text-center mb-16 lg:mb-24">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8">
             Our Journey
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             From university project to Norway's most efficient property-management platform
           </p>
-        </div>
+        </header>
 
         {/* Desktop Timeline */}
-        <div className={`${isDesktop ? 'block' : 'hidden'} relative mb-20`}>
+        <section className={`${isDesktop ? 'block' : 'hidden'} relative mb-20`} aria-labelledby="timeline-heading" role="region">
+          <h3 id="timeline-heading" className="sr-only">Company History Timeline</h3>
           {/* Timeline Rail - Fixed positioning */}
-          <div className="absolute top-8 left-0 right-0 h-px bg-gray-300 z-0"></div>
+          <div className="absolute top-8 left-0 right-0 h-px bg-gray-300 z-0" role="presentation"></div>
           
           <div className="relative grid grid-cols-3 gap-16 auto-cols-max">
             {milestones.map((milestone, index) => (
@@ -1126,11 +1127,13 @@ export const AboutWhiteSection = () => {
                   transitionDelay: `${index * 200}ms`,
                   transform: visibleMilestones.has(index) ? 'none' : 'translateY(40px) scale(0.95)'
                 }}
+                aria-labelledby={`milestone-${milestone.year}-title`}
               >
                 {/* Timeline Node with company color */}
                 <div 
                   className="relative z-20 w-6 h-6 rounded-full border-4 border-white shadow-lg hover:scale-125 transition-all duration-300 mb-8 group"
                   style={{ backgroundColor: milestone.color }}
+                  role="presentation"
                 >
                   {/* Animated pulse effect */}
                   <div 
@@ -1149,6 +1152,8 @@ export const AboutWhiteSection = () => {
                 <div 
                   className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
                   style={{ backgroundColor: milestone.bgColor }}
+                  role="img"
+                  aria-label={`${milestone.company} company logo`}
                 >
                   <img 
                     src={milestone.logo} 
@@ -1159,15 +1164,16 @@ export const AboutWhiteSection = () => {
                 
                 {/* Content with enhanced styling */}
                 <div className="max-w-sm">
-                  <h3 
+                  <h4 
+                    id={`milestone-${milestone.year}-title`}
                     className="font-mono text-3xl mb-4 font-bold tracking-wide"
                     style={{ color: milestone.color }}
                   >
                     {milestone.year} – {milestone.company}
-                  </h3>
-                  <h4 className="font-light text-xl text-gray-900 mb-4 leading-tight">
-                    {milestone.title}
                   </h4>
+                  <h5 className="font-light text-xl text-gray-900 mb-4 leading-tight">
+                    {milestone.title}
+                  </h5>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">
                     {milestone.body}
                   </p>
@@ -1175,13 +1181,14 @@ export const AboutWhiteSection = () => {
               </article>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Mobile/Tablet Timeline */}
-        <div className={`${isDesktop ? 'hidden' : 'block'} relative mb-20`}>
+        <section className={`${isDesktop ? 'hidden' : 'block'} relative mb-20`} aria-labelledby="timeline-heading-mobile" role="region">
+          <h3 id="timeline-heading-mobile" className="sr-only">Company History Timeline - Mobile View</h3>
           <div className="relative flex flex-col gap-20 pl-8">
             {/* Timeline Rail - Fixed positioning */}
-            <div className="absolute left-3 top-0 h-full w-0.5 bg-gray-300 z-0"></div>
+            <div className="absolute left-3 top-0 h-full w-0.5 bg-gray-300 z-0" role="presentation"></div>
             
             {milestones.map((milestone, index) => (
               <article
@@ -1196,11 +1203,13 @@ export const AboutWhiteSection = () => {
                   transitionDelay: `${index * 200}ms`,
                   transform: visibleMilestones.has(index) ? 'none' : 'translateX(-40px) scale(0.95)'
                 }}
+                aria-labelledby={`milestone-mobile-${milestone.year}-title`}
               >
                 {/* Timeline Node with company color */}
                 <div 
                   className="absolute left-3 top-2 w-6 h-6 rounded-full border-4 border-white shadow-lg transform -translate-x-1/2 z-20 group"
                   style={{ backgroundColor: milestone.color }}
+                  role="presentation"
                 >
                   {/* Animated pulse effect */}
                   <div 
@@ -1222,6 +1231,8 @@ export const AboutWhiteSection = () => {
                     <div 
                       className="w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
                       style={{ backgroundColor: milestone.bgColor }}
+                      role="img"
+                      aria-label={`${milestone.company} company logo`}
                     >
                       <img 
                         src={milestone.logo} 
@@ -1230,17 +1241,18 @@ export const AboutWhiteSection = () => {
                       />
                     </div>
                     
-                    <h3 
+                    <h4 
+                      id={`milestone-mobile-${milestone.year}-title`}
                       className="font-mono text-2xl font-bold tracking-wide"
                       style={{ color: milestone.color }}
                     >
                       {milestone.year} – {milestone.company}
-                    </h3>
+                    </h4>
                   </div>
                   
-                  <h4 className="font-light text-2xl text-gray-900 mb-4 leading-tight">
+                  <h5 className="font-light text-2xl text-gray-900 mb-4 leading-tight">
                     {milestone.title}
-                  </h4>
+                  </h5>
                   <p className="text-gray-600 leading-relaxed font-light">
                     {milestone.body}
                   </p>
@@ -1248,7 +1260,7 @@ export const AboutWhiteSection = () => {
               </article>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Revenue Graph Section */}
         <div className="mt-24 lg:mt-32">
