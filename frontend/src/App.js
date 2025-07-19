@@ -11,6 +11,7 @@ import {
   EarningsCalculatorSection,
   AboutHeroSection,
   AboutMissionSection,
+  AboutTeamSection,
   AboutWhiteSection,
   AboutStatisticsSection,
   AboutTechnologySection,
