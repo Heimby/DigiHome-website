@@ -261,6 +261,16 @@ export const Navigation = () => {
                     </Link>
                   </li>
                   <li role="none">
+                    <Link 
+                      to="/brand-guidelines" 
+                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" 
+                      onClick={closeMobileMenu}
+                      role="menuitem"
+                    >
+                      Brand Guidelines
+                    </Link>
+                  </li>
+                  <li role="none">
                     <a 
                       href="#" 
                       className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
