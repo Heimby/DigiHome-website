@@ -24,7 +24,8 @@ import {
   GlobeAltIcon,
   ShieldExclamationIcon,
   RocketLaunchIcon,
-  CheckIcon
+  CheckIcon,
+  XMarkIcon
 } from '@heroicons/react/24/outline';
 
 // Navigation Component with Mobile Menu Functionality
