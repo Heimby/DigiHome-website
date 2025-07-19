@@ -1471,11 +1471,11 @@ export const EarningsCalculatorSection = () => {
             {/* Progress Bar */}
             <div className="mx-auto max-w-4xl mb-8">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-white/80 text-sm font-medium">Step {currentStep} of 4</span>
+                <span className="text-white text-sm font-semibold drop-shadow-lg bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">Step {currentStep} of 4</span>
               </div>
-              <div className="w-full bg-white/20 rounded-full h-2">
+              <div className="w-full bg-white/20 rounded-full h-2 shadow-inner">
                 <div 
-                  className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-white h-2 rounded-full transition-all duration-500 ease-out shadow-sm"
                   style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
                 ></div>
               </div>
