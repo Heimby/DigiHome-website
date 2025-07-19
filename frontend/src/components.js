@@ -452,6 +452,8 @@ export const SearchBar = () => {
 // Mobile-Optimized Property Cards Section
 export const PropertyCardsSection = () => {
   const scrollContainerRef = useRef(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const autoScrollIntervalRef = useRef(null);
   
   const properties = [
     {
