@@ -60,6 +60,24 @@ const About = () => {
   );
 };
 
+const PartnerRelations = () => {
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  return (
+    <div className="relative">
+      <Navigation />
+      <PartnerRelationsHero />
+      <PartnerRelationsContent />
+      <Footer />
+    </div>
+  );
+};
+
 function App() {
   return (
     <div className="App">
