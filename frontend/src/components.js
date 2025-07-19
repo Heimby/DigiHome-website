@@ -1990,7 +1990,7 @@ const PropertyDetailsStep = ({ address, onSubmit, onBack, isVisible }) => {
 
         {/* Bathrooms and Toilets */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-          <h3 className="text-2xl font-semibold text-white mb-6">Bathrooms & Toilets</h3>
+          <h3 className="text-2xl font-semibold text-white drop-shadow-md mb-6">Bathrooms & Toilets</h3>
           
           <div className="grid grid-cols-2 gap-6">
             <div>
