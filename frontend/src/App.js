@@ -61,7 +61,12 @@ const About = () => {
     <div className="relative">
       <Navigation />
       <AboutHeroSection />
+      <AboutMissionSection />
       <AboutWhiteSection />
+      <AboutStatisticsSection />
+      <AboutTechnologySection />
+      <AboutDigiSaleSection />
+      <AboutCallToActionSection />
       <Footer />
     </div>
   );
