@@ -1481,22 +1481,22 @@ export const AboutDigiSaleSection = () => {
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
               <h4 className="text-2xl font-bold text-gray-900 mb-6">DigiSale Products</h4>
               <div className="space-y-6">
-                <div className="border-l-4 border-[#D4A2FF] pl-6">
-                  <h5 className="text-lg font-semibold text-gray-900 mb-2">DigiHome</h5>
+                <div className="border-l-4 pl-6" style={{ borderLeftColor: '#D4A2FF' }}>
+                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#D4A2FF' }}>DigiHome</h5>
                   <p className="text-gray-600 text-sm">
                     AI-powered property management platform revolutionizing short and long-term rentals
                   </p>
                 </div>
-                <div className="border-l-4 border-[#FF5A5F] pl-6">
-                  <h5 className="text-lg font-semibold text-gray-900 mb-2">DigiCar</h5>
+                <div className="border-l-4 pl-6" style={{ borderLeftColor: '#FFFF8A' }}>
+                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#B8B800' }}>DigiCar</h5>
                   <p className="text-gray-600 text-sm">
                     Intelligent automotive solutions transforming vehicle management and logistics
                   </p>
                 </div>
-                <div className="border-l-4 border-gray-300 pl-6">
-                  <h5 className="text-lg font-semibold text-gray-400 mb-2">More Products</h5>
-                  <p className="text-gray-400 text-sm">
-                    Additional industry-leading solutions currently in development
+                <div className="border-l-4 pl-6" style={{ borderLeftColor: '#C7FF8A' }}>
+                  <h5 className="text-lg font-semibold text-gray-900 mb-2" style={{ color: '#7BB800' }}>DigiSale Ecosystem</h5>
+                  <p className="text-gray-600 text-sm">
+                    Additional industry-leading solutions currently in development under the DigiSale umbrella
                   </p>
                 </div>
               </div>
