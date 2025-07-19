@@ -160,6 +160,9 @@ function App() {
           <Route path="/membership" element={<Membership />} />
           <Route path="/brand-guidelines" element={<BrandGuidelines />} />
           <Route path="/digisale" element={<DigiSale />} />
+          <Route path="/digisale/technology" element={<DigiSaleTechnology />} />
+          <Route path="/digisale/portfolio" element={<DigiSalePortfolio />} />
+          <Route path="/digisale/investment" element={<DigiSaleInvestment />} />
         </Routes>
       </BrowserRouter>
     </div>
