@@ -2511,13 +2511,13 @@ export const PartnerRelationsContent = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <TrendingUpIcon className="w-12 h-12" />,
+                icon: <ArrowTrendingUpIcon className="w-12 h-12" />,
                 title: "Increased Revenue",
                 description: "Generate 30-40% higher returns compared to traditional long-term rentals through our dynamic pricing and occupancy optimization.",
                 color: "#D4A2FF"
               },
               {
-                icon: <HandshakeIcon className="w-12 h-12" />,
+                icon: <HandRaisedIcon className="w-12 h-12" />,
                 title: "Long-term Partnership",
                 description: "Secure contracts up to 20 years provide stable, guaranteed income without vacancy risks or marketing headaches.",
                 color: "#FF5A5F"
