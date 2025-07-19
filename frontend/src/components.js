@@ -1672,18 +1672,45 @@ export const BrandGuidelinesPage = () => {
   const [activeSection, setActiveSection] = useState('overview');
   const [openSections, setOpenSections] = useState(new Set(['overview']));
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const toggleSection = (sectionId) => {
+    setOpenSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(sectionId)) {
+        newSet.delete(sectionId);
+      } else {
+        newSet.add(sectionId);
+      }
+      return newSet;
+    });
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }
+  };
 
   const sections = [
-    { id: 'overview', title: 'Overview', icon: <HomeIcon className="w-5 h-5" /> },
-    { id: 'foundation', title: 'Brand Foundation', icon: <CpuChipIcon className="w-5 h-5" /> },
-    { id: 'verbal', title: 'Verbal Identity', icon: <ChatBubbleLeftIcon className="w-5 h-5" /> },
-    { id: 'visual', title: 'Visual System', icon: <EyeIcon className="w-5 h-5" /> },
-    { id: 'accessibility', title: 'Accessibility', icon: <ShieldCheckIcon className="w-5 h-5" /> },
-    { id: 'content', title: 'Content Strategy', icon: <DocumentTextIcon className="w-5 h-5" /> },
-    { id: 'implementation', title: 'Implementation', icon: <RocketLaunchIcon className="w-5 h-5" /> }
+    { id: 'overview', title: '0. How to Use This Document', icon: DocumentTextIcon },
+    { id: 'strategic-core', title: '1. Brand Strategic Core', icon: AcademicCapIcon },
+    { id: 'verbal-identity', title: '2. Verbal Identity', icon: CodeBracketIcon },
+    { id: 'visual-identity', title: '3. Visual Identity System', icon: PaintBrushIcon },
+    { id: 'accessibility', title: '4. Accessibility & Inclusion', icon: EyeIcon },
+    { id: 'legal-ethics', title: '5. Legal, Ethics & AI Transparency', icon: ShieldExclamationIcon },
+    { id: 'content-strategy', title: '6. Content Strategy', icon: DocumentTextIcon },
+    { id: 'microcopy', title: '7. Microcopy & Product Content', icon: CodeBracketIcon },
+    { id: 'brand-architecture', title: '8. Brand Architecture & Naming', icon: HomeIcon },
+    { id: 'analytics', title: '9. Analytics & Brand Measurement', icon: ChartBarIcon },
+    { id: 'implementation', title: '10. Implementation Roadmap', icon: ArrowTrendingUpIcon },
+    { id: 'governance', title: '11. Governance & Workflow', icon: ShieldCheckIcon },
+    { id: 'design-tokens', title: '12. Design System Tokens', icon: CpuChipIcon },
+    { id: 'engineering', title: '13. Engineering Integration', icon: CodeBracketIcon },
+    { id: 'testing', title: '14. Testing & Quality', icon: ShieldCheckIcon },
+    { id: 'experimentation', title: '15. Experimentation Framework', icon: ChartBarIcon },
+    { id: 'i18n', title: '16. Internationalization', icon: GlobeAltIcon },
+    { id: 'appendices', title: '17. Appendices', icon: DocumentTextIcon }
   ];
 
   const scrollToSection = (sectionId) => {
