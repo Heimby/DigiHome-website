@@ -1093,7 +1093,475 @@ export const AboutHeroSection = () => {
   );
 };
 
-// About Page White Section with History Timeline
+// About Page Mission Section
+export const AboutMissionSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('mission-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="mission-section" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Our Mission
+          </h2>
+          <div className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
+              To revolutionize property management through AI-powered automation, creating seamless experiences 
+              for property owners and guests while maximizing returns and operational efficiency.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-12">
+          {[
+            {
+              icon: <HomeIcon className="w-12 h-12" />,
+              title: "Property Excellence",
+              description: "Transform traditional rentals into premium, technology-enabled experiences that exceed guest expectations.",
+              color: "#D4A2FF"
+            },
+            {
+              icon: <CpuChipIcon className="w-12 h-12" />,
+              title: "AI-First Approach",
+              description: "Leverage artificial intelligence to automate operations, optimize pricing, and predict market trends.",
+              color: "#FF5A5F"
+            },
+            {
+              icon: <ArrowTrendingUpIcon className="w-12 h-12" />,
+              title: "Sustainable Growth",
+              description: "Build long-term partnerships that create consistent value for property owners and communities.",
+              color: "#253551"
+            }
+          ].map((item, index) => (
+            <div
+              key={index}
+              className={`text-center transition-all duration-700 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${400 + index * 150}ms` }}
+            >
+              <div className="mb-6 flex items-center justify-center" style={{ color: item.color }}>
+                {item.icon}
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4" style={{ color: item.color }}>
+                {item.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Statistics Section
+export const AboutStatisticsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [counts, setCounts] = useState({
+    revenue: 0,
+    properties: 0,
+    owners: 0,
+    countries: 0
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('statistics-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      const targets = {
+        revenue: 87,
+        properties: 450,
+        owners: 312,
+        countries: 8
+      };
+
+      const duration = 2000;
+      const steps = 50;
+      const interval = duration / steps;
+
+      let currentStep = 0;
+      const timer = setInterval(() => {
+        currentStep++;
+        const progress = currentStep / steps;
+
+        setCounts({
+          revenue: Math.floor(targets.revenue * progress),
+          properties: Math.floor(targets.properties * progress),
+          owners: Math.floor(targets.owners * progress),
+          countries: Math.floor(targets.countries * progress)
+        });
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          setCounts(targets);
+        }
+      }, interval);
+
+      return () => clearInterval(timer);
+    }
+  }, [isVisible]);
+
+  return (
+    <section id="statistics-section" className="py-24" style={{ backgroundColor: '#D4A2FF' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Our Impact
+          </h2>
+          <p className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            Numbers that reflect our commitment to transforming the property rental industry
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              value: `${counts.revenue}M`,
+              label: "Revenue Generated",
+              suffix: "NOK",
+              description: "Total booking revenue for property owners"
+            },
+            {
+              value: `${counts.properties}+`,
+              label: "Properties Managed",
+              suffix: "",
+              description: "Across multiple cities and regions"
+            },
+            {
+              value: `${counts.owners}+`,
+              label: "Property Owners",
+              suffix: "",
+              description: "Trusting us with their investments"
+            },
+            {
+              value: `${counts.countries}`,
+              label: "Countries",
+              suffix: "",
+              description: "International presence and growth"
+            }
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className={`text-center transition-all duration-700 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${400 + index * 100}ms` }}
+            >
+              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/30 transition-all duration-300">
+                <div className="text-4xl lg:text-5xl font-bold text-white mb-2 drop-shadow-lg">
+                  {stat.value}
+                  {stat.suffix && <span className="text-2xl lg:text-3xl ml-1">{stat.suffix}</span>}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
+                  {stat.label}
+                </h3>
+                <p className="text-white/80 text-sm drop-shadow-sm">
+                  {stat.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Technology Products Section
+export const AboutTechnologySection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('technology-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="technology-section" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Our Technology Products
+          </h2>
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            Cutting-edge solutions that power the future of property management
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {[
+            {
+              icon: <CpuChipIcon className="w-16 h-16" />,
+              title: "DigiHome AI Platform",
+              subtitle: "Autonomous Property Management",
+              description: "Our flagship AI system that handles guest communications, pricing optimization, maintenance scheduling, and performance analytics automatically.",
+              features: [
+                "Real-time pricing optimization",
+                "Automated guest communication",
+                "Predictive maintenance alerts",
+                "Revenue analytics dashboard"
+              ],
+              color: "#D4A2FF"
+            },
+            {
+              icon: <ChartBarIcon className="w-16 h-16" />,
+              title: "DigiHome Analytics Suite",
+              subtitle: "Data-Driven Insights",
+              description: "Advanced analytics platform providing deep insights into property performance, market trends, and optimization opportunities.",
+              features: [
+                "Market trend analysis",
+                "Occupancy forecasting",
+                "Competitive benchmarking",
+                "ROI optimization tools"
+              ],
+              color: "#FF5A5F"
+            }
+          ].map((product, index) => (
+            <div
+              key={index}
+              className={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out border border-gray-100 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${400 + index * 200}ms` }}
+            >
+              <div className="mb-6 flex items-center justify-center" style={{ color: product.color }}>
+                {product.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2" style={{ color: product.color }}>
+                {product.title}
+              </h3>
+              <h4 className="text-lg font-medium text-gray-600 mb-4">
+                {product.subtitle}
+              </h4>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {product.description}
+              </p>
+              <ul className="space-y-3">
+                {product.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center space-x-3">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: product.color }}></div>
+                    <span className="text-gray-700 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// About DigiSale Section
+export const AboutDigiSaleSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('digisale-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="digisale-section" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            Part of DigiSale
+          </h2>
+          <div className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
+              DigiHome is proudly part of DigiSale, a tech group dedicated to creating industry leaders 
+              using microteams powered by AI. Our mission is to revolutionize traditional industries 
+              through innovative technology and agile development.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className={`transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+          }`} style={{ transitionDelay: '400ms' }}>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              The DigiSale Vision
+            </h3>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              We believe in the power of small, highly skilled teams enhanced by artificial intelligence 
+              to outperform traditional large organizations. Our microteam approach enables rapid innovation, 
+              precise execution, and industry-disrupting solutions.
+            </p>
+            <div className="space-y-4">
+              {[
+                "AI-powered microteams for maximum efficiency",
+                "Industry disruption through technology innovation",  
+                "Agile development and rapid market adaptation",
+                "Data-driven decision making at every level"
+              ].map((point, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-[#D4A2FF] rounded-full"></div>
+                  <span className="text-gray-700">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={`transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+          }`} style={{ transitionDelay: '600ms' }}>
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
+              <h4 className="text-2xl font-bold text-gray-900 mb-6">DigiSale Products</h4>
+              <div className="space-y-6">
+                <div className="border-l-4 border-[#D4A2FF] pl-6">
+                  <h5 className="text-lg font-semibold text-gray-900 mb-2">DigiHome</h5>
+                  <p className="text-gray-600 text-sm">
+                    AI-powered property management platform revolutionizing short and long-term rentals
+                  </p>
+                </div>
+                <div className="border-l-4 border-[#FF5A5F] pl-6">
+                  <h5 className="text-lg font-semibold text-gray-900 mb-2">DigiCar</h5>
+                  <p className="text-gray-600 text-sm">
+                    Intelligent automotive solutions transforming vehicle management and logistics
+                  </p>
+                </div>
+                <div className="border-l-4 border-gray-300 pl-6">
+                  <h5 className="text-lg font-semibold text-gray-400 mb-2">More Products</h5>
+                  <p className="text-gray-400 text-sm">
+                    Additional industry-leading solutions currently in development
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Call to Action Section
+export const AboutCallToActionSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('cta-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="cta-section" className="py-24" style={{ backgroundColor: '#253551' }}>
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className={`transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-8 tracking-tight drop-shadow-lg">
+            Ready to Transform Your Property?
+          </h2>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-12 drop-shadow-md">
+            Join hundreds of property owners who have revolutionized their rental business with DigiHome's 
+            AI-powered platform. Start your journey today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
+            <button className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] text-black font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Get Started as Property Owner
+            </button>
+            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white font-semibold text-lg rounded-full hover:bg-white hover:text-[#253551] focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300 transform hover:scale-105">
+              Explore Partnership Options
+            </button>
+          </div>
+          <div className={`mt-12 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          }`} style={{ transitionDelay: '400ms' }}>
+            <p className="text-white/70 text-sm mb-4">Questions? Get in touch with our team</p>
+            <a href="mailto:hello@digihome.no" className="text-[#D4A2FF] hover:text-white transition-colors font-medium">
+              hello@digihome.no
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 export const AboutWhiteSection = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [visibleMilestones, setVisibleMilestones] = useState(new Set());
