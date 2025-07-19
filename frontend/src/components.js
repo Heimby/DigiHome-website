@@ -2155,12 +2155,12 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
   return (
     <div className="mx-auto max-w-4xl">
       <div className="text-center mb-8">
-        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out ${
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-4 transition-all duration-700 ease-out drop-shadow-lg ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           One last thing!
         </h2>
-        <p className={`text-xl text-white/90 transition-all duration-700 ease-out ${
+        <p className={`text-xl text-white transition-all duration-700 ease-out drop-shadow-md ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{ transitionDelay: '200ms' }}>
           Please leave your contact information so that we are able to send you your rental estimates.
