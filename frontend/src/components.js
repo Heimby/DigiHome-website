@@ -278,7 +278,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 min-h-screen">
+    <main className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 min-h-screen" role="main">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video 
@@ -289,6 +289,7 @@ export const HeroSection = () => {
           playsInline
           className="w-full h-full object-cover opacity-80"
           poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjwvc3ZnPgo="
+          aria-label="Background video showcasing DigiHome properties"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50"></div>
       </div>
@@ -301,39 +302,43 @@ export const HeroSection = () => {
           <div className="mb-6 sm:mb-8">
             <img 
               src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//DigiHomeLong.svg" 
-              alt="DigiHome" 
+              alt="DigiHome - AI-powered property management platform" 
               className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto mx-auto mb-4 sm:mb-6"
             />
           </div>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4">
+          <h1 className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4">
             The future of home rentals is here. Homes and experiences that move with you across the world.
-          </p>
+          </h1>
           
           {/* Action Buttons - Mobile Optimized */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto px-4">
             <button 
               onClick={() => scrollToSection('home-humanoid')}
               className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-[#D4A2FF] hover:bg-[#c490ff] text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap text-sm sm:text-base"
+              aria-describedby="find-home-description"
             >
               Find a Home
             </button>
+            <span id="find-home-description" className="sr-only">Browse available properties and find your perfect home</span>
             <button 
               onClick={() => scrollToSection('home-humanoid')}
               className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-transparent border-2 border-[#D4A2FF] hover:bg-[#D4A2FF] text-[#D4A2FF] hover:text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-sm sm:text-base"
+              aria-describedby="become-owner-description"
             >
               Become a DigiHome Owner
             </button>
+            <span id="become-owner-description" className="sr-only">Learn about partnering with DigiHome to monetize your property</span>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" role="presentation">
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center" aria-label="Scroll down indicator">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 
