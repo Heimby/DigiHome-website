@@ -87,6 +87,7 @@ function App() {
             <Route index element={<Home />} />
           </Route>
           <Route path="/about" element={<About />} />
+          <Route path="/partner-relations" element={<PartnerRelations />} />
         </Routes>
       </BrowserRouter>
     </div>
