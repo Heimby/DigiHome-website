@@ -112,6 +112,10 @@ const Membership = () => {
   );
 };
 
+const DigiSale = () => {
+  return <DigiSalePage />;
+};
+
 const BrandGuidelines = () => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
