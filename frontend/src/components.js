@@ -1274,6 +1274,28 @@ export const AboutTeamSection = () => {
           ))}
         </div>
 
+        {/* Team Photo */}
+        <div className={`mb-16 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '700ms' }}>
+          <div className="relative max-w-5xl mx-auto">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Team_BW.jpg"
+                alt="DigiHome Team - AI-powered microteam specialists"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4 drop-shadow-lg">Meet Our Team</h3>
+                <p className="text-lg text-white/90 drop-shadow-md max-w-2xl">
+                  The innovative minds behind DigiHome's AI-powered property management revolution
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Team Philosophy */}
         <div className={`text-center transition-all duration-700 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
