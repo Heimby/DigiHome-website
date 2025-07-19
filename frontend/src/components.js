@@ -1670,7 +1670,7 @@ export const AboutDigiSaleSection = () => {
 // Brand Guidelines Page Component
 export const BrandGuidelinesPage = () => {
   const [activeSection, setActiveSection] = useState('overview');
-  const [isVisible, setIsVisible] = useState(false);
+  const [openSections, setOpenSections] = useState(new Set(['overview']));
 
   useEffect(() => {
     setIsVisible(true);
