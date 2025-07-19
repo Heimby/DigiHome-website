@@ -2169,7 +2169,7 @@ const ContactStep = ({ onSubmit, onBack, isVisible }) => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-          <h3 className="text-2xl font-semibold text-white mb-6">Contact Information</h3>
+          <h3 className="text-2xl font-semibold text-white drop-shadow-md mb-6">Contact Information</h3>
           
           <div className="space-y-6">
             <div>
