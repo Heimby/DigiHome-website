@@ -2682,6 +2682,398 @@ export const PartnerRelationsContent = () => {
   );
 };
 
+// Membership Hero Section
+export const MembershipHero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const section = document.getElementById('membership-hero');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="membership-hero" className="relative min-h-screen overflow-hidden flex items-center justify-center">
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source 
+            src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Partners.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+        <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-thin mb-8 tracking-tight transition-all duration-1000 ease-out drop-shadow-lg ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          Welcome to DigiHome Members
+        </h1>
+        
+        <p className={`text-xl sm:text-2xl lg:text-3xl font-light mb-8 leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out drop-shadow-md ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '200ms' }}>
+          Join our exclusive community and unlock the best rates, premium perks, and personalized experiences
+        </p>
+
+        <p className={`text-lg text-white/90 mb-12 font-light transition-all duration-1000 ease-out drop-shadow-sm ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '300ms' }}>
+          Let's be guests with benefits — all for free
+        </p>
+
+        <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '400ms' }}>
+          <button 
+            className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl"
+            onClick={() => document.getElementById('member-benefits').scrollIntoView({ behavior: 'smooth' })}
+          >
+            Join Free Now
+          </button>
+          <button 
+            className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 transform hover:scale-105 border border-white/20"
+            onClick={() => document.getElementById('member-benefits').scrollIntoView({ behavior: 'smooth' })}
+          >
+            See Benefits
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg className="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </section>
+  );
+};
+
+// Membership Content Section
+export const MembershipContent = () => {
+  const [visibleSections, setVisibleSections] = useState(new Set());
+  const [openFaq, setOpenFaq] = useState(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('data-section');
+            if (sectionId) {
+              setVisibleSections(prev => new Set([...prev, sectionId]));
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('[data-section]');
+    sections.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  return (
+    <>
+      {/* Member Benefits */}
+      <section id="member-benefits" data-section="benefits" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
+              visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              Member Benefits
+            </h2>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+              visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              Enjoy great perks at no extra cost. Instant rewards, no loyalty points, no tiers — just effortless benefits from day one.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                icon: "💰",
+                title: "15% Off Every Stay",
+                description: "Unlock the best rates automatically when you book directly with DigiHome. No promo codes, no gimmicks — just better prices, always.",
+                highlight: "Save instantly on every booking"
+              },
+              {
+                icon: "📅",
+                title: "Up to 40% Off Extended Stays",
+                description: "Stay longer, save more. Get 25% off stays of 7+ nights, and up to 40% off monthly stays. Perfect for business trips or workcations.",
+                highlight: "Bigger savings for longer stays"
+              },
+              {
+                icon: "🕐",
+                title: "Flexible Check-in & Check-out",
+                description: "Sleep in until 12 PM with free late check-out, or start your day early with 2 PM check-in. Your stay fits your schedule.",
+                highlight: "Free flexibility when you need it"
+              },
+              {
+                icon: "⭐",
+                title: "Exclusive Member Deals",
+                description: "Get first access to new properties, last-minute availability, surprise discounts, and member-only offers we don't share anywhere else.",
+                highlight: "Early access to the best deals"
+              }
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out border border-gray-100 hover:scale-105 relative overflow-hidden ${
+                  visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${400 + index * 150}ms` }}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                
+                <div className="relative">
+                  <div className="text-5xl mb-6">{benefit.icon}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    {benefit.description}
+                  </p>
+                  <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                    {benefit.highlight}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className={`text-center mt-16 transition-all duration-700 ease-out ${
+            visibleSections.has('benefits') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '1000ms' }}>
+            <button className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Join DigiHome Members — It's Free!
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section data-section="how-it-works" className="py-24" style={{ backgroundColor: '#D4A2FF' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
+              visibleSections.has('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              How It Works
+            </h2>
+            <p className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
+              visibleSections.has('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              Join our community of smart travelers in three simple steps and start saving immediately
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                step: "01",
+                title: "Sign Up Free",
+                description: "Create your DigiHome member account in seconds. No fees, no commitments — just instant access to better rates.",
+                icon: "✨"
+              },
+              {
+                step: "02", 
+                title: "Book & Save",
+                description: "Browse our AI-curated properties and watch your 15% discount apply automatically. No codes needed, just better prices.",
+                icon: "🏠"
+              },
+              {
+                step: "03",
+                title: "Enjoy Premium Perks",
+                description: "Access flexible check-in times, exclusive deals, and personalized recommendations tailored to your travel style.",
+                icon: "🎯"
+              }
+            ].map((step, index) => (
+              <div
+                key={index}
+                className={`text-center transition-all duration-700 ease-out ${
+                  visibleSections.has('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${400 + index * 200}ms` }}
+              >
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto border border-white/30 relative">
+                    <span className="text-3xl">{step.icon}</span>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center text-sm font-bold">
+                      {step.step}
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-4 drop-shadow-md">
+                  {step.title}
+                </h3>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className={`text-center mt-16 transition-all duration-700 ease-out ${
+            visibleSections.has('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '1200ms' }}>
+            <button className="px-10 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Start Saving Today
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Travelers Section */}
+      <section data-section="business" className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className={`transition-all duration-700 ease-out ${
+            visibleSections.has('business') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="text-6xl mb-8">💼</div>
+            <h2 className="text-4xl sm:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
+              Business Traveler?
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Upgrade to DigiHome Business and unlock seamless corporate accommodation solutions — so you can get back to work.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="px-8 py-3 bg-[#253551] text-white font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+                Explore Business Solutions
+              </button>
+              <button 
+                className="px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition-all duration-300"
+                onClick={() => document.getElementById('faq-section').scrollIntoView({ behavior: 'smooth' })}
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq-section" data-section="faq" className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
+              visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              Questions?
+            </h2>
+            <p className={`text-xl text-gray-600 transition-all duration-700 ease-out ${
+              visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`} style={{ transitionDelay: '200ms' }}>
+              Let's answer them now, so you can make the most of your membership
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                question: "What is DigiHome Members?",
+                answer: "DigiHome Members is our way of saying thanks to loyal guests. Join for free and enjoy better rates, more flexibility, AI-powered recommendations, and early access to our best offers — every time you stay with us."
+              },
+              {
+                question: "How much do I save as a member?",
+                answer: "Members automatically receive 15% off every booking when booking directly with DigiHome. No promo codes, no gimmicks — just better prices, always. This discount is valid for all DigiHome locations."
+              },
+              {
+                question: "Do I get better deals for longer stays?",
+                answer: "Yes! If you're staying 7 nights or more, you'll get 25% off, and for monthly stays of 30+ days, you can save up to 40% off. Perfect for extended business trips, relocations, or workcations."
+              },
+              {
+                question: "What are the check-in and check-out perks?",
+                answer: "Members can choose free early check-in from 2 PM or late check-out until 12 PM, subject to availability. Your stay fits your schedule, not the other way around."
+              },
+              {
+                question: "What kind of exclusive offers can I expect?",
+                answer: "As a member, you'll unlock early access to new property listings, last-minute availability deals, seasonal promotions, and surprise discounts we don't offer anywhere else. Plus, our AI learns your preferences to send personalized recommendations."
+              },
+              {
+                question: "Is membership really free?",
+                answer: "Yes! DigiHome membership is completely free with no hidden fees, no annual charges, and no obligations. You can cancel your membership anytime if you choose to."
+              }
+            ].map((faq, index) => (
+              <div
+                key={index}
+                className={`border border-gray-200 rounded-2xl transition-all duration-700 ease-out ${
+                  visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${400 + index * 100}ms` }}
+              >
+                <button
+                  className="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 rounded-2xl transition-colors duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <span className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </span>
+                  <svg
+                    className={`w-6 h-6 text-gray-500 transform transition-transform duration-200 flex-shrink-0 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className={`text-center mt-16 transition-all duration-700 ease-out ${
+            visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '1000ms' }}>
+            <button className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Ready to Join? Sign Up Free
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
 // Updated Footer with DigiHome Branding
 export const Footer = () => {
   return (
