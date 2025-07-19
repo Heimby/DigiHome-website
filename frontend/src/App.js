@@ -23,6 +23,9 @@ import {
   MembershipContent,
   BrandGuidelinesPage,
   DigiSalePage,
+  DigiSaleTechnologyPage,
+  DigiSalePortfolioPage,
+  DigiSaleInvestmentPage,
   Footer 
 } from "./components";
 
