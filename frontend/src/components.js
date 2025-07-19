@@ -1661,10 +1661,8 @@ export const AboutDigiSaleSection = () => {
             
             {/* DigiSale Website Link */}
             <div className="mt-8">
-              <a 
-                href="http://localhost:5000" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/digisale" 
                 className="inline-flex items-center px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl transform"
                 style={{ 
                   background: 'linear-gradient(135deg, #C7FF8A 0%, #7BB800 100%)',
@@ -1672,8 +1670,8 @@ export const AboutDigiSaleSection = () => {
                 }}
               >
                 <span className="text-gray-900 font-bold">Explore DigiSale</span>
-                <ArrowTopRightOnSquareIcon className="w-5 h-5 ml-2 text-gray-900" />
-              </a>
+                <ArrowRightIcon className="w-5 h-5 ml-2 text-gray-900" />
+              </Link>
             </div>
           </div>
 
