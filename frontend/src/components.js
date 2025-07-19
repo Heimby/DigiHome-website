@@ -4729,6 +4729,7 @@ export const Footer = () => {
 // DigiSale Components
 export const DigiSaleNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -4753,22 +4754,63 @@ export const DigiSaleNavigation = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-4"
           >
-            <div className="w-10 h-10 bg-gradient-digisale rounded-lg flex items-center justify-center">
-              <span className="text-tech-black font-bold text-2xl">DS</span>
-            </div>
-            <span className="text-2xl font-bold text-white">DigiSale</span>
+            <Link to="/digisale" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-digisale rounded-lg flex items-center justify-center">
+                <span className="text-tech-black font-bold text-2xl">DS</span>
+              </div>
+              <span className="text-2xl font-bold text-white">DigiSale</span>
+            </Link>
           </motion.div>
 
-          {/* Back to DigiHome Link */}
-          <div className="flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/digisale" className="text-tech-light hover:text-digisale-primary transition-colors">Home</Link>
+            <Link to="/digisale/technology" className="text-tech-light hover:text-digisale-primary transition-colors">Technology</Link>
+            <Link to="/digisale/portfolio" className="text-tech-light hover:text-digisale-primary transition-colors">Portfolio</Link>
+            <Link to="/digisale/investment" className="text-tech-light hover:text-digisale-primary transition-colors">Investment</Link>
+            <Link to="/digisale/team" className="text-tech-light hover:text-digisale-primary transition-colors">Team</Link>
+            <Link to="/digisale/insights" className="text-tech-light hover:text-digisale-primary transition-colors">Insights</Link>
             <Link 
               to="/" 
               className="text-tech-light hover:text-digisale-primary transition-colors font-semibold"
             >
-              ← Back to DigiHome
+              ← DigiHome
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className="w-6 h-6 flex flex-col justify-center">
+              <span className={`h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+              <span className={`h-0.5 bg-white mt-1 transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+            </div>
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-tech-black/95 backdrop-blur-md rounded-b-2xl"
+            >
+              <div className="px-6 py-4 space-y-4">
+                <Link to="/digisale" className="block text-tech-light hover:text-digisale-primary transition-colors">Home</Link>
+                <Link to="/digisale/technology" className="block text-tech-light hover:text-digisale-primary transition-colors">Technology</Link>
+                <Link to="/digisale/portfolio" className="block text-tech-light hover:text-digisale-primary transition-colors">Portfolio</Link>
+                <Link to="/digisale/investment" className="block text-tech-light hover:text-digisale-primary transition-colors">Investment</Link>
+                <Link to="/digisale/team" className="block text-tech-light hover:text-digisale-primary transition-colors">Team</Link>
+                <Link to="/digisale/insights" className="block text-tech-light hover:text-digisale-primary transition-colors">Insights</Link>
+                <Link to="/" className="block text-tech-light hover:text-digisale-primary transition-colors font-semibold">← DigiHome</Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
