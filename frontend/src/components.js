@@ -2217,7 +2217,7 @@ export const BrandGuidelinesPage = () => {
                       <h4 className="font-medium text-gray-900 mb-4">Example Usage</h4>
                       <div className="grid grid-cols-4 gap-3">
                         {[
-                          { icon: <TrendingUpIcon className="w-8 h-8" />, name: "Growth" },
+                          { icon: <ArrowTrendingUpIcon className="w-8 h-8" />, name: "Growth" },
                           { icon: <HomeIcon className="w-8 h-8" />, name: "Property" },
                           { icon: <CpuChipIcon className="w-8 h-8" />, name: "AI/Tech" },
                           { icon: <ShieldCheckIcon className="w-8 h-8" />, name: "Security" }
