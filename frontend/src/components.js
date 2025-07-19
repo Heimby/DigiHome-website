@@ -2839,25 +2839,25 @@ export const MembershipContent = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               {
-                icon: "💰",
+                icon: <CurrencyDollarIcon className="w-12 h-12" />,
                 title: "15% Off Every Stay",
                 description: "Unlock the best rates automatically when you book directly with DigiHome. No promo codes, no gimmicks — just better prices, always.",
                 highlight: "Save instantly on every booking"
               },
               {
-                icon: "📅",
+                icon: <CalendarIcon className="w-12 h-12" />,
                 title: "Up to 40% Off Extended Stays",
                 description: "Stay longer, save more. Get 25% off stays of 7+ nights, and up to 40% off monthly stays. Perfect for business trips or workcations.",
                 highlight: "Bigger savings for longer stays"
               },
               {
-                icon: "🕐",
+                icon: <ClockIcon className="w-12 h-12" />,
                 title: "Flexible Check-in & Check-out",
                 description: "Sleep in until 12 PM with free late check-out, or start your day early with 2 PM check-in. Your stay fits your schedule.",
                 highlight: "Free flexibility when you need it"
               },
               {
-                icon: "⭐",
+                icon: <StarIcon className="w-12 h-12" />,
                 title: "Exclusive Member Deals",
                 description: "Get first access to new properties, last-minute availability, surprise discounts, and member-only offers we don't share anywhere else.",
                 highlight: "Early access to the best deals"
@@ -2873,7 +2873,9 @@ export const MembershipContent = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative">
-                  <div className="text-5xl mb-6">{benefit.icon}</div>
+                  <div className="mb-6 flex items-center justify-center text-[#D4A2FF]">
+                    {benefit.icon}
+                  </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     {benefit.title}
                   </h3>
