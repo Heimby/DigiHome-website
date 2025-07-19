@@ -2923,19 +2923,19 @@ export const MembershipContent = () => {
                 step: "01",
                 title: "Sign Up Free",
                 description: "Create your DigiHome member account in seconds. No fees, no commitments — just instant access to better rates.",
-                icon: "✨"
+                icon: <SparklesIcon className="w-8 h-8" />
               },
               {
                 step: "02", 
                 title: "Book & Save",
                 description: "Browse our AI-curated properties and watch your 15% discount apply automatically. No codes needed, just better prices.",
-                icon: "🏠"
+                icon: <HomeIcon className="w-8 h-8" />
               },
               {
                 step: "03",
                 title: "Enjoy Premium Perks",
                 description: "Access flexible check-in times, exclusive deals, and personalized recommendations tailored to your travel style.",
-                icon: "🎯"
+                icon: <TargetIcon className="w-8 h-8" />
               }
             ].map((step, index) => (
               <div
@@ -2947,7 +2947,7 @@ export const MembershipContent = () => {
               >
                 <div className="relative mb-8">
                   <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto border border-white/30 relative">
-                    <span className="text-3xl">{step.icon}</span>
+                    <span className="text-white">{step.icon}</span>
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center text-sm font-bold">
                       {step.step}
                     </div>
