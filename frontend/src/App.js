@@ -22,6 +22,7 @@ import {
   MembershipHero,
   MembershipContent,
   BrandGuidelinesPage,
+  DigiSalePage,
   Footer 
 } from "./components";
 
