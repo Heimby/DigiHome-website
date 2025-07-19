@@ -230,10 +230,20 @@ img {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Focus states for accessibility */
+/* Focus states for accessibility - less intrusive */
 *:focus {
+  outline: none;
+}
+
+/* Only show focus outline for keyboard navigation */
+*:focus-visible {
   outline: 2px solid #D4A2FF;
   outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse interactions */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Mobile-specific improvements */
