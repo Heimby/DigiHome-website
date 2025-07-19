@@ -21,6 +21,7 @@ import {
   PartnerRelationsContent,
   MembershipHero,
   MembershipContent,
+  BrandGuidelinesPage,
   Footer 
 } from "./components";
 
