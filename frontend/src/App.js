@@ -80,6 +80,24 @@ const PartnerRelations = () => {
   );
 };
 
+const Membership = () => {
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  return (
+    <div className="relative">
+      <Navigation />
+      <MembershipHero />
+      <MembershipContent />
+      <Footer />
+    </div>
+  );
+};
+
 function App() {
   return (
     <div className="App">
