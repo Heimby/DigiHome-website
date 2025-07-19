@@ -144,6 +144,7 @@ function App() {
           <Route path="/partner-relations" element={<PartnerRelations />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/brand-guidelines" element={<BrandGuidelines />} />
+          <Route path="/digisale" element={<DigiSale />} />
         </Routes>
       </BrowserRouter>
     </div>
