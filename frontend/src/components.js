@@ -154,6 +154,15 @@ export const Navigation = () => {
                   About
                 </Link>
               </li>
+              <li role="none">
+                <Link 
+                  to="/brand-guidelines" 
+                  className="text-white hover:text-gray-300 transition-colors font-medium"
+                  role="menuitem"
+                >
+                  Brand Guidelines
+                </Link>
+              </li>
             </ul>
             
             <div className="hidden md:block">
