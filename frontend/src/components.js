@@ -167,10 +167,10 @@ export const Navigation = () => {
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
                 Membership
               </a>
-              <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+              <Link to="/partner-relations" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
                 Partner Relations
-              </a>
-              <Link to="/about" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
+              </Link>
+              <Link to="/about" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3" onClick={closeMobileMenu}>
                 About
               </Link>
               <a href="#" className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3">
