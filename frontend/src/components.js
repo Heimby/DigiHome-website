@@ -1177,7 +1177,135 @@ export const AboutMissionSection = () => {
   );
 };
 
-// Statistics Section
+// About Page Team Section
+export const AboutTeamSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('team-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="team-section" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            The Team
+          </h2>
+          <div className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`} style={{ transitionDelay: '200ms' }}>
+            <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
+              Our diverse, AI-powered microteam combines deep industry expertise with cutting-edge technology 
+              to deliver exceptional results at unprecedented speed and scale.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-12 mb-16">
+          {[
+            {
+              role: "AI & Technology",
+              description: "Machine learning engineers and data scientists building autonomous systems that think, learn, and optimize property management operations.",
+              icon: <CpuChipIcon className="w-12 h-12" />,
+              color: "#AE68E4",
+              skills: ["Machine Learning", "Data Science", "Automation", "AI Systems"]
+            },
+            {
+              role: "Property & Hospitality",
+              description: "Industry veterans with decades of experience in property management, hospitality operations, and guest experience optimization.",
+              icon: <HomeIcon className="w-12 h-12" />,
+              color: "#A1D964", 
+              skills: ["Property Management", "Guest Relations", "Operations", "Quality Control"]
+            },
+            {
+              role: "Business & Strategy",
+              description: "Strategic leaders driving market expansion, partnership development, and sustainable growth across multiple industries.",
+              icon: <ArrowTrendingUpIcon className="w-12 h-12" />,
+              color: "#FF5A5F",
+              skills: ["Strategic Planning", "Market Analysis", "Partnerships", "Growth Hacking"]
+            }
+          ].map((team, index) => (
+            <div
+              key={index}
+              className={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out border border-gray-100 hover:scale-105 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${400 + index * 150}ms` }}
+            >
+              <div className="mb-6 flex items-center justify-center" style={{ color: team.color }}>
+                {team.icon}
+              </div>
+              <h3 className="text-2xl font-semibold text-center mb-4" style={{ color: team.color }}>
+                {team.role}
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-center mb-6">
+                {team.description}
+              </p>
+              <div className="space-y-2">
+                <h4 className="text-sm font-semibold text-gray-800 text-center mb-3">Key Expertise</h4>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {team.skills.map((skill, skillIndex) => (
+                    <span 
+                      key={skillIndex}
+                      className="px-3 py-1 text-xs font-medium rounded-full text-white"
+                      style={{ backgroundColor: team.color }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Team Philosophy */}
+        <div className={`text-center transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '800ms' }}>
+          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border border-gray-100">
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Philosophy</h3>
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#A1D964' }}>
+                  Microteam Excellence
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Small, highly skilled teams enhanced by AI can outperform traditional large organizations. 
+                  We combine human expertise with machine intelligence for maximum impact.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3" style={{ color: '#AE68E4' }}>
+                  Continuous Innovation
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  We embrace cutting-edge technology while maintaining the human touch that makes exceptional 
+                  experiences possible. Innovation is our competitive advantage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 export const AboutStatisticsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState({
