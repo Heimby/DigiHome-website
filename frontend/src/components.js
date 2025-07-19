@@ -536,6 +536,50 @@ export const PropertyCardsSection = () => {
     }
   }, []);
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (isAutoScrolling && scrollContainerRef.current) {
+      autoScrollIntervalRef.current = setInterval(() => {
+        if (scrollContainerRef.current) {
+          const container = scrollContainerRef.current;
+          const currentScroll = container.scrollLeft;
+          const newScroll = currentScroll + 1; // Slow scroll speed
+          
+          container.scrollTo({
+            left: newScroll,
+            behavior: 'auto' // Smooth but not animated scroll
+          });
+        }
+      }, 50); // 50ms interval for smooth movement
+    }
+
+    return () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+      }
+    };
+  }, [isAutoScrolling]);
+
+  // Pause auto-scroll on hover/touch
+  const handleMouseEnter = () => {
+    setIsAutoScrolling(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoScrolling(true);
+  };
+
+  const handleTouchStart = () => {
+    setIsAutoScrolling(false);
+  };
+
+  const handleTouchEnd = () => {
+    // Resume auto-scroll after a delay
+    setTimeout(() => {
+      setIsAutoScrolling(true);
+    }, 3000);
+  };
+
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
