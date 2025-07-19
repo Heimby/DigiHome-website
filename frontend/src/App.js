@@ -119,6 +119,18 @@ const DigiSale = () => {
   return <DigiSalePage />;
 };
 
+const DigiSaleTechnology = () => {
+  return <DigiSaleTechnologyPage />;
+};
+
+const DigiSalePortfolio = () => {
+  return <DigiSalePortfolioPage />;
+};
+
+const DigiSaleInvestment = () => {
+  return <DigiSaleInvestmentPage />;
+};
+
 const BrandGuidelines = () => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
