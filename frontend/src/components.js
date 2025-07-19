@@ -5534,3 +5534,298 @@ export const DigiSalePortfolioPage = () => {
     </div>
   );
 };
+
+// DigiSale Investment Page
+export const DigiSaleInvestmentPage = () => {
+  const investmentHighlights = [
+    {
+      title: "Proven Track Record",
+      description: "87% success rate with €650M+ in combined portfolio valuation",
+      icon: TrophyIcon
+    },
+    {
+      title: "AI-First Approach", 
+      description: "Proprietary technology stack with 200+ deployed AI models",
+      icon: CpuChipIcon
+    },
+    {
+      title: "Scalable Model",
+      description: "Microteam methodology proven across 41 companies and 4 industries",
+      icon: RocketLaunchIcon
+    },
+    {
+      title: "Strong Returns",
+      description: "15x average ROI with multiple successful exits and IPO readiness",
+      icon: ChartBarIcon
+    }
+  ];
+
+  const financialMetrics = [
+    { label: "Total Revenue Generated", value: "€520M+", trend: "+45% YoY" },
+    { label: "Portfolio Valuation", value: "€650M+", trend: "+67% YoY" },
+    { label: "Active Companies", value: "41", trend: "+12 new in 2024" },
+    { label: "Average ROI", value: "15x", trend: "Consistent performance" }
+  ];
+
+  const investmentRounds = [
+    {
+      round: "Series A",
+      amount: "€25M",
+      investors: 8,
+      usage: "Technology development and team expansion",
+      status: "Closed - Oversubscribed"
+    },
+    {
+      round: "Series B",
+      amount: "€50M", 
+      investors: 12,
+      usage: "Market expansion and AI infrastructure scaling",
+      status: "Active - 70% filled"
+    },
+    {
+      round: "Growth Round",
+      amount: "€100M",
+      investors: "Limited Partners",
+      usage: "Global expansion and strategic acquisitions",
+      status: "Opening Q2 2025"
+    }
+  ];
+
+  const useCases = [
+    {
+      scenario: "Strategic Partnership",
+      description: "Joint ventures with industry leaders to build next-generation AI solutions",
+      investment: "€5M - €25M",
+      timeline: "18-24 months to market leadership",
+      returns: "12-18x projected ROI"
+    },
+    {
+      scenario: "New Venture Creation",
+      description: "Ground-up company building with our microteam methodology",
+      investment: "€10M - €50M", 
+      timeline: "24-36 months to scale",
+      returns: "15-25x projected ROI"
+    },
+    {
+      scenario: "AI Transformation",
+      description: "Transform existing businesses with our AI-first infrastructure",
+      investment: "€15M - €75M",
+      timeline: "12-18 months to transformation",
+      returns: "8-15x projected ROI"
+    }
+  ];
+
+  return (
+    <div className="bg-tech-black min-h-screen">
+      <DigiSaleNavigation />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-tech overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-digisale-primary/30 rounded-full blur-3xl float-animation"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-tech-blue/30 rounded-full blur-3xl float-animation" style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
+              Investment
+              <br />
+              <span className="text-digisale-primary">Opportunities</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-tech-light max-w-4xl mx-auto leading-relaxed">
+              Partner with us to build the next generation of AI-first companies. 
+              <span className="text-digisale-primary font-semibold"> Proven returns, proven methodology</span>.
+            </p>
+          </motion.div>
+
+          {/* Investment Highlights */}
+          <div className="grid md:grid-cols-4 gap-8">
+            {investmentHighlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-6 border border-digisale-primary/30 text-center group hover:border-digisale-primary transition-all"
+              >
+                <div className="w-12 h-12 bg-gradient-digisale rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <highlight.icon className="w-6 h-6 text-tech-black" />
+                </div>
+                <h3 className="text-white font-bold mb-2">{highlight.title}</h3>
+                <p className="text-tech-light text-sm">{highlight.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Financial Performance */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Financial <span className="text-digisale-primary">Performance</span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {financialMetrics.map((metric, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-6 border border-digisale-primary/30 text-center"
+              >
+                <div className="text-3xl font-bold text-digisale-primary mb-2">{metric.value}</div>
+                <div className="text-white font-semibold mb-2">{metric.label}</div>
+                <div className="text-tech-light text-sm">{metric.trend}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Investment Disclaimer */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="bg-tech-gray/30 backdrop-blur-sm rounded-2xl p-8 border border-digisale-primary/20 text-center"
+          >
+            <p className="text-tech-light text-sm italic">
+              *Past performance does not guarantee future results. All investments carry risk. 
+              Financial projections are estimates based on current market conditions and historical performance. 
+              Individual results may vary.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Current Investment Rounds */}
+      <section className="py-20 bg-gradient-tech">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Current <span className="text-digisale-primary">Investment Rounds</span>
+          </motion.h2>
+
+          <div className="space-y-8">
+            {investmentRounds.map((round, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-3xl p-8 border border-tech-gray hover:border-digisale-primary transition-all"
+              >
+                <div className="grid md:grid-cols-4 gap-8 items-center">
+                  <div>
+                    <h3 className="text-3xl font-bold text-white mb-2">{round.round}</h3>
+                    <div className="text-2xl font-bold text-digisale-primary">{round.amount}</div>
+                  </div>
+                  <div>
+                    <div className="text-tech-light text-sm mb-1">Investors</div>
+                    <div className="text-white font-semibold">{round.investors}</div>
+                  </div>
+                  <div>
+                    <div className="text-tech-light text-sm mb-1">Status</div>
+                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                      round.status.includes('Closed') ? 'bg-green-500/20 text-green-400' :
+                      round.status.includes('Active') ? 'bg-digisale-primary/20 text-digisale-primary' :
+                      'bg-blue-500/20 text-blue-400'
+                    }`}>
+                      {round.status}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-tech-light text-sm mb-1">Use of Funds</div>
+                    <div className="text-white">{round.usage}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Use Cases */}
+      <section className="py-20 bg-tech-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white text-center mb-16"
+          >
+            Investment <span className="text-digisale-primary">Scenarios</span>
+          </motion.h2>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {useCases.map((useCase, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-tech-gray/50 backdrop-blur-sm rounded-2xl p-8 border border-tech-gray hover:border-digisale-primary transition-all group"
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">{useCase.scenario}</h3>
+                <p className="text-tech-light leading-relaxed mb-6">{useCase.description}</p>
+                
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-tech-light">Investment Range</span>
+                    <span className="text-digisale-primary font-semibold">{useCase.investment}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-tech-light">Timeline</span>
+                    <span className="text-white font-semibold">{useCase.timeline}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-tech-light">Projected Returns</span>
+                    <span className="text-digisale-primary font-bold">{useCase.returns}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="py-20 bg-gradient-tech">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="bg-tech-gray/50 backdrop-blur-sm rounded-3xl p-12 border border-digisale-primary/30"
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Invest in the Future?</h2>
+            <p className="text-xl text-tech-light mb-8">
+              Join leading investors who are building tomorrow's industry leaders with AI-first microteams.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <button className="button-digisale-primary">
+                Schedule Investor Meeting
+                <ArrowRightIcon className="w-5 h-5 ml-2" />
+              </button>
+              <button className="button-digisale-secondary">
+                Download Investment Deck
+              </button>
+            </div>
+            <p className="text-tech-light text-sm mt-6">
+              Accredited investors only. Minimum investment €1M.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
