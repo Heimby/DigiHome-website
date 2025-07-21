@@ -3141,7 +3141,7 @@ export const EarningsCalculatorSection = () => {
   };
 
   return (
-    <section id="earnings-calculator" className="relative isolate overflow-hidden" style={{ backgroundColor: '#D4A2FF' }}>
+    <section id="earnings-calculator" className="relative isolate overflow-hidden" style={{ backgroundColor: '#9333EA' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-900/20"></div>
       
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
