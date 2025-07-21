@@ -1083,6 +1083,17 @@ export const FlexibilitySection = () => {
   );
 };
 
+// Blank White Section
+export const BlankWhiteSection = () => {
+  return (
+    <section className="py-20 lg:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Blank white section with some spacing */}
+      </div>
+    </section>
+  );
+};
+
 // About Page Hero Section
 export const AboutHeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
