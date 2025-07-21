@@ -1088,12 +1088,12 @@ export const BlankWhiteSection = () => {
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Header - Left oriented */}
+        <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
             Our services
           </h2>
-          <p className="text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-light">
+          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed font-light">
             We are a property‑management company that handles every detail of your rental, transforming each stay into a memorable experience for tenants. Whether you're a homeowner looking to let your place while you travel, a portfolio owner with 50 + apartments, or a guest seeking your next home, we have you covered. Leveraging our dynamic rental model—ten months of dependable student leases followed by two months of high‑yield short‑term rentals—we maximize occupancy, revenue, and peace of mind for everyone involved.
           </p>
         </div>
@@ -1102,7 +1102,7 @@ export const BlankWhiteSection = () => {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {/* Enkelt Box */}
           <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-thin mb-6 text-gray-900">Enkelt</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900">Enkelt</h3>
             <p className="text-gray-600 leading-relaxed font-light mb-12">
               DigiHome gjør det enkelt for deg som eier kvalitetseiendomner å leie ut - og deg som leietaker å flytte inn. Gjennom et digitalt fokus får du all informasjon på forhånd.
             </p>
@@ -1115,7 +1115,7 @@ export const BlankWhiteSection = () => {
 
           {/* Trygt Box */}
           <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-thin mb-6 text-gray-900">Trygt</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900">Trygt</h3>
             <p className="text-gray-600 leading-relaxed font-light mb-12">
               Alle boliger blir kvalitetssikret, forsikret og følger norske leistandarder.
             </p>
@@ -1128,7 +1128,7 @@ export const BlankWhiteSection = () => {
 
           {/* Lønnsomt & Rimelig Box */}
           <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-thin mb-6 text-gray-900">Lønnsomt & Rimelig</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900">Lønnsomt & Rimelig</h3>
             <p className="text-gray-600 leading-relaxed font-light mb-12">
               Vårt tilbud er så helhetlig at du sparer penger på å bo hos oss. Sengetøy og forbruksartikler er inkludert i leieprisen - ingen skjulte kostnader!
             </p>
