@@ -2697,9 +2697,9 @@ export const AboutWhiteSection = () => {
   ];
 
   return (
-    <main role="main" className="relative isolate overflow-hidden bg-white min-h-screen">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:py-40">
-        <header className="text-center mb-16 lg:mb-24">
+    <main role="main" className="relative isolate overflow-hidden bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:py-28">
+        <header className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 tracking-tight mb-8">
             Our Journey
           </h2>
