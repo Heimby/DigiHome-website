@@ -789,7 +789,7 @@ export const HomeHumanoidSection = () => {
   }, []);
 
   return (
-    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-8 sm:py-12 md:py-20">
+    <section id="home-humanoid" className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center py-20 lg:py-28">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Text */}
         <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 ${
