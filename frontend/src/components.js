@@ -1098,92 +1098,101 @@ export const BlankWhiteSection = () => {
           </p>
         </div>
 
-        {/* Three service boxes */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {/* Visibility, Pricing & Flexibility Box */}
-          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-bold mb-6 text-gray-900">Visibility, Pricing & Flexibility</h3>
-            
-            {/* For Property Owners */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Property Owners</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• Professional photography + targeted advertising bring more bookings</li>
-                <li>• Algorithm‑driven pricing maximises your rental income</li>
-                <li className="font-medium">• <strong>Flexible rental model:</strong> We blend short‑ and long‑term lets to capture the highest returns</li>
-              </ul>
-            </div>
+        {/* Six service boxes - Two rows */}
+        <div className="space-y-12">
+          {/* Row 1: For Property Owners */}
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">For Property Owners</h3>
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+              {/* Visibility, Pricing & Flexibility - Owners */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Visibility, Pricing & Flexibility</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• Professional photography + targeted advertising bring more bookings</li>
+                  <li>• Algorithm‑driven pricing maximises your rental income</li>
+                  <li className="font-medium">• <strong>Flexible rental model:</strong> We blend short‑ and long‑term lets to capture the highest returns</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    Learn More
+                  </button>
+                </div>
+              </div>
 
-            {/* For Tenants */}
-            <div className="mb-12">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Tenants</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• High‑quality, authentic photos make it easy to choose the right home</li>
-                <li>• Dynamic pricing keeps rates fair and competitive</li>
-                <li className="font-medium">• <strong>Flexible lease terms:</strong> Simple contracts tailored to each tenant's needs</li>
-              </ul>
-            </div>
+              {/* Seamless Guest Experience - Owners */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Seamless Guest Experience</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• We handle all guest communication, check‑in/out, and cleaning—so you don't have to</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    Our Process
+                  </button>
+                </div>
+              </div>
 
-            <div className="absolute bottom-8 left-8">
-              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          {/* Seamless Guest Experience Box */}
-          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-bold mb-6 text-gray-900">Seamless Guest Experience</h3>
-            
-            {/* For Property Owners */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Property Owners</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• We handle all guest communication, check‑in/out, and cleaning—so you don't have to</li>
-              </ul>
-            </div>
-
-            {/* For Tenants */}
-            <div className="mb-12">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Tenants</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• Smooth check‑in/out, fast responses, and a spotless home with fresh linens ensure a worry‑free stay</li>
-              </ul>
-            </div>
-
-            <div className="absolute bottom-8 left-8">
-              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
-                Our Process
-              </button>
+              {/* Security, Comfort & Compliance - Owners */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Security, Comfort & Compliance</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• Full rental insurance and legal support protect you and the property</li>
+                  <li className="font-medium">• <strong>Furnishing & interior design:</strong> We transform the unit into a luxury apartment optimised for rental</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    Get Protected
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Security, Comfort & Compliance Box */}
-          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
-            <h3 className="text-2xl font-bold mb-6 text-gray-900">Security, Comfort & Compliance</h3>
-            
-            {/* For Property Owners */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Property Owners</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• Full rental insurance and legal support protect you and the property</li>
-                <li className="font-medium">• <strong>Furnishing & interior design:</strong> We transform the unit into a luxury apartment optimised for rental</li>
-              </ul>
-            </div>
+          {/* Row 2: For Tenants */}
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">For Tenants</h3>
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+              {/* Visibility, Pricing & Flexibility - Tenants */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Visibility, Pricing & Flexibility</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• High‑quality, authentic photos make it easy to choose the right home</li>
+                  <li>• Dynamic pricing keeps rates fair and competitive</li>
+                  <li className="font-medium">• <strong>Flexible lease terms:</strong> Simple contracts tailored to each tenant's needs</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    Find Homes
+                  </button>
+                </div>
+              </div>
 
-            {/* For Tenants */}
-            <div className="mb-12">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3">For Tenants</h4>
-              <ul className="text-gray-600 leading-relaxed font-light space-y-2 text-sm">
-                <li>• Clear contracts and insurance add peace of mind</li>
-                <li className="font-medium">• <strong>Fully furnished:</strong> Just move in and enjoy a stylish, ready‑to‑live‑in home</li>
-              </ul>
-            </div>
+              {/* Seamless Guest Experience - Tenants */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Seamless Guest Experience</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• Smooth check‑in/out, fast responses, and a spotless home with fresh linens ensure a worry‑free stay</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    Guest Guide
+                  </button>
+                </div>
+              </div>
 
-            <div className="absolute bottom-8 left-8">
-              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
-                Get Protected
-              </button>
+              {/* Security, Comfort & Compliance - Tenants */}
+              <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+                <h4 className="text-xl font-bold mb-6 text-gray-900">Security, Comfort & Compliance</h4>
+                <ul className="text-gray-600 leading-relaxed font-light space-y-3 text-sm mb-16">
+                  <li>• Clear contracts and insurance add peace of mind</li>
+                  <li className="font-medium">• <strong>Fully furnished:</strong> Just move in and enjoy a stylish, ready‑to‑live‑in home</li>
+                </ul>
+                <div className="absolute bottom-8 left-8">
+                  <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                    View Properties
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
