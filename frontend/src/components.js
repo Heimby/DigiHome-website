@@ -1083,12 +1083,62 @@ export const FlexibilitySection = () => {
   );
 };
 
-// Blank White Section
+// Our Services Section
 export const BlankWhiteSection = () => {
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Blank white section with some spacing */}
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-thin mb-8 text-gray-900 tracking-tight">
+            Our services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-light">
+            We are a property‑management company that handles every detail of your rental, transforming each stay into a memorable experience for tenants. Whether you're a homeowner looking to let your place while you travel, a portfolio owner with 50 + apartments, or a guest seeking your next home, we have you covered. Leveraging our dynamic rental model—ten months of dependable student leases followed by two months of high‑yield short‑term rentals—we maximize occupancy, revenue, and peace of mind for everyone involved.
+          </p>
+        </div>
+
+        {/* Three service boxes */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Enkelt Box */}
+          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+            <h3 className="text-2xl font-thin mb-6 text-gray-900">Enkelt</h3>
+            <p className="text-gray-600 leading-relaxed font-light mb-12">
+              DigiHome gjør det enkelt for deg som eier kvalitetseiendomner å leie ut - og deg som leietaker å flytte inn. Gjennom et digitalt fokus får du all informasjon på forhånd.
+            </p>
+            <div className="absolute bottom-8 left-8">
+              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                Slik fungerer det
+              </button>
+            </div>
+          </div>
+
+          {/* Trygt Box */}
+          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+            <h3 className="text-2xl font-thin mb-6 text-gray-900">Trygt</h3>
+            <p className="text-gray-600 leading-relaxed font-light mb-12">
+              Alle boliger blir kvalitetssikret, forsikret og følger norske leistandarder.
+            </p>
+            <div className="absolute bottom-8 left-8">
+              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                Ofte stilte spørsmål
+              </button>
+            </div>
+          </div>
+
+          {/* Lønnsomt & Rimelig Box */}
+          <div className="bg-gray-100 rounded-xl p-8 lg:p-10 relative">
+            <h3 className="text-2xl font-thin mb-6 text-gray-900">Lønnsomt & Rimelig</h3>
+            <p className="text-gray-600 leading-relaxed font-light mb-12">
+              Vårt tilbud er så helhetlig at du sparer penger på å bo hos oss. Sengetøy og forbruksartikler er inkludert i leieprisen - ingen skjulte kostnader!
+            </p>
+            <div className="absolute bottom-8 left-8">
+              <button className="bg-[#D4A2FF] text-black px-4 py-2 text-sm font-medium rounded-sm hover:bg-[#C490FF] transition-colors">
+                Se våre priser
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
