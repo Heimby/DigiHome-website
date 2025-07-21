@@ -449,7 +449,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4">
+    <div className="w-full mx-auto px-0">
       {!isExpanded ? (
         // Collapsed State - Mobile Optimized
         <div 
