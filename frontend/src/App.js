@@ -44,9 +44,7 @@ const Home = () => {
       <Navigation />
       <HeroSection />
       <HomeHumanoidSection />
-      <ExperienceSection />
-      <PassiveIncomeSection />
-      <FlexibilitySection />
+      <BlankWhiteSection />
       <EarningsCalculatorSection />
       <Footer />
     </div>
