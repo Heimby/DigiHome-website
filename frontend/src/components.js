@@ -1086,7 +1086,7 @@ export const FlexibilitySection = () => {
 // Our Services Section
 export const BlankWhiteSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="pt-8 pb-20 lg:pt-12 lg:pb-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header - Left oriented */}
         <div className="mb-16">
