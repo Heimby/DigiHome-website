@@ -748,7 +748,7 @@ export const PropertyCardsSection = () => {
       <div className="w-full overflow-hidden">
         <div 
           ref={scrollContainerRef}
-          className="flex overflow-x-auto scrollbar-hide gap-4 px-6 sm:px-8 md:px-10 lg:px-16 py-4"
+          className="flex overflow-x-auto scrollbar-hide gap-4 px-4 sm:px-6 py-4"
           style={{ 
             scrollbarWidth: 'none', 
             msOverflowStyle: 'none',
