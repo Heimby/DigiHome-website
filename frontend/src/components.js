@@ -3141,8 +3141,9 @@ export const EarningsCalculatorSection = () => {
   };
 
   return (
-    <section id="earnings-calculator" className="relative isolate overflow-hidden" style={{ backgroundColor: '#9333EA' }}>
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-900/20"></div>
+    <section id="earnings-calculator" className="relative isolate overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-purple-500/20 to-indigo-600/30"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent"></div>
       
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         {currentStep === 1 ? (
