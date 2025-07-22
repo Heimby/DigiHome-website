@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "PP Right Grotesk Regular";
+  src: url("./fonts/PPRightGrotesk-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ABC Diatype Regular";
+  src: url("./fonts/ABCDiatype-Regular.woff2") format("woff2");
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -6,9 +16,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "ABC Diatype Regular", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -41,8 +49,8 @@ body {
 
 /* Hide scrollbar for property cards */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -55,12 +63,12 @@ body {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
   }
-  
+
   /* Ensure proper mobile viewport */
   html {
     -webkit-text-size-adjust: 100%;
   }
-  
+
   /* Prevent zoom on input focus */
   input[type="color"],
   input[type="date"],
@@ -87,8 +95,26 @@ body {
   transition: all 0.3s ease;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "PP Right Grotesk Regular", sans-serif;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-family: "ABC Diatype Regular", sans-serif;
+}
+
 /* Typography enhancements */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
   line-height: 1.2;
 }
@@ -109,7 +135,7 @@ button:focus {
 }
 
 button:focus-visible {
-  outline: 2px solid #D4A2FF;
+  outline: 2px solid #d4a2ff;
   outline-offset: 2px;
 }
 
@@ -132,7 +158,7 @@ a:focus {
 }
 
 a:focus-visible {
-  outline: 2px solid #D4A2FF;
+  outline: 2px solid #d4a2ff;
   outline-offset: 2px;
 }
 
@@ -148,15 +174,15 @@ img {
   body {
     font-size: 14px;
   }
-  
+
   h1 {
     font-size: 2.5rem;
   }
-  
+
   h2 {
     font-size: 2rem;
   }
-  
+
   h3 {
     font-size: 1.5rem;
   }
@@ -255,7 +281,7 @@ img {
 
 /* Only show focus outline for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid #D4A2FF;
+  outline: 2px solid #d4a2ff;
   outline-offset: 2px;
 }
 
@@ -267,20 +293,20 @@ img {
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
   /* Improve touch targets */
-  button, 
-  a, 
-  input, 
-  select, 
+  button,
+  a,
+  input,
+  select,
   textarea {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Prevent horizontal scroll */
   body {
     overflow-x: hidden;
   }
-  
+
   /* Optimize container widths */
   .container {
     max-width: 100%;
@@ -300,36 +326,36 @@ img {
 
 /* DigiSale-specific styles */
 .bg-gradient-tech {
-  background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #2A2A2A 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2a2a2a 100%);
 }
 
 .bg-tech-black {
-  background-color: #0D0D0D;
+  background-color: #0d0d0d;
 }
 
 .bg-tech-dark {
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 
 .text-tech-light {
-  color: #E5E5E5;
+  color: #e5e5e5;
 }
 
 .text-digisale-primary {
-  color: #C7FF8A;
+  color: #c7ff8a;
 }
 
 .bg-gradient-digisale {
-  background: linear-gradient(135deg, #C7FF8A 0%, #00FF94 100%);
+  background: linear-gradient(135deg, #c7ff8a 0%, #00ff94 100%);
 }
 
 .border-tech-gray {
-  border-color: #2A2A2A;
+  border-color: #2a2a2a;
 }
 
 .button-digisale-primary {
-  background: linear-gradient(135deg, #C7FF8A 0%, #00FF94 100%);
-  color: #0D0D0D;
+  background: linear-gradient(135deg, #c7ff8a 0%, #00ff94 100%);
+  color: #0d0d0d;
   padding: 16px 32px;
   border-radius: 50px;
   font-weight: 600;
@@ -343,11 +369,11 @@ img {
 
 .button-digisale-secondary {
   background: transparent;
-  color: #C7FF8A;
+  color: #c7ff8a;
   padding: 16px 32px;
   border-radius: 50px;
   font-weight: 600;
-  border: 2px solid #C7FF8A;
+  border: 2px solid #c7ff8a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -356,8 +382,8 @@ img {
 }
 
 .button-digisale-secondary:hover {
-  background: #C7FF8A;
-  color: #0D0D0D;
+  background: #c7ff8a;
+  color: #0d0d0d;
 }
 
 .glow-effect {
@@ -373,7 +399,8 @@ img {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -383,14 +410,14 @@ img {
 
 /* DigiSale border colors */
 .border-digisale-primary {
-  border-color: #C7FF8A;
+  border-color: #c7ff8a;
 }
 
 /* DigiSale hover states */
 .hover\:text-digisale-primary:hover {
-  color: #C7FF8A;
+  color: #c7ff8a;
 }
 
 .hover\:border-digisale-primary:hover {
-  border-color: #C7FF8A;
+  border-color: #c7ff8a;
 }
