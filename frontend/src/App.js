@@ -1,39 +1,37 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { 
-  Navigation, 
-  HeroSection, 
-  HomeHumanoidSection,
+import {
+  Navigation,
+  HeroSection,
+  // HomeHumanoidSection,
   BlankWhiteSection,
   EarningsCalculatorSection,
   AboutHeroSection,
   AboutMissionSection,
   AboutTeamSection,
   AboutWhiteSection,
-  AboutStatisticsSection,
+  // AboutStatisticsSection,
   AboutTechnologySection,
   AboutDigiSaleSection,
   AboutCallToActionSection,
   PartnerRelationsHero,
   PartnerRelationsContent,
-  MembershipHero,
-  MembershipContent,
   BrandGuidelinesPage,
   DigiSalePage,
   DigiSaleTechnologyPage,
   DigiSalePortfolioPage,
   DigiSaleInvestmentPage,
-  Footer 
+  Footer,
 } from "./components";
 
 const Home = () => {
   useEffect(() => {
     // Smooth scrolling for the entire page
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
+    document.documentElement.style.scrollBehavior = "smooth";
+
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
+      document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
 
@@ -41,7 +39,7 @@ const Home = () => {
     <div className="relative">
       <Navigation />
       <HeroSection />
-      <HomeHumanoidSection />
+      {/* <HomeHumanoidSection /> */}
       <BlankWhiteSection />
       <EarningsCalculatorSection />
       <Footer />
@@ -52,10 +50,10 @@ const Home = () => {
 const About = () => {
   useEffect(() => {
     // Smooth scrolling for the entire page
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
+    document.documentElement.style.scrollBehavior = "smooth";
+
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
+      document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
 
@@ -66,7 +64,7 @@ const About = () => {
       <AboutMissionSection />
       <AboutTeamSection />
       <AboutWhiteSection />
-      <AboutStatisticsSection />
+      {/* <AboutStatisticsSection /> */}
       <AboutTechnologySection />
       <AboutDigiSaleSection />
       <AboutCallToActionSection />
@@ -77,9 +75,9 @@ const About = () => {
 
 const PartnerRelations = () => {
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = "smooth";
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
+      document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
 
@@ -88,24 +86,6 @@ const PartnerRelations = () => {
       <Navigation />
       <PartnerRelationsHero />
       <PartnerRelationsContent />
-      <Footer />
-    </div>
-  );
-};
-
-const Membership = () => {
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
-
-  return (
-    <div className="relative">
-      <Navigation />
-      <MembershipHero />
-      <MembershipContent />
       <Footer />
     </div>
   );
@@ -129,9 +109,9 @@ const DigiSaleInvestment = () => {
 
 const BrandGuidelines = () => {
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = "smooth";
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
+      document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
 
@@ -153,7 +133,6 @@ function App() {
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/partner-relations" element={<PartnerRelations />} />
-          <Route path="/membership" element={<Membership />} />
           <Route path="/brand-guidelines" element={<BrandGuidelines />} />
           <Route path="/digisale" element={<DigiSale />} />
           <Route path="/digisale/technology" element={<DigiSaleTechnology />} />

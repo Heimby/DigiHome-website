@@ -143,15 +143,6 @@ export const Navigation = () => {
             >
               <li role="none">
                 <Link
-                  to="/membership"
-                  className="text-white hover:text-gray-300 transition-colors font-medium"
-                  role="menuitem"
-                >
-                  Membership
-                </Link>
-              </li>
-              <li role="none">
-                <Link
                   to="/partner-relations"
                   className="text-white hover:text-gray-300 transition-colors font-medium"
                   role="menuitem"
@@ -168,7 +159,7 @@ export const Navigation = () => {
                   About
                 </Link>
               </li>
-              <li role="none">
+              {/* <li role="none">
                 <Link
                   to="/brand-guidelines"
                   className="text-white hover:text-gray-300 transition-colors font-medium"
@@ -176,17 +167,8 @@ export const Navigation = () => {
                 >
                   Brand Guidelines
                 </Link>
-              </li>
+              </li> */}
             </ul>
-
-            <div className="hidden md:block">
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors font-medium"
-              >
-                Sign In
-              </a>
-            </div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
@@ -277,16 +259,6 @@ export const Navigation = () => {
                 <ul className="space-y-6" role="menu">
                   <li role="none">
                     <Link
-                      to="/membership"
-                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
-                      onClick={closeMobileMenu}
-                      role="menuitem"
-                    >
-                      Membership
-                    </Link>
-                  </li>
-                  <li role="none">
-                    <Link
                       to="/partner-relations"
                       className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
                       onClick={closeMobileMenu}
@@ -305,7 +277,7 @@ export const Navigation = () => {
                       About
                     </Link>
                   </li>
-                  <li role="none">
+                  {/* <li role="none">
                     <Link
                       to="/brand-guidelines"
                       className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
@@ -314,16 +286,7 @@ export const Navigation = () => {
                     >
                       Brand Guidelines
                     </Link>
-                  </li>
-                  <li role="none">
-                    <a
-                      href="#"
-                      className="block text-white hover:text-[#D4A2FF] transition-colors font-medium text-lg py-3"
-                      role="menuitem"
-                    >
-                      Sign In
-                    </a>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>
@@ -881,79 +844,80 @@ export const PropertyCardsSection = () => {
   );
 };
 
+// TODO: Show real properties
 // Mobile-Optimized Home Section
-export const HomeHumanoidSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
+// export const HomeHumanoidSection = () => {
+//   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsVisible(true);
+//         }
+//       },
+//       { threshold: 0.3 }
+//     );
 
-    const element = document.getElementById("home-humanoid");
-    if (element) observer.observe(element);
+//     const element = document.getElementById("home-humanoid");
+//     if (element) observer.observe(element);
 
-    return () => observer.disconnect();
-  }, []);
+//     return () => observer.disconnect();
+//   }, []);
 
-  return (
-    <section
-      id="home-humanoid"
-      className="bg-gradient-to-br from-gray-50 to-white py-20 lg:py-28"
-    >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header Text */}
-        <div
-          className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-8 leading-tight">
-            Book your flexible home
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We turn home rentals into experiences and collaborate with hundreds
-            of home owners globally.
-          </p>
-        </div>
+//   return (
+//     <section
+//       id="home-humanoid"
+//       className="bg-gradient-to-br from-gray-50 to-white py-20 lg:py-28"
+//     >
+//       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+//         {/* Header Text */}
+//         <div
+//           className={`text-center mb-16 transition-all duration-1000 ${
+//             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+//           }`}
+//         >
+//           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-8 leading-tight">
+//             Book your flexible home
+//           </h2>
+//           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+//             We turn home rentals into experiences and collaborate with hundreds
+//             of home owners globally.
+//           </p>
+//         </div>
 
-        {/* Search Bar */}
-        <div
-          className={`mb-16 transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <SearchBar />
-        </div>
+//         {/* Search Bar */}
+//         <div
+//           className={`mb-16 transition-all duration-1000 delay-200 ${
+//             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+//           }`}
+//         >
+//           <SearchBar />
+//         </div>
 
-        {/* Property Cards Section */}
-        <div
-          className={`transition-all duration-1000 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <PropertyCardsSection />
-        </div>
+//         {/* Property Cards Section */}
+//         <div
+//           className={`transition-all duration-1000 delay-300 ${
+//             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+//           }`}
+//         >
+//           <PropertyCardsSection />
+//         </div>
 
-        {/* View All Properties Button */}
-        <div
-          className={`flex justify-end mt-8 transition-all duration-1000 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium">
-            View all properties
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-};
+//         {/* View All Properties Button */}
+//         <div
+//           className={`flex justify-end mt-8 transition-all duration-1000 delay-500 ${
+//             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+//           }`}
+//         >
+//           <button className="bg-white text-gray-700 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-gray-300 font-medium">
+//             View all properties
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 // Experience Transformation Section - Tech Minimalism
 export const ExperienceSection = () => {
@@ -1817,155 +1781,157 @@ export const AboutTeamSection = () => {
     </section>
   );
 };
-export const AboutStatisticsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [counts, setCounts] = useState({
-    revenue: 0,
-    properties: 0,
-    owners: 0,
-    countries: 0,
-  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+// TODO: AboutStatisticsSection
+// export const AboutStatisticsSection = () => {
+//   const [isVisible, setIsVisible] = useState(false);
+//   const [counts, setCounts] = useState({
+//     revenue: 0,
+//     properties: 0,
+//     owners: 0,
+//     countries: 0,
+//   });
 
-    const element = document.getElementById("statistics-section");
-    if (element) observer.observe(element);
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsVisible(true);
+//         }
+//       },
+//       { threshold: 0.3 }
+//     );
 
-    return () => observer.disconnect();
-  }, []);
+//     const element = document.getElementById("statistics-section");
+//     if (element) observer.observe(element);
 
-  useEffect(() => {
-    if (isVisible) {
-      const targets = {
-        revenue: 87,
-        properties: 450,
-        owners: 312,
-        countries: 8,
-      };
+//     return () => observer.disconnect();
+//   }, []);
 
-      const duration = 2000;
-      const steps = 50;
-      const interval = duration / steps;
+//   useEffect(() => {
+//     if (isVisible) {
+//       const targets = {
+//         revenue: 87,
+//         properties: 450,
+//         owners: 312,
+//         countries: 8,
+//       };
 
-      let currentStep = 0;
-      const timer = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
+//       const duration = 2000;
+//       const steps = 50;
+//       const interval = duration / steps;
 
-        setCounts({
-          revenue: Math.floor(targets.revenue * progress),
-          properties: Math.floor(targets.properties * progress),
-          owners: Math.floor(targets.owners * progress),
-          countries: Math.floor(targets.countries * progress),
-        });
+//       let currentStep = 0;
+//       const timer = setInterval(() => {
+//         currentStep++;
+//         const progress = currentStep / steps;
 
-        if (currentStep >= steps) {
-          clearInterval(timer);
-          setCounts(targets);
-        }
-      }, interval);
+//         setCounts({
+//           revenue: Math.floor(targets.revenue * progress),
+//           properties: Math.floor(targets.properties * progress),
+//           owners: Math.floor(targets.owners * progress),
+//           countries: Math.floor(targets.countries * progress),
+//         });
 
-      return () => clearInterval(timer);
-    }
-  }, [isVisible]);
+//         if (currentStep >= steps) {
+//           clearInterval(timer);
+//           setCounts(targets);
+//         }
+//       }, interval);
 
-  return (
-    <section
-      id="statistics-section"
-      className="py-24"
-      style={{ backgroundColor: "#D4A2FF" }}
-    >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2
-            className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            Our Impact
-          </h2>
-          <p
-            className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            Numbers that reflect our commitment to transforming the property
-            rental industry
-          </p>
-        </div>
+//       return () => clearInterval(timer);
+//     }
+//   }, [isVisible]);
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              value: `${counts.revenue}M`,
-              label: "Revenue Generated",
-              suffix: "NOK",
-              description: "Total booking revenue for property owners",
-            },
-            {
-              value: `${counts.properties}+`,
-              label: "Properties Managed",
-              suffix: "",
-              description: "Across multiple cities and regions",
-            },
-            {
-              value: `${counts.owners}+`,
-              label: "Property Owners",
-              suffix: "",
-              description: "Trusting us with their investments",
-            },
-            {
-              value: `${counts.countries}`,
-              label: "Countries",
-              suffix: "",
-              description: "International presence and growth",
-            },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className={`text-center transition-all duration-700 ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${400 + index * 100}ms` }}
-            >
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/30 transition-all duration-300">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-2 drop-shadow-lg">
-                  {stat.value}
-                  {stat.suffix && (
-                    <span className="text-2xl lg:text-3xl ml-1">
-                      {stat.suffix}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
-                  {stat.label}
-                </h3>
-                <p className="text-white/80 text-sm drop-shadow-sm">
-                  {stat.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//   return (
+//     <section
+//       id="statistics-section"
+//       className="py-24"
+//       style={{ backgroundColor: "#D4A2FF" }}
+//     >
+//       <div className="max-w-7xl mx-auto px-6">
+//         <div className="text-center mb-16">
+//           <h2
+//             className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
+//               isVisible
+//                 ? "opacity-100 translate-y-0"
+//                 : "opacity-0 translate-y-10"
+//             }`}
+//           >
+//             Our Impact
+//           </h2>
+//           <p
+//             className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
+//               isVisible
+//                 ? "opacity-100 translate-y-0"
+//                 : "opacity-0 translate-y-10"
+//             }`}
+//             style={{ transitionDelay: "200ms" }}
+//           >
+//             Numbers that reflect our commitment to transforming the property
+//             rental industry
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+//           {[
+//             {
+//               value: `${counts.revenue}M`,
+//               label: "Revenue Generated",
+//               suffix: "NOK",
+//               description: "Total booking revenue for property owners",
+//             },
+//             {
+//               value: `${counts.properties}+`,
+//               label: "Properties Managed",
+//               suffix: "",
+//               description: "Across multiple cities and regions",
+//             },
+//             {
+//               value: `${counts.owners}+`,
+//               label: "Property Owners",
+//               suffix: "",
+//               description: "Trusting us with their investments",
+//             },
+//             {
+//               value: `${counts.countries}`,
+//               label: "Countries",
+//               suffix: "",
+//               description: "International presence and growth",
+//             },
+//           ].map((stat, index) => (
+//             <div
+//               key={index}
+//               className={`text-center transition-all duration-700 ease-out ${
+//                 isVisible
+//                   ? "opacity-100 translate-y-0"
+//                   : "opacity-0 translate-y-10"
+//               }`}
+//               style={{ transitionDelay: `${400 + index * 100}ms` }}
+//             >
+//               <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/30 transition-all duration-300">
+//                 <div className="text-4xl lg:text-5xl font-bold text-white mb-2 drop-shadow-lg">
+//                   {stat.value}
+//                   {stat.suffix && (
+//                     <span className="text-2xl lg:text-3xl ml-1">
+//                       {stat.suffix}
+//                     </span>
+//                   )}
+//                 </div>
+//                 <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
+//                   {stat.label}
+//                 </h3>
+//                 <p className="text-white/80 text-sm drop-shadow-sm">
+//                   {stat.description}
+//                 </p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+//};
 
 // Technology Products Section
 export const AboutTechnologySection = () => {
@@ -2189,8 +2155,9 @@ export const AboutDigiSaleSection = () => {
               ))}
             </div>
 
+            {/* TODO: DigiSale website */}
             {/* DigiSale Website Link */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <Link
                 to="/digisale"
                 className="inline-flex items-center px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl transform"
@@ -2205,7 +2172,7 @@ export const AboutDigiSaleSection = () => {
                 </span>
                 <ArrowRightIcon className="w-5 h-5 ml-2 text-gray-900" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div
@@ -3674,36 +3641,14 @@ export const AboutCallToActionSection = () => {
             Ready to Transform Your Property?
           </h2>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-12 drop-shadow-md">
-            Join hundreds of property owners who have revolutionized their
-            rental business with DigiHome's AI-powered platform. Start your
-            journey today.
+            Send us an email and get in touch.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
-            <button className="w-full sm:w-auto px-8 py-4 bg-[#D4A2FF] text-black font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Get Started as Property Owner
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white font-semibold text-lg rounded-full hover:bg-white hover:text-[#253551] focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300 transform hover:scale-105">
-              Explore Partnership Options
-            </button>
-          </div>
-          <div
-            className={`mt-12 transition-all duration-700 ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
-            }`}
-            style={{ transitionDelay: "400ms" }}
+          <a
+            href="mailto:post@digihome.no"
+            className="text-[#D4A2FF] hover:text-white transition-colors font-medium"
           >
-            <p className="text-white/70 text-sm mb-4">
-              Questions? Get in touch with our team
-            </p>
-            <a
-              href="mailto:hello@digihome.no"
-              className="text-[#D4A2FF] hover:text-white transition-colors font-medium"
-            >
-              hello@digihome.no
-            </a>
-          </div>
+            post@digihome.no
+          </a>
         </div>
       </div>
     </section>
@@ -4179,7 +4124,7 @@ export const AboutWhiteSection = () => {
             </div>
 
             {/* Revenue statistics */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   label: "Total Revenue Generated",
@@ -4191,7 +4136,8 @@ export const AboutWhiteSection = () => {
                   value: "2.4M NOK",
                   color: "#FF5A5F",
                 },
-                { label: "Active Homeowners", value: "312", color: "#253551" },
+                // TODO: Update active home owners
+                // { label: "Active Homeowners", value: "312", color: "#253551" },
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -4392,50 +4338,51 @@ export const EarningsCalculatorSection = () => {
 
 // Address Step Component
 const AddressStep = ({ address, setAddress, onSubmit, isVisible }) => (
-  <div className="mx-auto max-w-4xl text-center">
-    <h2
-      className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out drop-shadow-lg ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      Check out what you can earn as a DigiHome owner
-    </h2>
+  // <div className="mx-auto max-w-4xl text-center">
+  //   <h2
+  //     className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white tracking-tight mb-8 transition-all duration-700 ease-out drop-shadow-lg ${
+  //       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  //     }`}
+  //   >
+  //     Check out what you can earn as a DigiHome owner
+  //   </h2>
 
-    <p
-      className={`text-xl sm:text-2xl text-white leading-relaxed font-light transition-all duration-700 ease-out drop-shadow-md mb-12 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-      style={{ transitionDelay: "200ms" }}
-    >
-      Enter your property address to see your potential earnings
-    </p>
+  //   <p
+  //     className={`text-xl sm:text-2xl text-white leading-relaxed font-light transition-all duration-700 ease-out drop-shadow-md mb-12 ${
+  //       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  //     }`}
+  //     style={{ transitionDelay: "200ms" }}
+  //   >
+  //     Enter your property address to see your potential earnings
+  //   </p>
 
-    <div
-      className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-      style={{ transitionDelay: "400ms" }}
-    >
-      <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <input
-            type="text"
-            placeholder="Enter your property address..."
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="w-full px-6 py-4 text-lg rounded-full border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-        >
-          Continue
-        </button>
-      </form>
-    </div>
-  </div>
+  //   <div
+  //     className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
+  //       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  //     }`}
+  //     style={{ transitionDelay: "400ms" }}
+  //   >
+  //     <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-4">
+  //       <div className="flex-1">
+  //         <input
+  //           type="text"
+  //           placeholder="Enter your property address..."
+  //           value={address}
+  //           onChange={(e) => setAddress(e.target.value)}
+  //           className="w-full px-6 py-4 text-lg rounded-full border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+  //           required
+  //         />
+  //       </div>
+  //       <button
+  //         type="submit"
+  //         className="px-8 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+  //       >
+  //         Continue
+  //       </button>
+  //     </form>
+  //   </div>
+  // </div>
+  <div></div>
 );
 
 // Property Details Step Component
@@ -5520,14 +5467,14 @@ export const PartnerRelationsContent = () => {
                 icon: <CpuChipIcon className="w-12 h-12" />,
                 title: "AI-Powered Operations",
                 description:
-                  "Fully automated guest communication, pricing optimization, and property management through our advanced AI platform.",
+                  "Fully automated tenant communication, pricing optimization, and property management through our advanced AI platform.",
                 color: "#1f1f1f",
               },
               {
                 icon: <BriefcaseIcon className="w-12 h-12" />,
                 title: "Zero Hassle Management",
                 description:
-                  "We handle everything from guest screening to maintenance coordination. You collect returns while we manage operations.",
+                  "We handle everything from tenant screening to maintenance coordination. You collect returns while we manage operations.",
                 color: "#1f1f1f",
               },
               {
@@ -5664,7 +5611,7 @@ export const PartnerRelationsContent = () => {
       </section>
 
       {/* Partnership Options */}
-      <section data-section="options" className="py-24 bg-gray-50">
+      {/* <section data-section="options" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2
@@ -5817,7 +5764,7 @@ export const PartnerRelationsContent = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section
@@ -5848,22 +5795,6 @@ export const PartnerRelationsContent = () => {
           </p>
 
           <div
-            className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 transition-all duration-700 ease-out ${
-              visibleSections.has("contact")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "400ms" }}
-          >
-            <button className="px-8 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 transform hover:scale-105 border border-white/20">
-              Download Partnership Guide
-            </button>
-          </div>
-
-          <div
             className={`grid sm:grid-cols-3 gap-8 text-white transition-all duration-700 ease-out ${
               visibleSections.has("contact")
                 ? "opacity-100 translate-y-0"
@@ -5873,524 +5804,12 @@ export const PartnerRelationsContent = () => {
           >
             <div>
               <h4 className="font-semibold mb-2 drop-shadow-md">Email</h4>
-              <p className="text-gray-300 drop-shadow-sm">
-                partnerships@digihome.no
-              </p>
+              <p className="text-gray-300 drop-shadow-sm">post@digihome.no</p>
             </div>
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-2 drop-shadow-md">Phone</h4>
               <p className="text-gray-300 drop-shadow-sm">+47 123 45 678</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2 drop-shadow-md">
-                Response Time
-              </h4>
-              <p className="text-gray-300 drop-shadow-sm">Within 24 hours</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-// Membership Hero Section
-export const MembershipHero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    const section = document.getElementById("membership-hero");
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section
-      id="membership-hero"
-      className="relative min-h-screen overflow-hidden flex items-center justify-center"
-    >
-      {/* Background Video */}
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source
-            src="https://hentgspgiocaufznprrw.supabase.co/storage/v1/object/public/public-images//Partners.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
-        <h1
-          className={`text-5xl sm:text-6xl lg:text-7xl font-thin mb-8 tracking-tight transition-all duration-1000 ease-out drop-shadow-lg ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          Welcome to DigiHome Members
-        </h1>
-
-        <p
-          className={`text-xl sm:text-2xl lg:text-3xl font-light mb-8 leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out drop-shadow-md ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "200ms" }}
-        >
-          Join our exclusive community and unlock the best rates, premium perks,
-          and personalized experiences
-        </p>
-
-        <p
-          className={`text-lg text-white/90 mb-12 font-light transition-all duration-1000 ease-out drop-shadow-sm ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "300ms" }}
-        >
-          Let's be guests with benefits — all for free
-        </p>
-
-        <div
-          className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "400ms" }}
-        >
-          <button
-            className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl"
-            onClick={() =>
-              document
-                .getElementById("member-benefits")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Join Free Now
-          </button>
-          <button
-            className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 transform hover:scale-105 border border-white/20"
-            onClick={() =>
-              document
-                .getElementById("member-benefits")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            See Benefits
-          </button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Membership Content Section
-export const MembershipContent = () => {
-  const [visibleSections, setVisibleSections] = useState(new Set());
-  const [openFaq, setOpenFaq] = useState(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute("data-section");
-            if (sectionId) {
-              setVisibleSections((prev) => new Set([...prev, sectionId]));
-            }
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll("[data-section]");
-    sections.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  return (
-    <>
-      {/* Member Benefits */}
-      <section
-        id="member-benefits"
-        data-section="benefits"
-        className="py-24 bg-white"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2
-              className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
-                visibleSections.has("benefits")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              Member Benefits
-            </h2>
-            <p
-              className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
-                visibleSections.has("benefits")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
-              Enjoy great perks at no extra cost. Instant rewards, no loyalty
-              points, no tiers — just effortless benefits from day one.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                icon: <CurrencyDollarIcon className="w-12 h-12" />,
-                title: "15% Off Every Stay",
-                description:
-                  "Unlock the best rates automatically when you book directly with DigiHome. No promo codes, no gimmicks — just better prices, always.",
-                highlight: "Save instantly on every booking",
-              },
-              {
-                icon: <CalendarIcon className="w-12 h-12" />,
-                title: "Up to 40% Off Extended Stays",
-                description:
-                  "Stay longer, save more. Get 25% off stays of 7+ nights, and up to 40% off monthly stays. Perfect for business trips or workcations.",
-                highlight: "Bigger savings for longer stays",
-              },
-              {
-                icon: <ClockIcon className="w-12 h-12" />,
-                title: "Flexible Check-in & Check-out",
-                description:
-                  "Sleep in until 12 PM with free late check-out, or start your day early with 2 PM check-in. Your stay fits your schedule.",
-                highlight: "Free flexibility when you need it",
-              },
-              {
-                icon: <StarIcon className="w-12 h-12" />,
-                title: "Exclusive Member Deals",
-                description:
-                  "Get first access to new properties, last-minute availability, surprise discounts, and member-only offers we don't share anywhere else.",
-                highlight: "Early access to the best deals",
-              },
-            ].map((benefit, index) => (
-              <div
-                key={index}
-                className={`bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out border border-gray-100 hover:scale-105 relative overflow-hidden ${
-                  visibleSections.has("benefits")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${400 + index * 150}ms` }}
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-
-                <div className="relative">
-                  <div className="mb-6 flex items-center justify-center text-[#D4A2FF]">
-                    {benefit.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {benefit.description}
-                  </p>
-                  <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    {benefit.highlight}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div
-            className={`text-center mt-16 transition-all duration-700 ease-out ${
-              visibleSections.has("benefits")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "1000ms" }}
-          >
-            <button className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Join DigiHome Members — It's Free!
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section
-        data-section="how-it-works"
-        className="py-24"
-        style={{ backgroundColor: "#D4A2FF" }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2
-              className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-white mb-6 tracking-tight transition-all duration-700 ease-out drop-shadow-lg ${
-                visibleSections.has("how-it-works")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              How It Works
-            </h2>
-            <p
-              className={`text-xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out drop-shadow-md ${
-                visibleSections.has("how-it-works")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
-              Join our community of smart travelers in three simple steps and
-              start saving immediately
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                step: "01",
-                title: "Sign Up Free",
-                description:
-                  "Create your DigiHome member account in seconds. No fees, no commitments — just instant access to better rates.",
-                icon: <SparklesIcon className="w-8 h-8" />,
-              },
-              {
-                step: "02",
-                title: "Book & Save",
-                description:
-                  "Browse our AI-curated properties and watch your 15% discount apply automatically. No codes needed, just better prices.",
-                icon: <HomeIcon className="w-8 h-8" />,
-              },
-              {
-                step: "03",
-                title: "Enjoy Premium Perks",
-                description:
-                  "Access flexible check-in times, exclusive deals, and personalized recommendations tailored to your travel style.",
-                icon: <ArrowTopRightOnSquareIcon className="w-8 h-8" />,
-              },
-            ].map((step, index) => (
-              <div
-                key={index}
-                className={`text-center transition-all duration-700 ease-out ${
-                  visibleSections.has("how-it-works")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${400 + index * 200}ms` }}
-              >
-                <div className="relative mb-8">
-                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto border border-white/30 relative">
-                    <span className="text-white">{step.icon}</span>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center text-sm font-bold">
-                      {step.step}
-                    </div>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-semibold text-white mb-4 drop-shadow-md">
-                  {step.title}
-                </h3>
-                <p className="text-white/90 leading-relaxed drop-shadow-sm">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div
-            className={`text-center mt-16 transition-all duration-700 ease-out ${
-              visibleSections.has("how-it-works")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "1200ms" }}
-          >
-            <button className="px-10 py-4 bg-white text-purple-600 font-semibold text-lg rounded-full hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Start Saving Today
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Travelers Section */}
-      <section data-section="business" className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div
-            className={`transition-all duration-700 ease-out ${
-              visibleSections.has("business")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="mb-8 flex items-center justify-center text-[#253551]">
-              <BriefcaseIcon className="w-16 h-16" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
-              Business Traveler?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Upgrade to DigiHome Business and unlock seamless corporate
-              accommodation solutions — so you can get back to work.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-3 bg-[#253551] text-white font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
-                Explore Business Solutions
-              </button>
-              <button
-                className="px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition-all duration-300"
-                onClick={() =>
-                  document
-                    .getElementById("faq-section")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq-section" data-section="faq" className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2
-              className={`text-4xl sm:text-5xl lg:text-6xl font-thin text-gray-900 mb-6 tracking-tight transition-all duration-700 ease-out ${
-                visibleSections.has("faq")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              Questions?
-            </h2>
-            <p
-              className={`text-xl text-gray-600 transition-all duration-700 ease-out ${
-                visibleSections.has("faq")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
-              Let's answer them now, so you can make the most of your membership
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                question: "What is DigiHome Members?",
-                answer:
-                  "DigiHome Members is our way of saying thanks to loyal guests. Join for free and enjoy better rates, more flexibility, AI-powered recommendations, and early access to our best offers — every time you stay with us.",
-              },
-              {
-                question: "How much do I save as a member?",
-                answer:
-                  "Members automatically receive 15% off every booking when booking directly with DigiHome. No promo codes, no gimmicks — just better prices, always. This discount is valid for all DigiHome locations.",
-              },
-              {
-                question: "Do I get better deals for longer stays?",
-                answer:
-                  "Yes! If you're staying 7 nights or more, you'll get 25% off, and for monthly stays of 30+ days, you can save up to 40% off. Perfect for extended business trips, relocations, or workcations.",
-              },
-              {
-                question: "What are the check-in and check-out perks?",
-                answer:
-                  "Members can choose free early check-in from 2 PM or late check-out until 12 PM, subject to availability. Your stay fits your schedule, not the other way around.",
-              },
-              {
-                question: "What kind of exclusive offers can I expect?",
-                answer:
-                  "As a member, you'll unlock early access to new property listings, last-minute availability deals, seasonal promotions, and surprise discounts we don't offer anywhere else. Plus, our AI learns your preferences to send personalized recommendations.",
-              },
-              {
-                question: "Is membership really free?",
-                answer:
-                  "Yes! DigiHome membership is completely free with no hidden fees, no annual charges, and no obligations. You can cancel your membership anytime if you choose to.",
-              },
-            ].map((faq, index) => (
-              <div
-                key={index}
-                className={`border border-gray-200 rounded-2xl transition-all duration-700 ease-out ${
-                  visibleSections.has("faq")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${400 + index * 100}ms` }}
-              >
-                <button
-                  className="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 rounded-2xl transition-colors duration-200"
-                  onClick={() => toggleFaq(index)}
-                >
-                  <span className="text-lg font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </span>
-                  <svg
-                    className={`w-6 h-6 text-gray-500 transform transition-transform duration-200 flex-shrink-0 ${
-                      openFaq === index ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div
-            className={`text-center mt-16 transition-all duration-700 ease-out ${
-              visibleSections.has("faq")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "1000ms" }}
-          >
-            <button className="px-10 py-4 bg-[#D4A2FF] text-white font-semibold text-lg rounded-full hover:bg-[#C490FF] focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Ready to Join? Sign Up Free
-            </button>
+            </div> */}
           </div>
         </div>
       </section>
@@ -6417,7 +5836,15 @@ export const Footer = () => {
               The future of home rentals is here. Connecting travelers with
               unique homes and experiences across the world.
             </p>
-            <nav aria-label="Social media links">
+            <p>
+              <a
+                href="mailto:post@digihome.no"
+                className="text-[#D4A2FF] hover:text-white transition-colors font-medium"
+              >
+                post@digihome.no
+              </a>
+            </p>
+            {/* <nav aria-label="Social media links">
               <ul className="flex space-x-4">
                 <li>
                   <a
@@ -6468,11 +5895,11 @@ export const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
 
           {/* Services */}
-          <nav aria-labelledby="services-heading">
+          {/* <nav aria-labelledby="services-heading">
             <h3 id="services-heading" className="text-lg font-medium mb-6">
               Services
             </h3>
@@ -6502,10 +5929,10 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
           {/* Company */}
-          <nav aria-labelledby="company-heading">
+          {/* <nav aria-labelledby="company-heading">
             <h3 id="company-heading" className="text-lg font-medium mb-6">
               Company
             </h3>
@@ -6543,7 +5970,7 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </div>
 
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-8 text-center text-gray-400">
