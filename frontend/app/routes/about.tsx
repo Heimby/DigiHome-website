@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Navbar from "~/components/Navbar";
 import { Footer } from "~/routes/home";
-import TeamPhotoPicture from "~/assets/portraits/Teambilde.webp";
 import LeadGenerationForm from "~/components/LeadGenerationForm";
 import InformationCard from "~/components/ui/InformationCard";
 
@@ -69,11 +68,6 @@ export default function About() {
                   {t("home.aboutDigihome.mission")}
                 </p>
               </InformationCard>
-              <img
-                src={TeamPhotoPicture}
-                alt="Team Photo"
-                className="w-full h-full object-cover"
-              />
             </div>
 
             {/* TODO: Team member portraits */}
