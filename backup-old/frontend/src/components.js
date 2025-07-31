@@ -2211,7 +2211,7 @@ export const AboutDigiSaleSection = () => {
                     className="text-lg font-semibold mb-2"
                     style={{ color: "#B8B800" }}
                   >
-                    DigiCar
+                    Digihome
                   </h5>
                   <p className="text-gray-600 text-sm">
                     Intelligent automotive solutions transforming vehicle

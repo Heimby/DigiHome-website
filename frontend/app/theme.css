@@ -1,0 +1,37 @@
+/* Built with DaisyUI theme generator */
+/* https://daisyui.com/theme-generator/#theme=eJx9k-1ugyAUhm_FuCxZk0r4UNH-W7L1PigeV1ILBjTrtuzeh-g6-zHxF-d9OOd9Ub9iLY4Qb-JKvSkpbLyOk8SKSvUucdCA7Iz1KkY0s3Ccq7WCprov7czpSnDqE_7rF7R73XbGVjDQBGXtKZQqaLv9UAk7bZQbvGO_k6YxNnFyD2McYQ-BGes74SAhGHvFHBq5fyqLxwgjjElEcI5SylbXNJ3T_JJOb2g2p-lIsygtECf8BpZGd6A7f-CBbIdnBmjoOyuaQXsN61ZbPK90bc5O8pCS5GVEGUfsMqXrpQTnzjAPtikpI5KWKOPlHH4XViv99gfnoXNRRNxHLeYoWBve8WSBha6MRzRDjJHVldfFMJPFRWZytsgES4tEa9VR2I9B2_pVPM9dgD9ZjeqUfrzXLI0o8R_nxbUKb3kc8kLLYntnyHLk32GL1DjkLlJBLfrG1zrbwzpuLdRgXfgfNrVoHHz_ANNLJgU */
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0.001 106.423);
+  --color-base-300: oklch(92% 0.003 48.717);
+  --color-base-content: #1f1f1f;
+  --color-primary: #d298ff;
+  --color-primary-content: #1f1f1f;
+  --color-secondary: oklch(78% 0.154 211.53);
+  --color-secondary-content: #1f1f1f;
+  --color-accent: #ae68e4;
+  --color-accent-content: #1f1f1f;
+  --color-neutral: #eeeeee;
+  --color-neutral-content: #1f1f1f;
+  --color-info: oklch(68% 0.169 237.323);
+  --color-info-content: oklch(97% 0.013 236.62);
+  --color-success: oklch(72% 0.219 149.579);
+  --color-success-content: oklch(98% 0.018 155.826);
+  --color-warning: oklch(76% 0.188 70.08);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(63% 0.237 25.331);
+  --color-error-content: oklch(97% 0.013 17.38);
+  --radius-selector: 2rem;
+  --radius-field: 1rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}

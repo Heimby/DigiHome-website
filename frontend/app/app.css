@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  /* themes: light --default, dark --prefersdark; */
+  themes: light --default;
+}
+@import "./theme.css";
+
+@font-face {
+  font-family: "PP Right Grotesk Regular";
+  src: url("../app/assets/fonts/PPRightGrotesk-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ABC Diatype Regular";
+  src: url("../app/assets/fonts/ABCDiatype-Regular.woff2") format("woff2");
+}
+
+* {
+  font-family: "ABC Diatype Regular", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "PP Right Grotesk Regular", sans-serif;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-family: "ABC Diatype Regular", sans-serif;
+}
