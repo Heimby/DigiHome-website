@@ -83,7 +83,6 @@ export function LeadGenerationForm({ className = "" }) {
             required
             isWide
             variant="cure"
-            textSize="xl"
             sizes="xl"
           />
           <DInput

@@ -84,7 +84,7 @@ export default function About() {
                   <img
                     src={member.image}
                     alt={member.fullName}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    className="w-full aspect-[3/4] object-cover rounded-t-lg"
                   />
                   <h2 className="text-2xl font-bold text-gray-900">
                     {member.fullName}
