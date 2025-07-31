@@ -20,7 +20,7 @@ builder:
   # Use local context instead of only committed files
   context: .
   arch: [arm64]
-  # Using remote builder as the github action runner is on amd64
+  # Using remote builder as the github action runner is not on amd64
   remote: ssh://root@65.21.252.58
   args:
     APP_BUILD: next
