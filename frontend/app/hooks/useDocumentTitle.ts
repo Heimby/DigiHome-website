@@ -21,12 +21,13 @@ export function useDocumentTitle(title?: string, fallback?: string) {
 
   // Get the current route ID from the last match
   const currentRouteId = matches[matches.length - 1]?.id;
-  console.debug("Current route ID:", currentRouteId);
 
   useEffect(() => {
     const previousTitle = document.title;
     const finalTitle = capitalizeFirstLetter(
-      title || fallback || `Digihome ${currentRouteId}`
+      title ||
+        fallback ||
+        `Digihome ${currentRouteId.replace("routes", "").replace("/", "")}`
     );
     document.title = finalTitle;
 
@@ -38,7 +39,9 @@ export function useDocumentTitle(title?: string, fallback?: string) {
 
   function setDocumentTitle(newTitle: string) {
     const finalTitle = capitalizeFirstLetter(
-      newTitle || fallback || `Digihome ${currentRouteId}`
+      newTitle ||
+        fallback ||
+        `Digihome ${currentRouteId.replace("routes", "").replace("/", "")}`
     );
     document.title = finalTitle;
   }
