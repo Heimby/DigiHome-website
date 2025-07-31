@@ -40,7 +40,7 @@ export default function About() {
       description:
         "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle Digihome fra starten.",
       image: SarahSleemanBilde,
-      phone: "",
+      phone: "+47 909 58 313",
       email: "sarah@digihome.no",
     },
     {

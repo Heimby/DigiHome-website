@@ -37,56 +37,53 @@ export default function DigihomeLogoFullPurpleBrand({
         fill={textColor}
       />
 
-      {/* Purple Brand Rectangle */}
-      <rect width="44" height="44" rx="4" x={-6} y={-4} fill="#d298ff" />
-
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 28.5706 22.9796)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 26.5442 34.4718)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 30.5972 11.4899)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 7.33691 22.9796)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 15.9285 34.4718)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 19.979 11.4899)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 5.31055 34.4718)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
       <rect
         width="5.30796"
         height="11.6672"
         transform="matrix(-1 -8.60946e-08 0.173648 -0.984808 9.36353 11.4899)"
-        fill="#1F1F1F"
+        fill="#d298ff"
       />
     </svg>
   );
