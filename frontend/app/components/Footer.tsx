@@ -1,7 +1,28 @@
 import { useTranslation } from "react-i18next";
 import DigihomeLogoFullPurpleBrand from "./DigihomeLogoFullPurpleBrand";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
+  const config = {
+    orgNr: "935746930",
+    address: "Kokstadvegen 46, 5257 Bergen",
+    email: "post@digihome.no",
+    companyName: "Digihome AS",
+    links: [
+      { icon: faLinkedin, url: "https://www.linkedin.com/company/digihome-as" },
+      { icon: faInstagram, url: "https://www.instagram.com/digihome.no/" },
+      {
+        icon: faFacebook,
+        url: "https://www.facebook.com/profile.php?id=61578844503645",
+      },
+    ],
+  };
   const { t } = useTranslation();
   return (
     <footer className="text-white" style={{ backgroundColor: "#031718" }}>
@@ -9,17 +30,30 @@ export default function Footer() {
         <DigihomeLogoFullPurpleBrand fontColor="white" />
         <div className="grid grid-cols-2">
           <div className="flex flex-col items-start gap-2">
-            <p>Digihome AS</p>
-            <p>Org. nr. 935746930</p>
-            <p>Kokstadvegen 46, 5257 Bergen</p>
+            <p>{config.companyName}</p>
+            <p>Org. nr. {config.orgNr}</p>
+            <p>{config.address}</p>
           </div>
           <div className="flex flex-col items-start gap-2">
             <p>{t("footer.contactUs")}</p>
-            <a href="mailto:post@digihome.no">post@digihome.no</a>
+            <a href={`mailto:${config.email}`}>{config.email}</a>
+            <div>
+              {config.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  className="text-white text-2xl"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={link.icon} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <p className="text-gray-400 text-center">
-          © 2025 Digihome. Alle rettigheter reservert. Et selskap i DigiSale.
+          © 2025 {config.companyName}. Alle rettigheter reservert. Et selskap i
+          DigiSale.
         </p>
       </div>
     </footer>
