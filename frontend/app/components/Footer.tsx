@@ -8,7 +8,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Footer() {
+export default function Footer({ width = "max-w-[1600px]", px = "px-16" }) {
   const config = {
     orgNr: "935 746 930",
     address: "Kokstadvegen 46, 5257 Bergen",
@@ -26,7 +26,9 @@ export default function Footer() {
   const { t } = useTranslation();
   return (
     <footer className="text-white" style={{ backgroundColor: "#031718" }}>
-      <div className="max-w-4xl mx-auto py-8 flex flex-col gap-4 align-middle justify-center">
+      <div
+        className={`${width} mx-auto py-6 ${px} flex flex-col gap-4 align-middle justify-center`}
+      >
         <DigiHomeLogoFullPurpleBrand fontColor="white" />
         <div className="grid grid-cols-2 gap-8">
           <div className="flex flex-col items-start gap-2">

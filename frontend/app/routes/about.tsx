@@ -157,7 +157,7 @@ export default function About() {
             />
           </div>
         </main>
-        <Footer />
+        <Footer width="max-w-4xl" px="px-4" />
       </div>
     </>
   );

@@ -29,10 +29,7 @@ export default function Home() {
     <>
       <Navbar isTransparent />
       <HeroSection scrollToLeadForm={scrollToLeadForm} />
-      <div
-        className="min-h-screen mx-auto"
-        style={{ width: "100%", maxWidth: "1600px" }}
-      >
+      <div className="min-h-screen mx-auto w-full max-w-[1600px]">
         <div className="grid gap-16 md:m-16">
           <span ref={leadFormRef}>
             <LeadGenerationForm />
@@ -42,32 +39,30 @@ export default function Home() {
 
           <WhyNotRentPrivately />
           <FinalCallToActionSection scrollToLeadForm={scrollToLeadForm} />
-          <div>
-            <Carousel
-              maxWidth="200"
-              items={[
-                {
-                  image: HybelLogo,
-                  altText: "Hybel.no",
-                },
-                {
-                  altText: "Guesty",
-                  image: GuestyLogo,
-                },
-                {
-                  altText: "Airbnb",
-                  image: AirbnbLogo,
-                },
-                {
-                  altText: "Booking.com",
-                  image: BookingComLogo,
-                },
-              ]}
-            />
-          </div>
+          <Carousel
+            maxWidth="200"
+            items={[
+              {
+                image: HybelLogo,
+                altText: "Hybel.no",
+              },
+              {
+                altText: "Guesty",
+                image: GuestyLogo,
+              },
+              {
+                altText: "Airbnb",
+                image: AirbnbLogo,
+              },
+              {
+                altText: "Booking.com",
+                image: BookingComLogo,
+              },
+            ]}
+          />
         </div>
       </div>
-      <Footer />
+      <Footer px="px-4 md:px-16" />
     </>
   );
 }
