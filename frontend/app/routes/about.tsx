@@ -20,7 +20,7 @@ export default function About() {
       fullName: "Sarah Sleeman",
       role: "Daglig leder",
       description:
-        "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle DigiHome fra starten.",
+        "Sarah har lang erfaring som eiendomsmegler og brenner for å skaffe deg riktig leiepris i markedet.",
       image: SarahSleemanBilde,
       phone: "",
       email: "sarah@digihome.no",
@@ -29,7 +29,7 @@ export default function About() {
       fullName: "Njål Eliasson",
       role: "Analytiker & forretningsutvikler",
       description:
-        "Er utdannet siviløkonom fra NHH hvor han startet Heimby som har gitt han lang erfaring fra utleie på korttid og langtid.",
+        "Njål er siviløkonom fra NHH og grunnla Heimby - forgjengeren til DigiHome i 2022. Han har en bred erfaring innenfor tech startups, finans, logistikk og AI. Sammen med resten av teamet bygger Njål løsninger som gjør det mer lønnsomt for utleiere, men samtidig billigere for studentene. Hvordan? Gjennom å kombinere korttidsutleie på sommermånedene med utleie til studenter i semesteret.",
       image: NjålEliassonBilde,
       phone: "",
       email: "njal@digihome.no",
@@ -39,7 +39,7 @@ export default function About() {
       fullName: "Mathias Haugsbø",
       role: "Teknisk sjef",
       description:
-        "Med utdanning i IT og økonomi fra UiB, tar han med seg lang erfaring fra IT-bransjen. Som gründer av DigiHome er han hjernen bak vår teknologiske plattform.",
+        "Med utdanning i økonomi og IT, er Mathias en kommersiell utvikler og bygger system som gjør utleien helt autonom for deg. Mathias har vært med på å bygge opp startups og scale-ups helt fra bunn. Som gründer av DigiHome er han hjernen bak vår teknologiske plattform.",
       image: MathiasHaugsbøBilde,
       phone: "",
       email: "mathias@digihome.no",
