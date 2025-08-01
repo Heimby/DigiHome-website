@@ -23,7 +23,7 @@ export default function About() {
         "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle DigiHome fra starten.",
       image: SarahSleemanBilde,
       phone: "",
-      email: "sarah@DigiHome.no",
+      email: "sarah@digihome.no",
     },
     {
       fullName: "Njål Eliasson",
@@ -32,7 +32,7 @@ export default function About() {
         "Er utdannet siviløkonom fra NHH hvor han startet Heimby som har gitt han lang erfaring fra utleie på korttid og langtid.",
       image: NjålEliassonBilde,
       phone: "",
-      email: "njal@DigiHome.no",
+      email: "njal@digihome.no",
     },
 
     {
@@ -42,7 +42,7 @@ export default function About() {
         "Med utdanning i IT og økonomi fra UiB, tar han med seg lang erfaring fra IT-bransjen. Som gründer av DigiHome er han hjernen bak vår teknologiske plattform.",
       image: MathiasHaugsbøBilde,
       phone: "",
-      email: "mathias@DigiHome.no",
+      email: "mathias@digihome.no",
     },
     {
       fullName: "Erik Hoffmann-Dahl",
