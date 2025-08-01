@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="flex flex-col items-start gap-2">
             <p>{t("footer.contactUs")}</p>
             <a href={`mailto:${config.email}`}>{config.email}</a>
-            <div>
+            <div className="flex gap-2">
               {config.links.map((link) => (
                 <a
                   key={link.url}
