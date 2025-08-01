@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="grid grid-cols-2">
           <div className="flex flex-col items-start gap-2">
             <p>{config.companyName}</p>
-            <p>Org. nr. {config.orgNr}</p>
+            <p>org. Nr. {config.orgNr}</p>
             <p>{config.address}</p>
           </div>
           <div className="flex flex-col items-start gap-2">

@@ -27,7 +27,7 @@ export default function About() {
     },
     {
       fullName: "Njål Eliasson",
-      role: "Analytiker",
+      role: "Analytiker & forretningsutvikler",
       description:
         "Er utdannet siviløkonom fra NHH hvor han startet Heimby som har gitt han lang erfaring fra utleie på korttid og langtid.",
       image: NjålEliassonBilde,
