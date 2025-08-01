@@ -7,7 +7,7 @@ import Overlay from "~/components/ui/Overlay";
 import { useRef } from "react";
 import InformationCard from "~/components/ui/InformationCard";
 import HeroPicture from "~/assets/vendome-living-smoked-dark-wood-timber-oak-wall-panelling-veneer-bambo-luxury-decorative-panels.webp";
-import Knøsesmauet21Picture from "~/assets/Knøsesmauet-21.jpg";
+import OverlaySectionImage from "~/assets/Bilder hus-flipped.webp";
 import Footer from "~/components/Footer";
 import Carousel from "~/components/ui/Carousel";
 import HybelLogo from "~/assets/partners/hybel-logo.png";
@@ -125,12 +125,11 @@ export const WhyRentThroughDigiHomeSection = ({
 
   return (
     <Overlay
-      backgroundImage={Knøsesmauet21Picture}
+      backgroundImage={OverlaySectionImage}
       backgroundAlt="Bergen street"
     >
       <div></div>
       <InformationCard color="neutral">
-        <div></div>
         <div className="col-span-1 md:col-span-2 text-left mb-12 flex flex-col gap-4">
           <h2 className="text-3xl md:text-4xl font-bold">
             {t("home.whyRentThroughDigiHome.title")}
