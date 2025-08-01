@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
-import DigihomeLogoFullYellowBrand from "./DigihomeLogoFullPurpleBrand";
+import DigiHomeLogoFullYellowBrand from "./DigiHomeLogoFullPurpleBrand";
 import { useState } from "react";
 import DButton from "./ui/DButton";
 
@@ -89,8 +89,8 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
         {/* Logo and navigation links */}
         <div className="flex items-center gap-4 flex-1">
           <Link to="/">
-            <DigihomeLogoFullYellowBrand
-              fontColor={isTransparent ? "black" : "black"}
+            <DigiHomeLogoFullYellowBrand
+              fontColor={isTransparent ? "white" : "black"}
               height={32}
               className="hover:opacity-80 transition-opacity"
             />

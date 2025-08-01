@@ -25,7 +25,7 @@ const enLocale = {
         "Your tenants get one user-friendly platform for payment, contact, and inquiries. This means fewer disruptions for you and a better experience for them.",
     },
 
-    whyRentThroughDigihome: {
+    whyRentThroughDigiHome: {
       title: "New standard for rental driven by technology",
       smartRenting: "More profitable. Less work.",
       smartRentingDescription:
@@ -62,7 +62,7 @@ const enLocale = {
       contactUs: "Contact us",
     },
 
-    aboutDigihome: {
+    aboutDigiHome: {
       title: "About DigiHome",
       mission:
         "We don't believe in 'that's how it's always been done'. We believe in technology, flexibility, and execution capability. With DigiHome, you get rental on autopilot and a management model that actually works for you. DigiHome is part of DigiSale, a Norwegian technology consortium building tomorrow's industry leaders.",
@@ -97,7 +97,7 @@ const enLocale = {
     },
     products: {
       title: "DigiSale Products",
-      digihome: {
+      DigiHome: {
         name: "DigiHome",
         description:
           "AI-driven property management platform that revolutionizes short and long-term rentals",

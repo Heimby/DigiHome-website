@@ -37,7 +37,7 @@ export function LeadGenerationForm({
         setIsFormLoading(true);
 
         const res = await fetch(
-          "https://n8n.digihome.no/webhook/digihome-lead",
+          "https://n8n.DigiHome.no/webhook/DigiHome-lead",
           {
             method: "POST",
             headers: {

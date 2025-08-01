@@ -17,13 +17,13 @@ export default function About() {
 
   const teamMembers = [
     {
-      fullName: "Mathias Haugsbø",
-      role: "Teknisk sjef",
+      fullName: "Sarah Sleeman",
+      role: "Daglig leder",
       description:
-        "Med utdanning i IT og økonomi fra UiB, tar han med seg lang erfaring fra IT-bransjen. Som gründer av Digihome er han hjernen bak vår teknologiske plattform.",
-      image: MathiasHaugsbøBilde,
+        "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle DigiHome fra starten.",
+      image: SarahSleemanBilde,
       phone: "",
-      email: "mathias@digihome.no",
+      email: "sarah@DigiHome.no",
     },
     {
       fullName: "Njål Eliasson",
@@ -32,22 +32,23 @@ export default function About() {
         "Er utdannet siviløkonom fra NHH hvor han startet Heimby som har gitt han lang erfaring fra utleie på korttid og langtid.",
       image: NjålEliassonBilde,
       phone: "",
-      email: "njal@digihome.no",
+      email: "njal@DigiHome.no",
     },
+
     {
-      fullName: "Sarah Sleeman",
-      role: "Daglig leder",
+      fullName: "Mathias Haugsbø",
+      role: "Teknisk sjef",
       description:
-        "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle Digihome fra starten.",
-      image: SarahSleemanBilde,
+        "Med utdanning i IT og økonomi fra UiB, tar han med seg lang erfaring fra IT-bransjen. Som gründer av DigiHome er han hjernen bak vår teknologiske plattform.",
+      image: MathiasHaugsbøBilde,
       phone: "",
-      email: "sarah@digihome.no",
+      email: "mathias@DigiHome.no",
     },
     {
       fullName: "Erik Hoffmann-Dahl",
       role: "Styreleder",
       description:
-        "Erik er styreleder og har lang erfaring som advokat, og er en viktig støttespiller for Digihome.",
+        "Erik er styreleder og har lang erfaring som advokat, og er en viktig støttespiller for DigiHome.",
       image: ErikHoffmannDahlBilde,
       phone: "",
       email: "",
@@ -62,11 +63,11 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-4 sm:px-2 flex flex-col gap-8 mb-16">
             <div className="flex flex-col gap-4">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                {t("home.aboutDigihome.title")}
+                {t("home.aboutDigiHome.title")}
               </h1>
               <InformationCard color="base-100">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  {t("home.aboutDigihome.mission")}
+                  {t("home.aboutDigiHome.mission")}
                 </p>
               </InformationCard>
             </div>
@@ -119,28 +120,28 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <InformationCard color="base-100">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  {t("home.aboutDigihome.experience")}
+                  {t("home.aboutDigiHome.experience")}
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  {t("home.aboutDigihome.experienceDescription")}
+                  {t("home.aboutDigiHome.experienceDescription")}
                 </p>
               </InformationCard>
 
               <InformationCard color="base-100">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  {t("home.aboutDigihome.smarterAlternative")}
+                  {t("home.aboutDigiHome.smarterAlternative")}
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  {t("home.aboutDigihome.smarterAlternativeDescription")}
+                  {t("home.aboutDigiHome.smarterAlternativeDescription")}
                 </p>
               </InformationCard>
 
               <InformationCard color="base-100">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  {t("home.aboutDigihome.stayMobile")}
+                  {t("home.aboutDigiHome.stayMobile")}
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  {t("home.aboutDigihome.stayMobileDescription")}
+                  {t("home.aboutDigiHome.stayMobileDescription")}
                 </p>
               </InformationCard>
             </div>

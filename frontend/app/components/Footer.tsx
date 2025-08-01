@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import DigihomeLogoFullPurpleBrand from "./DigihomeLogoFullPurpleBrand";
+import DigiHomeLogoFullPurpleBrand from "./DigiHomeLogoFullPurpleBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -10,13 +10,13 @@ import {
 
 export default function Footer() {
   const config = {
-    orgNr: "935746930",
+    orgNr: "935 74 6930",
     address: "Kokstadvegen 46, 5257 Bergen",
-    email: "post@digihome.no",
-    companyName: "Digihome AS",
+    email: "post@DigiHome.no",
+    companyName: "DigiHome AS",
     links: [
-      { icon: faLinkedin, url: "https://www.linkedin.com/company/digihome-as" },
-      { icon: faInstagram, url: "https://www.instagram.com/digihome.no/" },
+      { icon: faLinkedin, url: "https://www.linkedin.com/company/DigiHome-as" },
+      { icon: faInstagram, url: "https://www.instagram.com/DigiHome.no/" },
       {
         icon: faFacebook,
         url: "https://www.facebook.com/profile.php?id=61578844503645",
@@ -26,12 +26,12 @@ export default function Footer() {
   const { t } = useTranslation();
   return (
     <footer className="text-white" style={{ backgroundColor: "#031718" }}>
-      <div className="max-w-7xl mx-auto py-8 flex flex-col gap-4">
-        <DigihomeLogoFullPurpleBrand fontColor="white" />
-        <div className="grid grid-cols-2">
+      <div className="max-w-4xl mx-auto py-8 flex flex-col gap-4 align-middle justify-center">
+        <DigiHomeLogoFullPurpleBrand fontColor="white" />
+        <div className="grid grid-cols-2 gap-8">
           <div className="flex flex-col items-start gap-2">
             <p>{config.companyName}</p>
-            <p>org. Nr. {config.orgNr}</p>
+            <p>Org.nr. {config.orgNr}</p>
             <p>{config.address}</p>
           </div>
           <div className="flex flex-col items-start gap-2">
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
         <p className="text-gray-400 text-center">
           © 2025 {config.companyName}. Alle rettigheter reservert. Et selskap i
-          DigiSale.
+          DigiSalegruppen.
         </p>
       </div>
     </footer>

@@ -6,9 +6,14 @@ import ActionButton from "~/components/ui/ActionButton";
 import Overlay from "~/components/ui/Overlay";
 import { useRef } from "react";
 import InformationCard from "~/components/ui/InformationCard";
-import JonasReinsGate20Picture from "~/assets/Jonas-Reins-Gate-20.jpg";
+import HeroPicture from "~/assets/vendome-living-smoked-dark-wood-timber-oak-wall-panelling-veneer-bambo-luxury-decorative-panels.webp";
 import Knøsesmauet21Picture from "~/assets/Knøsesmauet-21.jpg";
 import Footer from "~/components/Footer";
+import Carousel from "~/components/ui/Carousel";
+import HybelLogo from "~/assets/partners/hybel-logo.png";
+import GuestyLogo from "~/assets/partners/Guesty.svg";
+import AirbnbLogo from "~/assets/partners/airbnb-2-logo.svg";
+import BookingComLogo from "~/assets/partners/bookingcom-logo.svg";
 
 export default function Home() {
   const leadFormRef = useRef<HTMLDivElement>(null);
@@ -32,17 +37,34 @@ export default function Home() {
           <span ref={leadFormRef}>
             <LeadGenerationForm />
           </span>
-          <WhyRentThroughDigihomeSection scrollToLeadForm={scrollToLeadForm} />
+          <WhyRentThroughDigiHomeSection scrollToLeadForm={scrollToLeadForm} />
           <HowItWorksSection />
 
           <WhyNotRentPrivately />
           <FinalCallToActionSection scrollToLeadForm={scrollToLeadForm} />
+          <div className="max-h-120">
+            <Carousel
+              items={[
+                {
+                  image: HybelLogo,
+                  altText: "Hybel.no",
+                },
+                {
+                  altText: "Guesty",
+                  image: GuestyLogo,
+                },
+                {
+                  altText: "Airbnb",
+                  image: AirbnbLogo,
+                },
+                {
+                  altText: "Booking.com",
+                  image: BookingComLogo,
+                },
+              ]}
+            />
+          </div>
         </div>
-
-        {/* Portfolio will not show before we have homes for rent */}
-        {/* <Portfolio /> */}
-        {/* TODO: Implement reviews when we have some reviews */}
-        {/* <CustomerReviews /> */}
       </div>
       <Footer />
     </>
@@ -62,8 +84,8 @@ export function HeroSection({
       {/* White Text overlay center left align */}
 
       <img
-        src={JonasReinsGate20Picture}
-        alt="Lamborghini Left Turn"
+        src={HeroPicture}
+        alt="Large comfortable living room with wooden panels"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="relative z-10 p-8 lg:p-32">
@@ -93,7 +115,7 @@ export function HeroSection({
   );
 }
 
-export const WhyRentThroughDigihomeSection = ({
+export const WhyRentThroughDigiHomeSection = ({
   scrollToLeadForm,
 }: {
   scrollToLeadForm: () => void;
@@ -110,31 +132,31 @@ export const WhyRentThroughDigihomeSection = ({
         <div></div>
         <div className="col-span-1 md:col-span-2 text-left mb-12 flex flex-col gap-4">
           <h2 className="text-3xl md:text-4xl font-bold">
-            {t("home.whyRentThroughDigihome.title")}
+            {t("home.whyRentThroughDigiHome.title")}
           </h2>
           <div>
             <h3 className="text-2xl font-bold">
-              {t("home.whyRentThroughDigihome.smartRenting")}
+              {t("home.whyRentThroughDigiHome.smartRenting")}
             </h3>
             <p className="text-lg  max-w-3xl mx-auto">
-              {t("home.whyRentThroughDigihome.smartRentingDescription")}
+              {t("home.whyRentThroughDigiHome.smartRentingDescription")}
             </p>
           </div>
           <div>
             <h3 className="text-2xl font-bold">
-              {t("home.whyRentThroughDigihome.neverWithoutProperty")}
+              {t("home.whyRentThroughDigiHome.neverWithoutProperty")}
             </h3>
             <p>
-              {t("home.whyRentThroughDigihome.neverWithoutPropertyDescription")}
+              {t("home.whyRentThroughDigiHome.neverWithoutPropertyDescription")}
             </p>
           </div>
 
           <div>
             <h3 className="text-2xl font-bold">
-              {t("home.whyRentThroughDigihome.weHandleEverything")}
+              {t("home.whyRentThroughDigiHome.weHandleEverything")}
             </h3>
             <p>
-              {t("home.whyRentThroughDigihome.weHandleEverythingDescription")}
+              {t("home.whyRentThroughDigiHome.weHandleEverythingDescription")}
             </p>
           </div>
           <ActionButton onClick={scrollToLeadForm}>

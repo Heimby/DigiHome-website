@@ -52,10 +52,10 @@ export default function DigiSaleSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <InformationCard color="neutral">
             <h4 className="text-xl font-bold text-gray-900 mb-2">
-              {t("digisale.products.digihome.name")}
+              {t("digisale.products.DigiHome.name")}
             </h4>
             <p className="text-gray-700 leading-relaxed">
-              {t("digisale.products.digihome.description")}
+              {t("digisale.products.DigiHome.description")}
             </p>
           </InformationCard>
 

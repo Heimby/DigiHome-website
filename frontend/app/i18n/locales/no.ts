@@ -27,7 +27,7 @@ const noLocale: LocaleJson = {
         "Leietakerne dine får én brukervennlig plattform for betaling, kontakt og henvendelser. Det gir færre forstyrrelser for deg og bedre opplevelse for dem.",
     },
 
-    whyRentThroughDigihome: {
+    whyRentThroughDigiHome: {
       title: "Ny standard for utleie drevet av teknologi",
       smartRenting: "Mer lønnsomt. Mindre arbeid.",
       smartRentingDescription:
@@ -63,7 +63,7 @@ const noLocale: LocaleJson = {
       contactUs: "Kontakt oss",
     },
 
-    aboutDigihome: {
+    aboutDigiHome: {
       title: "Om DigiHome",
       mission:
         "Vi tror ikke på «sånn har det alltid vært». Vi tror på teknologi, fleksibilitet og gjennomføringsevne. Med DigiHome får du utleie på autopilot og en forvaltningsmodell som faktisk jobber for deg. DigiHome er en del av DigiSale et norsk teknologikonsern som bygger fremtidens industriledere.",
@@ -98,7 +98,7 @@ const noLocale: LocaleJson = {
     },
     products: {
       title: "DigiSale-produkter",
-      digihome: {
+      DigiHome: {
         name: "DigiHome",
         description:
           "AI-drevet eiendomsforvaltningsplattform som revolusjonerer kort- og langtidsutleie",

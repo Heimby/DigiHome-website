@@ -11,7 +11,6 @@ export type CarouselItem = {
  */
 export default function Carousel({
   items,
-  size = "256",
   maxWidth = "400",
 }: {
   items: CarouselItem[];
@@ -20,7 +19,7 @@ export default function Carousel({
 }) {
   return (
     <div
-      className={`flex flex-row justify-center items-center gap-8 grid-cols-auto h-${size}`}
+      className={`flex flex-row flex-wrap justify-center items-center gap-8 relative overflow-hidden`}
     >
       {items.map((item, index) => (
         <div className={`max-w-${maxWidth}`} key={index}>
@@ -28,8 +27,8 @@ export default function Carousel({
             <img
               src={item.image}
               alt={item.altText}
-              className={`rounded-box object-contain`}
-              style={{ maxWidth: `${maxWidth}px`, height: `${size}px` }}
+              className={`object-contain`}
+              style={{ maxWidth: `${maxWidth}px` }}
             />
           ) : (
             <>{item.image}</>
