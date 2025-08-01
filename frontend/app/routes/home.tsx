@@ -7,7 +7,7 @@ import Overlay from "~/components/ui/Overlay";
 import { useRef } from "react";
 import InformationCard from "~/components/ui/InformationCard";
 import HeroPicture from "~/assets/vendome-living-smoked-dark-wood-timber-oak-wall-panelling-veneer-bambo-luxury-decorative-panels.webp";
-import OverlaySectionImage from "~/assets/Bilder hus-flipped.webp";
+import OverlaySectionImage from "~/assets/Bedroom-cropped.webp";
 import Footer from "~/components/Footer";
 import Carousel from "~/components/ui/Carousel";
 import HybelLogo from "~/assets/partners/hybel-logo.png";
@@ -101,7 +101,6 @@ export function HeroSection({
         >
           <Trans t={t} i18nKey="home.heroSubtitle" />
         </p>
-        <br />
         <br />
         <ActionButton onClick={scrollToLeadForm} height="55px">
           {t("home.heroButton")}
