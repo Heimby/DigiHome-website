@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   const config = {
-    orgNr: "935 74 6930",
+    orgNr: "935 746 930",
     address: "Kokstadvegen 46, 5257 Bergen",
     email: "post@DigiHome.no",
     companyName: "DigiHome AS",
