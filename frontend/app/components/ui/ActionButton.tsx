@@ -27,6 +27,7 @@ export default function ActionButton({
         fontSize: "22px",
         fontWeight: "400",
         minHeight: height,
+        maxWidth: "324px",
       }}
       onClick={onClick}
       disabled={disabled}

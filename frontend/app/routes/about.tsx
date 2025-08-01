@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import Navbar from "~/components/Navbar";
-import { Footer } from "~/routes/home";
 import LeadGenerationForm from "~/components/LeadGenerationForm";
 import InformationCard from "~/components/ui/InformationCard";
 
@@ -10,6 +9,8 @@ import NjålEliassonBilde from "~/assets/portraits/Njal-Eliasson.jpg";
 import ErikHoffmannDahlBilde from "~/assets/portraits/Erik-Hoffmann-Dahl.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import DigiSaleSection from "~/components/DigiSaleSection";
+import Footer from "~/components/Footer";
 
 export default function About() {
   const { t } = useTranslation();
@@ -19,34 +20,34 @@ export default function About() {
       fullName: "Mathias Haugsbø",
       role: "Teknisk sjef",
       description:
-        "Med lang erfaring fra IT-bransjen og som gründer av Digihome, Mathias er hjernen bak vår teknologiske plattform.",
+        "Med utdanning i IT og økonomi fra UiB, tar han med seg lang erfaring fra IT-bransjen. Som gründer av Digihome er han hjernen bak vår teknologiske plattform.",
       image: MathiasHaugsbøBilde,
       phone: "",
       email: "mathias@digihome.no",
     },
     {
       fullName: "Njål Eliasson",
-      role: "",
+      role: "Analytiker",
       description:
-        "Som gründer av Heimby, tar Njål med seg lang erfaring fra utleie på korttid og langtid.",
+        "Er utdannet siviløkonom fra NHH hvor han startet Heimby som har gitt han lang erfaring fra utleie på korttid og langtid.",
       image: NjålEliassonBilde,
       phone: "",
       email: "njal@digihome.no",
     },
     {
       fullName: "Sarah Sleeman",
-      role: "",
+      role: "Daglig leder",
       description:
         "Sarah tar med seg lang erfaring som eiendomsmegler og har vært med på å utvikle Digihome fra starten.",
       image: SarahSleemanBilde,
-      phone: "+47 909 58 313",
+      phone: "",
       email: "sarah@digihome.no",
     },
     {
       fullName: "Erik Hoffmann-Dahl",
       role: "Styreleder",
       description:
-        "Med lang erfaring som advokat er Erik en viktig støttespiller for Digihome.",
+        "Erik er styreleder og har lang erfaring som advokat, og er en viktig støttespiller for Digihome.",
       image: ErikHoffmannDahlBilde,
       phone: "",
       email: "",
@@ -72,7 +73,7 @@ export default function About() {
 
             {/* TODO: Team member portraits */}
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {teamMembers.map((member) => (
                 <InformationCard color="base-100">
                   <img
@@ -146,81 +147,7 @@ export default function About() {
 
             <hr className="my-8" />
 
-            {/* DigiSale Section */}
-            <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                {t("digisale.partOfDigisale.title")}
-              </h2>
-
-              <InformationCard color="primary">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {t("digisale.partOfDigisale.description")}
-                </p>
-              </InformationCard>
-
-              <InformationCard color="base-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {t("digisale.vision.title")}
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {t("digisale.vision.description")}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start">
-                    <span className="text-accent font-bold mr-2">•</span>
-                    <span>{t("digisale.vision.features.microteams")}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-accent font-bold mr-2">•</span>
-                    <span>{t("digisale.vision.features.disruption")}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-accent font-bold mr-2">•</span>
-                    <span>{t("digisale.vision.features.agile")}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-accent font-bold mr-2">•</span>
-                    <span>{t("digisale.vision.features.datadriven")}</span>
-                  </div>
-                </div>
-              </InformationCard>
-
-              <div className="flex flex-col gap-4">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {t("digisale.products.title")}
-                </h3>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <InformationCard color="neutral">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      {t("digisale.products.digihome.name")}
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {t("digisale.products.digihome.description")}
-                    </p>
-                  </InformationCard>
-
-                  <InformationCard color="neutral">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      {t("digisale.products.digicar.name")}
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {t("digisale.products.digicar.description")}
-                    </p>
-                  </InformationCard>
-
-                  <InformationCard color="neutral">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      {t("digisale.products.more.name")}
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {t("digisale.products.more.description")}
-                    </p>
-                  </InformationCard>
-                </div>
-              </div>
-            </div>
+            <DigiSaleSection />
             <hr className="my-8" />
             <LeadGenerationForm />
           </div>

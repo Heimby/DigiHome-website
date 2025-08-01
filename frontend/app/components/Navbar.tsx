@@ -30,17 +30,14 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
       label: t("navigation.about"),
       isVisible: () => true, // Always visible
     },
-  ];
-
-  const getNavigationLinks = () =>
-    allNavigationLinks.filter((link) => link.isVisible());
+  ].filter((link) => link.isVisible());
 
   /**
    * Renders navigation links for both mobile sidebar and desktop tabs
    */
   const renderNavigationLinks = (isMobile = false) => {
     if (isMobile) {
-      return getNavigationLinks().map((link) => (
+      return allNavigationLinks.map((link) => (
         <li key={link.to}>
           <Link
             to={link.to}
@@ -58,7 +55,7 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
       ));
     }
 
-    return getNavigationLinks().map((link) => (
+    return allNavigationLinks.map((link) => (
       <Link
         key={link.to}
         to={link.to}
@@ -91,7 +88,24 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
       <div className="flex items-center w-full">
         {/* Logo and navigation links */}
         <div className="flex items-center gap-4 flex-1">
-          {getNavigationLinks().length > 0 && (
+          <Link to="/">
+            <DigihomeLogoFullYellowBrand
+              fontColor={isTransparent ? "black" : "black"}
+              height={32}
+              className="hover:opacity-80 transition-opacity"
+            />
+          </Link>
+        </div>
+        {/* Center area (optional) */}
+        <div className="navbar-center flex-1"></div>
+        {/* Language selector and user dropdown/login */}
+        <div className="flex items-center gap-2">
+          {/* Navigation links: tabs for desktop, menu for mobile */}
+          <div className="hidden lg:flex tabs tabs-boxed">
+            {renderNavigationLinks(false)}
+          </div>
+          <LanguageSelector />
+          {allNavigationLinks.length > 0 && (
             <div className="lg:hidden">
               <DButton
                 sizes="sm"
@@ -103,23 +117,6 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
               </DButton>
             </div>
           )}
-          <Link to="/">
-            <DigihomeLogoFullYellowBrand
-              fontColor={isTransparent ? "white" : "black"}
-              height={32}
-              className="hover:opacity-80 transition-opacity"
-            />
-          </Link>
-          {/* Navigation links: tabs for desktop, menu for mobile */}
-          <div className="hidden lg:flex tabs tabs-boxed">
-            {renderNavigationLinks(false)}
-          </div>
-        </div>
-        {/* Center area (optional) */}
-        <div className="navbar-center flex-1"></div>
-        {/* Language selector and user dropdown/login */}
-        <div className="flex items-center gap-2">
-          <LanguageSelector />
         </div>
       </div>
       {/* Mobile menu (dropdown) */}

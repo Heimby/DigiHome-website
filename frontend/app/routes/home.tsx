@@ -8,6 +8,7 @@ import { useRef } from "react";
 import InformationCard from "~/components/ui/InformationCard";
 import JonasReinsGate20Picture from "~/assets/Jonas-Reins-Gate-20.jpg";
 import Knøsesmauet21Picture from "~/assets/Knøsesmauet-21.jpg";
+import Footer from "~/components/Footer";
 
 export default function Home() {
   const leadFormRef = useRef<HTMLDivElement>(null);
@@ -31,9 +32,9 @@ export default function Home() {
           <span ref={leadFormRef}>
             <LeadGenerationForm />
           </span>
+          <WhyRentThroughDigihomeSection scrollToLeadForm={scrollToLeadForm} />
           <HowItWorksSection />
 
-          <WhyRentThroughDigihomeSection scrollToLeadForm={scrollToLeadForm} />
           <WhyNotRentPrivately />
           <FinalCallToActionSection scrollToLeadForm={scrollToLeadForm} />
         </div>
@@ -77,8 +78,7 @@ export function HeroSection({
         <p
           className="md:text-2xl text-lg text-white"
           style={{
-            textShadow:
-              "2px 0px 24px black, -2px 2px 24px black, -2px 0px 24px black",
+            textShadow: "2px 0px 24px black, -2px 0px 24px black",
           }}
         >
           <Trans t={t} i18nKey="home.heroSubtitle" />
@@ -93,21 +93,6 @@ export function HeroSection({
   );
 }
 
-// Footer Component
-export const Footer = () => {
-  return (
-    <footer className="text-white" style={{ backgroundColor: "#031718" }}>
-      <div className="max-w-7xl mx-auto py-4">
-        <p className="text-gray-400 text-center">
-          © 2025 Digihome. Alle rettigheter reservert. Et selskap i DigiSale.
-          {/* TODO: Org number for Digihome */}
-        </p>
-      </div>
-    </footer>
-  );
-};
-
-// Why Rent Through Digihome Section
 export const WhyRentThroughDigihomeSection = ({
   scrollToLeadForm,
 }: {
@@ -127,10 +112,14 @@ export const WhyRentThroughDigihomeSection = ({
           <h2 className="text-3xl md:text-4xl font-bold">
             {t("home.whyRentThroughDigihome.title")}
           </h2>
-          <p>{t("home.whyRentThroughDigihome.smartRenting")}</p>
-          <p className="text-lg  max-w-3xl mx-auto">
-            {t("home.whyRentThroughDigihome.smartRentingDescription")}
-          </p>
+          <div>
+            <h3 className="text-2xl font-bold">
+              {t("home.whyRentThroughDigihome.smartRenting")}
+            </h3>
+            <p className="text-lg  max-w-3xl mx-auto">
+              {t("home.whyRentThroughDigihome.smartRentingDescription")}
+            </p>
+          </div>
           <div>
             <h3 className="text-2xl font-bold">
               {t("home.whyRentThroughDigihome.neverWithoutProperty")}
@@ -157,7 +146,6 @@ export const WhyRentThroughDigihomeSection = ({
   );
 };
 
-// Why Not Private Or Trade Section
 export const WhyNotRentPrivately = () => {
   const { t } = useTranslation();
 
@@ -203,7 +191,6 @@ export const WhyNotRentPrivately = () => {
   );
 };
 
-// Final Call To Action Section
 export const FinalCallToActionSection = ({
   scrollToLeadForm,
 }: {

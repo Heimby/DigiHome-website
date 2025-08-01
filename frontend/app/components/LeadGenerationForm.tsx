@@ -51,17 +51,18 @@ export function LeadGenerationForm({ className = "" }) {
         </h1>
 
         {/* Compact form with side-by-side inputs */}
-        <div className="grid grid-cols-2 grid-rows-auto gap-4 w-full self-end">
+        <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-auto gap-4 w-full self-end">
           <DInput
             label={t("leadForm.address")}
             labelIcon={<FontAwesomeIcon icon={faTag} />}
             value={leadProperties.address || ""}
-            onChange={(e) =>
+            onChange={(e) => {
               setLeadProperties({
                 ...leadProperties,
                 address: e.target.value,
-              })
-            }
+              });
+              if (e.target.value.length > 2) setIsExpanded(true);
+            }}
             placeholder="Kongeveien 1"
             isWide
             required
@@ -69,59 +70,63 @@ export function LeadGenerationForm({ className = "" }) {
             textSize="xl"
             sizes="xl"
           />
-          <DInput
-            label={t("leadForm.name")}
-            labelIcon={<FontAwesomeIcon icon={faUser} />}
-            placeholder={t("leadForm.namePlaceholder")}
-            value={leadProperties.name || ""}
-            onChange={(e) =>
-              setLeadProperties({
-                ...leadProperties,
-                name: e.target.value,
-              })
-            }
-            required
-            isWide
-            variant="cure"
-            sizes="xl"
-          />
-          <DInput
-            label={t("leadForm.phone")}
-            placeholder={t("leadForm.phonePlaceholder")}
-            labelIcon={<FontAwesomeIcon icon={faPhone} />}
-            value={leadProperties.phone || ""}
-            onChange={(e) =>
-              setLeadProperties({
-                ...leadProperties,
-                phone: e.target.value.includes("+")
-                  ? e.target.value
-                  : `+47 ${e.target.value}`,
-              })
-            }
-            required
-            isWide
-            variant="cure"
-            textSize="xl"
-            sizes="xl"
-          />
-          <DInput
-            type="email"
-            label={t("auth.email")}
-            placeholder={t("leadForm.emailPlaceholder")}
-            labelIcon={<FontAwesomeIcon icon={faEnvelope} />}
-            value={leadProperties.email || ""}
-            onChange={(e) =>
-              setLeadProperties({
-                ...leadProperties,
-                email: e.target.value,
-              })
-            }
-            required
-            isWide
-            variant="cure"
-            textSize="xl"
-            sizes="xl"
-          />
+          {isExpanded && (
+            <>
+              <DInput
+                label={t("leadForm.name")}
+                labelIcon={<FontAwesomeIcon icon={faUser} />}
+                placeholder={t("leadForm.namePlaceholder")}
+                value={leadProperties.name || ""}
+                onChange={(e) =>
+                  setLeadProperties({
+                    ...leadProperties,
+                    name: e.target.value,
+                  })
+                }
+                required
+                isWide
+                variant="cure"
+                sizes="xl"
+              />
+              <DInput
+                label={t("leadForm.phone")}
+                placeholder={t("leadForm.phonePlaceholder")}
+                labelIcon={<FontAwesomeIcon icon={faPhone} />}
+                value={leadProperties.phone || ""}
+                onChange={(e) =>
+                  setLeadProperties({
+                    ...leadProperties,
+                    phone: e.target.value.includes("+")
+                      ? e.target.value
+                      : `+47 ${e.target.value}`,
+                  })
+                }
+                required
+                isWide
+                variant="cure"
+                textSize="xl"
+                sizes="xl"
+              />
+              <DInput
+                type="email"
+                label={t("leadForm.email")}
+                placeholder={t("leadForm.emailPlaceholder")}
+                labelIcon={<FontAwesomeIcon icon={faEnvelope} />}
+                value={leadProperties.email || ""}
+                onChange={(e) =>
+                  setLeadProperties({
+                    ...leadProperties,
+                    email: e.target.value,
+                  })
+                }
+                required
+                isWide
+                variant="cure"
+                textSize="xl"
+                sizes="xl"
+              />
+            </>
+          )}
           <ActionButton
             onClick={handleSubmit}
             type="submit"

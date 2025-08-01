@@ -19,7 +19,10 @@ interface DInputProps
    * Will fill full width of the parent container.
    */
   isWide?: boolean;
-  textSize?: DComponentBaseProps["sizes"];
+  /**
+   *
+   */
+  textSize?: string;
 }
 
 export default function DInput({
