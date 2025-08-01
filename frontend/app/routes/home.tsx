@@ -42,8 +42,9 @@ export default function Home() {
 
           <WhyNotRentPrivately />
           <FinalCallToActionSection scrollToLeadForm={scrollToLeadForm} />
-          <div className="max-h-120">
+          <div>
             <Carousel
+              maxWidth="200"
               items={[
                 {
                   image: HybelLogo,
