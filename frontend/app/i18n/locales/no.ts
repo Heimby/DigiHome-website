@@ -130,6 +130,8 @@ const noLocale: LocaleJson = {
     phonePlaceholder: "+47 123 45 678",
     email: "E-post",
     emailPlaceholder: "kari.nordmann@eksempel.no",
+    note: "Melding",
+    notePlaceholder: "Ekstra informasjon?",
     getStarted: "Kom i gang",
     successMessage: "Takk {{name}}! Vi tar kontakt med deg snart.",
     submitError: "Feil ved innsending av skjema: {{error}}",

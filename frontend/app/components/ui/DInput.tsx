@@ -69,6 +69,17 @@ export default function DInput({
             }}
           />
         </label>
+      ) : type == "textarea" ? (
+        <textarea
+          placeholder={placeholder}
+          className={classNames.join(" ").replace("input-", "textarea-")}
+          {...props}
+          style={{
+            minHeight: variant === "cure" ? "120px" : undefined,
+            fontSize: variant === "cure" ? "36px" : undefined,
+          }}
+          rows={12}
+        />
       ) : (
         <input
           type={type}

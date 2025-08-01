@@ -149,7 +149,11 @@ export default function About() {
 
             <DigiSaleSection />
             <hr className="my-8" />
-            <LeadGenerationForm />
+            <LeadGenerationForm
+              showNote={true}
+              alwaysExpanded={true}
+              textSize="xl"
+            />
           </div>
         </main>
         <Footer />

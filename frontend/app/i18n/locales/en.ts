@@ -129,6 +129,8 @@ const enLocale = {
     phonePlaceholder: "+47 123 45 678",
     email: "Email",
     emailPlaceholder: "your.email@example.com",
+    note: "Message",
+    notePlaceholder: "Additional information?",
     getStarted: "Get Started",
     successMessage: "Thank you {{name}}! We will contact you shortly.",
     submitError: "Error submitting form: {{error}}",

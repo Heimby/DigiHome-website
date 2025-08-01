@@ -12,7 +12,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ActionButton from "./ui/ActionButton";
 
-export function LeadGenerationForm({ className = "" }) {
+export function LeadGenerationForm({
+  className = "",
+  showNote = false,
+  alwaysExpanded = false,
+  textSize = "xl",
+}) {
   const { t } = useTranslation();
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -21,6 +26,7 @@ export function LeadGenerationForm({ className = "" }) {
     name: null,
     email: null,
     phone: null,
+    note: null,
   });
   const [formFeedback, setFormFeedback] = useState<string | null>(null);
 
@@ -29,6 +35,23 @@ export function LeadGenerationForm({ className = "" }) {
     if (leadProperties.name && leadProperties.phone && leadProperties.email) {
       try {
         setIsFormLoading(true);
+
+        const res = await fetch(
+          "https://n8n.digihome.no/webhook/digihome-lead",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(leadProperties),
+          }
+        );
+
+        if (!res.ok) {
+          const errorData = await res.json();
+          throw new Error(errorData.message || "Unknown error");
+        }
+
         const formFeedback = t("leadForm.successMessage", {
           name: leadProperties.name,
         });
@@ -67,10 +90,10 @@ export function LeadGenerationForm({ className = "" }) {
             isWide
             required
             variant="cure"
-            textSize="xl"
+            textSize={textSize}
             sizes="xl"
           />
-          {isExpanded && (
+          {(isExpanded || alwaysExpanded) && (
             <>
               <DInput
                 label={t("leadForm.name")}
@@ -89,6 +112,7 @@ export function LeadGenerationForm({ className = "" }) {
                 sizes="xl"
               />
               <DInput
+                type="tel"
                 label={t("leadForm.phone")}
                 placeholder={t("leadForm.phonePlaceholder")}
                 labelIcon={<FontAwesomeIcon icon={faPhone} />}
@@ -104,11 +128,12 @@ export function LeadGenerationForm({ className = "" }) {
                 required
                 isWide
                 variant="cure"
-                textSize="xl"
+                textSize={textSize}
                 sizes="xl"
               />
               <DInput
                 type="email"
+                name="email"
                 label={t("leadForm.email")}
                 placeholder={t("leadForm.emailPlaceholder")}
                 labelIcon={<FontAwesomeIcon icon={faEnvelope} />}
@@ -122,13 +147,33 @@ export function LeadGenerationForm({ className = "" }) {
                 required
                 isWide
                 variant="cure"
-                textSize="xl"
+                textSize={textSize}
                 sizes="xl"
               />
+              {showNote && (
+                <span className="col-span-2">
+                  <DInput
+                    label={t("leadForm.note")}
+                    type="textarea"
+                    placeholder={t("leadForm.notePlaceholder")}
+                    labelIcon={<FontAwesomeIcon icon={faTag} />}
+                    value={leadProperties.note || ""}
+                    onChange={(e) =>
+                      setLeadProperties({
+                        ...leadProperties,
+                        note: e.target.value,
+                      })
+                    }
+                    isWide
+                    variant="cure"
+                    textSize={textSize}
+                    sizes="xl"
+                  />
+                </span>
+              )}
             </>
           )}
           <ActionButton
-            onClick={handleSubmit}
             type="submit"
             disabled={isFormLoading}
             arrowColor="black"
@@ -137,12 +182,12 @@ export function LeadGenerationForm({ className = "" }) {
           >
             {t("leadForm.getStarted")}
           </ActionButton>
-          {formFeedback && (
-            <div className="mt-4 text-4xl">
-              <p>{formFeedback}</p>
-            </div>
-          )}
         </div>
+        {formFeedback && (
+          <div className="mt-4 text-4xl">
+            <p>{formFeedback}</p>
+          </div>
+        )}
       </form>
     </div>
   );
