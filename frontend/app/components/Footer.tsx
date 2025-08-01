@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import DigiHomeLogoFullPurpleBrand from "./DigiHomeLogoFullPurpleBrand";
+import DigiHomeLogoFullPurpleBrand from "./DigihomeLogoFullPurpleBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {

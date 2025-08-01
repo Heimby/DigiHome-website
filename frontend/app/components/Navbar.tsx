@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
-import DigiHomeLogoFullYellowBrand from "./DigiHomeLogoFullPurpleBrand";
+import DigiHomeLogoFullYellowBrand from "./DigihomeLogoFullPurpleBrand";
 import { useState } from "react";
 import DButton from "./ui/DButton";
 
