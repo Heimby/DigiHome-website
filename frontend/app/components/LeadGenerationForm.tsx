@@ -73,8 +73,7 @@ export function LeadGenerationForm({
           {t("leadForm.title")}
         </h1>
 
-        {/* Compact form with side-by-side inputs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-auto gap-4 w-full self-end">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full self-end">
           <DInput
             label={t("leadForm.address")}
             labelIcon={<FontAwesomeIcon icon={faTag} />}
@@ -151,7 +150,7 @@ export function LeadGenerationForm({
                 sizes="xl"
               />
               {showNote && (
-                <span className="col-span-2">
+                <span className="col-span-1 md:col-span-2">
                   <DInput
                     label={t("leadForm.note")}
                     type="textarea"
