@@ -12,7 +12,7 @@ export default function Footer({ width = "max-w-[1600px]", px = "px-16" }) {
   const config = {
     orgNr: "935 746 930",
     address: "Kokstadvegen 46, 5257 Bergen",
-    email: "post@DigiHome.no",
+    email: "post@digihome.no",
     companyName: "DigiHome AS",
     links: [
       { icon: faLinkedin, url: "https://www.linkedin.com/company/DigiHome-as" },

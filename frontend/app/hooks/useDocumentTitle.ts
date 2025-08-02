@@ -27,7 +27,7 @@ export function useDocumentTitle(title?: string, fallback?: string) {
     const finalTitle = capitalizeFirstLetter(
       title ||
         fallback ||
-        `Digihome ${currentRouteId.replace("routes", "").replace("/", "")}`
+        `DigiHome ${currentRouteId.replace("routes", "").replace("/", "")}`
     );
     document.title = finalTitle;
 
@@ -41,7 +41,7 @@ export function useDocumentTitle(title?: string, fallback?: string) {
     const finalTitle = capitalizeFirstLetter(
       newTitle ||
         fallback ||
-        `Digihome ${currentRouteId.replace("routes", "").replace("/", "")}`
+        `DigiHome ${currentRouteId.replace("routes", "").replace("/", "")}`
     );
     document.title = finalTitle;
   }

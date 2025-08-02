@@ -88,10 +88,10 @@ const noLocale: LocaleJson = {
     vision: {
       title: "DigiSale-visjonen",
       description:
-        "Vi tror på kraften i små, høyt kvalifiserte team forsterket av kunstig intelligens for å overgå tradisjonelle store organisasjoner. Vår mikroteam-tilnærming muliggjør rask innovasjon, presis gjennomføring og bransjeforstyrrende løsninger.",
+        "Vi tror på kraften i små, høyt kvalifiserte team forsterket av kunstig intelligens for å overgå tradisjonelle store organisasjoner. Vår mikroteam-tilnærming muliggjør rask innovasjon, presis gjennomføring og disruptive løsninger.",
       features: {
         microteams: "AI-drevne mikroteam for maksimal effektivitet",
-        disruption: "Bransjeforstyrrende teknologiinnovasjon",
+        disruption: "Disruptiv teknologiinnovasjon",
         agile: "Smidig utvikling og rask markedstilpasning",
         datadriven: "Datadrevne beslutninger på alle nivåer",
       },
@@ -111,7 +111,7 @@ const noLocale: LocaleJson = {
       more: {
         name: "Digi...",
         description:
-          "Ytterligere bransjeledevande løsninger som for tiden utvikles under DigiSale-paraplyen",
+          "Ytterligere bransjeledende løsninger som for tiden utvikles under DigiSale-paraplyen",
       },
     },
     exploreDigisale: "Utforsk DigiSale",
