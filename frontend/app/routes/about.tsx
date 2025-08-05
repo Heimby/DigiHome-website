@@ -20,7 +20,7 @@ export default function About() {
       fullName: "Sarah Sleeman",
       role: "Daglig leder",
       description:
-        "Sarah har lang erfaring som eiendomsmegler og brenner for å skaffe deg riktig leiepris i markedet.",
+        "Sarah har solid bakgrunn fra både eiendom og bank, og lang erfaring som eiendomsmegler. Hun kombinerer operativ innsikt med kommersiell teft og jobber for å gjøre eiendomsforvaltning enklere, smartere og mer lønnsom.",
       image: SarahSleemanBilde,
       phone: "",
       email: "sarah@digihome.no",
