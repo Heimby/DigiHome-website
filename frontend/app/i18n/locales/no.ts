@@ -134,7 +134,8 @@ const noLocale: LocaleJson = {
     notePlaceholder: "Ekstra informasjon?",
     getStarted: "Kom i gang",
     successMessage: "Takk {{name}}! Vi tar kontakt med deg snart.",
-    submitError: "Feil ved innsending av skjema: {{error}}",
+    submitError:
+      "Feil ved innsending av skjema: {{error}}. Vennligst send oss en e-post på post@digihome.no",
     fillAllFields: "Vennligst fyll inn alle påkrevde felt",
   },
 };

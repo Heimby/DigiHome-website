@@ -37,7 +37,7 @@ export function LeadGenerationForm({
         setIsFormLoading(true);
 
         const res = await fetch(
-          "https://n8n.DigiHome.no/webhook/DigiHome-lead",
+          "https://n8n.digihome.no/webhook/digihome-lead",
           {
             method: "POST",
             headers: {
@@ -58,7 +58,10 @@ export function LeadGenerationForm({
         setFormFeedback(formFeedback);
         toast.success(formFeedback);
       } catch (error: any) {
-        toast.error(t("leadForm.submitError", { error: error.message }));
+        toast.error(t("leadForm.submitError", { error: error.message }), {
+          duration: 10_000,
+        });
+        setFormFeedback(t("leadForm.submitError", { error: error.message }));
       } finally {
         setIsFormLoading(false);
       }

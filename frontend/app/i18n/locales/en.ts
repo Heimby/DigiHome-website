@@ -133,7 +133,8 @@ const enLocale = {
     notePlaceholder: "Additional information?",
     getStarted: "Get Started",
     successMessage: "Thank you {{name}}! We will contact you shortly.",
-    submitError: "Error submitting form: {{error}}",
+    submitError:
+      "Error submitting form: {{error}}. Please email us at post@digihome.no",
     fillAllFields: "Please fill in all required fields",
   },
 };
