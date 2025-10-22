@@ -7,6 +7,7 @@ import MathiasHaugsbøBilde from "~/assets/portraits/Mathias-Haugsbø.jpg";
 import SarahSleemanBilde from "~/assets/portraits/Sarah-Sleeman.jpg";
 import NjålEliassonBilde from "~/assets/portraits/Njal-Eliasson.jpg";
 import ErikHoffmannDahlBilde from "~/assets/portraits/Erik-Hoffmann-Dahl.jpeg";
+import EndreNesvollJenssen from "~/assets/portraits/Endre-Nesvoll-Jenssen.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import DigiSaleSection from "~/components/DigiSaleSection";
@@ -33,6 +34,15 @@ export default function About() {
       image: NjålEliassonBilde,
       phone: "",
       email: "njal@digihome.no",
+    },
+    {
+      fullName: "Endre Nesvoll-Jenssen",
+      role: "Salgsagent",
+      description:
+        "Endre er en erfaren salgsagent med bakgrunn fra eiendom og teknologi. Han brenner for å hjelpe kunder med å finne de beste løsningene for sine behov, og jobber tett med teamet for å utvikle innovative tjenester.",
+      image: EndreNesvollJenssen,
+      phone: "",
+      email: "endre@digihome.no",
     },
 
     {
