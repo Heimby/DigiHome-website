@@ -41,11 +41,11 @@ function PropertyCard({ listing }: { listing: Listing }) {
   return (
     <Card padding={0}>
       <img
-        src={listing.picture}
+        src={listing.picture ?? "https://placehold.co/600x400?text=DigiHome"}
         alt={listing.title}
         className="w-full aspect-[3/4] object-cover rounded-t-lg"
       />
-      <div className="bg-neutral p-6 min-h-[320px] flex flex-col gap-4">
+      <div className="bg-neutral p-6 min-h-[310px] flex flex-col gap-4">
         <span>
           <h2 className="text-2xl font-bold text-black">{listing.title}</h2>
           <p>{listing.address}</p>
