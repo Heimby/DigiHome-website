@@ -31,8 +31,8 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
       isVisible: () => true, // Always visible
     },
     {
-      to: "/listings",
-      label: t("navigation.listings"),
+      to: "/properties",
+      label: t("navigation.properties"),
       isVisible: () => true, // Always visible
     },
   ].filter((link) => link.isVisible());

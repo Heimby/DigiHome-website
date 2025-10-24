@@ -1,7 +1,7 @@
 const enLocale = {
   navigation: {
     about: "About",
-    listings: "Properties",
+    properties: "Properties",
   },
 
   home: {

@@ -3,7 +3,7 @@ import type { LocaleJson } from "./en";
 const noLocale: LocaleJson = {
   navigation: {
     about: "Om oss",
-    listings: "Eiendommer",
+    properties: "Eiendommer",
   },
 
   home: {

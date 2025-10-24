@@ -11,7 +11,7 @@ import {
   faPerson,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function About() {
+export default function Properties() {
   const { listings, isLoading } = useListings();
 
   return (
