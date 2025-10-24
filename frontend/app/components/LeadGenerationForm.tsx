@@ -13,6 +13,7 @@ import {
 import ActionButton from "./ui/ActionButton";
 
 export function LeadGenerationForm({
+  title = "",
   className = "",
   showNote = false,
   alwaysExpanded = false,
@@ -73,7 +74,7 @@ export function LeadGenerationForm({
     <div className="bg-primary">
       <form onSubmit={handleSubmit} className="p-6 min-h-[400px] grid">
         <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-          {t("leadForm.title")}
+          {title ?? t("leadForm.title")}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full self-end">

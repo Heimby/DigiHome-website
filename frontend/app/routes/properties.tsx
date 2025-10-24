@@ -10,6 +10,7 @@ import {
   faMapPin,
   faPerson,
 } from "@fortawesome/free-solid-svg-icons";
+import LeadGenerationForm from "~/components/LeadGenerationForm";
 
 export default function Properties() {
   const { listings, isLoading } = useListings();
@@ -18,8 +19,14 @@ export default function Properties() {
     <>
       <div className="min-h-screen bg-white">
         <Navbar isTransparent={false} />
-        <main className="max-w-[1400px] mx-auto py-12">
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-6 px-4">
+        <main className="max-w-[1400px] mx-auto py-12 px-4">
+          <LeadGenerationForm
+            showNote={true}
+            alwaysExpanded={true}
+            title="Ser du etter bolig?"
+          />
+          <br />
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
             {isLoading ? (
               <p>Loading</p>
             ) : listings.length > 0 ? (
