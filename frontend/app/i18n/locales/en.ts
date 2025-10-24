@@ -1,6 +1,7 @@
 const enLocale = {
   navigation: {
     about: "About",
+    listings: "Properties",
   },
 
   home: {
@@ -62,7 +63,7 @@ const enLocale = {
       contactUs: "Contact us",
     },
 
-    aboutDigiHome: {
+    aboutProduct: {
       title: "About DigiHome",
       mission:
         "We don't believe in 'that's how it's always been done'. We believe in technology, flexibility, and execution capability. With DigiHome, you get rental on autopilot and a management model that actually works for you. DigiHome is part of DigiSale, a Norwegian technology consortium building tomorrow's industry leaders.",

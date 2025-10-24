@@ -6,7 +6,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 interface DModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
+  title?: string | ReactNode;
   showCloseButton?: boolean;
   closeOnBackdropClick?: boolean;
   preventClose?: boolean;

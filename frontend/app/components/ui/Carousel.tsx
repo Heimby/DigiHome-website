@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router";
 
 export type CarouselItem = {
   image: string | ReactNode;
   altText?: string;
+  link?: string;
 };
 
 /**
@@ -19,22 +21,42 @@ export default function Carousel({
 }) {
   return (
     <div
-      className={`flex flex-row flex-wrap justify-center items-center gap-8 relative overflow-hidden`}
+      className={`flex flex-row flex-wrap justify-center items-center gap-8 relative`}
     >
-      {items.map((item, index) => (
-        <div className={`max-w-${maxWidth}`} key={index}>
-          {typeof item.image === "string" ? (
-            <img
-              src={item.image}
-              alt={item.altText}
-              className={`object-contain`}
-              style={{ maxWidth: `${maxWidth}px` }}
-            />
-          ) : (
-            <>{item.image}</>
-          )}
-        </div>
-      ))}
+      {items.map((item, index) =>
+        item.link ? (
+          <Link to={item.link} className={`max-w-${maxWidth}`} key={index}>
+            <ImageItem item={item} maxWidth={maxWidth} />
+          </Link>
+        ) : (
+          <div className={`max-w-${maxWidth}`} key={index}>
+            <ImageItem item={item} maxWidth={maxWidth} />
+          </div>
+        )
+      )}
     </div>
+  );
+}
+
+function ImageItem({
+  item,
+  maxWidth,
+}: {
+  item: CarouselItem;
+  maxWidth: string;
+}) {
+  return (
+    <>
+      {typeof item.image === "string" ? (
+        <img
+          src={item.image}
+          alt={item.altText}
+          className={`object-contain`}
+          style={{ maxWidth: `${maxWidth}px` }}
+        />
+      ) : (
+        <>{item.image}</>
+      )}
+    </>
   );
 }

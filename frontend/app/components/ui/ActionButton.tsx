@@ -2,12 +2,13 @@ import type React from "react";
 
 interface ActionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   arrowColor?: "black" | "primary";
   height?: string;
   additionalClasses?: string;
+  isSmall?: boolean;
 }
 
 export default function ActionButton({
@@ -17,6 +18,7 @@ export default function ActionButton({
   arrowColor = "primary",
   height = "55px",
   additionalClasses,
+  isSmall = false,
   ...props
 }: ActionButtonProps) {
   return (
@@ -27,11 +29,12 @@ export default function ActionButton({
         fontSize: "22px",
         fontWeight: "400",
         minHeight: height,
-        maxWidth: "324px",
       }}
       onClick={onClick}
       disabled={disabled}
-      className={`btn btn-ghost px-4 bg-white flex flex-row items-center justify-between text-black font-semibold gap-6 ${additionalClasses}`}
+      className={`btn btn-ghost ${
+        isSmall ? "w-min" : "px-4 bg-white"
+      } flex flex-row items-center justify-between text-black font-semibold gap-6 ${additionalClasses}`}
     >
       {children}
       <div

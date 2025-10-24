@@ -11,6 +11,9 @@ import type {
 import { putApiFormTemplatesById } from "~/api-gen/sdk.gen";
 import toast from "react-hot-toast";
 import FormTemplatePreview from "~/components/ui/formTemplate/FormTemplatePreview";
+import Card from "../Card";
+import DInput from "../DInput";
+import DButton from "../DButton";
 
 interface FormTemplateDetailProps {
   template: FormTemplate;
@@ -398,17 +401,17 @@ export default function FormTemplateDetail({
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Edit Form Template</h1>
         <div className="flex gap-2">
-          <button className="btn btn-outline" onClick={onCancel}>
+          <DButton className="btn btn-outline" onClick={onCancel}>
             Cancel
-          </button>
-          <button
+          </DButton>
+          <DButton
             className="btn btn-info btn-outline"
             onClick={() => setShowPreview(true)}
             disabled={!editedTemplate.id}
           >
             Preview Form
-          </button>
-          <button
+          </DButton>
+          <DButton
             className="btn btn-primary"
             onClick={handleSave}
             disabled={isSaving}
@@ -417,7 +420,7 @@ export default function FormTemplateDetail({
               <span className="loading loading-spinner loading-sm"></span>
             )}
             Save Changes
-          </button>
+          </DButton>
         </div>
       </div>
 
@@ -447,7 +450,7 @@ export default function FormTemplateDetail({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
-                <input
+                <DInput
                   type="text"
                   className="input input-bordered w-full"
                   value={editedTemplate.name}
@@ -463,7 +466,7 @@ export default function FormTemplateDetail({
                 <label className="block text-sm font-medium mb-2">
                   Version
                 </label>
-                <input
+                <DInput
                   type="text"
                   className="input input-bordered w-full"
                   value={editedTemplate.version}
@@ -492,7 +495,7 @@ export default function FormTemplateDetail({
               </div>
               <div>
                 <label className="flex items-center gap-2">
-                  <input
+                  <DInput
                     type="checkbox"
                     className="checkbox"
                     checked={editedTemplate.isActive}
@@ -513,281 +516,270 @@ export default function FormTemplateDetail({
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold">Sections</h2>
-            <button className="btn btn-primary btn-sm" onClick={addSection}>
+            <DButton className="btn btn-primary btn-sm" onClick={addSection}>
               Add Section
-            </button>
+            </DButton>
           </div>
 
           {editedTemplate.formTemplateSections?.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="card bg-base-100 shadow-lg">
-              <div className="card-body">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Section Name
-                      </label>
-                      <input
-                        type="text"
-                        className="input input-bordered w-full"
-                        value={section.name}
-                        onChange={(e) =>
-                          updateSection(sectionIndex, { name: e.target.value })
-                        }
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Section Description
-                      </label>
-                      <textarea
-                        className="textarea textarea-bordered w-full"
-                        value={section.description || ""}
-                        onChange={(e) =>
-                          updateSection(sectionIndex, {
-                            description: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="flex gap-2 ml-4">
-                    <button
-                      className="btn btn-outline btn-sm"
-                      onClick={() => cloneSection(sectionIndex)}
-                    >
-                      Clone Section
-                    </button>
-                    <button
-                      className="btn btn-error btn-sm"
-                      onClick={() => removeSection(sectionIndex)}
-                    >
-                      Remove Section
-                    </button>
-                  </div>
-                </div>
-
-                <div className="divider">Form Fields</div>
-
-                <div className="space-y-3">
-                  {section.formTemplateItems
-                    ?.sort((a, b) => (a.order || 0) - (b.order || 0))
-                    .map((item, itemIndex) => (
-                      <div
-                        key={itemIndex}
-                        className="border rounded-lg p-4 bg-base-200"
-                      >
-                        <div className="flex justify-between items-start mb-3">
-                          <h4 className="font-medium">
-                            Field {item.order + 1}
-                          </h4>
-                          <div className="flex gap-2">
-                            <div className="flex flex-col gap-1">
-                              <button
-                                className="btn btn-outline btn-xs"
-                                onClick={() =>
-                                  moveFormItem(sectionIndex, itemIndex, "up")
-                                }
-                                disabled={itemIndex === 0}
-                                title="Move up"
-                              >
-                                ↑
-                              </button>
-                              <button
-                                className="btn btn-outline btn-xs"
-                                onClick={() =>
-                                  moveFormItem(sectionIndex, itemIndex, "down")
-                                }
-                                disabled={
-                                  itemIndex ===
-                                  (section.formTemplateItems?.length || 1) - 1
-                                }
-                                title="Move down"
-                              >
-                                ↓
-                              </button>
-                            </div>
-                            <button
-                              className="btn btn-outline btn-xs"
-                              onClick={() =>
-                                cloneFormItem(sectionIndex, itemIndex)
-                              }
-                            >
-                              Clone
-                            </button>
-                            <button
-                              className="btn btn-error btn-xs"
-                              onClick={() =>
-                                removeFormItem(sectionIndex, itemIndex)
-                              }
-                            >
-                              Remove
-                            </button>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-sm font-medium mb-1">
-                              Field Name
-                            </label>
-                            <input
-                              type="text"
-                              className="input input-bordered input-sm w-full"
-                              value={item.name}
-                              onChange={(e) =>
-                                updateFormItem(sectionIndex, itemIndex, {
-                                  name: e.target.value,
-                                })
-                              }
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-sm font-medium mb-1">
-                              Field Type
-                            </label>
-                            <select
-                              className="select select-bordered select-sm w-full"
-                              value={item.type}
-                              onChange={(e) =>
-                                updateFormItem(sectionIndex, itemIndex, {
-                                  type: e.target.value,
-                                })
-                              }
-                            >
-                              {FORM_ITEM_TYPES.map((type) => (
-                                <option key={type.value} value={type.value}>
-                                  {type.label}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                          <div className="md:col-span-2">
-                            <label className="block text-sm font-medium mb-1">
-                              Description
-                            </label>
-                            <input
-                              type="text"
-                              className="input input-bordered input-sm w-full"
-                              value={item.description || ""}
-                              onChange={(e) =>
-                                updateFormItem(sectionIndex, itemIndex, {
-                                  description: e.target.value,
-                                })
-                              }
-                            />
-                          </div>
-                          <div>
-                            <label className="flex items-center gap-2">
-                              <input
-                                type="checkbox"
-                                className="checkbox checkbox-sm"
-                                checked={item.isRequired}
-                                onChange={(e) =>
-                                  updateFormItem(sectionIndex, itemIndex, {
-                                    isRequired: e.target.checked,
-                                  })
-                                }
-                              />
-                              <span className="text-sm">Required</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        {item.type === "select" && (
-                          <div className="mt-4">
-                            <div className="flex justify-between items-center mb-2">
-                              <label className="block text-sm font-medium">
-                                Select Options
-                              </label>
-                              <button
-                                className="btn btn-primary btn-xs"
-                                onClick={() =>
-                                  addSelectOption(sectionIndex, itemIndex)
-                                }
-                              >
-                                Add Option
-                              </button>
-                            </div>
-                            <div className="space-y-2">
-                              {item.options?.map((option, optionIndex) => (
-                                <div
-                                  key={optionIndex}
-                                  className="flex gap-2 items-center"
-                                >
-                                  <input
-                                    type="text"
-                                    placeholder="Value"
-                                    className="input input-bordered input-xs flex-1"
-                                    value={option.value}
-                                    onChange={(e) =>
-                                      updateSelectOption(
-                                        sectionIndex,
-                                        itemIndex,
-                                        optionIndex,
-                                        { value: e.target.value }
-                                      )
-                                    }
-                                  />
-                                  <input
-                                    type="text"
-                                    placeholder="Label"
-                                    className="input input-bordered input-xs flex-1"
-                                    value={option.label}
-                                    onChange={(e) =>
-                                      updateSelectOption(
-                                        sectionIndex,
-                                        itemIndex,
-                                        optionIndex,
-                                        { label: e.target.value }
-                                      )
-                                    }
-                                  />
-                                  <label className="flex items-center gap-1">
-                                    <input
-                                      type="checkbox"
-                                      className="checkbox checkbox-xs"
-                                      checked={option.isDefault}
-                                      onChange={(e) =>
-                                        updateSelectOption(
-                                          sectionIndex,
-                                          itemIndex,
-                                          optionIndex,
-                                          { isDefault: e.target.checked }
-                                        )
-                                      }
-                                    />
-                                    <span className="text-xs">Default</span>
-                                  </label>
-                                  <button
-                                    className="btn btn-error btn-xs"
-                                    onClick={() =>
-                                      removeSelectOption(
-                                        sectionIndex,
-                                        itemIndex,
-                                        optionIndex
-                                      )
-                                    }
-                                  >
-                                    ×
-                                  </button>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-
-                  <button
-                    className="btn btn-outline btn-sm w-full"
-                    onClick={() => addFormItem(sectionIndex)}
+            <Card
+              key={sectionIndex}
+              title={section.name}
+              isExpandable={true}
+              headerRight={
+                <div className="flex gap-2 ml-4">
+                  <DButton
+                    variant="neutral"
+                    sizes="sm"
+                    onClick={() => cloneSection(sectionIndex)}
                   >
-                    Add Form Field
-                  </button>
+                    Clone
+                  </DButton>
+                  <DButton
+                    variant="error"
+                    sizes="sm"
+                    onClick={() => removeSection(sectionIndex)}
+                  >
+                    Remove
+                  </DButton>
+                </div>
+              }
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex-1 space-y-4">
+                  <DInput
+                    type="text"
+                    isWide
+                    label="Section Name"
+                    value={section.name}
+                    onChange={(e) =>
+                      updateSection(sectionIndex, { name: e.target.value })
+                    }
+                  />
+                  <DInput
+                    type="textarea"
+                    label="Description"
+                    isWide
+                    value={section.description || ""}
+                    onChange={(e) =>
+                      updateSection(sectionIndex, {
+                        description: e.target.value,
+                      })
+                    }
+                  />
                 </div>
               </div>
-            </div>
+
+              <div className="divider">Form Fields</div>
+
+              <div className="space-y-3">
+                {section.formTemplateItems
+                  ?.sort((a, b) => (a.order || 0) - (b.order || 0))
+                  .map((item, itemIndex) => (
+                    <Card
+                      key={itemIndex}
+                      title={item.name || "New Field"}
+                      headerRight={
+                        <div className="flex gap-2">
+                          <DButton
+                            onClick={() =>
+                              moveFormItem(sectionIndex, itemIndex, "up")
+                            }
+                            disabled={itemIndex === 0}
+                            title="Move up"
+                            sizes="xs"
+                          >
+                            ↑
+                          </DButton>
+                          <DButton
+                            onClick={() =>
+                              moveFormItem(sectionIndex, itemIndex, "down")
+                            }
+                            disabled={
+                              itemIndex ===
+                              (section.formTemplateItems?.length || 1) - 1
+                            }
+                            title="Move down"
+                            sizes="xs"
+                          >
+                            ↓
+                          </DButton>
+                          <DButton
+                            onClick={() =>
+                              cloneFormItem(sectionIndex, itemIndex)
+                            }
+                            sizes="xs"
+                          >
+                            Clone
+                          </DButton>
+                          <DButton
+                            variant="error"
+                            onClick={() =>
+                              removeFormItem(sectionIndex, itemIndex)
+                            }
+                            sizes="xs"
+                          >
+                            Remove
+                          </DButton>
+                        </div>
+                      }
+                    >
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                          <DInput
+                            label="Field Name"
+                            type="text"
+                            isWide
+                            value={item.name}
+                            onChange={(e) =>
+                              updateFormItem(sectionIndex, itemIndex, {
+                                name: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-1">
+                            Field Type
+                          </label>
+                          <select
+                            className="select select-bordered select-sm w-full"
+                            value={item.type}
+                            onChange={(e) =>
+                              updateFormItem(sectionIndex, itemIndex, {
+                                type: e.target.value,
+                              })
+                            }
+                          >
+                            {FORM_ITEM_TYPES.map((type) => (
+                              <option key={type.value} value={type.value}>
+                                {type.label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="md:col-span-2">
+                          <DInput
+                            label="Description"
+                            type="text"
+                            isWide
+                            value={item.description || ""}
+                            onChange={(e) =>
+                              updateFormItem(sectionIndex, itemIndex, {
+                                description: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div>
+                          <DInput
+                            type="checkbox"
+                            className="checkbox checkbox-sm"
+                            label="required"
+                            checked={item.isRequired}
+                            onChange={(e) =>
+                              updateFormItem(sectionIndex, itemIndex, {
+                                isRequired: e.target.checked,
+                              })
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      {item.type === "select" && (
+                        <div className="mt-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <label className="block text-sm font-medium">
+                              Select Options
+                            </label>
+                            <DButton
+                              className="btn btn-primary btn-xs"
+                              onClick={() =>
+                                addSelectOption(sectionIndex, itemIndex)
+                              }
+                            >
+                              Add Option
+                            </DButton>
+                          </div>
+                          <div className="space-y-2">
+                            {item.options?.map((option, optionIndex) => (
+                              <div
+                                key={optionIndex}
+                                className="flex gap-2 items-center"
+                              >
+                                <DInput
+                                  type="text"
+                                  placeholder="Value"
+                                  className="input input-bordered input-xs flex-1"
+                                  value={option.value}
+                                  onChange={(e) =>
+                                    updateSelectOption(
+                                      sectionIndex,
+                                      itemIndex,
+                                      optionIndex,
+                                      { value: e.target.value }
+                                    )
+                                  }
+                                />
+                                <DInput
+                                  type="text"
+                                  placeholder="Label"
+                                  className="input input-bordered input-xs flex-1"
+                                  value={option.label}
+                                  onChange={(e) =>
+                                    updateSelectOption(
+                                      sectionIndex,
+                                      itemIndex,
+                                      optionIndex,
+                                      { label: e.target.value }
+                                    )
+                                  }
+                                />
+                                <label className="flex items-center gap-1">
+                                  <DInput
+                                    type="checkbox"
+                                    className="checkbox checkbox-xs"
+                                    checked={option.isDefault}
+                                    onChange={(e) =>
+                                      updateSelectOption(
+                                        sectionIndex,
+                                        itemIndex,
+                                        optionIndex,
+                                        { isDefault: e.target.checked }
+                                      )
+                                    }
+                                  />
+                                  <span className="text-xs">Default</span>
+                                </label>
+                                <DButton
+                                  variant="error"
+                                  sizes="xs"
+                                  onClick={() =>
+                                    removeSelectOption(
+                                      sectionIndex,
+                                      itemIndex,
+                                      optionIndex
+                                    )
+                                  }
+                                >
+                                  ×
+                                </DButton>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </Card>
+                  ))}
+
+                <DButton
+                  className="btn btn-outline btn-sm w-full"
+                  onClick={() => addFormItem(sectionIndex)}
+                >
+                  Add Form Field
+                </DButton>
+              </div>
+            </Card>
           ))}
 
           {(!editedTemplate.formTemplateSections ||

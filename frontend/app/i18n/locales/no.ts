@@ -3,6 +3,7 @@ import type { LocaleJson } from "./en";
 const noLocale: LocaleJson = {
   navigation: {
     about: "Om oss",
+    listings: "Eiendommer",
   },
 
   home: {
@@ -63,7 +64,7 @@ const noLocale: LocaleJson = {
       contactUs: "Kontakt oss",
     },
 
-    aboutDigiHome: {
+    aboutProduct: {
       title: "Om DigiHome",
       mission:
         "Vi tror ikke på «sånn har det alltid vært». Vi tror på teknologi, fleksibilitet og gjennomføringsevne. Med DigiHome får du utleie på autopilot og en forvaltningsmodell som faktisk jobber for deg. DigiHome er en del av DigiSale et norsk teknologikonsern som bygger fremtidens industriledere.",

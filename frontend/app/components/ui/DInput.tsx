@@ -10,7 +10,19 @@ interface DInputProps
   variant?: DaisyUIVariant | "cure";
   label?: string;
   placeholder?: string;
-  type?: string;
+  type?:
+    | "checkbox"
+    | "text"
+    | "password"
+    | "email"
+    | "number"
+    | "tel"
+    | "url"
+    | "date"
+    | "datetime-local"
+    | "time"
+    | "file"
+    | string;
   error?: string;
   required?: boolean;
   icon?: React.ReactNode;
@@ -19,10 +31,7 @@ interface DInputProps
    * Will fill full width of the parent container.
    */
   isWide?: boolean;
-  /**
-   *
-   */
-  textSize?: string;
+  textSize?: DComponentBaseProps["sizes"];
 }
 
 export default function DInput({
@@ -48,13 +57,26 @@ export default function DInput({
     textSize ? `text-${textSize}` : "",
   ];
 
+  if (type == "checkbox") {
+    // rename all classNames that start with input to checkbox
+    for (let i = 0; i < classNames.length; i++) {
+      classNames[i] = classNames[i].replace("input", "checkbox");
+    }
+  }
+
   return (
     <fieldset className={`fieldset ${isWide ? "w-full" : ""}`}>
-      <legend className="fieldset-legend">
-        {labelIcon ? labelIcon : null}
-        {label}
-        {required ? " *" : ""}
-      </legend>
+      {(labelIcon || label || required) && (
+        <legend
+          className={`fieldset-legend ${
+            variant == "cure" ? "text-lg" : "text-md"
+          }`}
+        >
+          {labelIcon ? labelIcon : null}
+          {label}
+          {required ? " *" : ""}
+        </legend>
+      )}
       {icon ? (
         <label className={classNames.join(" ")}>
           {icon}
@@ -69,17 +91,6 @@ export default function DInput({
             }}
           />
         </label>
-      ) : type == "textarea" ? (
-        <textarea
-          placeholder={placeholder}
-          className={classNames.join(" ").replace("input-", "textarea-")}
-          {...props}
-          style={{
-            minHeight: variant === "cure" ? "120px" : undefined,
-            fontSize: variant === "cure" ? "36px" : undefined,
-          }}
-          rows={12}
-        />
       ) : (
         <input
           type={type}
