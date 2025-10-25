@@ -35,6 +35,11 @@ export default function Navbar({ isTransparent = false, textColor = "black" }) {
       label: t("navigation.properties"),
       isVisible: () => true, // Always visible
     },
+    {
+      to: "/counseling",
+      label: t("navigation.counseling"),
+      isVisible: () => true, // Always visible
+    },
   ].filter((link) => link.isVisible());
 
   /**

@@ -4,6 +4,7 @@ const noLocale: LocaleJson = {
   navigation: {
     about: "Om oss",
     properties: "Eiendommer",
+    counseling: "Rådgivning",
   },
 
   home: {
@@ -138,6 +139,25 @@ const noLocale: LocaleJson = {
     submitError:
       "Feil ved innsending av skjema: {{error}}. Vennligst send oss en e-post på post@digihome.no",
     fillAllFields: "Vennligst fyll inn alle påkrevde felt",
+  },
+
+  counseling: {
+    title: "Rådgivning",
+    heroSubtitle:
+      "Står du overfor valget om å leie ut boligen din, eller vurderer du å gå inn i eiendomsmarkedet som investor? Digihome har kompetansen du trenger for å ta gode beslutninger.",
+    processTitle: "Vi følger deg gjennom hele prosessen",
+    processDescription:
+      "Vi følger deg gjennom hele prosessen – fra søket etter den perfekte eiendommen til fastsettelse av optimal leieverdi. Våre erfarne analytikere utarbeider skreddersydde estimater og markedsanalyser som gir deg et solid grunnlag for dine investeringsvalg.",
+    preparationTitle: "Grundig forberedelse for vellykket start",
+    preparationDescription:
+      "En vellykket start på utleie eller eiendomskjøp krever grundig forberedelse. Sammen med deg kartlegger vi dine mål og preferanser tidlig i prosessen:",
+    question1: "Hvilken eiendomstype passer best for ditt formål?",
+    question2: "Hvilke bydeler eller områder gir størst potensial?",
+    question3: "Hva kan du realistisk forvente i leieinntekter?",
+    inspectionDescription:
+      "Når vi har identifisert aktuelle eiendommer, bistår vi deg med nøye befaringer for å sikre at standarden holder mål og at du får full oversikt før du tar beslutningen.",
+    contactSarah: "Kontakt Sarah for å vite mer",
+    contactUs: "Kom i kontakt med oss",
   },
 };
 

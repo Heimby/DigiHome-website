@@ -2,6 +2,7 @@ const enLocale = {
   navigation: {
     about: "About",
     properties: "Properties",
+    counseling: "Counseling",
   },
 
   home: {
@@ -137,6 +138,25 @@ const enLocale = {
     submitError:
       "Error submitting form: {{error}}. Please email us at post@digihome.no",
     fillAllFields: "Please fill in all required fields",
+  },
+
+  counseling: {
+    title: "Counseling",
+    heroSubtitle:
+      "Are you facing the choice of renting out your home, or are you considering entering the real estate market as an investor? Digihome has the expertise you need to make good decisions.",
+    processTitle: "We guide you through the entire process",
+    processDescription:
+      "We follow you through the entire process – from the search for the perfect property to determining optimal rental value. Our experienced analysts prepare customized estimates and market analyses that give you a solid foundation for your investment choices.",
+    preparationTitle: "Thorough preparation for a successful start",
+    preparationDescription:
+      "A successful start to rental or property purchase requires thorough preparation. Together with you, we map out your goals and preferences early in the process:",
+    question1: "Which property type is best suited for your purpose?",
+    question2: "Which districts or areas offer the greatest potential?",
+    question3: "What can you realistically expect in rental income?",
+    inspectionDescription:
+      "When we have identified relevant properties, we assist you with thorough inspections to ensure the standard meets expectations and that you get a complete overview before making your decision.",
+    contactSarah: "Contact Sarah to know more",
+    contactUs: "Get in touch with us",
   },
 };
 

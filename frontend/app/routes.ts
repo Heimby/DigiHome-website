@@ -5,6 +5,7 @@ const RouteNames = {
   about: "about",
   checkin: "checkin",
   properties: "properties",
+  counseling: "counseling",
 };
 
 export default [
@@ -17,6 +18,9 @@ export default [
   }),
   route("/properties", "routes/properties.tsx", {
     id: RouteNames.properties,
+  }),
+  route("/counseling", "routes/counseling.tsx", {
+    id: RouteNames.counseling,
   }),
 ] satisfies RouteConfig;
 
