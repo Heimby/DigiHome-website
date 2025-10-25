@@ -79,10 +79,12 @@ export function LeadGenerationForm({
   }
   return (
     <div className="bg-primary">
-      <form onSubmit={handleSubmit} className="p-6 min-h-[400px] grid">
-        <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-          {title ?? t("leadForm.title")}
-        </h1>
+      <form onSubmit={handleSubmit} className="p-6 grid">
+        {title ?? (
+          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            t("leadForm.title")
+          </h1>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full self-end">
           <DInput

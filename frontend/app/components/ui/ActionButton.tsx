@@ -2,7 +2,7 @@ import type React from "react";
 
 interface ActionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   children?: React.ReactNode;
   arrowColor?: "black" | "primary";
