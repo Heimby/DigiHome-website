@@ -11,6 +11,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import ActionButton from "./ui/ActionButton";
+import type { DComponentBaseProps } from "./ui/DComponentStandardProps";
 
 export function LeadGenerationForm({
   title = "",
@@ -18,6 +19,12 @@ export function LeadGenerationForm({
   showNote = false,
   alwaysExpanded = false,
   textSize = "xl",
+}: {
+  title?: string;
+  className?: string;
+  showNote?: boolean;
+  alwaysExpanded?: boolean;
+  textSize?: DComponentBaseProps["sizes"];
 }) {
   const { t } = useTranslation();
   const [isFormLoading, setIsFormLoading] = useState(false);
