@@ -12,11 +12,14 @@ import "./app.css";
 import "./i18n/i18n";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import appletouchicon from "~/assets/favicon/apple-touch-icon.png";
 import favicon32x32 from "~/assets/favicon/favicon-32x32.png";
 import favicon16x16 from "~/assets/favicon/favicon-16x16.png";
 import webmanifest from "~/assets/favicon/site.webmanifest";
+
+const queryClient = new QueryClient();
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -50,10 +53,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   useDocumentTitle();
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Toaster />
       <Outlet />
-    </>
+    </QueryClientProvider>
   );
 }
 
